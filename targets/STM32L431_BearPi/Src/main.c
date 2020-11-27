@@ -66,13 +66,16 @@ VOID HardWare_Init(VOID)
 {
 	HAL_Init();
 	/* Configure the system clock */
+
 	SystemClock_Config();
 	MX_GPIO_Init();
 	MX_I2C1_Init();
 	MX_SPI2_Init();
 	dwt_delay_init(SystemCoreClock);
 	LCD_Init();
-    LCD_Clear(BLACK);		   	
+    LCD_Clear(BLACK);		
+    LCD_ShowString(20, 110, 240, 24, 24, "Connecting to");
+    LCD_ShowString(20, 140, 240, 24, 24, "Network...");
 	POINT_COLOR = GREEN;
 }
 

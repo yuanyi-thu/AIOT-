@@ -436,6 +436,7 @@ int goods_position[10] = {0,1,2,3,4,5,6,7,8,9};
 static int storage_status = 0;
 static int storage_key=0;
 static main_status = 0;
+static int key[]={3,1,3,4};
 
 //输入密码demo
 int button_check_key_demo(){
@@ -455,7 +456,7 @@ int button_check_key_demo(){
         }
 
     if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3)==GPIO_PIN_RESET){
-            osal_task_sleep(50);
+            osal_task_sleep(1000);
             if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3)==GPIO_PIN_RESET)//查询按键KEY1低电平
             {
                 
@@ -465,28 +466,8 @@ int button_check_key_demo(){
 
     }
 
+    
 
-
-//输入数字
-// int button_check_key(){
-//      LCD_Clear(BLACK);
-//     for(int i=0;i<10;i++){
-//         if(i<5){
-//             LCD_ShowString(X[0], Y[i], 240, 24, 24, goodsView[goods_position[i]]);
-//         }else{
-//             LCD_ShowString(X[1], Y[i-5], 240, 24, 24, goodsView[goods_position[i]]);
-//         }
-//     }    
-//     LCD_ShowString(X[0], Y[5], 240, 24, 24, Submit_View[0]);
-//     LCD_ShowString(X[1], Y[5], 240, 24, 24, Submit_View[1]);
-
-//     LCD_ShowString(X[0]-10, goodsOptionY, 10, 24, 24, "*");
-//     LCD_ShowxNum(X[1], Y[6], 0, 3, 24, 1);
-//     while(1){
-//         if()
-//     };
-//     return 0;
-//  }
 
 //检查密码
 int check_key(){
@@ -498,7 +479,9 @@ int check_key(){
 }
 //断开电磁铁
 void open(){
-
+    HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_RESET);
+    osal_task_sleep(1000);
+    HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET);
 }
 
 //存入，设置密码
@@ -506,6 +489,16 @@ void put(){
     storage_key = get_numbers();
     open();
 }
+
+void set_key(){
+    LCD_Clear(BLACK);
+    LCD_ShowString(20, 50, 240, 24, 24, "please input key");
+    LCD_ShowString(20, 100, 240, 24, 24, "hello!");
+    LCD_ShowString(20, 150, 240, 24, 24, "good bye!");
+    osal_task_sleep(1000);
+    
+}
+
 
 static int main_key_detect(void *args)
 {
@@ -525,7 +518,7 @@ static int main_key_detect(void *args)
                             LCD_Clear(YELLOW);
                             POINT_COLOR = YELLOW;
                             LCD_ShowString(20, 50, 240, 24, 24, "OK!");
-                            //open();
+                            open();
                         }
                         else{
                             LCD_Clear(RED);
@@ -536,6 +529,7 @@ static int main_key_detect(void *args)
                     LCD_normal();
                     }                
                 else if(storage_status == 0){
+                    set_key();
                     LCD_Clear(GREEN);
                     POINT_COLOR=GREEN;
                     LCD_ShowString(20, 50, 240, 24, 24, "working...");
@@ -644,6 +638,9 @@ void LCD_normal(){
     }
 }
 
+
+
+
 int standard_app_demo_main()
 {
     s_queue_rcvmsg = queue_create("queue_rcvmsg",2,1);
@@ -651,9 +648,10 @@ int standard_app_demo_main()
 
     LCD_Init();
     LCD_normal();
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_RESET);
-
-
+    //HAL_GPIO_WritePin(GPIOB,GPIO_PIN_7,GPIO_PIN_RESET);
+	
+    HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET);
+  
     osal_task_create("main_key_detect",main_key_detect,NULL,0x500,NULL,8);
     osal_task_create("led_blink",led_blink_entry,NULL,0x400,NULL,2);
     osal_task_create("demo_reportmsg",task_reportmsg_entry,NULL,0x800,NULL,8);
