@@ -1,0 +1,863 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"dtls_al.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.bss.s_dtls_al,"aw",%nobits
+  18              		.align	2
+  21              	s_dtls_al:
+  22 0000 00000000 		.space	4
+  23              		.section	.text.dtls_al_new,"ax",%progbits
+  24              		.align	1
+  25              		.global	dtls_al_new
+  26              		.arch armv7e-m
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  30              		.fpu fpv4-sp-d16
+  32              	dtls_al_new:
+  33              	.LFB3:
+  34              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** /*----------------------------------------------------------------------------
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 2
+
+
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** /**
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  *  2019-10-17 19:50  zhangqianfu  The first version
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  *
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****  */
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** #include <stddef.h>
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** #include <stdint.h>
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** #include <string.h>
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** #include <stdio.h>
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** #include <dtls_al.h>
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** static const dtls_al_t  *s_dtls_al;
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** en_dtls_al_err_t dtls_al_new(dtls_al_para_t *para,void **handle)
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+  35              		.loc 1 51 1
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 16
+  38              		@ frame_needed = 1, uses_anonymous_args = 0
+  39 0000 80B5     		push	{r7, lr}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 7, -8
+  43              		.cfi_offset 14, -4
+  44 0002 84B0     		sub	sp, sp, #16
+  45              	.LCFI1:
+  46              		.cfi_def_cfa_offset 24
+  47 0004 00AF     		add	r7, sp, #0
+  48              	.LCFI2:
+  49              		.cfi_def_cfa_register 7
+  50 0006 7860     		str	r0, [r7, #4]
+  51 0008 3960     		str	r1, [r7]
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     en_dtls_al_err_t ret = EN_DTLS_AL_ERR_NOCONFIG;
+  52              		.loc 1 52 22
+  53 000a 0423     		movs	r3, #4
+  54 000c FB73     		strb	r3, [r7, #15]
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     if( (NULL != s_dtls_al) && (NULL != s_dtls_al->io.io_new) )
+  55              		.loc 1 53 15
+  56 000e 0B4B     		ldr	r3, .L4
+  57 0010 1B68     		ldr	r3, [r3]
+  58              		.loc 1 53 7
+  59 0012 002B     		cmp	r3, #0
+  60 0014 0CD0     		beq	.L2
+  61              		.loc 1 53 50 discriminator 1
+  62 0016 094B     		ldr	r3, .L4
+  63 0018 1B68     		ldr	r3, [r3]
+  64              		.loc 1 53 54 discriminator 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 3
+
+
+  65 001a 5B68     		ldr	r3, [r3, #4]
+  66              		.loc 1 53 29 discriminator 1
+  67 001c 002B     		cmp	r3, #0
+  68 001e 07D0     		beq	.L2
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     {
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         ret = s_dtls_al->io.io_new(para, handle);
+  69              		.loc 1 55 24
+  70 0020 064B     		ldr	r3, .L4
+  71 0022 1B68     		ldr	r3, [r3]
+  72              		.loc 1 55 28
+  73 0024 5B68     		ldr	r3, [r3, #4]
+  74              		.loc 1 55 15
+  75 0026 3968     		ldr	r1, [r7]
+  76 0028 7868     		ldr	r0, [r7, #4]
+  77 002a 9847     		blx	r3
+  78              	.LVL0:
+  79 002c 0346     		mov	r3, r0
+  80 002e FB73     		strb	r3, [r7, #15]
+  81              	.L2:
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     }
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+  82              		.loc 1 57 12
+  83 0030 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+  84              		.loc 1 58 1
+  85 0032 1846     		mov	r0, r3
+  86 0034 1037     		adds	r7, r7, #16
+  87              	.LCFI3:
+  88              		.cfi_def_cfa_offset 8
+  89 0036 BD46     		mov	sp, r7
+  90              	.LCFI4:
+  91              		.cfi_def_cfa_register 13
+  92              		@ sp needed
+  93 0038 80BD     		pop	{r7, pc}
+  94              	.L5:
+  95 003a 00BF     		.align	2
+  96              	.L4:
+  97 003c 00000000 		.word	s_dtls_al
+  98              		.cfi_endproc
+  99              	.LFE3:
+ 101              		.section	.text.dtls_al_connect,"ax",%progbits
+ 102              		.align	1
+ 103              		.global	dtls_al_connect
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.fpu fpv4-sp-d16
+ 109              	dtls_al_connect:
+ 110              	.LFB4:
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** int   dtls_al_connect(void *handle,const char *server_ip, const char *server_port, int timeout)
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 111              		.loc 1 62 1
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 24
+ 114              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 4
+
+
+ 115 0000 90B5     		push	{r4, r7, lr}
+ 116              	.LCFI5:
+ 117              		.cfi_def_cfa_offset 12
+ 118              		.cfi_offset 4, -12
+ 119              		.cfi_offset 7, -8
+ 120              		.cfi_offset 14, -4
+ 121 0002 87B0     		sub	sp, sp, #28
+ 122              	.LCFI6:
+ 123              		.cfi_def_cfa_offset 40
+ 124 0004 00AF     		add	r7, sp, #0
+ 125              	.LCFI7:
+ 126              		.cfi_def_cfa_register 7
+ 127 0006 F860     		str	r0, [r7, #12]
+ 128 0008 B960     		str	r1, [r7, #8]
+ 129 000a 7A60     		str	r2, [r7, #4]
+ 130 000c 3B60     		str	r3, [r7]
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     int ret = -1;
+ 131              		.loc 1 63 9
+ 132 000e 4FF0FF33 		mov	r3, #-1
+ 133 0012 7B61     		str	r3, [r7, #20]
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     if( (NULL != s_dtls_al) && (NULL != s_dtls_al->io.io_connect))
+ 134              		.loc 1 64 15
+ 135 0014 0B4B     		ldr	r3, .L9
+ 136 0016 1B68     		ldr	r3, [r3]
+ 137              		.loc 1 64 7
+ 138 0018 002B     		cmp	r3, #0
+ 139 001a 0DD0     		beq	.L7
+ 140              		.loc 1 64 50 discriminator 1
+ 141 001c 094B     		ldr	r3, .L9
+ 142 001e 1B68     		ldr	r3, [r3]
+ 143              		.loc 1 64 54 discriminator 1
+ 144 0020 9B68     		ldr	r3, [r3, #8]
+ 145              		.loc 1 64 29 discriminator 1
+ 146 0022 002B     		cmp	r3, #0
+ 147 0024 08D0     		beq	.L7
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     {
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         ret = s_dtls_al->io.io_connect(handle, server_ip,server_port, timeout);
+ 148              		.loc 1 66 24
+ 149 0026 074B     		ldr	r3, .L9
+ 150 0028 1B68     		ldr	r3, [r3]
+ 151              		.loc 1 66 28
+ 152 002a 9C68     		ldr	r4, [r3, #8]
+ 153              		.loc 1 66 15
+ 154 002c 3B68     		ldr	r3, [r7]
+ 155 002e 7A68     		ldr	r2, [r7, #4]
+ 156 0030 B968     		ldr	r1, [r7, #8]
+ 157 0032 F868     		ldr	r0, [r7, #12]
+ 158 0034 A047     		blx	r4
+ 159              	.LVL1:
+ 160 0036 7861     		str	r0, [r7, #20]
+ 161              	.L7:
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     }
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+ 162              		.loc 1 68 12
+ 163 0038 7B69     		ldr	r3, [r7, #20]
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 164              		.loc 1 69 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 5
+
+
+ 165 003a 1846     		mov	r0, r3
+ 166 003c 1C37     		adds	r7, r7, #28
+ 167              	.LCFI8:
+ 168              		.cfi_def_cfa_offset 12
+ 169 003e BD46     		mov	sp, r7
+ 170              	.LCFI9:
+ 171              		.cfi_def_cfa_register 13
+ 172              		@ sp needed
+ 173 0040 90BD     		pop	{r4, r7, pc}
+ 174              	.L10:
+ 175 0042 00BF     		.align	2
+ 176              	.L9:
+ 177 0044 00000000 		.word	s_dtls_al
+ 178              		.cfi_endproc
+ 179              	.LFE4:
+ 181              		.section	.text.dtls_al_write,"ax",%progbits
+ 182              		.align	1
+ 183              		.global	dtls_al_write
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu fpv4-sp-d16
+ 189              	dtls_al_write:
+ 190              	.LFB5:
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** int   dtls_al_write(void *handle, uint8_t *msg, size_t len, int timeout)
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 191              		.loc 1 72 1
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 24
+ 194              		@ frame_needed = 1, uses_anonymous_args = 0
+ 195 0000 90B5     		push	{r4, r7, lr}
+ 196              	.LCFI10:
+ 197              		.cfi_def_cfa_offset 12
+ 198              		.cfi_offset 4, -12
+ 199              		.cfi_offset 7, -8
+ 200              		.cfi_offset 14, -4
+ 201 0002 87B0     		sub	sp, sp, #28
+ 202              	.LCFI11:
+ 203              		.cfi_def_cfa_offset 40
+ 204 0004 00AF     		add	r7, sp, #0
+ 205              	.LCFI12:
+ 206              		.cfi_def_cfa_register 7
+ 207 0006 F860     		str	r0, [r7, #12]
+ 208 0008 B960     		str	r1, [r7, #8]
+ 209 000a 7A60     		str	r2, [r7, #4]
+ 210 000c 3B60     		str	r3, [r7]
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     int ret = 0;
+ 211              		.loc 1 73 9
+ 212 000e 0023     		movs	r3, #0
+ 213 0010 7B61     		str	r3, [r7, #20]
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     if( (NULL != s_dtls_al) && (NULL != s_dtls_al->io.io_write))
+ 214              		.loc 1 74 15
+ 215 0012 0B4B     		ldr	r3, .L14
+ 216 0014 1B68     		ldr	r3, [r3]
+ 217              		.loc 1 74 7
+ 218 0016 002B     		cmp	r3, #0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 6
+
+
+ 219 0018 0DD0     		beq	.L12
+ 220              		.loc 1 74 50 discriminator 1
+ 221 001a 094B     		ldr	r3, .L14
+ 222 001c 1B68     		ldr	r3, [r3]
+ 223              		.loc 1 74 54 discriminator 1
+ 224 001e DB68     		ldr	r3, [r3, #12]
+ 225              		.loc 1 74 29 discriminator 1
+ 226 0020 002B     		cmp	r3, #0
+ 227 0022 08D0     		beq	.L12
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     {
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         ret = s_dtls_al->io.io_write(handle, msg, len, timeout );
+ 228              		.loc 1 76 24
+ 229 0024 064B     		ldr	r3, .L14
+ 230 0026 1B68     		ldr	r3, [r3]
+ 231              		.loc 1 76 28
+ 232 0028 DC68     		ldr	r4, [r3, #12]
+ 233              		.loc 1 76 15
+ 234 002a 3B68     		ldr	r3, [r7]
+ 235 002c 7A68     		ldr	r2, [r7, #4]
+ 236 002e B968     		ldr	r1, [r7, #8]
+ 237 0030 F868     		ldr	r0, [r7, #12]
+ 238 0032 A047     		blx	r4
+ 239              	.LVL2:
+ 240 0034 7861     		str	r0, [r7, #20]
+ 241              	.L12:
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     }
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+ 242              		.loc 1 78 12
+ 243 0036 7B69     		ldr	r3, [r7, #20]
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 244              		.loc 1 79 1
+ 245 0038 1846     		mov	r0, r3
+ 246 003a 1C37     		adds	r7, r7, #28
+ 247              	.LCFI13:
+ 248              		.cfi_def_cfa_offset 12
+ 249 003c BD46     		mov	sp, r7
+ 250              	.LCFI14:
+ 251              		.cfi_def_cfa_register 13
+ 252              		@ sp needed
+ 253 003e 90BD     		pop	{r4, r7, pc}
+ 254              	.L15:
+ 255              		.align	2
+ 256              	.L14:
+ 257 0040 00000000 		.word	s_dtls_al
+ 258              		.cfi_endproc
+ 259              	.LFE5:
+ 261              		.section	.text.dtls_al_read,"ax",%progbits
+ 262              		.align	1
+ 263              		.global	dtls_al_read
+ 264              		.syntax unified
+ 265              		.thumb
+ 266              		.thumb_func
+ 267              		.fpu fpv4-sp-d16
+ 269              	dtls_al_read:
+ 270              	.LFB6:
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** int  dtls_al_read(void *handle, uint8_t *buf, size_t len, int timeout)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 7
+
+
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 271              		.loc 1 82 1
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 24
+ 274              		@ frame_needed = 1, uses_anonymous_args = 0
+ 275 0000 90B5     		push	{r4, r7, lr}
+ 276              	.LCFI15:
+ 277              		.cfi_def_cfa_offset 12
+ 278              		.cfi_offset 4, -12
+ 279              		.cfi_offset 7, -8
+ 280              		.cfi_offset 14, -4
+ 281 0002 87B0     		sub	sp, sp, #28
+ 282              	.LCFI16:
+ 283              		.cfi_def_cfa_offset 40
+ 284 0004 00AF     		add	r7, sp, #0
+ 285              	.LCFI17:
+ 286              		.cfi_def_cfa_register 7
+ 287 0006 F860     		str	r0, [r7, #12]
+ 288 0008 B960     		str	r1, [r7, #8]
+ 289 000a 7A60     		str	r2, [r7, #4]
+ 290 000c 3B60     		str	r3, [r7]
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     int ret = 0;
+ 291              		.loc 1 83 9
+ 292 000e 0023     		movs	r3, #0
+ 293 0010 7B61     		str	r3, [r7, #20]
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     if( (NULL != s_dtls_al) && (NULL != s_dtls_al->io.io_read))
+ 294              		.loc 1 84 15
+ 295 0012 0B4B     		ldr	r3, .L19
+ 296 0014 1B68     		ldr	r3, [r3]
+ 297              		.loc 1 84 7
+ 298 0016 002B     		cmp	r3, #0
+ 299 0018 0DD0     		beq	.L17
+ 300              		.loc 1 84 50 discriminator 1
+ 301 001a 094B     		ldr	r3, .L19
+ 302 001c 1B68     		ldr	r3, [r3]
+ 303              		.loc 1 84 54 discriminator 1
+ 304 001e 1B69     		ldr	r3, [r3, #16]
+ 305              		.loc 1 84 29 discriminator 1
+ 306 0020 002B     		cmp	r3, #0
+ 307 0022 08D0     		beq	.L17
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     {
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         ret = s_dtls_al->io.io_read(handle, buf, len, timeout );
+ 308              		.loc 1 86 24
+ 309 0024 064B     		ldr	r3, .L19
+ 310 0026 1B68     		ldr	r3, [r3]
+ 311              		.loc 1 86 28
+ 312 0028 1C69     		ldr	r4, [r3, #16]
+ 313              		.loc 1 86 15
+ 314 002a 3B68     		ldr	r3, [r7]
+ 315 002c 7A68     		ldr	r2, [r7, #4]
+ 316 002e B968     		ldr	r1, [r7, #8]
+ 317 0030 F868     		ldr	r0, [r7, #12]
+ 318 0032 A047     		blx	r4
+ 319              	.LVL3:
+ 320 0034 7861     		str	r0, [r7, #20]
+ 321              	.L17:
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 8
+
+
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+ 322              		.loc 1 88 12
+ 323 0036 7B69     		ldr	r3, [r7, #20]
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 324              		.loc 1 89 1
+ 325 0038 1846     		mov	r0, r3
+ 326 003a 1C37     		adds	r7, r7, #28
+ 327              	.LCFI18:
+ 328              		.cfi_def_cfa_offset 12
+ 329 003c BD46     		mov	sp, r7
+ 330              	.LCFI19:
+ 331              		.cfi_def_cfa_register 13
+ 332              		@ sp needed
+ 333 003e 90BD     		pop	{r4, r7, pc}
+ 334              	.L20:
+ 335              		.align	2
+ 336              	.L19:
+ 337 0040 00000000 		.word	s_dtls_al
+ 338              		.cfi_endproc
+ 339              	.LFE6:
+ 341              		.section	.text.dtls_al_destroy,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	dtls_al_destroy
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.fpu fpv4-sp-d16
+ 349              	dtls_al_destroy:
+ 350              	.LFB7:
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** en_dtls_al_err_t   dtls_al_destroy(void *handle)
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 351              		.loc 1 92 1
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 16
+ 354              		@ frame_needed = 1, uses_anonymous_args = 0
+ 355 0000 80B5     		push	{r7, lr}
+ 356              	.LCFI20:
+ 357              		.cfi_def_cfa_offset 8
+ 358              		.cfi_offset 7, -8
+ 359              		.cfi_offset 14, -4
+ 360 0002 84B0     		sub	sp, sp, #16
+ 361              	.LCFI21:
+ 362              		.cfi_def_cfa_offset 24
+ 363 0004 00AF     		add	r7, sp, #0
+ 364              	.LCFI22:
+ 365              		.cfi_def_cfa_register 7
+ 366 0006 7860     		str	r0, [r7, #4]
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     en_dtls_al_err_t ret = EN_DTLS_AL_ERR_NOCONFIG;
+ 367              		.loc 1 93 22
+ 368 0008 0423     		movs	r3, #4
+ 369 000a FB73     		strb	r3, [r7, #15]
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     if( (NULL != s_dtls_al) && (NULL != s_dtls_al->io.io_destroy))
+ 370              		.loc 1 94 15
+ 371 000c 0A4B     		ldr	r3, .L24
+ 372 000e 1B68     		ldr	r3, [r3]
+ 373              		.loc 1 94 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 9
+
+
+ 374 0010 002B     		cmp	r3, #0
+ 375 0012 0BD0     		beq	.L22
+ 376              		.loc 1 94 50 discriminator 1
+ 377 0014 084B     		ldr	r3, .L24
+ 378 0016 1B68     		ldr	r3, [r3]
+ 379              		.loc 1 94 54 discriminator 1
+ 380 0018 5B69     		ldr	r3, [r3, #20]
+ 381              		.loc 1 94 29 discriminator 1
+ 382 001a 002B     		cmp	r3, #0
+ 383 001c 06D0     		beq	.L22
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     {
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         ret = s_dtls_al->io.io_destroy( handle );
+ 384              		.loc 1 96 24
+ 385 001e 064B     		ldr	r3, .L24
+ 386 0020 1B68     		ldr	r3, [r3]
+ 387              		.loc 1 96 28
+ 388 0022 5B69     		ldr	r3, [r3, #20]
+ 389              		.loc 1 96 15
+ 390 0024 7868     		ldr	r0, [r7, #4]
+ 391 0026 9847     		blx	r3
+ 392              	.LVL4:
+ 393 0028 0346     		mov	r3, r0
+ 394 002a FB73     		strb	r3, [r7, #15]
+ 395              	.L22:
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     }
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+ 396              		.loc 1 98 12
+ 397 002c FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 398              		.loc 1 99 1
+ 399 002e 1846     		mov	r0, r3
+ 400 0030 1037     		adds	r7, r7, #16
+ 401              	.LCFI23:
+ 402              		.cfi_def_cfa_offset 8
+ 403 0032 BD46     		mov	sp, r7
+ 404              	.LCFI24:
+ 405              		.cfi_def_cfa_register 13
+ 406              		@ sp needed
+ 407 0034 80BD     		pop	{r7, pc}
+ 408              	.L25:
+ 409 0036 00BF     		.align	2
+ 410              	.L24:
+ 411 0038 00000000 		.word	s_dtls_al
+ 412              		.cfi_endproc
+ 413              	.LFE7:
+ 415              		.section	.text.dtls_al_install,"ax",%progbits
+ 416              		.align	1
+ 417              		.global	dtls_al_install
+ 418              		.syntax unified
+ 419              		.thumb
+ 420              		.thumb_func
+ 421              		.fpu fpv4-sp-d16
+ 423              	dtls_al_install:
+ 424              	.LFB8:
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** int dtls_al_install(const dtls_al_t *dtls)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 10
+
+
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 425              		.loc 1 103 1
+ 426              		.cfi_startproc
+ 427              		@ args = 0, pretend = 0, frame = 16
+ 428              		@ frame_needed = 1, uses_anonymous_args = 0
+ 429              		@ link register save eliminated.
+ 430 0000 80B4     		push	{r7}
+ 431              	.LCFI25:
+ 432              		.cfi_def_cfa_offset 4
+ 433              		.cfi_offset 7, -4
+ 434 0002 85B0     		sub	sp, sp, #20
+ 435              	.LCFI26:
+ 436              		.cfi_def_cfa_offset 24
+ 437 0004 00AF     		add	r7, sp, #0
+ 438              	.LCFI27:
+ 439              		.cfi_def_cfa_register 7
+ 440 0006 7860     		str	r0, [r7, #4]
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     int ret = -1;
+ 441              		.loc 1 104 9
+ 442 0008 4FF0FF33 		mov	r3, #-1
+ 443 000c FB60     		str	r3, [r7, #12]
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     if (NULL == s_dtls_al )
+ 444              		.loc 1 105 14
+ 445 000e 084B     		ldr	r3, .L29
+ 446 0010 1B68     		ldr	r3, [r3]
+ 447              		.loc 1 105 8
+ 448 0012 002B     		cmp	r3, #0
+ 449 0014 04D1     		bne	.L27
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     {
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         s_dtls_al = dtls;
+ 450              		.loc 1 107 19
+ 451 0016 064A     		ldr	r2, .L29
+ 452 0018 7B68     		ldr	r3, [r7, #4]
+ 453 001a 1360     		str	r3, [r2]
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         ret = 0;
+ 454              		.loc 1 108 13
+ 455 001c 0023     		movs	r3, #0
+ 456 001e FB60     		str	r3, [r7, #12]
+ 457              	.L27:
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     }
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+ 458              		.loc 1 111 12
+ 459 0020 FB68     		ldr	r3, [r7, #12]
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 460              		.loc 1 112 1
+ 461 0022 1846     		mov	r0, r3
+ 462 0024 1437     		adds	r7, r7, #20
+ 463              	.LCFI28:
+ 464              		.cfi_def_cfa_offset 4
+ 465 0026 BD46     		mov	sp, r7
+ 466              	.LCFI29:
+ 467              		.cfi_def_cfa_register 13
+ 468              		@ sp needed
+ 469 0028 5DF8047B 		ldr	r7, [sp], #4
+ 470              	.LCFI30:
+ 471              		.cfi_restore 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 11
+
+
+ 472              		.cfi_def_cfa_offset 0
+ 473 002c 7047     		bx	lr
+ 474              	.L30:
+ 475 002e 00BF     		.align	2
+ 476              	.L29:
+ 477 0030 00000000 		.word	s_dtls_al
+ 478              		.cfi_endproc
+ 479              	.LFE8:
+ 481              		.section	.text.dtls_al_uninstall,"ax",%progbits
+ 482              		.align	1
+ 483              		.global	dtls_al_uninstall
+ 484              		.syntax unified
+ 485              		.thumb
+ 486              		.thumb_func
+ 487              		.fpu fpv4-sp-d16
+ 489              	dtls_al_uninstall:
+ 490              	.LFB9:
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** int dtls_al_uninstall(const char*name)
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 491              		.loc 1 115 1
+ 492              		.cfi_startproc
+ 493              		@ args = 0, pretend = 0, frame = 16
+ 494              		@ frame_needed = 1, uses_anonymous_args = 0
+ 495 0000 80B5     		push	{r7, lr}
+ 496              	.LCFI31:
+ 497              		.cfi_def_cfa_offset 8
+ 498              		.cfi_offset 7, -8
+ 499              		.cfi_offset 14, -4
+ 500 0002 84B0     		sub	sp, sp, #16
+ 501              	.LCFI32:
+ 502              		.cfi_def_cfa_offset 24
+ 503 0004 00AF     		add	r7, sp, #0
+ 504              	.LCFI33:
+ 505              		.cfi_def_cfa_register 7
+ 506 0006 7860     		str	r0, [r7, #4]
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     int ret = -1;
+ 507              		.loc 1 116 9
+ 508 0008 4FF0FF33 		mov	r3, #-1
+ 509 000c FB60     		str	r3, [r7, #12]
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     if((NULL != s_dtls_al) && (0 == strcmp(name,s_dtls_al->name)))
+ 510              		.loc 1 118 14
+ 511 000e 0B4B     		ldr	r3, .L34
+ 512 0010 1B68     		ldr	r3, [r3]
+ 513              		.loc 1 118 7
+ 514 0012 002B     		cmp	r3, #0
+ 515 0014 0CD0     		beq	.L32
+ 516              		.loc 1 118 58 discriminator 1
+ 517 0016 094B     		ldr	r3, .L34
+ 518 0018 1B68     		ldr	r3, [r3]
+ 519              		.loc 1 118 37 discriminator 1
+ 520 001a 1B68     		ldr	r3, [r3]
+ 521 001c 1946     		mov	r1, r3
+ 522 001e 7868     		ldr	r0, [r7, #4]
+ 523 0020 FFF7FEFF 		bl	strcmp
+ 524 0024 0346     		mov	r3, r0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 12
+
+
+ 525              		.loc 1 118 28 discriminator 1
+ 526 0026 002B     		cmp	r3, #0
+ 527 0028 02D1     		bne	.L32
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     {
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****         s_dtls_al = NULL;
+ 528              		.loc 1 120 19
+ 529 002a 044B     		ldr	r3, .L34
+ 530 002c 0022     		movs	r2, #0
+ 531 002e 1A60     		str	r2, [r3]
+ 532              	.L32:
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     }
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+ 533              		.loc 1 123 12
+ 534 0030 FB68     		ldr	r3, [r7, #12]
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 535              		.loc 1 124 1
+ 536 0032 1846     		mov	r0, r3
+ 537 0034 1037     		adds	r7, r7, #16
+ 538              	.LCFI34:
+ 539              		.cfi_def_cfa_offset 8
+ 540 0036 BD46     		mov	sp, r7
+ 541              	.LCFI35:
+ 542              		.cfi_def_cfa_register 13
+ 543              		@ sp needed
+ 544 0038 80BD     		pop	{r7, pc}
+ 545              	.L35:
+ 546 003a 00BF     		.align	2
+ 547              	.L34:
+ 548 003c 00000000 		.word	s_dtls_al
+ 549              		.cfi_endproc
+ 550              	.LFE9:
+ 552              		.section	.rodata
+ 553              		.align	2
+ 554              	.LC0:
+ 555 0000 25733A23 		.ascii	"%s:###please implement this function by yourself###"
+ 555      2323706C 
+ 555      65617365 
+ 555      20696D70 
+ 555      6C656D65 
+ 556 0033 230A0D00 		.ascii	"#\012\015\000"
+ 557              		.section	.text.dtls_imp_init,"ax",%progbits
+ 558              		.align	1
+ 559              		.weak	dtls_imp_init
+ 560              		.syntax unified
+ 561              		.thumb
+ 562              		.thumb_func
+ 563              		.fpu fpv4-sp-d16
+ 565              	dtls_imp_init:
+ 566              	.LFB10:
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** __attribute__((weak))  int dtls_imp_init(void)
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 567              		.loc 1 127 1
+ 568              		.cfi_startproc
+ 569              		@ args = 0, pretend = 0, frame = 0
+ 570              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 13
+
+
+ 571 0000 80B5     		push	{r7, lr}
+ 572              	.LCFI36:
+ 573              		.cfi_def_cfa_offset 8
+ 574              		.cfi_offset 7, -8
+ 575              		.cfi_offset 14, -4
+ 576 0002 00AF     		add	r7, sp, #0
+ 577              	.LCFI37:
+ 578              		.cfi_def_cfa_register 7
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     printf("%s:###please implement this function by yourself####\n\r",__FUNCTION__);
+ 579              		.loc 1 128 5
+ 580 0004 0349     		ldr	r1, .L38
+ 581 0006 0448     		ldr	r0, .L38+4
+ 582 0008 FFF7FEFF 		bl	printf
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return -1;
+ 583              		.loc 1 129 12
+ 584 000c 4FF0FF33 		mov	r3, #-1
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 585              		.loc 1 130 1
+ 586 0010 1846     		mov	r0, r3
+ 587 0012 80BD     		pop	{r7, pc}
+ 588              	.L39:
+ 589              		.align	2
+ 590              	.L38:
+ 591 0014 00000000 		.word	__FUNCTION__.6922
+ 592 0018 00000000 		.word	.LC0
+ 593              		.cfi_endproc
+ 594              	.LFE10:
+ 596              		.section	.text.dtls_al_init,"ax",%progbits
+ 597              		.align	1
+ 598              		.global	dtls_al_init
+ 599              		.syntax unified
+ 600              		.thumb
+ 601              		.thumb_func
+ 602              		.fpu fpv4-sp-d16
+ 604              	dtls_al_init:
+ 605              	.LFB11:
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** int dtls_al_init(void)
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** {
+ 606              		.loc 1 133 1
+ 607              		.cfi_startproc
+ 608              		@ args = 0, pretend = 0, frame = 8
+ 609              		@ frame_needed = 1, uses_anonymous_args = 0
+ 610 0000 80B5     		push	{r7, lr}
+ 611              	.LCFI38:
+ 612              		.cfi_def_cfa_offset 8
+ 613              		.cfi_offset 7, -8
+ 614              		.cfi_offset 14, -4
+ 615 0002 82B0     		sub	sp, sp, #8
+ 616              	.LCFI39:
+ 617              		.cfi_def_cfa_offset 16
+ 618 0004 00AF     		add	r7, sp, #0
+ 619              	.LCFI40:
+ 620              		.cfi_def_cfa_register 7
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     int ret = -1;
+ 621              		.loc 1 135 9
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 14
+
+
+ 622 0006 4FF0FF33 		mov	r3, #-1
+ 623 000a 7B60     		str	r3, [r7, #4]
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     ret = dtls_imp_init();
+ 624              		.loc 1 137 11
+ 625 000c FFF7FEFF 		bl	dtls_imp_init
+ 626 0010 7860     		str	r0, [r7, #4]
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** 
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c ****     return ret;
+ 627              		.loc 1 139 12
+ 628 0012 7B68     		ldr	r3, [r7, #4]
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/dtls_al\dtls_al.c **** }
+ 629              		.loc 1 140 1
+ 630 0014 1846     		mov	r0, r3
+ 631 0016 0837     		adds	r7, r7, #8
+ 632              	.LCFI41:
+ 633              		.cfi_def_cfa_offset 8
+ 634 0018 BD46     		mov	sp, r7
+ 635              	.LCFI42:
+ 636              		.cfi_def_cfa_register 13
+ 637              		@ sp needed
+ 638 001a 80BD     		pop	{r7, pc}
+ 639              		.cfi_endproc
+ 640              	.LFE11:
+ 642              		.section	.rodata.__FUNCTION__.6922,"a"
+ 643              		.align	2
+ 646              	__FUNCTION__.6922:
+ 647 0000 64746C73 		.ascii	"dtls_imp_init\000"
+ 647      5F696D70 
+ 647      5F696E69 
+ 647      7400
+ 648              		.text
+ 649              	.Letext0:
+ 650              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 651              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 652              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 653              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 654              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 655              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 656              		.file 8 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/i
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dtls_al.c
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:18     .bss.s_dtls_al:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:21     .bss.s_dtls_al:00000000 s_dtls_al
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:24     .text.dtls_al_new:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:32     .text.dtls_al_new:00000000 dtls_al_new
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:97     .text.dtls_al_new:0000003c $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:102    .text.dtls_al_connect:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:109    .text.dtls_al_connect:00000000 dtls_al_connect
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:177    .text.dtls_al_connect:00000044 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:182    .text.dtls_al_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:189    .text.dtls_al_write:00000000 dtls_al_write
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:257    .text.dtls_al_write:00000040 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:262    .text.dtls_al_read:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:269    .text.dtls_al_read:00000000 dtls_al_read
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:337    .text.dtls_al_read:00000040 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:342    .text.dtls_al_destroy:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:349    .text.dtls_al_destroy:00000000 dtls_al_destroy
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:411    .text.dtls_al_destroy:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:416    .text.dtls_al_install:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:423    .text.dtls_al_install:00000000 dtls_al_install
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:477    .text.dtls_al_install:00000030 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:482    .text.dtls_al_uninstall:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:489    .text.dtls_al_uninstall:00000000 dtls_al_uninstall
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:548    .text.dtls_al_uninstall:0000003c $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:553    .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:558    .text.dtls_imp_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:565    .text.dtls_imp_init:00000000 dtls_imp_init
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:591    .text.dtls_imp_init:00000014 $d
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:646    .rodata.__FUNCTION__.6922:00000000 __FUNCTION__.6922
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:597    .text.dtls_al_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:604    .text.dtls_al_init:00000000 dtls_al_init
+C:\Users\lenovo\AppData\Local\Temp\cc9KYXDE.s:643    .rodata.__FUNCTION__.6922:00000000 $d
+
+UNDEFINED SYMBOLS
+strcmp
+printf

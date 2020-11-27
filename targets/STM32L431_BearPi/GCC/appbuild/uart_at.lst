@@ -1,0 +1,1288 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"uart_at.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	uart_at,120,4
+  18              		.section	.data.s_pUSART,"aw"
+  19              		.align	2
+  22              	s_pUSART:
+  23 0000 00800040 		.word	1073774592
+  24              		.section	.data.s_uwIRQn,"aw"
+  25              		.align	2
+  28              	s_uwIRQn:
+  29 0000 46000000 		.word	70
+  30              		.section	.bss.g_atio_cb,"aw",%nobits
+  31              		.align	2
+  34              	g_atio_cb:
+  35 0000 00000000 		.space	4148
+  35      00000000 
+  35      00000000 
+  35      00000000 
+  35      00000000 
+  36              		.section	.text.atio_irq,"ax",%progbits
+  37              		.align	1
+  38              		.arch armv7e-m
+  39              		.syntax unified
+  40              		.thumb
+  41              		.thumb_func
+  42              		.fpu fpv4-sp-d16
+  44              	atio_irq:
+  45              	.LFB287:
+  46              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/ST
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 2
+
+
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include "usart.h"
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include "stm32l4xx.h"
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include <stdint.h>
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include <stddef.h>
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include <osal.h>
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include <link_misc.h>
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include <driver.h>
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include "sys/fcntl.h"
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #include <iot_link_config.h>
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** UART_HandleTypeDef uart_at;
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static USART_TypeDef*     s_pUSART = LPUART1;
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static uint32_t           s_uwIRQn = LPUART1_IRQn;
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #ifndef CONFIG_AT_RECVMAXLEN
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #define CONFIG_AT_RECVMAXLEN   1024
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #endif
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #define CN_RCVBUF_LEN  CONFIG_AT_RECVMAXLEN  //cache a frame
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** #define CN_RCVMEM_LEN  CONFIG_AT_RECVMAXLEN  //use to cache more frames
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** struct atio_cb
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned short        w_next;    //the next position to be write
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     osal_semp_t           rcvsync;   //if a frame has been written to the ring, then active it
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     tag_ring_buffer_t     rcvring;
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned char         rcvbuf[CN_RCVBUF_LEN];
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned char         rcvringmem[CN_RCVMEM_LEN];
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     //for the debug here
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int          rframeover; //how many times the frame has been over the max length
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int          rframedrop; //how many frame has been droped for memmory
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int          sndlen;     //how many bytes has been sent
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int          rcvlen;     //how many bytes has been received
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 3
+
+
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int          sndframe;   //how many frame has been sent
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int          rcvframe;   //how many frame has been received
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int          rcvringrst; //how many times the receive ring has been reset
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** };
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static struct atio_cb   g_atio_cb;
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** /*******************************************************************************
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** function     :use this function to deal the uart interrupt
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** parameters   :
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** instruction  :we cached the data in the temp buffer,when the idle interrupt reached,
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****               then we write the data and the length to the ring if the ring has enough
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****               space
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** *******************************************************************************/
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static void atio_irq(void)
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+  47              		.loc 1 87 1
+  48              		.cfi_startproc
+  49              		@ args = 0, pretend = 0, frame = 8
+  50              		@ frame_needed = 1, uses_anonymous_args = 0
+  51 0000 80B5     		push	{r7, lr}
+  52              	.LCFI0:
+  53              		.cfi_def_cfa_offset 8
+  54              		.cfi_offset 7, -8
+  55              		.cfi_offset 14, -4
+  56 0002 82B0     		sub	sp, sp, #8
+  57              	.LCFI1:
+  58              		.cfi_def_cfa_offset 16
+  59 0004 00AF     		add	r7, sp, #0
+  60              	.LCFI2:
+  61              		.cfi_def_cfa_register 7
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned char  value;
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned short ringspace;
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     if(__HAL_UART_GET_FLAG(&uart_at, UART_FLAG_RXNE) != RESET)
+  62              		.loc 1 90 8
+  63 0006 494B     		ldr	r3, .L9
+  64 0008 1B68     		ldr	r3, [r3]
+  65 000a DB69     		ldr	r3, [r3, #28]
+  66 000c 03F02003 		and	r3, r3, #32
+  67              		.loc 1 90 7
+  68 0010 202B     		cmp	r3, #32
+  69 0012 2ED1     		bne	.L2
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        value = (uint8_t)(uart_at.Instance->RDR & 0x00FF);
+  70              		.loc 1 92 33
+  71 0014 454B     		ldr	r3, .L9
+  72 0016 1B68     		ldr	r3, [r3]
+  73              		.loc 1 92 42
+  74 0018 9B8C     		ldrh	r3, [r3, #36]	@ movhi
+  75 001a 9BB2     		uxth	r3, r3
+  76              		.loc 1 92 14
+  77 001c FB71     		strb	r3, [r7, #7]
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        g_atio_cb.rcvlen++;
+  78              		.loc 1 93 17
+  79 001e 444B     		ldr	r3, .L9+4
+  80 0020 03F58153 		add	r3, r3, #4128
+  81 0024 0433     		adds	r3, r3, #4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 4
+
+
+  82 0026 1B68     		ldr	r3, [r3]
+  83              		.loc 1 93 24
+  84 0028 5A1C     		adds	r2, r3, #1
+  85 002a 414B     		ldr	r3, .L9+4
+  86 002c 03F58153 		add	r3, r3, #4128
+  87 0030 0433     		adds	r3, r3, #4
+  88 0032 1A60     		str	r2, [r3]
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        if(g_atio_cb.w_next < CN_RCVBUF_LEN)
+  89              		.loc 1 94 20
+  90 0034 3E4B     		ldr	r3, .L9+4
+  91 0036 1B88     		ldrh	r3, [r3]
+  92              		.loc 1 94 10
+  93 0038 B3F5006F 		cmp	r3, #2048
+  94 003c 0DD2     		bcs	.L3
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        {
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****            g_atio_cb.rcvbuf[g_atio_cb.w_next] = value;
+  95              		.loc 1 96 38
+  96 003e 3C4B     		ldr	r3, .L9+4
+  97 0040 1B88     		ldrh	r3, [r3]
+  98 0042 1A46     		mov	r2, r3
+  99              		.loc 1 96 47
+ 100 0044 3A4B     		ldr	r3, .L9+4
+ 101 0046 1344     		add	r3, r3, r2
+ 102 0048 FA79     		ldrb	r2, [r7, #7]
+ 103 004a 1A76     		strb	r2, [r3, #24]
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****            g_atio_cb.w_next++;
+ 104              		.loc 1 97 21
+ 105 004c 384B     		ldr	r3, .L9+4
+ 106 004e 1B88     		ldrh	r3, [r3]
+ 107              		.loc 1 97 28
+ 108 0050 0133     		adds	r3, r3, #1
+ 109 0052 9AB2     		uxth	r2, r3
+ 110 0054 364B     		ldr	r3, .L9+4
+ 111 0056 1A80     		strh	r2, [r3]	@ movhi
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        }
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        else
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        {
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             g_atio_cb.rframeover++;
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        }
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     else if (__HAL_UART_GET_FLAG(&uart_at,UART_FLAG_IDLE) != RESET)
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_IDLEFLAG(&uart_at);
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         ringspace = CN_RCVMEM_LEN - ring_buffer_datalen(&g_atio_cb.rcvring);
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         if(ringspace < g_atio_cb.w_next)  //not enough mem
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         {
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             g_atio_cb.rframedrop++;
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         else
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         {
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             //write data to the ring buffer:len+data format
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             ringspace = g_atio_cb.w_next;
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             ring_buffer_write(&g_atio_cb.rcvring,(unsigned char *)&ringspace,sizeof(ringspace));
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             ring_buffer_write(&g_atio_cb.rcvring,g_atio_cb.rcvbuf,ringspace);
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             osal_semp_post(g_atio_cb.rcvsync);
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             g_atio_cb.rcvframe++;
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 5
+
+
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         g_atio_cb.w_next=0; //write from the head
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     else ///< clear the flags
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_PEFLAG(&uart_at);
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_FEFLAG(&uart_at);
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_NEFLAG(&uart_at);
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_OREFLAG(&uart_at);
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** }
+ 112              		.loc 1 132 1
+ 113 0058 63E0     		b	.L8
+ 114              	.L3:
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        }
+ 115              		.loc 1 101 22
+ 116 005a 354B     		ldr	r3, .L9+4
+ 117 005c 03F58053 		add	r3, r3, #4096
+ 118 0060 1833     		adds	r3, r3, #24
+ 119 0062 1B68     		ldr	r3, [r3]
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****        }
+ 120              		.loc 1 101 33
+ 121 0064 5A1C     		adds	r2, r3, #1
+ 122 0066 324B     		ldr	r3, .L9+4
+ 123 0068 03F58053 		add	r3, r3, #4096
+ 124 006c 1833     		adds	r3, r3, #24
+ 125 006e 1A60     		str	r2, [r3]
+ 126              		.loc 1 132 1
+ 127 0070 57E0     		b	.L8
+ 128              	.L2:
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 129              		.loc 1 104 14
+ 130 0072 2E4B     		ldr	r3, .L9
+ 131 0074 1B68     		ldr	r3, [r3]
+ 132 0076 DB69     		ldr	r3, [r3, #28]
+ 133 0078 03F01003 		and	r3, r3, #16
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 134              		.loc 1 104 13
+ 135 007c 102B     		cmp	r3, #16
+ 136 007e 40D1     		bne	.L5
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         ringspace = CN_RCVMEM_LEN - ring_buffer_datalen(&g_atio_cb.rcvring);
+ 137              		.loc 1 106 9
+ 138 0080 2A4B     		ldr	r3, .L9
+ 139 0082 1B68     		ldr	r3, [r3]
+ 140 0084 1022     		movs	r2, #16
+ 141 0086 1A62     		str	r2, [r3, #32]
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         if(ringspace < g_atio_cb.w_next)  //not enough mem
+ 142              		.loc 1 107 37
+ 143 0088 2A48     		ldr	r0, .L9+8
+ 144 008a FFF7FEFF 		bl	ring_buffer_datalen
+ 145 008e 0346     		mov	r3, r0
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         if(ringspace < g_atio_cb.w_next)  //not enough mem
+ 146              		.loc 1 107 35
+ 147 0090 9BB2     		uxth	r3, r3
+ 148 0092 C3F50063 		rsb	r3, r3, #2048
+ 149 0096 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 6
+
+
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         if(ringspace < g_atio_cb.w_next)  //not enough mem
+ 150              		.loc 1 107 19
+ 151 0098 BB80     		strh	r3, [r7, #4]	@ movhi
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         {
+ 152              		.loc 1 108 33
+ 153 009a 254B     		ldr	r3, .L9+4
+ 154 009c 1A88     		ldrh	r2, [r3]
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         {
+ 155              		.loc 1 108 22
+ 156 009e BB88     		ldrh	r3, [r7, #4]
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         {
+ 157              		.loc 1 108 11
+ 158 00a0 9A42     		cmp	r2, r3
+ 159 00a2 0BD9     		bls	.L6
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ 160              		.loc 1 110 22
+ 161 00a4 224B     		ldr	r3, .L9+4
+ 162 00a6 03F58053 		add	r3, r3, #4096
+ 163 00aa 1C33     		adds	r3, r3, #28
+ 164 00ac 1B68     		ldr	r3, [r3]
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ 165              		.loc 1 110 33
+ 166 00ae 5A1C     		adds	r2, r3, #1
+ 167 00b0 1F4B     		ldr	r3, .L9+4
+ 168 00b2 03F58053 		add	r3, r3, #4096
+ 169 00b6 1C33     		adds	r3, r3, #28
+ 170 00b8 1A60     		str	r2, [r3]
+ 171 00ba 1EE0     		b	.L7
+ 172              	.L6:
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             ring_buffer_write(&g_atio_cb.rcvring,(unsigned char *)&ringspace,sizeof(ringspace));
+ 173              		.loc 1 115 34
+ 174 00bc 1C4B     		ldr	r3, .L9+4
+ 175 00be 1B88     		ldrh	r3, [r3]
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             ring_buffer_write(&g_atio_cb.rcvring,(unsigned char *)&ringspace,sizeof(ringspace));
+ 176              		.loc 1 115 23
+ 177 00c0 BB80     		strh	r3, [r7, #4]	@ movhi
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             ring_buffer_write(&g_atio_cb.rcvring,g_atio_cb.rcvbuf,ringspace);
+ 178              		.loc 1 116 13
+ 179 00c2 3B1D     		adds	r3, r7, #4
+ 180 00c4 0222     		movs	r2, #2
+ 181 00c6 1946     		mov	r1, r3
+ 182 00c8 1A48     		ldr	r0, .L9+8
+ 183 00ca FFF7FEFF 		bl	ring_buffer_write
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             osal_semp_post(g_atio_cb.rcvsync);
+ 184              		.loc 1 117 13
+ 185 00ce BB88     		ldrh	r3, [r7, #4]
+ 186 00d0 1A46     		mov	r2, r3
+ 187 00d2 1949     		ldr	r1, .L9+12
+ 188 00d4 1748     		ldr	r0, .L9+8
+ 189 00d6 FFF7FEFF 		bl	ring_buffer_write
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             g_atio_cb.rcvframe++;
+ 190              		.loc 1 118 13
+ 191 00da 154B     		ldr	r3, .L9+4
+ 192 00dc 5B68     		ldr	r3, [r3, #4]
+ 193 00de 1846     		mov	r0, r3
+ 194 00e0 FFF7FEFF 		bl	osal_semp_post
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 7
+
+
+ 195              		.loc 1 119 22
+ 196 00e4 124B     		ldr	r3, .L9+4
+ 197 00e6 03F58153 		add	r3, r3, #4128
+ 198 00ea 0C33     		adds	r3, r3, #12
+ 199 00ec 1B68     		ldr	r3, [r3]
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ 200              		.loc 1 119 31
+ 201 00ee 5A1C     		adds	r2, r3, #1
+ 202 00f0 0F4B     		ldr	r3, .L9+4
+ 203 00f2 03F58153 		add	r3, r3, #4128
+ 204 00f6 0C33     		adds	r3, r3, #12
+ 205 00f8 1A60     		str	r2, [r3]
+ 206              	.L7:
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 207              		.loc 1 121 25
+ 208 00fa 0D4B     		ldr	r3, .L9+4
+ 209 00fc 0022     		movs	r2, #0
+ 210 00fe 1A80     		strh	r2, [r3]	@ movhi
+ 211              		.loc 1 132 1
+ 212 0100 0FE0     		b	.L8
+ 213              	.L5:
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_FEFLAG(&uart_at);
+ 214              		.loc 1 125 9
+ 215 0102 0A4B     		ldr	r3, .L9
+ 216 0104 1B68     		ldr	r3, [r3]
+ 217 0106 0122     		movs	r2, #1
+ 218 0108 1A62     		str	r2, [r3, #32]
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_NEFLAG(&uart_at);
+ 219              		.loc 1 126 9
+ 220 010a 084B     		ldr	r3, .L9
+ 221 010c 1B68     		ldr	r3, [r3]
+ 222 010e 0222     		movs	r2, #2
+ 223 0110 1A62     		str	r2, [r3, #32]
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         __HAL_UART_CLEAR_OREFLAG(&uart_at);
+ 224              		.loc 1 127 9
+ 225 0112 064B     		ldr	r3, .L9
+ 226 0114 1B68     		ldr	r3, [r3]
+ 227 0116 0422     		movs	r2, #4
+ 228 0118 1A62     		str	r2, [r3, #32]
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 229              		.loc 1 128 9
+ 230 011a 044B     		ldr	r3, .L9
+ 231 011c 1B68     		ldr	r3, [r3]
+ 232 011e 0822     		movs	r2, #8
+ 233 0120 1A62     		str	r2, [r3, #32]
+ 234              	.L8:
+ 235              		.loc 1 132 1
+ 236 0122 00BF     		nop
+ 237 0124 0837     		adds	r7, r7, #8
+ 238              	.LCFI3:
+ 239              		.cfi_def_cfa_offset 8
+ 240 0126 BD46     		mov	sp, r7
+ 241              	.LCFI4:
+ 242              		.cfi_def_cfa_register 13
+ 243              		@ sp needed
+ 244 0128 80BD     		pop	{r7, pc}
+ 245              	.L10:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 8
+
+
+ 246 012a 00BF     		.align	2
+ 247              	.L9:
+ 248 012c 00000000 		.word	uart_at
+ 249 0130 00000000 		.word	g_atio_cb
+ 250 0134 08000000 		.word	g_atio_cb+8
+ 251 0138 18000000 		.word	g_atio_cb+24
+ 252              		.cfi_endproc
+ 253              	.LFE287:
+ 255              		.section	.rodata
+ 256              		.align	2
+ 257              	.LC0:
+ 258 0000 25733A73 		.ascii	"%s:semp create error\012\015\000"
+ 258      656D7020 
+ 258      63726561 
+ 258      74652065 
+ 258      72726F72 
+ 259 0017 00       		.align	2
+ 260              	.LC1:
+ 261 0018 633A2F55 		.ascii	"c:/Users/lenovo/Desktop/AIoT/first_day/firstday_aft"
+ 261      73657273 
+ 261      2F6C656E 
+ 261      6F766F2F 
+ 261      4465736B 
+ 262 004b 65726E6F 		.ascii	"ernoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearP"
+ 262      6F6E2F4C 
+ 262      6974654F 
+ 262      535F4C61 
+ 262      625F5354 
+ 263 007e 692F7561 		.ascii	"i/uart_at/uart_at.c\000"
+ 263      72745F61 
+ 263      742F7561 
+ 263      72745F61 
+ 263      742E6300 
+ 264              		.section	.text.uart_at_init,"ax",%progbits
+ 265              		.align	1
+ 266              		.global	uart_at_init
+ 267              		.syntax unified
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.fpu fpv4-sp-d16
+ 272              	uart_at_init:
+ 273              	.LFB288:
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** /*******************************************************************************
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** function     :use this function to initialize the uart
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** parameters   :
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** instruction  :
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** *******************************************************************************/
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** bool_t uart_at_init(int baud)
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+ 274              		.loc 1 140 1
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 8
+ 277              		@ frame_needed = 1, uses_anonymous_args = 0
+ 278 0000 80B5     		push	{r7, lr}
+ 279              	.LCFI5:
+ 280              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 9
+
+
+ 281              		.cfi_offset 7, -8
+ 282              		.cfi_offset 14, -4
+ 283 0002 84B0     		sub	sp, sp, #16
+ 284              	.LCFI6:
+ 285              		.cfi_def_cfa_offset 24
+ 286 0004 02AF     		add	r7, sp, #8
+ 287              	.LCFI7:
+ 288              		.cfi_def_cfa 7, 16
+ 289 0006 7860     		str	r0, [r7, #4]
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     //initialize the at controller
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     memset(&g_atio_cb,0,sizeof(g_atio_cb));
+ 290              		.loc 1 142 5
+ 291 0008 41F23402 		movw	r2, #4148
+ 292 000c 0021     		movs	r1, #0
+ 293 000e 3048     		ldr	r0, .L16
+ 294 0010 FFF7FEFF 		bl	memset
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     if(false == osal_semp_create(&g_atio_cb.rcvsync,CN_RCVMEM_LEN,0))
+ 295              		.loc 1 143 17
+ 296 0014 0022     		movs	r2, #0
+ 297 0016 4FF40061 		mov	r1, #2048
+ 298 001a 2E48     		ldr	r0, .L16+4
+ 299 001c FFF7FEFF 		bl	osal_semp_create
+ 300 0020 0346     		mov	r3, r0
+ 301              		.loc 1 143 7
+ 302 0022 002B     		cmp	r3, #0
+ 303 0024 06D1     		bne	.L12
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         printf("%s:semp create error\n\r",__FUNCTION__);
+ 304              		.loc 1 145 9
+ 305 0026 2C49     		ldr	r1, .L16+8
+ 306 0028 2C48     		ldr	r0, .L16+12
+ 307 002a FFF7FEFF 		bl	printf
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         goto EXIT_SEMP;
+ 308              		.loc 1 146 9
+ 309 002e 00BF     		nop
+ 310              	.L13:
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     ring_buffer_init(&g_atio_cb.rcvring,g_atio_cb.rcvringmem,CN_RCVMEM_LEN,0,0);
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Instance = s_pUSART;
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.BaudRate = baud;
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.WordLength = UART_WORDLENGTH_8B;
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.StopBits = UART_STOPBITS_1;
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.Parity = UART_PARITY_NONE;
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.Mode = UART_MODE_TX_RX;
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.OverSampling = UART_OVERSAMPLING_16;
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     if(HAL_UART_Init(&uart_at) != HAL_OK)
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         _Error_Handler(__FILE__, __LINE__);
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_CLEAR_FLAG(&uart_at,UART_FLAG_TC);
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     LOS_HwiCreate(s_uwIRQn, 3, 0, atio_irq, 0);
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_ENABLE_IT(&uart_at, UART_IT_IDLE);
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_ENABLE_IT(&uart_at, UART_IT_RXNE);
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     return true;
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 10
+
+
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** EXIT_SEMP:
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     return false;
+ 311              		.loc 1 169 12
+ 312 0030 0023     		movs	r3, #0
+ 313 0032 49E0     		b	.L15
+ 314              	.L12:
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 315              		.loc 1 148 5
+ 316 0034 0023     		movs	r3, #0
+ 317 0036 0093     		str	r3, [sp]
+ 318 0038 0023     		movs	r3, #0
+ 319 003a 4FF40062 		mov	r2, #2048
+ 320 003e 2849     		ldr	r1, .L16+16
+ 321 0040 2848     		ldr	r0, .L16+20
+ 322 0042 FFF7FEFF 		bl	ring_buffer_init
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.BaudRate = baud;
+ 323              		.loc 1 150 22
+ 324 0046 284B     		ldr	r3, .L16+24
+ 325 0048 1B68     		ldr	r3, [r3]
+ 326 004a 284A     		ldr	r2, .L16+28
+ 327 004c 1360     		str	r3, [r2]
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.WordLength = UART_WORDLENGTH_8B;
+ 328              		.loc 1 151 27
+ 329 004e 7B68     		ldr	r3, [r7, #4]
+ 330 0050 264A     		ldr	r2, .L16+28
+ 331 0052 5360     		str	r3, [r2, #4]
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.StopBits = UART_STOPBITS_1;
+ 332              		.loc 1 152 29
+ 333 0054 254B     		ldr	r3, .L16+28
+ 334 0056 0022     		movs	r2, #0
+ 335 0058 9A60     		str	r2, [r3, #8]
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.Parity = UART_PARITY_NONE;
+ 336              		.loc 1 153 27
+ 337 005a 244B     		ldr	r3, .L16+28
+ 338 005c 0022     		movs	r2, #0
+ 339 005e DA60     		str	r2, [r3, #12]
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 340              		.loc 1 154 25
+ 341 0060 224B     		ldr	r3, .L16+28
+ 342 0062 0022     		movs	r2, #0
+ 343 0064 1A61     		str	r2, [r3, #16]
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.Mode = UART_MODE_TX_RX;
+ 344              		.loc 1 155 28
+ 345 0066 214B     		ldr	r3, .L16+28
+ 346 0068 0022     		movs	r2, #0
+ 347 006a 9A61     		str	r2, [r3, #24]
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     uart_at.Init.OverSampling = UART_OVERSAMPLING_16;
+ 348              		.loc 1 156 23
+ 349 006c 1F4B     		ldr	r3, .L16+28
+ 350 006e 0C22     		movs	r2, #12
+ 351 0070 5A61     		str	r2, [r3, #20]
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     if(HAL_UART_Init(&uart_at) != HAL_OK)
+ 352              		.loc 1 157 31
+ 353 0072 1E4B     		ldr	r3, .L16+28
+ 354 0074 0022     		movs	r2, #0
+ 355 0076 DA61     		str	r2, [r3, #28]
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 11
+
+
+ 356              		.loc 1 158 8
+ 357 0078 1C48     		ldr	r0, .L16+28
+ 358 007a FFF7FEFF 		bl	HAL_UART_Init
+ 359 007e 0346     		mov	r3, r0
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 360              		.loc 1 158 7
+ 361 0080 002B     		cmp	r3, #0
+ 362 0082 03D0     		beq	.L14
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 363              		.loc 1 160 9
+ 364 0084 A021     		movs	r1, #160
+ 365 0086 1A48     		ldr	r0, .L16+32
+ 366 0088 FFF7FEFF 		bl	_Error_Handler
+ 367              	.L14:
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     LOS_HwiCreate(s_uwIRQn, 3, 0, atio_irq, 0);
+ 368              		.loc 1 162 5
+ 369 008c 174B     		ldr	r3, .L16+28
+ 370 008e 1B68     		ldr	r3, [r3]
+ 371 0090 4022     		movs	r2, #64
+ 372 0092 1A62     		str	r2, [r3, #32]
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_ENABLE_IT(&uart_at, UART_IT_IDLE);
+ 373              		.loc 1 163 5
+ 374 0094 174B     		ldr	r3, .L16+36
+ 375 0096 1868     		ldr	r0, [r3]
+ 376 0098 0023     		movs	r3, #0
+ 377 009a 0093     		str	r3, [sp]
+ 378 009c 164B     		ldr	r3, .L16+40
+ 379 009e 0022     		movs	r2, #0
+ 380 00a0 0321     		movs	r1, #3
+ 381 00a2 FFF7FEFF 		bl	LOS_HwiCreate
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_ENABLE_IT(&uart_at, UART_IT_RXNE);
+ 382              		.loc 1 164 5
+ 383 00a6 114B     		ldr	r3, .L16+28
+ 384 00a8 1B68     		ldr	r3, [r3]
+ 385 00aa 1A68     		ldr	r2, [r3]
+ 386 00ac 0F4B     		ldr	r3, .L16+28
+ 387 00ae 1B68     		ldr	r3, [r3]
+ 388 00b0 42F01002 		orr	r2, r2, #16
+ 389 00b4 1A60     		str	r2, [r3]
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     return true;
+ 390              		.loc 1 165 5
+ 391 00b6 0D4B     		ldr	r3, .L16+28
+ 392 00b8 1B68     		ldr	r3, [r3]
+ 393 00ba 1A68     		ldr	r2, [r3]
+ 394 00bc 0B4B     		ldr	r3, .L16+28
+ 395 00be 1B68     		ldr	r3, [r3]
+ 396 00c0 42F02002 		orr	r2, r2, #32
+ 397 00c4 1A60     		str	r2, [r3]
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 398              		.loc 1 166 12
+ 399 00c6 0123     		movs	r3, #1
+ 400              	.L15:
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** }
+ 401              		.loc 1 170 1
+ 402 00c8 1846     		mov	r0, r3
+ 403 00ca 0837     		adds	r7, r7, #8
+ 404              	.LCFI8:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 12
+
+
+ 405              		.cfi_def_cfa_offset 8
+ 406 00cc BD46     		mov	sp, r7
+ 407              	.LCFI9:
+ 408              		.cfi_def_cfa_register 13
+ 409              		@ sp needed
+ 410 00ce 80BD     		pop	{r7, pc}
+ 411              	.L17:
+ 412              		.align	2
+ 413              	.L16:
+ 414 00d0 00000000 		.word	g_atio_cb
+ 415 00d4 04000000 		.word	g_atio_cb+4
+ 416 00d8 00000000 		.word	__FUNCTION__.11399
+ 417 00dc 00000000 		.word	.LC0
+ 418 00e0 18080000 		.word	g_atio_cb+2072
+ 419 00e4 08000000 		.word	g_atio_cb+8
+ 420 00e8 00000000 		.word	s_pUSART
+ 421 00ec 00000000 		.word	uart_at
+ 422 00f0 18000000 		.word	.LC1
+ 423 00f4 00000000 		.word	s_uwIRQn
+ 424 00f8 00000000 		.word	atio_irq
+ 425              		.cfi_endproc
+ 426              	.LFE288:
+ 428              		.section	.text.uartat_deinit,"ax",%progbits
+ 429              		.align	1
+ 430              		.global	uartat_deinit
+ 431              		.syntax unified
+ 432              		.thumb
+ 433              		.thumb_func
+ 434              		.fpu fpv4-sp-d16
+ 436              	uartat_deinit:
+ 437              	.LFB289:
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** void uartat_deinit(void)
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+ 438              		.loc 1 173 1
+ 439              		.cfi_startproc
+ 440              		@ args = 0, pretend = 0, frame = 0
+ 441              		@ frame_needed = 1, uses_anonymous_args = 0
+ 442              		@ link register save eliminated.
+ 443 0000 80B4     		push	{r7}
+ 444              	.LCFI10:
+ 445              		.cfi_def_cfa_offset 4
+ 446              		.cfi_offset 7, -4
+ 447 0002 00AF     		add	r7, sp, #0
+ 448              	.LCFI11:
+ 449              		.cfi_def_cfa_register 7
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_DISABLE(&uart_at);
+ 450              		.loc 1 174 5
+ 451 0004 0E4B     		ldr	r3, .L19
+ 452 0006 1B68     		ldr	r3, [r3]
+ 453 0008 1A68     		ldr	r2, [r3]
+ 454 000a 0D4B     		ldr	r3, .L19
+ 455 000c 1B68     		ldr	r3, [r3]
+ 456 000e 22F00102 		bic	r2, r2, #1
+ 457 0012 1A60     		str	r2, [r3]
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_DISABLE_IT(&uart_at, UART_IT_IDLE);
+ 458              		.loc 1 175 5
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 13
+
+
+ 459 0014 0A4B     		ldr	r3, .L19
+ 460 0016 1B68     		ldr	r3, [r3]
+ 461 0018 1A68     		ldr	r2, [r3]
+ 462 001a 094B     		ldr	r3, .L19
+ 463 001c 1B68     		ldr	r3, [r3]
+ 464 001e 22F01002 		bic	r2, r2, #16
+ 465 0022 1A60     		str	r2, [r3]
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     __HAL_UART_DISABLE_IT(&uart_at, UART_IT_RXNE);
+ 466              		.loc 1 176 5
+ 467 0024 064B     		ldr	r3, .L19
+ 468 0026 1B68     		ldr	r3, [r3]
+ 469 0028 1A68     		ldr	r2, [r3]
+ 470 002a 054B     		ldr	r3, .L19
+ 471 002c 1B68     		ldr	r3, [r3]
+ 472 002e 22F02002 		bic	r2, r2, #32
+ 473 0032 1A60     		str	r2, [r3]
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** }
+ 474              		.loc 1 177 1
+ 475 0034 00BF     		nop
+ 476 0036 BD46     		mov	sp, r7
+ 477              	.LCFI12:
+ 478              		.cfi_def_cfa_register 13
+ 479              		@ sp needed
+ 480 0038 5DF8047B 		ldr	r7, [sp], #4
+ 481              	.LCFI13:
+ 482              		.cfi_restore 7
+ 483              		.cfi_def_cfa_offset 0
+ 484 003c 7047     		bx	lr
+ 485              	.L20:
+ 486 003e 00BF     		.align	2
+ 487              	.L19:
+ 488 0040 00000000 		.word	uart_at
+ 489              		.cfi_endproc
+ 490              	.LFE289:
+ 492              		.section	.text.uart_at_send,"ax",%progbits
+ 493              		.align	1
+ 494              		.syntax unified
+ 495              		.thumb
+ 496              		.thumb_func
+ 497              		.fpu fpv4-sp-d16
+ 499              	uart_at_send:
+ 500              	.LFB290:
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** /*******************************************************************************
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** function     :use this function to send a frame to the uart
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** parameters   :
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** instruction  :
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** *******************************************************************************/
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static ssize_t uart_at_send(const char  *buf, size_t len,uint32_t timeout)
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+ 501              		.loc 1 185 1
+ 502              		.cfi_startproc
+ 503              		@ args = 0, pretend = 0, frame = 16
+ 504              		@ frame_needed = 1, uses_anonymous_args = 0
+ 505 0000 80B5     		push	{r7, lr}
+ 506              	.LCFI14:
+ 507              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 14
+
+
+ 508              		.cfi_offset 7, -8
+ 509              		.cfi_offset 14, -4
+ 510 0002 84B0     		sub	sp, sp, #16
+ 511              	.LCFI15:
+ 512              		.cfi_def_cfa_offset 24
+ 513 0004 00AF     		add	r7, sp, #0
+ 514              	.LCFI16:
+ 515              		.cfi_def_cfa_register 7
+ 516 0006 F860     		str	r0, [r7, #12]
+ 517 0008 B960     		str	r1, [r7, #8]
+ 518 000a 7A60     		str	r2, [r7, #4]
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     HAL_UART_Transmit(&uart_at,(unsigned char *)buf,len,timeout);
+ 519              		.loc 1 186 5
+ 520 000c BB68     		ldr	r3, [r7, #8]
+ 521 000e 9AB2     		uxth	r2, r3
+ 522 0010 7B68     		ldr	r3, [r7, #4]
+ 523 0012 F968     		ldr	r1, [r7, #12]
+ 524 0014 0E48     		ldr	r0, .L23
+ 525 0016 FFF7FEFF 		bl	HAL_UART_Transmit
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     g_atio_cb.sndlen += len;
+ 526              		.loc 1 187 22
+ 527 001a 0E4B     		ldr	r3, .L23+4
+ 528 001c 03F58153 		add	r3, r3, #4128
+ 529 0020 1A68     		ldr	r2, [r3]
+ 530 0022 BB68     		ldr	r3, [r7, #8]
+ 531 0024 1A44     		add	r2, r2, r3
+ 532 0026 0B4B     		ldr	r3, .L23+4
+ 533 0028 03F58153 		add	r3, r3, #4128
+ 534 002c 1A60     		str	r2, [r3]
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     g_atio_cb.sndframe ++;
+ 535              		.loc 1 188 14
+ 536 002e 094B     		ldr	r3, .L23+4
+ 537 0030 03F58153 		add	r3, r3, #4128
+ 538 0034 0833     		adds	r3, r3, #8
+ 539 0036 1B68     		ldr	r3, [r3]
+ 540              		.loc 1 188 24
+ 541 0038 5A1C     		adds	r2, r3, #1
+ 542 003a 064B     		ldr	r3, .L23+4
+ 543 003c 03F58153 		add	r3, r3, #4128
+ 544 0040 0833     		adds	r3, r3, #8
+ 545 0042 1A60     		str	r2, [r3]
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     return len;
+ 546              		.loc 1 190 12
+ 547 0044 BB68     		ldr	r3, [r7, #8]
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** }
+ 548              		.loc 1 191 1
+ 549 0046 1846     		mov	r0, r3
+ 550 0048 1037     		adds	r7, r7, #16
+ 551              	.LCFI17:
+ 552              		.cfi_def_cfa_offset 8
+ 553 004a BD46     		mov	sp, r7
+ 554              	.LCFI18:
+ 555              		.cfi_def_cfa_register 13
+ 556              		@ sp needed
+ 557 004c 80BD     		pop	{r7, pc}
+ 558              	.L24:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 15
+
+
+ 559 004e 00BF     		.align	2
+ 560              	.L23:
+ 561 0050 00000000 		.word	uart_at
+ 562 0054 00000000 		.word	g_atio_cb
+ 563              		.cfi_endproc
+ 564              	.LFE290:
+ 566              		.section	.text.uart_at_receive,"ax",%progbits
+ 567              		.align	1
+ 568              		.syntax unified
+ 569              		.thumb
+ 570              		.thumb_func
+ 571              		.fpu fpv4-sp-d16
+ 573              	uart_at_receive:
+ 574              	.LFB291:
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** /*******************************************************************************
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** function     :use this function to read a frame from the uart
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** parameters   :
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** instruction  :
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** *******************************************************************************/
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static ssize_t uart_at_receive(void *buf,size_t len,uint32_t timeout)
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+ 575              		.loc 1 198 1
+ 576              		.cfi_startproc
+ 577              		@ args = 0, pretend = 0, frame = 32
+ 578              		@ frame_needed = 1, uses_anonymous_args = 0
+ 579 0000 80B5     		push	{r7, lr}
+ 580              	.LCFI19:
+ 581              		.cfi_def_cfa_offset 8
+ 582              		.cfi_offset 7, -8
+ 583              		.cfi_offset 14, -4
+ 584 0002 88B0     		sub	sp, sp, #32
+ 585              	.LCFI20:
+ 586              		.cfi_def_cfa_offset 40
+ 587 0004 00AF     		add	r7, sp, #0
+ 588              	.LCFI21:
+ 589              		.cfi_def_cfa_register 7
+ 590 0006 F860     		str	r0, [r7, #12]
+ 591 0008 B960     		str	r1, [r7, #8]
+ 592 000a 7A60     		str	r2, [r7, #4]
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned short cpylen;
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned short framelen;
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned short readlen;
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     int32_t ret = 0;
+ 593              		.loc 1 202 13
+ 594 000c 0023     		movs	r3, #0
+ 595 000e FB61     		str	r3, [r7, #28]
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     unsigned int lock;
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     if(osal_semp_pend(g_atio_cb.rcvsync,timeout))
+ 596              		.loc 1 204 8
+ 597 0010 324B     		ldr	r3, .L32
+ 598 0012 5B68     		ldr	r3, [r3, #4]
+ 599 0014 7A68     		ldr	r2, [r7, #4]
+ 600 0016 1146     		mov	r1, r2
+ 601 0018 1846     		mov	r0, r3
+ 602 001a FFF7FEFF 		bl	osal_semp_pend
+ 603 001e 0346     		mov	r3, r0
+ 604              		.loc 1 204 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 16
+
+
+ 605 0020 002B     		cmp	r3, #0
+ 606 0022 56D0     		beq	.L26
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     {
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         lock = LOS_IntLock();
+ 607              		.loc 1 206 16
+ 608 0024 FFF7FEFF 		bl	LOS_IntLock
+ 609 0028 B861     		str	r0, [r7, #24]
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         readlen = sizeof(framelen);
+ 610              		.loc 1 207 17
+ 611 002a 0223     		movs	r3, #2
+ 612 002c FB82     		strh	r3, [r7, #22]	@ movhi
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         cpylen = ring_buffer_read(&g_atio_cb.rcvring,(unsigned char *)&framelen,readlen);
+ 613              		.loc 1 208 18
+ 614 002e FA8A     		ldrh	r2, [r7, #22]
+ 615 0030 07F11203 		add	r3, r7, #18
+ 616 0034 1946     		mov	r1, r3
+ 617 0036 2A48     		ldr	r0, .L32+4
+ 618 0038 FFF7FEFF 		bl	ring_buffer_read
+ 619 003c 0346     		mov	r3, r0
+ 620              		.loc 1 208 16
+ 621 003e BB82     		strh	r3, [r7, #20]	@ movhi
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         if(cpylen != readlen)
+ 622              		.loc 1 209 11
+ 623 0040 BA8A     		ldrh	r2, [r7, #20]
+ 624 0042 FB8A     		ldrh	r3, [r7, #22]
+ 625 0044 9A42     		cmp	r2, r3
+ 626 0046 0ED0     		beq	.L27
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         {
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             ring_buffer_reset(&g_atio_cb.rcvring);  //bad ring format here
+ 627              		.loc 1 211 13
+ 628 0048 2548     		ldr	r0, .L32+4
+ 629 004a FFF7FEFF 		bl	ring_buffer_reset
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             g_atio_cb.rcvringrst++;
+ 630              		.loc 1 212 22
+ 631 004e 234B     		ldr	r3, .L32
+ 632 0050 03F58153 		add	r3, r3, #4128
+ 633 0054 1033     		adds	r3, r3, #16
+ 634 0056 1B68     		ldr	r3, [r3]
+ 635              		.loc 1 212 33
+ 636 0058 5A1C     		adds	r2, r3, #1
+ 637 005a 204B     		ldr	r3, .L32
+ 638 005c 03F58153 		add	r3, r3, #4128
+ 639 0060 1033     		adds	r3, r3, #16
+ 640 0062 1A60     		str	r2, [r3]
+ 641 0064 32E0     		b	.L28
+ 642              	.L27:
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         else
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         {
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             if(framelen > len)
+ 643              		.loc 1 216 25
+ 644 0066 7B8A     		ldrh	r3, [r7, #18]
+ 645 0068 1A46     		mov	r2, r3
+ 646              		.loc 1 216 15
+ 647 006a BB68     		ldr	r3, [r7, #8]
+ 648 006c 9342     		cmp	r3, r2
+ 649 006e 0ED2     		bcs	.L29
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 17
+
+
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             {
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 ring_buffer_reset(&g_atio_cb.rcvring);  //bad ring format here
+ 650              		.loc 1 218 17
+ 651 0070 1B48     		ldr	r0, .L32+4
+ 652 0072 FFF7FEFF 		bl	ring_buffer_reset
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 g_atio_cb.rcvringrst++;
+ 653              		.loc 1 219 26
+ 654 0076 194B     		ldr	r3, .L32
+ 655 0078 03F58153 		add	r3, r3, #4128
+ 656 007c 1033     		adds	r3, r3, #16
+ 657 007e 1B68     		ldr	r3, [r3]
+ 658              		.loc 1 219 37
+ 659 0080 5A1C     		adds	r2, r3, #1
+ 660 0082 164B     		ldr	r3, .L32
+ 661 0084 03F58153 		add	r3, r3, #4128
+ 662 0088 1033     		adds	r3, r3, #16
+ 663 008a 1A60     		str	r2, [r3]
+ 664 008c 1EE0     		b	.L28
+ 665              	.L29:
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             }
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             else
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             {
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 readlen = framelen;
+ 666              		.loc 1 223 25
+ 667 008e 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 668 0090 FB82     		strh	r3, [r7, #22]	@ movhi
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 cpylen = ring_buffer_read(&g_atio_cb.rcvring,(unsigned char *)buf,readlen);
+ 669              		.loc 1 224 26
+ 670 0092 FB8A     		ldrh	r3, [r7, #22]
+ 671 0094 1A46     		mov	r2, r3
+ 672 0096 F968     		ldr	r1, [r7, #12]
+ 673 0098 1148     		ldr	r0, .L32+4
+ 674 009a FFF7FEFF 		bl	ring_buffer_read
+ 675 009e 0346     		mov	r3, r0
+ 676              		.loc 1 224 24
+ 677 00a0 BB82     		strh	r3, [r7, #20]	@ movhi
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 if(cpylen != framelen)
+ 678              		.loc 1 225 27
+ 679 00a2 7B8A     		ldrh	r3, [r7, #18]
+ 680              		.loc 1 225 19
+ 681 00a4 BA8A     		ldrh	r2, [r7, #20]
+ 682 00a6 9A42     		cmp	r2, r3
+ 683 00a8 0ED0     		beq	.L30
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 {
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                     ring_buffer_reset(&g_atio_cb.rcvring);  //bad ring format here
+ 684              		.loc 1 227 21
+ 685 00aa 0D48     		ldr	r0, .L32+4
+ 686 00ac FFF7FEFF 		bl	ring_buffer_reset
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                     g_atio_cb.rcvringrst++;
+ 687              		.loc 1 228 30
+ 688 00b0 0A4B     		ldr	r3, .L32
+ 689 00b2 03F58153 		add	r3, r3, #4128
+ 690 00b6 1033     		adds	r3, r3, #16
+ 691 00b8 1B68     		ldr	r3, [r3]
+ 692              		.loc 1 228 41
+ 693 00ba 5A1C     		adds	r2, r3, #1
+ 694 00bc 074B     		ldr	r3, .L32
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 18
+
+
+ 695 00be 03F58153 		add	r3, r3, #4128
+ 696 00c2 1033     		adds	r3, r3, #16
+ 697 00c4 1A60     		str	r2, [r3]
+ 698 00c6 01E0     		b	.L28
+ 699              	.L30:
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 }
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 else
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 {
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                     ret = cpylen;
+ 700              		.loc 1 232 25
+ 701 00c8 BB8A     		ldrh	r3, [r7, #20]
+ 702 00ca FB61     		str	r3, [r7, #28]
+ 703              	.L28:
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****                 }
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****             }
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         }
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****         LOS_IntRestore(lock);
+ 704              		.loc 1 236 9
+ 705 00cc B869     		ldr	r0, [r7, #24]
+ 706 00ce FFF7FEFF 		bl	LOS_IntRestore
+ 707              	.L26:
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     }
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     return ret;
+ 708              		.loc 1 238 12
+ 709 00d2 FB69     		ldr	r3, [r7, #28]
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** }
+ 710              		.loc 1 239 1
+ 711 00d4 1846     		mov	r0, r3
+ 712 00d6 2037     		adds	r7, r7, #32
+ 713              	.LCFI22:
+ 714              		.cfi_def_cfa_offset 8
+ 715 00d8 BD46     		mov	sp, r7
+ 716              	.LCFI23:
+ 717              		.cfi_def_cfa_register 13
+ 718              		@ sp needed
+ 719 00da 80BD     		pop	{r7, pc}
+ 720              	.L33:
+ 721              		.align	2
+ 722              	.L32:
+ 723 00dc 00000000 		.word	g_atio_cb
+ 724 00e0 08000000 		.word	g_atio_cb+8
+ 725              		.cfi_endproc
+ 726              	.LFE291:
+ 728              		.section	.text.__at_read,"ax",%progbits
+ 729              		.align	1
+ 730              		.syntax unified
+ 731              		.thumb
+ 732              		.thumb_func
+ 733              		.fpu fpv4-sp-d16
+ 735              	__at_read:
+ 736              	.LFB292:
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** //make it as the at device here
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static ssize_t  __at_read  (void *pri,size_t offset,void *buf,size_t len, uint32_t timeout)
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+ 737              		.loc 1 243 1
+ 738              		.cfi_startproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 19
+
+
+ 739              		@ args = 4, pretend = 0, frame = 16
+ 740              		@ frame_needed = 1, uses_anonymous_args = 0
+ 741 0000 80B5     		push	{r7, lr}
+ 742              	.LCFI24:
+ 743              		.cfi_def_cfa_offset 8
+ 744              		.cfi_offset 7, -8
+ 745              		.cfi_offset 14, -4
+ 746 0002 84B0     		sub	sp, sp, #16
+ 747              	.LCFI25:
+ 748              		.cfi_def_cfa_offset 24
+ 749 0004 00AF     		add	r7, sp, #0
+ 750              	.LCFI26:
+ 751              		.cfi_def_cfa_register 7
+ 752 0006 F860     		str	r0, [r7, #12]
+ 753 0008 B960     		str	r1, [r7, #8]
+ 754 000a 7A60     		str	r2, [r7, #4]
+ 755 000c 3B60     		str	r3, [r7]
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     return uart_at_receive(buf,len, timeout);
+ 756              		.loc 1 244 12
+ 757 000e BA69     		ldr	r2, [r7, #24]
+ 758 0010 3968     		ldr	r1, [r7]
+ 759 0012 7868     		ldr	r0, [r7, #4]
+ 760 0014 FFF7FEFF 		bl	uart_at_receive
+ 761 0018 0346     		mov	r3, r0
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** }
+ 762              		.loc 1 246 1
+ 763 001a 1846     		mov	r0, r3
+ 764 001c 1037     		adds	r7, r7, #16
+ 765              	.LCFI27:
+ 766              		.cfi_def_cfa_offset 8
+ 767 001e BD46     		mov	sp, r7
+ 768              	.LCFI28:
+ 769              		.cfi_def_cfa_register 13
+ 770              		@ sp needed
+ 771 0020 80BD     		pop	{r7, pc}
+ 772              		.cfi_endproc
+ 773              	.LFE292:
+ 775              		.section	.text.__at_write,"ax",%progbits
+ 776              		.align	1
+ 777              		.syntax unified
+ 778              		.thumb
+ 779              		.thumb_func
+ 780              		.fpu fpv4-sp-d16
+ 782              	__at_write:
+ 783              	.LFB293:
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** static ssize_t  __at_write (void *pri, size_t offset,const void *buf,size_t len,uint32_t timeout)
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** {
+ 784              		.loc 1 248 1
+ 785              		.cfi_startproc
+ 786              		@ args = 4, pretend = 0, frame = 16
+ 787              		@ frame_needed = 1, uses_anonymous_args = 0
+ 788 0000 80B5     		push	{r7, lr}
+ 789              	.LCFI29:
+ 790              		.cfi_def_cfa_offset 8
+ 791              		.cfi_offset 7, -8
+ 792              		.cfi_offset 14, -4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 20
+
+
+ 793 0002 84B0     		sub	sp, sp, #16
+ 794              	.LCFI30:
+ 795              		.cfi_def_cfa_offset 24
+ 796 0004 00AF     		add	r7, sp, #0
+ 797              	.LCFI31:
+ 798              		.cfi_def_cfa_register 7
+ 799 0006 F860     		str	r0, [r7, #12]
+ 800 0008 B960     		str	r1, [r7, #8]
+ 801 000a 7A60     		str	r2, [r7, #4]
+ 802 000c 3B60     		str	r3, [r7]
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c ****     return uart_at_send(buf, len, timeout);
+ 803              		.loc 1 249 12
+ 804 000e BA69     		ldr	r2, [r7, #24]
+ 805 0010 3968     		ldr	r1, [r7]
+ 806 0012 7868     		ldr	r0, [r7, #4]
+ 807 0014 FFF7FEFF 		bl	uart_at_send
+ 808 0018 0346     		mov	r3, r0
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** 
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/STM32L431_BearPi/uart_at\uart_at.c **** }
+ 809              		.loc 1 251 1
+ 810 001a 1846     		mov	r0, r3
+ 811 001c 1037     		adds	r7, r7, #16
+ 812              	.LCFI32:
+ 813              		.cfi_def_cfa_offset 8
+ 814 001e BD46     		mov	sp, r7
+ 815              	.LCFI33:
+ 816              		.cfi_def_cfa_register 13
+ 817              		@ sp needed
+ 818 0020 80BD     		pop	{r7, pc}
+ 819              		.cfi_endproc
+ 820              	.LFE293:
+ 822              		.section	.rodata.s_at_op,"a"
+ 823              		.align	2
+ 826              	s_at_op:
+ 827 0000 00000000 		.space	4
+ 828 0004 00000000 		.word	__at_read
+ 829 0008 00000000 		.word	__at_write
+ 830 000c 00000000 		.space	20
+ 830      00000000 
+ 830      00000000 
+ 830      00000000 
+ 830      00000000 
+ 831              		.section	.rodata
+ 832 0092 0000     		.align	2
+ 833              	.LC2:
+ 834 0094 61746465 		.ascii	"atdev\000"
+ 834      7600
+ 835              		.section	osdriv,"a"
+ 836              		.align	2
+ 839              	uart_at_driv:
+ 840 0000 94000000 		.word	.LC2
+ 841 0004 00000000 		.word	s_at_op
+ 842 0008 00000000 		.word	0
+ 843 000c 02000000 		.word	2
+ 844              		.section	.rodata.__FUNCTION__.11399,"a"
+ 845              		.align	2
+ 848              	__FUNCTION__.11399:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 21
+
+
+ 849 0000 75617274 		.ascii	"uart_at_init\000"
+ 849      5F61745F 
+ 849      696E6974 
+ 849      00
+ 850              		.text
+ 851              	.Letext0:
+ 852              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 853              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 854              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 855              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 856              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 857              		.file 7 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/o
+ 858              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 859              		.file 9 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/o
+ 860              		.file 10 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/S
+ 861              		.file 11 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/S
+ 862              		.file 12 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/S
+ 863              		.file 13 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 864              		.file 14 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 865              		.file 15 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 866              		.file 16 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\type
+ 867              		.file 17 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/drivers/t
+ 868              		.file 18 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/drivers/t
+ 869              		.file 19 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/drivers/t
+ 870              		.file 20 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/S
+ 871              		.file 21 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 872              		.file 22 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 873              		.file 23 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 874              		.file 24 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\time.h"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart_at.c
+                            *COM*:00000078 uart_at
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:19     .data.s_pUSART:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:22     .data.s_pUSART:00000000 s_pUSART
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:25     .data.s_uwIRQn:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:28     .data.s_uwIRQn:00000000 s_uwIRQn
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:31     .bss.g_atio_cb:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:34     .bss.g_atio_cb:00000000 g_atio_cb
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:37     .text.atio_irq:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:44     .text.atio_irq:00000000 atio_irq
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:248    .text.atio_irq:0000012c $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:256    .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:265    .text.uart_at_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:272    .text.uart_at_init:00000000 uart_at_init
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:414    .text.uart_at_init:000000d0 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:848    .rodata.__FUNCTION__.11399:00000000 __FUNCTION__.11399
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:429    .text.uartat_deinit:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:436    .text.uartat_deinit:00000000 uartat_deinit
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:488    .text.uartat_deinit:00000040 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:493    .text.uart_at_send:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:499    .text.uart_at_send:00000000 uart_at_send
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:561    .text.uart_at_send:00000050 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:567    .text.uart_at_receive:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:573    .text.uart_at_receive:00000000 uart_at_receive
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:723    .text.uart_at_receive:000000dc $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:729    .text.__at_read:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:735    .text.__at_read:00000000 __at_read
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:776    .text.__at_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:782    .text.__at_write:00000000 __at_write
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:823    .rodata.s_at_op:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:826    .rodata.s_at_op:00000000 s_at_op
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:836    osdriv:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:839    osdriv:00000000 uart_at_driv
+C:\Users\lenovo\AppData\Local\Temp\cclr0ceK.s:845    .rodata.__FUNCTION__.11399:00000000 $d
+
+UNDEFINED SYMBOLS
+ring_buffer_datalen
+ring_buffer_write
+osal_semp_post
+memset
+osal_semp_create
+printf
+ring_buffer_init
+HAL_UART_Init
+_Error_Handler
+LOS_HwiCreate
+HAL_UART_Transmit
+osal_semp_pend
+LOS_IntLock
+ring_buffer_read
+ring_buffer_reset
+LOS_IntRestore

@@ -1,0 +1,450 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"atiny_log.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.data.g_atiny_log_level,"aw"
+  20              	g_atiny_log_level:
+  21 0000 03       		.byte	3
+  22              		.section	.rodata
+  23              		.align	2
+  24              	.LC0:
+  25 0000 44454255 		.ascii	"DEBUG\000"
+  25      4700
+  26 0006 0000     		.align	2
+  27              	.LC1:
+  28 0008 494E464F 		.ascii	"INFO\000"
+  28      00
+  29 000d 000000   		.align	2
+  30              	.LC2:
+  31 0010 5741524E 		.ascii	"WARNING\000"
+  31      494E4700 
+  32              		.align	2
+  33              	.LC3:
+  34 0018 45525200 		.ascii	"ERR\000"
+  35              		.align	2
+  36              	.LC4:
+  37 001c 46415441 		.ascii	"FATAL\000"
+  37      4C00
+  38              		.section	.data.g_log_names,"aw"
+  39              		.align	2
+  42              	g_log_names:
+  43 0000 00000000 		.word	.LC0
+  44 0004 08000000 		.word	.LC1
+  45 0008 10000000 		.word	.LC2
+  46 000c 18000000 		.word	.LC3
+  47 0010 1C000000 		.word	.LC4
+  48              		.section	.rodata
+  49 0022 0000     		.align	2
+  50              	.LC5:
+  51 0024 257300   		.ascii	"%s\000"
+  52              		.section	.text.atiny_printf,"ax",%progbits
+  53              		.align	1
+  54              		.global	atiny_printf
+  55              		.arch armv7e-m
+  56              		.syntax unified
+  57              		.thumb
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 2
+
+
+  58              		.thumb_func
+  59              		.fpu fpv4-sp-d16
+  61              	atiny_printf:
+  62              	.LFB3:
+  63              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/l
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** #include <string.h>
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** #include <atiny_log.h>
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** static atiny_log_e g_atiny_log_level = LOG_ERR;
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** static const char *g_log_names[] =
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** {
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     "DEBUG",
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     "INFO",
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     "WARNING",
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     "ERR",
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     "FATAL",
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** };
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** #include <stdarg.h>
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** #define LOG_BUF_SIZE  256  ///< you could modify it
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 3
+
+
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** int atiny_printf(const char *format, ...)
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** {
+  64              		.loc 1 54 1
+  65              		.cfi_startproc
+  66              		@ args = 4, pretend = 16, frame = 264
+  67              		@ frame_needed = 1, uses_anonymous_args = 1
+  68 0000 0FB4     		push	{r0, r1, r2, r3}
+  69              	.LCFI0:
+  70              		.cfi_def_cfa_offset 16
+  71              		.cfi_offset 0, -16
+  72              		.cfi_offset 1, -12
+  73              		.cfi_offset 2, -8
+  74              		.cfi_offset 3, -4
+  75 0002 80B5     		push	{r7, lr}
+  76              	.LCFI1:
+  77              		.cfi_def_cfa_offset 24
+  78              		.cfi_offset 7, -24
+  79              		.cfi_offset 14, -20
+  80 0004 C2B0     		sub	sp, sp, #264
+  81              	.LCFI2:
+  82              		.cfi_def_cfa_offset 288
+  83 0006 00AF     		add	r7, sp, #0
+  84              	.LCFI3:
+  85              		.cfi_def_cfa_register 7
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     int ret;
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     char str_buf[LOG_BUF_SIZE] = {0};
+  86              		.loc 1 56 10
+  87 0008 3B1D     		adds	r3, r7, #4
+  88 000a 0022     		movs	r2, #0
+  89 000c 1A60     		str	r2, [r3]
+  90 000e 0433     		adds	r3, r3, #4
+  91 0010 FC22     		movs	r2, #252
+  92 0012 0021     		movs	r1, #0
+  93 0014 1846     		mov	r0, r3
+  94 0016 FFF7FEFF 		bl	memset
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     va_list list;
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     memset(str_buf, 0, LOG_BUF_SIZE);
+  95              		.loc 1 59 5
+  96 001a 3B1D     		adds	r3, r7, #4
+  97 001c 4FF48072 		mov	r2, #256
+  98 0020 0021     		movs	r1, #0
+  99 0022 1846     		mov	r0, r3
+ 100 0024 FFF7FEFF 		bl	memset
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     va_start(list, format);
+ 101              		.loc 1 60 5
+ 102 0028 07F58A72 		add	r2, r7, #276
+ 103 002c 3B46     		mov	r3, r7
+ 104 002e 1A60     		str	r2, [r3]
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     ret = vsnprintf(str_buf, LOG_BUF_SIZE, format, list);
+ 105              		.loc 1 61 11
+ 106 0030 3B46     		mov	r3, r7
+ 107 0032 381D     		adds	r0, r7, #4
+ 108 0034 1B68     		ldr	r3, [r3]
+ 109 0036 D7F81021 		ldr	r2, [r7, #272]
+ 110 003a 4FF48071 		mov	r1, #256
+ 111 003e FFF7FEFF 		bl	vsnprintf
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 4
+
+
+ 112 0042 C7F80401 		str	r0, [r7, #260]
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     va_end(list);
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     printf("%s", str_buf);
+ 113              		.loc 1 64 5
+ 114 0046 3B1D     		adds	r3, r7, #4
+ 115 0048 1946     		mov	r1, r3
+ 116 004a 0648     		ldr	r0, .L3
+ 117 004c FFF7FEFF 		bl	printf
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     return ret;
+ 118              		.loc 1 66 12
+ 119 0050 D7F80431 		ldr	r3, [r7, #260]
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** }
+ 120              		.loc 1 68 1
+ 121 0054 1846     		mov	r0, r3
+ 122 0056 07F58477 		add	r7, r7, #264
+ 123              	.LCFI4:
+ 124              		.cfi_def_cfa_offset 24
+ 125 005a BD46     		mov	sp, r7
+ 126              	.LCFI5:
+ 127              		.cfi_def_cfa_register 13
+ 128              		@ sp needed
+ 129 005c BDE88040 		pop	{r7, lr}
+ 130              	.LCFI6:
+ 131              		.cfi_restore 14
+ 132              		.cfi_restore 7
+ 133              		.cfi_def_cfa_offset 16
+ 134 0060 04B0     		add	sp, sp, #16
+ 135              	.LCFI7:
+ 136              		.cfi_restore 3
+ 137              		.cfi_restore 2
+ 138              		.cfi_restore 1
+ 139              		.cfi_restore 0
+ 140              		.cfi_def_cfa_offset 0
+ 141 0062 7047     		bx	lr
+ 142              	.L4:
+ 143              		.align	2
+ 144              	.L3:
+ 145 0064 24000000 		.word	.LC5
+ 146              		.cfi_endproc
+ 147              	.LFE3:
+ 149              		.section	.text.atiny_set_log_level,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	atiny_set_log_level
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.fpu fpv4-sp-d16
+ 157              	atiny_set_log_level:
+ 158              	.LFB4:
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** void atiny_set_log_level(atiny_log_e level)
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** {
+ 159              		.loc 1 71 1
+ 160              		.cfi_startproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 5
+
+
+ 161              		@ args = 0, pretend = 0, frame = 8
+ 162              		@ frame_needed = 1, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 164 0000 80B4     		push	{r7}
+ 165              	.LCFI8:
+ 166              		.cfi_def_cfa_offset 4
+ 167              		.cfi_offset 7, -4
+ 168 0002 83B0     		sub	sp, sp, #12
+ 169              	.LCFI9:
+ 170              		.cfi_def_cfa_offset 16
+ 171 0004 00AF     		add	r7, sp, #0
+ 172              	.LCFI10:
+ 173              		.cfi_def_cfa_register 7
+ 174 0006 0346     		mov	r3, r0
+ 175 0008 FB71     		strb	r3, [r7, #7]
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     g_atiny_log_level = level;
+ 176              		.loc 1 72 23
+ 177 000a 044A     		ldr	r2, .L6
+ 178 000c FB79     		ldrb	r3, [r7, #7]
+ 179 000e 1370     		strb	r3, [r2]
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** }
+ 180              		.loc 1 73 1
+ 181 0010 00BF     		nop
+ 182 0012 0C37     		adds	r7, r7, #12
+ 183              	.LCFI11:
+ 184              		.cfi_def_cfa_offset 4
+ 185 0014 BD46     		mov	sp, r7
+ 186              	.LCFI12:
+ 187              		.cfi_def_cfa_register 13
+ 188              		@ sp needed
+ 189 0016 5DF8047B 		ldr	r7, [sp], #4
+ 190              	.LCFI13:
+ 191              		.cfi_restore 7
+ 192              		.cfi_def_cfa_offset 0
+ 193 001a 7047     		bx	lr
+ 194              	.L7:
+ 195              		.align	2
+ 196              	.L6:
+ 197 001c 00000000 		.word	g_atiny_log_level
+ 198              		.cfi_endproc
+ 199              	.LFE4:
+ 201              		.section	.text.atiny_get_log_level,"ax",%progbits
+ 202              		.align	1
+ 203              		.global	atiny_get_log_level
+ 204              		.syntax unified
+ 205              		.thumb
+ 206              		.thumb_func
+ 207              		.fpu fpv4-sp-d16
+ 209              	atiny_get_log_level:
+ 210              	.LFB5:
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** atiny_log_e atiny_get_log_level(void)
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** {
+ 211              		.loc 1 76 1
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 6
+
+
+ 215              		@ link register save eliminated.
+ 216 0000 80B4     		push	{r7}
+ 217              	.LCFI14:
+ 218              		.cfi_def_cfa_offset 4
+ 219              		.cfi_offset 7, -4
+ 220 0002 00AF     		add	r7, sp, #0
+ 221              	.LCFI15:
+ 222              		.cfi_def_cfa_register 7
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     return g_atiny_log_level;
+ 223              		.loc 1 77 12
+ 224 0004 034B     		ldr	r3, .L10
+ 225 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** }
+ 226              		.loc 1 78 1
+ 227 0008 1846     		mov	r0, r3
+ 228 000a BD46     		mov	sp, r7
+ 229              	.LCFI16:
+ 230              		.cfi_def_cfa_register 13
+ 231              		@ sp needed
+ 232 000c 5DF8047B 		ldr	r7, [sp], #4
+ 233              	.LCFI17:
+ 234              		.cfi_restore 7
+ 235              		.cfi_def_cfa_offset 0
+ 236 0010 7047     		bx	lr
+ 237              	.L11:
+ 238 0012 00BF     		.align	2
+ 239              	.L10:
+ 240 0014 00000000 		.word	g_atiny_log_level
+ 241              		.cfi_endproc
+ 242              	.LFE5:
+ 244              		.section	.rodata
+ 245 0027 00       		.align	2
+ 246              	.LC6:
+ 247 0028 554E4B4F 		.ascii	"UNKOWN\000"
+ 247      574E00
+ 248              		.section	.text.atiny_get_log_level_name,"ax",%progbits
+ 249              		.align	1
+ 250              		.global	atiny_get_log_level_name
+ 251              		.syntax unified
+ 252              		.thumb
+ 253              		.thumb_func
+ 254              		.fpu fpv4-sp-d16
+ 256              	atiny_get_log_level_name:
+ 257              	.LFB6:
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** const char *atiny_get_log_level_name(atiny_log_e log_level)
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** {
+ 258              		.loc 1 81 1
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 8
+ 261              		@ frame_needed = 1, uses_anonymous_args = 0
+ 262              		@ link register save eliminated.
+ 263 0000 80B4     		push	{r7}
+ 264              	.LCFI18:
+ 265              		.cfi_def_cfa_offset 4
+ 266              		.cfi_offset 7, -4
+ 267 0002 83B0     		sub	sp, sp, #12
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 7
+
+
+ 268              	.LCFI19:
+ 269              		.cfi_def_cfa_offset 16
+ 270 0004 00AF     		add	r7, sp, #0
+ 271              	.LCFI20:
+ 272              		.cfi_def_cfa_register 7
+ 273 0006 0346     		mov	r3, r0
+ 274 0008 FB71     		strb	r3, [r7, #7]
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     if (log_level >= LOG_MAX)
+ 275              		.loc 1 82 8
+ 276 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 277 000c 042B     		cmp	r3, #4
+ 278 000e 01D9     		bls	.L13
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     {
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****         return "UNKOWN";
+ 279              		.loc 1 84 16
+ 280 0010 054B     		ldr	r3, .L15
+ 281 0012 03E0     		b	.L14
+ 282              	.L13:
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     }
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** 
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c ****     return g_log_names[log_level];
+ 283              		.loc 1 87 23
+ 284 0014 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 285 0016 054A     		ldr	r2, .L15+4
+ 286 0018 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 287              	.L14:
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_log\atiny_log.c **** }
+ 288              		.loc 1 88 1
+ 289 001c 1846     		mov	r0, r3
+ 290 001e 0C37     		adds	r7, r7, #12
+ 291              	.LCFI21:
+ 292              		.cfi_def_cfa_offset 4
+ 293 0020 BD46     		mov	sp, r7
+ 294              	.LCFI22:
+ 295              		.cfi_def_cfa_register 13
+ 296              		@ sp needed
+ 297 0022 5DF8047B 		ldr	r7, [sp], #4
+ 298              	.LCFI23:
+ 299              		.cfi_restore 7
+ 300              		.cfi_def_cfa_offset 0
+ 301 0026 7047     		bx	lr
+ 302              	.L16:
+ 303              		.align	2
+ 304              	.L15:
+ 305 0028 28000000 		.word	.LC6
+ 306 002c 00000000 		.word	g_log_names
+ 307              		.cfi_endproc
+ 308              	.LFE6:
+ 310              		.text
+ 311              	.Letext0:
+ 312              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 313              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 314              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 315              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 316              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 317              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdio.h"
+ 318              		.file 8 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/l
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 8
+
+
+ 319              		.file 9 "<built-in>"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 atiny_log.c
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:20     .data.g_atiny_log_level:00000000 g_atiny_log_level
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:23     .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:39     .data.g_log_names:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:42     .data.g_log_names:00000000 g_log_names
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:53     .text.atiny_printf:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:61     .text.atiny_printf:00000000 atiny_printf
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:145    .text.atiny_printf:00000064 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:150    .text.atiny_set_log_level:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:157    .text.atiny_set_log_level:00000000 atiny_set_log_level
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:197    .text.atiny_set_log_level:0000001c $d
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:202    .text.atiny_get_log_level:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:209    .text.atiny_get_log_level:00000000 atiny_get_log_level
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:240    .text.atiny_get_log_level:00000014 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:249    .text.atiny_get_log_level_name:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:256    .text.atiny_get_log_level_name:00000000 atiny_get_log_level_name
+C:\Users\lenovo\AppData\Local\Temp\ccLBbgnf.s:305    .text.atiny_get_log_level_name:00000028 $d
+
+UNDEFINED SYMBOLS
+memset
+vsnprintf
+printf

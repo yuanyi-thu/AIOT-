@@ -1,0 +1,464 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"MQTTDeserializePublish.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MQTTDeserialize_publish,"ax",%progbits
+  18              		.align	1
+  19              		.global	MQTTDeserialize_publish
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	MQTTDeserialize_publish:
+  27              	.LFB3:
+  28              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** /*******************************************************************************
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  * Copyright (c) 2014 IBM Corp.
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  *
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  * All rights reserved. This program and the accompanying materials
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  * are made available under the terms of the Eclipse Public License v1.0
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  * and Eclipse Distribution License v1.0 which accompany this distribution.
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  *
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  * The Eclipse Public License is available at
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  *    http://www.eclipse.org/legal/epl-v10.html
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  * and the Eclipse Distribution License is available at
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  *   http://www.eclipse.org/org/documents/edl-v10.php.
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  *
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  * Contributors:
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  *    Ian Craggs - initial API and implementation and/or initial documentation
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****  *******************************************************************************/
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** #include "StackTrace.h"
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** #include "MQTTPacket.h"
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** #include <string.h>
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** #define min(a, b) ((a < b) ? 1 : 0)
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** /**
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * Deserializes the supplied (wire) buffer into publish data
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param dup returned integer - the MQTT dup flag
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param qos returned integer - the MQTT QoS value
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param retained returned integer - the MQTT retained flag
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param packetid returned integer - the MQTT packet identifier
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param topicName returned MQTTString - the MQTT topic in the publish
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param payload returned byte buffer - the MQTT publish payload
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 2
+
+
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param payloadlen returned integer - the length of the MQTT payload
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param buf the raw buffer data, of the correct length determined by the remaining length field
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param buflen the length in bytes of the data in the supplied buffer
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @return error code.  1 is success
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   */
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** int MQTTDeserialize_publish(unsigned char* dup, int* qos, unsigned char* retained, unsigned short* 
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		unsigned char** payload, int* payloadlen, unsigned char* buf, int buflen)
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** {
+  29              		.loc 1 38 1
+  30              		.cfi_startproc
+  31              		@ args = 20, pretend = 0, frame = 40
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 8AB0     		sub	sp, sp, #40
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 48
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 F860     		str	r0, [r7, #12]
+  45 0008 B960     		str	r1, [r7, #8]
+  46 000a 7A60     		str	r2, [r7, #4]
+  47 000c 3B60     		str	r3, [r7]
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	MQTTHeader header = {0};
+  48              		.loc 1 39 13
+  49 000e 0023     		movs	r3, #0
+  50 0010 FB61     		str	r3, [r7, #28]
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	unsigned char* curdata = buf;
+  51              		.loc 1 40 17
+  52 0012 FB6B     		ldr	r3, [r7, #60]
+  53 0014 BB61     		str	r3, [r7, #24]
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	unsigned char* enddata = NULL;
+  54              		.loc 1 41 17
+  55 0016 0023     		movs	r3, #0
+  56 0018 3B62     		str	r3, [r7, #32]
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	int rc = 0;
+  57              		.loc 1 42 6
+  58 001a 0023     		movs	r3, #0
+  59 001c 7B62     		str	r3, [r7, #36]
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	int mylen = 0;
+  60              		.loc 1 43 6
+  61 001e 0023     		movs	r3, #0
+  62 0020 7B61     		str	r3, [r7, #20]
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	FUNC_ENTRY;
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	header.byte = readChar(&curdata);
+  63              		.loc 1 46 16
+  64 0022 07F11803 		add	r3, r7, #24
+  65 0026 1846     		mov	r0, r3
+  66 0028 FFF7FEFF 		bl	readChar
+  67 002c 0346     		mov	r3, r0
+  68              		.loc 1 46 14
+  69 002e 3B77     		strb	r3, [r7, #28]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 3
+
+
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	if (header.bits.type != PUBLISH)
+  70              		.loc 1 47 23
+  71 0030 3B7F     		ldrb	r3, [r7, #28]	@ zero_extendqisi2
+  72 0032 23F00F03 		bic	r3, r3, #15
+  73 0036 DBB2     		uxtb	r3, r3
+  74              		.loc 1 47 5
+  75 0038 302B     		cmp	r3, #48
+  76 003a 4BD1     		bne	.L8
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		goto exit;
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*dup = header.bits.dup;
+  77              		.loc 1 49 20
+  78 003c 3B7F     		ldrb	r3, [r7, #28]
+  79 003e C3F3C003 		ubfx	r3, r3, #3, #1
+  80 0042 DBB2     		uxtb	r3, r3
+  81 0044 1A46     		mov	r2, r3
+  82              		.loc 1 49 7
+  83 0046 FB68     		ldr	r3, [r7, #12]
+  84 0048 1A70     		strb	r2, [r3]
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*qos = header.bits.qos;
+  85              		.loc 1 50 20
+  86 004a 3B7F     		ldrb	r3, [r7, #28]
+  87 004c C3F34103 		ubfx	r3, r3, #1, #2
+  88 0050 DBB2     		uxtb	r3, r3
+  89 0052 1A46     		mov	r2, r3
+  90              		.loc 1 50 7
+  91 0054 BB68     		ldr	r3, [r7, #8]
+  92 0056 1A60     		str	r2, [r3]
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*retained = header.bits.retain;
+  93              		.loc 1 51 25
+  94 0058 3B7F     		ldrb	r3, [r7, #28]
+  95 005a C3F30003 		ubfx	r3, r3, #0, #1
+  96 005e DBB2     		uxtb	r3, r3
+  97 0060 1A46     		mov	r2, r3
+  98              		.loc 1 51 12
+  99 0062 7B68     		ldr	r3, [r7, #4]
+ 100 0064 1A70     		strb	r2, [r3]
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	curdata += (rc = MQTTPacket_decodeBuf(curdata, &mylen)); /* read remaining length */
+ 101              		.loc 1 53 19
+ 102 0066 BB69     		ldr	r3, [r7, #24]
+ 103 0068 07F11402 		add	r2, r7, #20
+ 104 006c 1146     		mov	r1, r2
+ 105 006e 1846     		mov	r0, r3
+ 106 0070 FFF7FEFF 		bl	MQTTPacket_decodeBuf
+ 107 0074 7862     		str	r0, [r7, #36]
+ 108              		.loc 1 53 17
+ 109 0076 7A6A     		ldr	r2, [r7, #36]
+ 110              		.loc 1 53 10
+ 111 0078 BB69     		ldr	r3, [r7, #24]
+ 112 007a 1344     		add	r3, r3, r2
+ 113 007c BB61     		str	r3, [r7, #24]
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	enddata = curdata + mylen;
+ 114              		.loc 1 54 20
+ 115 007e BB69     		ldr	r3, [r7, #24]
+ 116 0080 7A69     		ldr	r2, [r7, #20]
+ 117              		.loc 1 54 10
+ 118 0082 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 4
+
+
+ 119 0084 3B62     		str	r3, [r7, #32]
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	if (!readMQTTLenString(topicName, &curdata, enddata) ||
+ 120              		.loc 1 56 7
+ 121 0086 07F11803 		add	r3, r7, #24
+ 122 008a 3A6A     		ldr	r2, [r7, #32]
+ 123 008c 1946     		mov	r1, r3
+ 124 008e 386B     		ldr	r0, [r7, #48]
+ 125 0090 FFF7FEFF 		bl	readMQTTLenString
+ 126 0094 0346     		mov	r3, r0
+ 127              		.loc 1 56 5
+ 128 0096 002B     		cmp	r3, #0
+ 129 0098 1ED0     		beq	.L9
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		enddata - curdata < 0) /* do we have enough data to read the protocol version byte? */
+ 130              		.loc 1 57 11 discriminator 1
+ 131 009a BB69     		ldr	r3, [r7, #24]
+ 132 009c 3A6A     		ldr	r2, [r7, #32]
+ 133 009e D31A     		subs	r3, r2, r3
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		enddata - curdata < 0) /* do we have enough data to read the protocol version byte? */
+ 134              		.loc 1 56 55 discriminator 1
+ 135 00a0 002B     		cmp	r3, #0
+ 136 00a2 19DB     		blt	.L9
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		goto exit;
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	if (*qos > 0)
+ 137              		.loc 1 60 6
+ 138 00a4 BB68     		ldr	r3, [r7, #8]
+ 139 00a6 1B68     		ldr	r3, [r3]
+ 140              		.loc 1 60 5
+ 141 00a8 002B     		cmp	r3, #0
+ 142 00aa 08DD     		ble	.L6
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		*packetid = readInt(&curdata);
+ 143              		.loc 1 61 15
+ 144 00ac 07F11803 		add	r3, r7, #24
+ 145 00b0 1846     		mov	r0, r3
+ 146 00b2 FFF7FEFF 		bl	readInt
+ 147 00b6 0346     		mov	r3, r0
+ 148              		.loc 1 61 13
+ 149 00b8 9AB2     		uxth	r2, r3
+ 150 00ba 3B68     		ldr	r3, [r7]
+ 151 00bc 1A80     		strh	r2, [r3]	@ movhi
+ 152              	.L6:
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*payloadlen = enddata - curdata;
+ 153              		.loc 1 63 24
+ 154 00be BB69     		ldr	r3, [r7, #24]
+ 155 00c0 3A6A     		ldr	r2, [r7, #32]
+ 156 00c2 D21A     		subs	r2, r2, r3
+ 157              		.loc 1 63 14
+ 158 00c4 BB6B     		ldr	r3, [r7, #56]
+ 159 00c6 1A60     		str	r2, [r3]
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*payload = curdata;
+ 160              		.loc 1 64 11
+ 161 00c8 BA69     		ldr	r2, [r7, #24]
+ 162 00ca 7B6B     		ldr	r3, [r7, #52]
+ 163 00cc 1A60     		str	r2, [r3]
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	rc = 1;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 5
+
+
+ 164              		.loc 1 65 5
+ 165 00ce 0123     		movs	r3, #1
+ 166 00d0 7B62     		str	r3, [r7, #36]
+ 167 00d2 02E0     		b	.L3
+ 168              	.L8:
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*dup = header.bits.dup;
+ 169              		.loc 1 48 3
+ 170 00d4 00BF     		nop
+ 171 00d6 00E0     		b	.L3
+ 172              	.L9:
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+ 173              		.loc 1 58 3
+ 174 00d8 00BF     		nop
+ 175              	.L3:
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** exit:
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	FUNC_EXIT_RC(rc);
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	return rc;
+ 176              		.loc 1 68 9
+ 177 00da 7B6A     		ldr	r3, [r7, #36]
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** }
+ 178              		.loc 1 69 1
+ 179 00dc 1846     		mov	r0, r3
+ 180 00de 2837     		adds	r7, r7, #40
+ 181              	.LCFI3:
+ 182              		.cfi_def_cfa_offset 8
+ 183 00e0 BD46     		mov	sp, r7
+ 184              	.LCFI4:
+ 185              		.cfi_def_cfa_register 13
+ 186              		@ sp needed
+ 187 00e2 80BD     		pop	{r7, pc}
+ 188              		.cfi_endproc
+ 189              	.LFE3:
+ 191              		.section	.text.MQTTDeserialize_ack,"ax",%progbits
+ 192              		.align	1
+ 193              		.global	MQTTDeserialize_ack
+ 194              		.syntax unified
+ 195              		.thumb
+ 196              		.thumb_func
+ 197              		.fpu fpv4-sp-d16
+ 199              	MQTTDeserialize_ack:
+ 200              	.LFB4:
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** /**
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * Deserializes the supplied (wire) buffer into an ack
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param packettype returned integer - the MQTT packet type
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param dup returned integer - the MQTT dup flag
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param packetid returned integer - the MQTT packet identifier
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param buf the raw buffer data, of the correct length determined by the remaining length field
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @param buflen the length in bytes of the data in the supplied buffer
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   * @return error code.  1 is success, 0 is failure
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c ****   */
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** int MQTTDeserialize_ack(unsigned char* packettype, unsigned char* dup, unsigned short* packetid, un
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** {
+ 201              		.loc 1 83 1
+ 202              		.cfi_startproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 6
+
+
+ 203              		@ args = 4, pretend = 0, frame = 40
+ 204              		@ frame_needed = 1, uses_anonymous_args = 0
+ 205 0000 80B5     		push	{r7, lr}
+ 206              	.LCFI5:
+ 207              		.cfi_def_cfa_offset 8
+ 208              		.cfi_offset 7, -8
+ 209              		.cfi_offset 14, -4
+ 210 0002 8AB0     		sub	sp, sp, #40
+ 211              	.LCFI6:
+ 212              		.cfi_def_cfa_offset 48
+ 213 0004 00AF     		add	r7, sp, #0
+ 214              	.LCFI7:
+ 215              		.cfi_def_cfa_register 7
+ 216 0006 F860     		str	r0, [r7, #12]
+ 217 0008 B960     		str	r1, [r7, #8]
+ 218 000a 7A60     		str	r2, [r7, #4]
+ 219 000c 3B60     		str	r3, [r7]
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	MQTTHeader header = {0};
+ 220              		.loc 1 84 13
+ 221 000e 0023     		movs	r3, #0
+ 222 0010 FB61     		str	r3, [r7, #28]
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	unsigned char* curdata = buf;
+ 223              		.loc 1 85 17
+ 224 0012 3B68     		ldr	r3, [r7]
+ 225 0014 BB61     		str	r3, [r7, #24]
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	unsigned char* enddata = NULL;
+ 226              		.loc 1 86 17
+ 227 0016 0023     		movs	r3, #0
+ 228 0018 3B62     		str	r3, [r7, #32]
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	int rc = 0;
+ 229              		.loc 1 87 6
+ 230 001a 0023     		movs	r3, #0
+ 231 001c 7B62     		str	r3, [r7, #36]
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	int mylen;
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	FUNC_ENTRY;
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	header.byte = readChar(&curdata);
+ 232              		.loc 1 91 16
+ 233 001e 07F11803 		add	r3, r7, #24
+ 234 0022 1846     		mov	r0, r3
+ 235 0024 FFF7FEFF 		bl	readChar
+ 236 0028 0346     		mov	r3, r0
+ 237              		.loc 1 91 14
+ 238 002a 3B77     		strb	r3, [r7, #28]
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*dup = header.bits.dup;
+ 239              		.loc 1 92 20
+ 240 002c 3B7F     		ldrb	r3, [r7, #28]
+ 241 002e C3F3C003 		ubfx	r3, r3, #3, #1
+ 242 0032 DBB2     		uxtb	r3, r3
+ 243 0034 1A46     		mov	r2, r3
+ 244              		.loc 1 92 7
+ 245 0036 BB68     		ldr	r3, [r7, #8]
+ 246 0038 1A70     		strb	r2, [r3]
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*packettype = header.bits.type;
+ 247              		.loc 1 93 27
+ 248 003a 3B7F     		ldrb	r3, [r7, #28]
+ 249 003c C3F30313 		ubfx	r3, r3, #4, #4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 7
+
+
+ 250 0040 DBB2     		uxtb	r3, r3
+ 251 0042 1A46     		mov	r2, r3
+ 252              		.loc 1 93 14
+ 253 0044 FB68     		ldr	r3, [r7, #12]
+ 254 0046 1A70     		strb	r2, [r3]
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	curdata += (rc = MQTTPacket_decodeBuf(curdata, &mylen)); /* read remaining length */
+ 255              		.loc 1 95 19
+ 256 0048 BB69     		ldr	r3, [r7, #24]
+ 257 004a 07F11402 		add	r2, r7, #20
+ 258 004e 1146     		mov	r1, r2
+ 259 0050 1846     		mov	r0, r3
+ 260 0052 FFF7FEFF 		bl	MQTTPacket_decodeBuf
+ 261 0056 7862     		str	r0, [r7, #36]
+ 262              		.loc 1 95 17
+ 263 0058 7A6A     		ldr	r2, [r7, #36]
+ 264              		.loc 1 95 10
+ 265 005a BB69     		ldr	r3, [r7, #24]
+ 266 005c 1344     		add	r3, r3, r2
+ 267 005e BB61     		str	r3, [r7, #24]
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	enddata = curdata + mylen;
+ 268              		.loc 1 96 20
+ 269 0060 BB69     		ldr	r3, [r7, #24]
+ 270 0062 7A69     		ldr	r2, [r7, #20]
+ 271              		.loc 1 96 10
+ 272 0064 1344     		add	r3, r3, r2
+ 273 0066 3B62     		str	r3, [r7, #32]
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	if (enddata - curdata < 2)
+ 274              		.loc 1 98 14
+ 275 0068 BB69     		ldr	r3, [r7, #24]
+ 276 006a 3A6A     		ldr	r2, [r7, #32]
+ 277 006c D31A     		subs	r3, r2, r3
+ 278              		.loc 1 98 5
+ 279 006e 012B     		cmp	r3, #1
+ 280 0070 0BDD     		ble	.L14
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		goto exit;
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	*packetid = readInt(&curdata);
+ 281              		.loc 1 100 14
+ 282 0072 07F11803 		add	r3, r7, #24
+ 283 0076 1846     		mov	r0, r3
+ 284 0078 FFF7FEFF 		bl	readInt
+ 285 007c 0346     		mov	r3, r0
+ 286              		.loc 1 100 12
+ 287 007e 9AB2     		uxth	r2, r3
+ 288 0080 7B68     		ldr	r3, [r7, #4]
+ 289 0082 1A80     		strh	r2, [r3]	@ movhi
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	rc = 1;
+ 290              		.loc 1 102 5
+ 291 0084 0123     		movs	r3, #1
+ 292 0086 7B62     		str	r3, [r7, #36]
+ 293 0088 00E0     		b	.L12
+ 294              	.L14:
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 		goto exit;
+ 295              		.loc 1 99 3
+ 296 008a 00BF     		nop
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 8
+
+
+ 297              	.L12:
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** exit:
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	FUNC_EXIT_RC(rc);
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** 	return rc;
+ 298              		.loc 1 105 9
+ 299 008c 7B6A     		ldr	r3, [r7, #36]
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTDeserializePublish.c **** }
+ 300              		.loc 1 106 1
+ 301 008e 1846     		mov	r0, r3
+ 302 0090 2837     		adds	r7, r7, #40
+ 303              	.LCFI8:
+ 304              		.cfi_def_cfa_offset 8
+ 305 0092 BD46     		mov	sp, r7
+ 306              	.LCFI9:
+ 307              		.cfi_def_cfa_register 13
+ 308              		@ sp needed
+ 309 0094 80BD     		pop	{r7, pc}
+ 310              		.cfi_endproc
+ 311              	.LFE4:
+ 313              		.text
+ 314              	.Letext0:
+ 315              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 316              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 317              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 318              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 319              		.file 6 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 MQTTDeserializePublish.c
+C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s:18     .text.MQTTDeserialize_publish:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s:26     .text.MQTTDeserialize_publish:00000000 MQTTDeserialize_publish
+C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s:192    .text.MQTTDeserialize_ack:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccv9K92Y.s:199    .text.MQTTDeserialize_ack:00000000 MQTTDeserialize_ack
+
+UNDEFINED SYMBOLS
+readChar
+MQTTPacket_decodeBuf
+readMQTTLenString
+readInt

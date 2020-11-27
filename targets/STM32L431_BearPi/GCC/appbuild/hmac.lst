@@ -1,0 +1,437 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"hmac.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata
+  18              		.align	2
+  19              	.LC0:
+  20 0000 6D626564 		.ascii	"mbedtls_md_setup() returned -0x%04x\012\000"
+  20      746C735F 
+  20      6D645F73 
+  20      65747570 
+  20      28292072 
+  21              		.section	.text.mbedtls_hmac_calc,"ax",%progbits
+  22              		.align	1
+  23              		.global	mbedtls_hmac_calc
+  24              		.arch armv7e-m
+  25              		.syntax unified
+  26              		.thumb
+  27              		.thumb_func
+  28              		.fpu fpv4-sp-d16
+  30              	mbedtls_hmac_calc:
+  31              	.LFB13:
+  32              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/o
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 2
+
+
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "hmac.h"
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #ifdef WITH_DTLS
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include <string.h>
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/md.h"
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/ssl.h"
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/entropy.h"
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/ctr_drbg.h"
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/platform.h"
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/md_internal.h"
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "dtls_interface.h"
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** typedef struct _mbedtls_hmac_t
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** {
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     const unsigned char *secret;
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     const unsigned char *input;
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     unsigned char *digest;
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     size_t secret_len;
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     size_t input_len;
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     size_t digest_len;
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_type_t hmac_type;
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** }mbedtls_hmac_t;
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** int mbedtls_hmac_calc(mbedtls_hmac_t *hmac_info)
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** {
+  33              		.loc 1 60 1
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 32
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 80B5     		push	{r7, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 8
+  40              		.cfi_offset 7, -8
+  41              		.cfi_offset 14, -4
+  42 0002 88B0     		sub	sp, sp, #32
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 40
+  45 0004 00AF     		add	r7, sp, #0
+  46              	.LCFI2:
+  47              		.cfi_def_cfa_register 7
+  48 0006 7860     		str	r0, [r7, #4]
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     int ret;
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_context_t mbedtls_md_ctx;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 3
+
+
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     const mbedtls_md_info_t *md_info;
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     if (hmac_info == NULL || hmac_info->secret == NULL || hmac_info->input == NULL
+  49              		.loc 1 66 8
+  50 0008 7B68     		ldr	r3, [r7, #4]
+  51 000a 002B     		cmp	r3, #0
+  52 000c 13D0     		beq	.L2
+  53              		.loc 1 66 39 discriminator 1
+  54 000e 7B68     		ldr	r3, [r7, #4]
+  55 0010 1B68     		ldr	r3, [r3]
+  56              		.loc 1 66 27 discriminator 1
+  57 0012 002B     		cmp	r3, #0
+  58 0014 0FD0     		beq	.L2
+  59              		.loc 1 66 68 discriminator 2
+  60 0016 7B68     		ldr	r3, [r7, #4]
+  61 0018 5B68     		ldr	r3, [r3, #4]
+  62              		.loc 1 66 56 discriminator 2
+  63 001a 002B     		cmp	r3, #0
+  64 001c 0BD0     		beq	.L2
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         || hmac_info->secret_len <= 0 || hmac_info->input_len <= 0 || hmac_info->digest_len <= 0)
+  65              		.loc 1 67 21
+  66 001e 7B68     		ldr	r3, [r7, #4]
+  67 0020 DB68     		ldr	r3, [r3, #12]
+  68              		.loc 1 67 9
+  69 0022 002B     		cmp	r3, #0
+  70 0024 07D0     		beq	.L2
+  71              		.loc 1 67 51 discriminator 1
+  72 0026 7B68     		ldr	r3, [r7, #4]
+  73 0028 1B69     		ldr	r3, [r3, #16]
+  74              		.loc 1 67 39 discriminator 1
+  75 002a 002B     		cmp	r3, #0
+  76 002c 03D0     		beq	.L2
+  77              		.loc 1 67 80 discriminator 2
+  78 002e 7B68     		ldr	r3, [r7, #4]
+  79 0030 5B69     		ldr	r3, [r3, #20]
+  80              		.loc 1 67 68 discriminator 2
+  81 0032 002B     		cmp	r3, #0
+  82 0034 01D1     		bne	.L3
+  83              	.L2:
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     {
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         return MBEDTLS_ERR_MD_BAD_INPUT_DATA;
+  84              		.loc 1 69 16
+  85 0036 2B4B     		ldr	r3, .L10
+  86 0038 50E0     		b	.L9
+  87              	.L3:
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     }
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     md_info = mbedtls_md_info_from_type(hmac_info->hmac_type);
+  88              		.loc 1 72 15
+  89 003a 7B68     		ldr	r3, [r7, #4]
+  90 003c 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
+  91 003e 1846     		mov	r0, r3
+  92 0040 FFF7FEFF 		bl	mbedtls_md_info_from_type
+  93 0044 F861     		str	r0, [r7, #28]
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     if (md_info == NULL || md_info->size > hmac_info->digest_len)
+  94              		.loc 1 73 8
+  95 0046 FB69     		ldr	r3, [r7, #28]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 4
+
+
+  96 0048 002B     		cmp	r3, #0
+  97 004a 06D0     		beq	.L5
+  98              		.loc 1 73 35 discriminator 1
+  99 004c FB69     		ldr	r3, [r7, #28]
+ 100 004e 9B68     		ldr	r3, [r3, #8]
+ 101 0050 1A46     		mov	r2, r3
+ 102              		.loc 1 73 53 discriminator 1
+ 103 0052 7B68     		ldr	r3, [r7, #4]
+ 104 0054 5B69     		ldr	r3, [r3, #20]
+ 105              		.loc 1 73 25 discriminator 1
+ 106 0056 9A42     		cmp	r2, r3
+ 107 0058 01D9     		bls	.L6
+ 108              	.L5:
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     {
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         return MBEDTLS_ERR_MD_BAD_INPUT_DATA;
+ 109              		.loc 1 75 16
+ 110 005a 224B     		ldr	r3, .L10
+ 111 005c 3EE0     		b	.L9
+ 112              	.L6:
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     }
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_init(&mbedtls_md_ctx);
+ 113              		.loc 1 78 5
+ 114 005e 07F10C03 		add	r3, r7, #12
+ 115 0062 1846     		mov	r0, r3
+ 116 0064 FFF7FEFF 		bl	mbedtls_md_init
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     memset(hmac_info->digest, 0x00, hmac_info->digest_len);
+ 117              		.loc 1 79 21
+ 118 0068 7B68     		ldr	r3, [r7, #4]
+ 119 006a 9868     		ldr	r0, [r3, #8]
+ 120              		.loc 1 79 5
+ 121 006c 7B68     		ldr	r3, [r7, #4]
+ 122 006e 5B69     		ldr	r3, [r3, #20]
+ 123 0070 1A46     		mov	r2, r3
+ 124 0072 0021     		movs	r1, #0
+ 125 0074 FFF7FEFF 		bl	memset
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     ret = mbedtls_md_setup(&mbedtls_md_ctx, md_info, 1);
+ 126              		.loc 1 81 11
+ 127 0078 07F10C03 		add	r3, r7, #12
+ 128 007c 0122     		movs	r2, #1
+ 129 007e F969     		ldr	r1, [r7, #28]
+ 130 0080 1846     		mov	r0, r3
+ 131 0082 FFF7FEFF 		bl	mbedtls_md_setup
+ 132 0086 B861     		str	r0, [r7, #24]
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     if (ret != 0)
+ 133              		.loc 1 82 8
+ 134 0088 BB69     		ldr	r3, [r7, #24]
+ 135 008a 002B     		cmp	r3, #0
+ 136 008c 06D0     		beq	.L7
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     {
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         printf("mbedtls_md_setup() returned -0x%04x\n", -ret);
+ 137              		.loc 1 84 9
+ 138 008e BB69     		ldr	r3, [r7, #24]
+ 139 0090 5B42     		rsbs	r3, r3, #0
+ 140 0092 1946     		mov	r1, r3
+ 141 0094 1448     		ldr	r0, .L10+4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 5
+
+
+ 142 0096 FFF7FEFF 		bl	printf
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 143              		.loc 1 85 9
+ 144 009a 19E0     		b	.L8
+ 145              	.L7:
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     }
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     (void)mbedtls_md_hmac_starts(&mbedtls_md_ctx, hmac_info->secret, hmac_info->secret_len);
+ 146              		.loc 1 88 11
+ 147 009c 7B68     		ldr	r3, [r7, #4]
+ 148 009e 1968     		ldr	r1, [r3]
+ 149 00a0 7B68     		ldr	r3, [r7, #4]
+ 150 00a2 DA68     		ldr	r2, [r3, #12]
+ 151 00a4 07F10C03 		add	r3, r7, #12
+ 152 00a8 1846     		mov	r0, r3
+ 153 00aa FFF7FEFF 		bl	mbedtls_md_hmac_starts
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     (void)mbedtls_md_hmac_update(&mbedtls_md_ctx, hmac_info->input, hmac_info->input_len);
+ 154              		.loc 1 89 11
+ 155 00ae 7B68     		ldr	r3, [r7, #4]
+ 156 00b0 5968     		ldr	r1, [r3, #4]
+ 157 00b2 7B68     		ldr	r3, [r7, #4]
+ 158 00b4 1A69     		ldr	r2, [r3, #16]
+ 159 00b6 07F10C03 		add	r3, r7, #12
+ 160 00ba 1846     		mov	r0, r3
+ 161 00bc FFF7FEFF 		bl	mbedtls_md_hmac_update
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     (void)mbedtls_md_hmac_finish(&mbedtls_md_ctx, hmac_info->digest);
+ 162              		.loc 1 90 11
+ 163 00c0 7B68     		ldr	r3, [r7, #4]
+ 164 00c2 9A68     		ldr	r2, [r3, #8]
+ 165 00c4 07F10C03 		add	r3, r7, #12
+ 166 00c8 1146     		mov	r1, r2
+ 167 00ca 1846     		mov	r0, r3
+ 168 00cc FFF7FEFF 		bl	mbedtls_md_hmac_finish
+ 169              	.L8:
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     exit:
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_free(&mbedtls_md_ctx);
+ 170              		.loc 1 93 5
+ 171 00d0 07F10C03 		add	r3, r7, #12
+ 172 00d4 1846     		mov	r0, r3
+ 173 00d6 FFF7FEFF 		bl	mbedtls_md_free
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     return ret;
+ 174              		.loc 1 95 12
+ 175 00da BB69     		ldr	r3, [r7, #24]
+ 176              	.L9:
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** }
+ 177              		.loc 1 96 1 discriminator 1
+ 178 00dc 1846     		mov	r0, r3
+ 179 00de 2037     		adds	r7, r7, #32
+ 180              	.LCFI3:
+ 181              		.cfi_def_cfa_offset 8
+ 182 00e0 BD46     		mov	sp, r7
+ 183              	.LCFI4:
+ 184              		.cfi_def_cfa_register 13
+ 185              		@ sp needed
+ 186 00e2 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 6
+
+
+ 187              	.L11:
+ 188              		.align	2
+ 189              	.L10:
+ 190 00e4 00AFFFFF 		.word	-20736
+ 191 00e8 00000000 		.word	.LC0
+ 192              		.cfi_endproc
+ 193              	.LFE13:
+ 195              		.section	.text.hmac_generate_passwd,"ax",%progbits
+ 196              		.align	1
+ 197              		.global	hmac_generate_passwd
+ 198              		.syntax unified
+ 199              		.thumb
+ 200              		.thumb_func
+ 201              		.fpu fpv4-sp-d16
+ 203              	hmac_generate_passwd:
+ 204              	.LFB14:
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** int hmac_generate_passwd(char *content, int contentlen,char *key,int keylen, unsigned char *buf,int
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** {
+ 205              		.loc 1 99 1
+ 206              		.cfi_startproc
+ 207              		@ args = 8, pretend = 0, frame = 48
+ 208              		@ frame_needed = 1, uses_anonymous_args = 0
+ 209 0000 80B5     		push	{r7, lr}
+ 210              	.LCFI5:
+ 211              		.cfi_def_cfa_offset 8
+ 212              		.cfi_offset 7, -8
+ 213              		.cfi_offset 14, -4
+ 214 0002 8CB0     		sub	sp, sp, #48
+ 215              	.LCFI6:
+ 216              		.cfi_def_cfa_offset 56
+ 217 0004 00AF     		add	r7, sp, #0
+ 218              	.LCFI7:
+ 219              		.cfi_def_cfa_register 7
+ 220 0006 F860     		str	r0, [r7, #12]
+ 221 0008 B960     		str	r1, [r7, #8]
+ 222 000a 7A60     		str	r2, [r7, #4]
+ 223 000c 3B60     		str	r3, [r7]
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     int ret = -1;
+ 224              		.loc 1 100 9
+ 225 000e 4FF0FF33 		mov	r3, #-1
+ 226 0012 FB62     		str	r3, [r7, #44]
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_hmac_t hmac;
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.secret = (uint8_t *)key;
+ 227              		.loc 1 102 17
+ 228 0014 7B68     		ldr	r3, [r7, #4]
+ 229 0016 3B61     		str	r3, [r7, #16]
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.secret_len = keylen;
+ 230              		.loc 1 103 21
+ 231 0018 3B68     		ldr	r3, [r7]
+ 232 001a FB61     		str	r3, [r7, #28]
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.input = (unsigned char *)content;
+ 233              		.loc 1 104 16
+ 234 001c FB68     		ldr	r3, [r7, #12]
+ 235 001e 7B61     		str	r3, [r7, #20]
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.input_len = contentlen;
+ 236              		.loc 1 105 20
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 7
+
+
+ 237 0020 BB68     		ldr	r3, [r7, #8]
+ 238 0022 3B62     		str	r3, [r7, #32]
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.digest =(unsigned char *) buf;
+ 239              		.loc 1 106 17
+ 240 0024 BB6B     		ldr	r3, [r7, #56]
+ 241 0026 BB61     		str	r3, [r7, #24]
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.digest_len = buflen;
+ 242              		.loc 1 107 21
+ 243 0028 FB6B     		ldr	r3, [r7, #60]
+ 244 002a 7B62     		str	r3, [r7, #36]
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.hmac_type = MBEDTLS_MD_SHA256;
+ 245              		.loc 1 108 20
+ 246 002c 0623     		movs	r3, #6
+ 247 002e 87F82830 		strb	r3, [r7, #40]
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     ret = mbedtls_hmac_calc(&hmac);
+ 248              		.loc 1 110 11
+ 249 0032 07F11003 		add	r3, r7, #16
+ 250 0036 1846     		mov	r0, r3
+ 251 0038 FFF7FEFF 		bl	mbedtls_hmac_calc
+ 252 003c F862     		str	r0, [r7, #44]
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     return ret;
+ 253              		.loc 1 112 12
+ 254 003e FB6A     		ldr	r3, [r7, #44]
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** }
+ 255              		.loc 1 113 1
+ 256 0040 1846     		mov	r0, r3
+ 257 0042 3037     		adds	r7, r7, #48
+ 258              	.LCFI8:
+ 259              		.cfi_def_cfa_offset 8
+ 260 0044 BD46     		mov	sp, r7
+ 261              	.LCFI9:
+ 262              		.cfi_def_cfa_register 13
+ 263              		@ sp needed
+ 264 0046 80BD     		pop	{r7, pc}
+ 265              		.cfi_endproc
+ 266              	.LFE14:
+ 268              		.text
+ 269              	.Letext0:
+ 270              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 271              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 272              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 273              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 274              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 275              		.file 7 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 276              		.file 8 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 277              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 278              		.file 10 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdlib.h"
+ 279              		.file 11 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\time.h"
+ 280              		.file 12 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 281              		.file 13 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 hmac.c
+C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s:18     .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s:22     .text.mbedtls_hmac_calc:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s:30     .text.mbedtls_hmac_calc:00000000 mbedtls_hmac_calc
+C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s:190    .text.mbedtls_hmac_calc:000000e4 $d
+C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s:196    .text.hmac_generate_passwd:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc2kQvRp.s:203    .text.hmac_generate_passwd:00000000 hmac_generate_passwd
+
+UNDEFINED SYMBOLS
+mbedtls_md_info_from_type
+mbedtls_md_init
+memset
+mbedtls_md_setup
+printf
+mbedtls_md_hmac_starts
+mbedtls_md_hmac_update
+mbedtls_md_hmac_finish
+mbedtls_md_free

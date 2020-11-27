@@ -1,0 +1,928 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"ssl_cache.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.mbedtls_ssl_cache_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	mbedtls_ssl_cache_init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	mbedtls_ssl_cache_init:
+  27              	.LFB13:
+  28              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** /*
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  SSL session cache implementation
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  SPDX-License-Identifier: Apache-2.0
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  not use this file except in compliance with the License.
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  You may obtain a copy of the License at
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  http://www.apache.org/licenses/LICENSE-2.0
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  Unless required by applicable law or agreed to in writing, software
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  See the License for the specific language governing permissions and
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  limitations under the License.
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  *  This file is part of mbed TLS (https://tls.mbed.org)
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  */
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** /*
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  * These session callbacks use a simple chained list
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  * to store and retrieve the session information.
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****  */
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if !defined(MBEDTLS_CONFIG_FILE)
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #include "mbedtls/config.h"
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #else
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #include MBEDTLS_CONFIG_FILE
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 2
+
+
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_SSL_CACHE_C)
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_PLATFORM_C)
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #include "mbedtls/platform.h"
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #else
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #include <stdlib.h>
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #define mbedtls_calloc    calloc
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #define mbedtls_free      free
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #include "mbedtls/ssl_cache.h"
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #include <string.h>
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** void mbedtls_ssl_cache_init( mbedtls_ssl_cache_context *cache )
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** {
+  29              		.loc 1 47 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 82B0     		sub	sp, sp, #8
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 16
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     memset( cache, 0, sizeof( mbedtls_ssl_cache_context ) );
+  45              		.loc 1 48 5
+  46 0008 0C22     		movs	r2, #12
+  47 000a 0021     		movs	r1, #0
+  48 000c 7868     		ldr	r0, [r7, #4]
+  49 000e FFF7FEFF 		bl	memset
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cache->timeout = MBEDTLS_SSL_CACHE_DEFAULT_TIMEOUT;
+  50              		.loc 1 50 20
+  51 0012 7B68     		ldr	r3, [r7, #4]
+  52 0014 044A     		ldr	r2, .L2
+  53 0016 5A60     		str	r2, [r3, #4]
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cache->max_entries = MBEDTLS_SSL_CACHE_DEFAULT_MAX_ENTRIES;
+  54              		.loc 1 51 24
+  55 0018 7B68     		ldr	r3, [r7, #4]
+  56 001a 3222     		movs	r2, #50
+  57 001c 9A60     		str	r2, [r3, #8]
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_THREADING_C)
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_mutex_init( &cache->mutex );
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** }
+  58              		.loc 1 56 1
+  59 001e 00BF     		nop
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 3
+
+
+  60 0020 0837     		adds	r7, r7, #8
+  61              	.LCFI3:
+  62              		.cfi_def_cfa_offset 8
+  63 0022 BD46     		mov	sp, r7
+  64              	.LCFI4:
+  65              		.cfi_def_cfa_register 13
+  66              		@ sp needed
+  67 0024 80BD     		pop	{r7, pc}
+  68              	.L3:
+  69 0026 00BF     		.align	2
+  70              	.L2:
+  71 0028 80510100 		.word	86400
+  72              		.cfi_endproc
+  73              	.LFE13:
+  75              		.section	.text.mbedtls_ssl_cache_get,"ax",%progbits
+  76              		.align	1
+  77              		.global	mbedtls_ssl_cache_get
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	mbedtls_ssl_cache_get:
+  84              	.LFB14:
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** int mbedtls_ssl_cache_get( void *data, mbedtls_ssl_session *session )
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** {
+  85              		.loc 1 59 1
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 24
+  88              		@ frame_needed = 1, uses_anonymous_args = 0
+  89 0000 80B5     		push	{r7, lr}
+  90              	.LCFI5:
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 7, -8
+  93              		.cfi_offset 14, -4
+  94 0002 86B0     		sub	sp, sp, #24
+  95              	.LCFI6:
+  96              		.cfi_def_cfa_offset 32
+  97 0004 00AF     		add	r7, sp, #0
+  98              	.LCFI7:
+  99              		.cfi_def_cfa_register 7
+ 100 0006 7860     		str	r0, [r7, #4]
+ 101 0008 3960     		str	r1, [r7]
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     int ret = 1;
+ 102              		.loc 1 60 9
+ 103 000a 0123     		movs	r3, #1
+ 104 000c 7B61     		str	r3, [r7, #20]
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_time_t t = mbedtls_time( NULL );
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_ssl_cache_context *cache = (mbedtls_ssl_cache_context *) data;
+ 105              		.loc 1 64 32
+ 106 000e 7B68     		ldr	r3, [r7, #4]
+ 107 0010 FB60     		str	r3, [r7, #12]
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_ssl_cache_entry *cur, *entry;
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_THREADING_C)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 4
+
+
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( mbedtls_mutex_lock( &cache->mutex ) != 0 )
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         return( 1 );
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cur = cache->chain;
+ 108              		.loc 1 72 9
+ 109 0012 FB68     		ldr	r3, [r7, #12]
+ 110 0014 1B68     		ldr	r3, [r3]
+ 111 0016 3B61     		str	r3, [r7, #16]
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     entry = NULL;
+ 112              		.loc 1 73 11
+ 113 0018 0023     		movs	r3, #0
+ 114 001a BB60     		str	r3, [r7, #8]
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     while( cur != NULL )
+ 115              		.loc 1 75 10
+ 116 001c 36E0     		b	.L5
+ 117              	.L10:
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         entry = cur;
+ 118              		.loc 1 77 15
+ 119 001e 3B69     		ldr	r3, [r7, #16]
+ 120 0020 BB60     		str	r3, [r7, #8]
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         cur = cur->next;
+ 121              		.loc 1 78 13
+ 122 0022 3B69     		ldr	r3, [r7, #16]
+ 123 0024 5B6E     		ldr	r3, [r3, #100]
+ 124 0026 3B61     		str	r3, [r7, #16]
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( cache->timeout != 0 &&
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             (int) ( t - entry->timestamp ) > cache->timeout )
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             continue;
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( session->ciphersuite != entry->session.ciphersuite ||
+ 125              		.loc 1 86 20
+ 126 0028 3B68     		ldr	r3, [r7]
+ 127 002a 1A68     		ldr	r2, [r3]
+ 128              		.loc 1 86 51
+ 129 002c BB68     		ldr	r3, [r7, #8]
+ 130 002e 1B68     		ldr	r3, [r3]
+ 131              		.loc 1 86 11
+ 132 0030 9A42     		cmp	r2, r3
+ 133 0032 2BD1     		bne	.L5
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             session->compression != entry->session.compression ||
+ 134              		.loc 1 87 20 discriminator 1
+ 135 0034 3B68     		ldr	r3, [r7]
+ 136 0036 5A68     		ldr	r2, [r3, #4]
+ 137              		.loc 1 87 51 discriminator 1
+ 138 0038 BB68     		ldr	r3, [r7, #8]
+ 139 003a 5B68     		ldr	r3, [r3, #4]
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             session->compression != entry->session.compression ||
+ 140              		.loc 1 86 64 discriminator 1
+ 141 003c 9A42     		cmp	r2, r3
+ 142 003e 25D1     		bne	.L5
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             session->id_len != entry->session.id_len )
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 5
+
+
+ 143              		.loc 1 88 20
+ 144 0040 3B68     		ldr	r3, [r7]
+ 145 0042 9A68     		ldr	r2, [r3, #8]
+ 146              		.loc 1 88 46
+ 147 0044 BB68     		ldr	r3, [r7, #8]
+ 148 0046 9B68     		ldr	r3, [r3, #8]
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             session->compression != entry->session.compression ||
+ 149              		.loc 1 87 64
+ 150 0048 9A42     		cmp	r2, r3
+ 151 004a 00D0     		beq	.L7
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             continue;
+ 152              		.loc 1 89 13
+ 153 004c 1EE0     		b	.L5
+ 154              	.L7:
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( memcmp( session->id, entry->session.id,
+ 155              		.loc 1 91 28
+ 156 004e 3B68     		ldr	r3, [r7]
+ 157 0050 03F10C00 		add	r0, r3, #12
+ 158              		.loc 1 91 48
+ 159 0054 BB68     		ldr	r3, [r7, #8]
+ 160 0056 03F10C01 		add	r1, r3, #12
+ 161              		.loc 1 91 13
+ 162 005a BB68     		ldr	r3, [r7, #8]
+ 163 005c 9B68     		ldr	r3, [r3, #8]
+ 164 005e 1A46     		mov	r2, r3
+ 165 0060 FFF7FEFF 		bl	memcmp
+ 166 0064 0346     		mov	r3, r0
+ 167              		.loc 1 91 11
+ 168 0066 002B     		cmp	r3, #0
+ 169 0068 00D0     		beq	.L8
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                     entry->session.id_len ) != 0 )
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             continue;
+ 170              		.loc 1 93 13
+ 171 006a 0FE0     		b	.L5
+ 172              	.L8:
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         memcpy( session->master, entry->session.master, 48 );
+ 173              		.loc 1 95 24
+ 174 006c 3B68     		ldr	r3, [r7]
+ 175 006e 03F12C00 		add	r0, r3, #44
+ 176              		.loc 1 95 48
+ 177 0072 BB68     		ldr	r3, [r7, #8]
+ 178 0074 2C33     		adds	r3, r3, #44
+ 179              		.loc 1 95 9
+ 180 0076 3022     		movs	r2, #48
+ 181 0078 1946     		mov	r1, r3
+ 182 007a FFF7FEFF 		bl	memcpy
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         session->verify_result = entry->session.verify_result;
+ 183              		.loc 1 97 48
+ 184 007e BB68     		ldr	r3, [r7, #8]
+ 185 0080 DA6D     		ldr	r2, [r3, #92]
+ 186              		.loc 1 97 32
+ 187 0082 3B68     		ldr	r3, [r7]
+ 188 0084 DA65     		str	r2, [r3, #92]
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 6
+
+
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_X509_CRT_PARSE_C)
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         /*
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****          * Restore peer certificate (without rest of the original chain)
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****          */
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( entry->peer_cert.p != NULL )
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         {
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             if( ( session->peer_cert = mbedtls_calloc( 1,
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                                  sizeof(mbedtls_x509_crt) ) ) == NULL )
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             {
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 ret = 1;
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 goto exit;
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             }
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             mbedtls_x509_crt_init( session->peer_cert );
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             if( mbedtls_x509_crt_parse( session->peer_cert, entry->peer_cert.p,
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                                 entry->peer_cert.len ) != 0 )
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             {
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 mbedtls_free( session->peer_cert );
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 session->peer_cert = NULL;
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 ret = 1;
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 goto exit;
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             }
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         }
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif /* MBEDTLS_X509_CRT_PARSE_C */
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         ret = 0;
+ 189              		.loc 1 124 13
+ 190 0086 0023     		movs	r3, #0
+ 191 0088 7B61     		str	r3, [r7, #20]
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         goto exit;
+ 192              		.loc 1 125 9
+ 193 008a 03E0     		b	.L9
+ 194              	.L5:
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ 195              		.loc 1 75 10
+ 196 008c 3B69     		ldr	r3, [r7, #16]
+ 197 008e 002B     		cmp	r3, #0
+ 198 0090 C5D1     		bne	.L10
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     }
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** exit:
+ 199              		.loc 1 128 1
+ 200 0092 00BF     		nop
+ 201              	.L9:
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_THREADING_C)
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( mbedtls_mutex_unlock( &cache->mutex ) != 0 )
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         ret = 1;
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     return( ret );
+ 202              		.loc 1 134 11
+ 203 0094 7B69     		ldr	r3, [r7, #20]
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** }
+ 204              		.loc 1 135 1
+ 205 0096 1846     		mov	r0, r3
+ 206 0098 1837     		adds	r7, r7, #24
+ 207              	.LCFI8:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 7
+
+
+ 208              		.cfi_def_cfa_offset 8
+ 209 009a BD46     		mov	sp, r7
+ 210              	.LCFI9:
+ 211              		.cfi_def_cfa_register 13
+ 212              		@ sp needed
+ 213 009c 80BD     		pop	{r7, pc}
+ 214              		.cfi_endproc
+ 215              	.LFE14:
+ 217              		.section	.text.mbedtls_ssl_cache_set,"ax",%progbits
+ 218              		.align	1
+ 219              		.global	mbedtls_ssl_cache_set
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 223              		.fpu fpv4-sp-d16
+ 225              	mbedtls_ssl_cache_set:
+ 226              	.LFB15:
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** int mbedtls_ssl_cache_set( void *data, const mbedtls_ssl_session *session )
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** {
+ 227              		.loc 1 138 1
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 32
+ 230              		@ frame_needed = 1, uses_anonymous_args = 0
+ 231 0000 80B5     		push	{r7, lr}
+ 232              	.LCFI10:
+ 233              		.cfi_def_cfa_offset 8
+ 234              		.cfi_offset 7, -8
+ 235              		.cfi_offset 14, -4
+ 236 0002 88B0     		sub	sp, sp, #32
+ 237              	.LCFI11:
+ 238              		.cfi_def_cfa_offset 40
+ 239 0004 00AF     		add	r7, sp, #0
+ 240              	.LCFI12:
+ 241              		.cfi_def_cfa_register 7
+ 242 0006 7860     		str	r0, [r7, #4]
+ 243 0008 3960     		str	r1, [r7]
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     int ret = 1;
+ 244              		.loc 1 139 9
+ 245 000a 0123     		movs	r3, #1
+ 246 000c FB61     		str	r3, [r7, #28]
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_time_t t = mbedtls_time( NULL ), oldest = 0;
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_ssl_cache_entry *old = NULL;
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_ssl_cache_context *cache = (mbedtls_ssl_cache_context *) data;
+ 247              		.loc 1 144 32
+ 248 000e 7B68     		ldr	r3, [r7, #4]
+ 249 0010 FB60     		str	r3, [r7, #12]
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_ssl_cache_entry *cur, *prv;
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     int count = 0;
+ 250              		.loc 1 146 9
+ 251 0012 0023     		movs	r3, #0
+ 252 0014 3B61     		str	r3, [r7, #16]
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_THREADING_C)
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( ( ret = mbedtls_mutex_lock( &cache->mutex ) ) != 0 )
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 8
+
+
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         return( ret );
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cur = cache->chain;
+ 253              		.loc 1 153 9
+ 254 0016 FB68     		ldr	r3, [r7, #12]
+ 255 0018 1B68     		ldr	r3, [r3]
+ 256 001a BB61     		str	r3, [r7, #24]
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     prv = NULL;
+ 257              		.loc 1 154 9
+ 258 001c 0023     		movs	r3, #0
+ 259 001e 7B61     		str	r3, [r7, #20]
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     while( cur != NULL )
+ 260              		.loc 1 156 10
+ 261 0020 15E0     		b	.L13
+ 262              	.L16:
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         count++;
+ 263              		.loc 1 158 14
+ 264 0022 3B69     		ldr	r3, [r7, #16]
+ 265 0024 0133     		adds	r3, r3, #1
+ 266 0026 3B61     		str	r3, [r7, #16]
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( cache->timeout != 0 &&
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             (int) ( t - cur->timestamp ) > cache->timeout )
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         {
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             cur->timestamp = t;
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             break; /* expired, reuse this slot, update timestamp */
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         }
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( memcmp( session->id, cur->session.id, cur->session.id_len ) == 0 )
+ 267              		.loc 1 169 28
+ 268 0028 3B68     		ldr	r3, [r7]
+ 269 002a 03F10C00 		add	r0, r3, #12
+ 270              		.loc 1 169 46
+ 271 002e BB69     		ldr	r3, [r7, #24]
+ 272 0030 03F10C01 		add	r1, r3, #12
+ 273              		.loc 1 169 13
+ 274 0034 BB69     		ldr	r3, [r7, #24]
+ 275 0036 9B68     		ldr	r3, [r3, #8]
+ 276 0038 1A46     		mov	r2, r3
+ 277 003a FFF7FEFF 		bl	memcmp
+ 278 003e 0346     		mov	r3, r0
+ 279              		.loc 1 169 11
+ 280 0040 002B     		cmp	r3, #0
+ 281 0042 08D0     		beq	.L24
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             break; /* client reconnected, keep timestamp for session id */
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( oldest == 0 || cur->timestamp < oldest )
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         {
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             oldest = cur->timestamp;
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             old = cur;
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 9
+
+
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         prv = cur;
+ 282              		.loc 1 180 13
+ 283 0044 BB69     		ldr	r3, [r7, #24]
+ 284 0046 7B61     		str	r3, [r7, #20]
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         cur = cur->next;
+ 285              		.loc 1 181 13
+ 286 0048 BB69     		ldr	r3, [r7, #24]
+ 287 004a 5B6E     		ldr	r3, [r3, #100]
+ 288 004c BB61     		str	r3, [r7, #24]
+ 289              	.L13:
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ 290              		.loc 1 156 10
+ 291 004e BB69     		ldr	r3, [r7, #24]
+ 292 0050 002B     		cmp	r3, #0
+ 293 0052 E6D1     		bne	.L16
+ 294 0054 00E0     		b	.L15
+ 295              	.L24:
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             break; /* client reconnected, keep timestamp for session id */
+ 296              		.loc 1 170 13
+ 297 0056 00BF     		nop
+ 298              	.L15:
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     }
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( cur == NULL )
+ 299              		.loc 1 184 7
+ 300 0058 BB69     		ldr	r3, [r7, #24]
+ 301 005a 002B     		cmp	r3, #0
+ 302 005c 2ED1     		bne	.L17
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         /*
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****          * Reuse oldest entry if max_entries reached
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****          */
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( count >= cache->max_entries )
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         {
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             if( old == NULL )
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             {
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 ret = 1;
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 goto exit;
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             }
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             cur = old;
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         }
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #else /* MBEDTLS_HAVE_TIME */
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         /*
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****          * Reuse first entry in chain if max_entries reached,
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****          * but move to last place
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****          */
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( count >= cache->max_entries )
+ 303              		.loc 1 205 27
+ 304 005e FB68     		ldr	r3, [r7, #12]
+ 305 0060 9B68     		ldr	r3, [r3, #8]
+ 306              		.loc 1 205 11
+ 307 0062 3A69     		ldr	r2, [r7, #16]
+ 308 0064 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 10
+
+
+ 309 0066 14DB     		blt	.L18
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         {
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             if( cache->chain == NULL )
+ 310              		.loc 1 207 22
+ 311 0068 FB68     		ldr	r3, [r7, #12]
+ 312 006a 1B68     		ldr	r3, [r3]
+ 313              		.loc 1 207 15
+ 314 006c 002B     		cmp	r3, #0
+ 315 006e 02D1     		bne	.L19
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             {
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 ret = 1;
+ 316              		.loc 1 209 21
+ 317 0070 0123     		movs	r3, #1
+ 318 0072 FB61     		str	r3, [r7, #28]
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 goto exit;
+ 319              		.loc 1 210 17
+ 320 0074 2AE0     		b	.L20
+ 321              	.L19:
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             }
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             cur = cache->chain;
+ 322              		.loc 1 213 17
+ 323 0076 FB68     		ldr	r3, [r7, #12]
+ 324 0078 1B68     		ldr	r3, [r3]
+ 325 007a BB61     		str	r3, [r7, #24]
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             cache->chain = cur->next;
+ 326              		.loc 1 214 31
+ 327 007c BB69     		ldr	r3, [r7, #24]
+ 328 007e 5A6E     		ldr	r2, [r3, #100]
+ 329              		.loc 1 214 26
+ 330 0080 FB68     		ldr	r3, [r7, #12]
+ 331 0082 1A60     		str	r2, [r3]
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             cur->next = NULL;
+ 332              		.loc 1 215 23
+ 333 0084 BB69     		ldr	r3, [r7, #24]
+ 334 0086 0022     		movs	r2, #0
+ 335 0088 5A66     		str	r2, [r3, #100]
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             prv->next = cur;
+ 336              		.loc 1 216 23
+ 337 008a 7B69     		ldr	r3, [r7, #20]
+ 338 008c BA69     		ldr	r2, [r7, #24]
+ 339 008e 5A66     		str	r2, [r3, #100]
+ 340 0090 14E0     		b	.L17
+ 341              	.L18:
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         }
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif /* MBEDTLS_HAVE_TIME */
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         else
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         {
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             /*
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****              * max_entries not reached, create new entry
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****              */
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             cur = mbedtls_calloc( 1, sizeof(mbedtls_ssl_cache_entry) );
+ 342              		.loc 1 224 19
+ 343 0092 6821     		movs	r1, #104
+ 344 0094 0120     		movs	r0, #1
+ 345 0096 FFF7FEFF 		bl	mbedtls_calloc
+ 346 009a B861     		str	r0, [r7, #24]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 11
+
+
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             if( cur == NULL )
+ 347              		.loc 1 225 15
+ 348 009c BB69     		ldr	r3, [r7, #24]
+ 349 009e 002B     		cmp	r3, #0
+ 350 00a0 02D1     		bne	.L21
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             {
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 ret = 1;
+ 351              		.loc 1 227 21
+ 352 00a2 0123     		movs	r3, #1
+ 353 00a4 FB61     		str	r3, [r7, #28]
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 goto exit;
+ 354              		.loc 1 228 17
+ 355 00a6 11E0     		b	.L20
+ 356              	.L21:
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             }
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             if( prv == NULL )
+ 357              		.loc 1 231 15
+ 358 00a8 7B69     		ldr	r3, [r7, #20]
+ 359 00aa 002B     		cmp	r3, #0
+ 360 00ac 03D1     		bne	.L22
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 cache->chain = cur;
+ 361              		.loc 1 232 30
+ 362 00ae FB68     		ldr	r3, [r7, #12]
+ 363 00b0 BA69     		ldr	r2, [r7, #24]
+ 364 00b2 1A60     		str	r2, [r3]
+ 365 00b4 02E0     		b	.L17
+ 366              	.L22:
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             else
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 prv->next = cur;
+ 367              		.loc 1 234 27
+ 368 00b6 7B69     		ldr	r3, [r7, #20]
+ 369 00b8 BA69     		ldr	r2, [r7, #24]
+ 370 00ba 5A66     		str	r2, [r3, #100]
+ 371              	.L17:
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         }
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         cur->timestamp = t;
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     }
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     memcpy( &cur->session, session, sizeof( mbedtls_ssl_session ) );
+ 372              		.loc 1 242 13
+ 373 00bc BB69     		ldr	r3, [r7, #24]
+ 374              		.loc 1 242 5
+ 375 00be 6422     		movs	r2, #100
+ 376 00c0 3968     		ldr	r1, [r7]
+ 377 00c2 1846     		mov	r0, r3
+ 378 00c4 FFF7FEFF 		bl	memcpy
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_X509_CRT_PARSE_C)
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     /*
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****      * If we're reusing an entry, free its certificate first
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****      */
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( cur->peer_cert.p != NULL )
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 12
+
+
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         mbedtls_free( cur->peer_cert.p );
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         memset( &cur->peer_cert, 0, sizeof(mbedtls_x509_buf) );
+ 252:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     }
+ 253:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 254:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     /*
+ 255:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****      * Store peer certificate
+ 256:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****      */
+ 257:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( session->peer_cert != NULL )
+ 258:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ 259:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         cur->peer_cert.p = mbedtls_calloc( 1, session->peer_cert->raw.len );
+ 260:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         if( cur->peer_cert.p == NULL )
+ 261:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         {
+ 262:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             ret = 1;
+ 263:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****             goto exit;
+ 264:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         }
+ 265:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 266:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         memcpy( cur->peer_cert.p, session->peer_cert->raw.p,
+ 267:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****                 session->peer_cert->raw.len );
+ 268:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         cur->peer_cert.len = session->peer_cert->raw.len;
+ 269:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 270:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         cur->session.peer_cert = NULL;
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     }
+ 272:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif /* MBEDTLS_X509_CRT_PARSE_C */
+ 273:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 274:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     ret = 0;
+ 379              		.loc 1 274 9
+ 380 00c8 0023     		movs	r3, #0
+ 381 00ca FB61     		str	r3, [r7, #28]
+ 382              	.L20:
+ 275:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 276:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** exit:
+ 277:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_THREADING_C)
+ 278:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( mbedtls_mutex_unlock( &cache->mutex ) != 0 )
+ 279:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         ret = 1;
+ 280:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 281:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 282:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     return( ret );
+ 383              		.loc 1 282 11
+ 384 00cc FB69     		ldr	r3, [r7, #28]
+ 283:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** }
+ 385              		.loc 1 283 1
+ 386 00ce 1846     		mov	r0, r3
+ 387 00d0 2037     		adds	r7, r7, #32
+ 388              	.LCFI13:
+ 389              		.cfi_def_cfa_offset 8
+ 390 00d2 BD46     		mov	sp, r7
+ 391              	.LCFI14:
+ 392              		.cfi_def_cfa_register 13
+ 393              		@ sp needed
+ 394 00d4 80BD     		pop	{r7, pc}
+ 395              		.cfi_endproc
+ 396              	.LFE15:
+ 398              		.section	.text.mbedtls_ssl_cache_set_max_entries,"ax",%progbits
+ 399              		.align	1
+ 400              		.global	mbedtls_ssl_cache_set_max_entries
+ 401              		.syntax unified
+ 402              		.thumb
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 13
+
+
+ 403              		.thumb_func
+ 404              		.fpu fpv4-sp-d16
+ 406              	mbedtls_ssl_cache_set_max_entries:
+ 407              	.LFB16:
+ 284:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 285:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_HAVE_TIME)
+ 286:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** void mbedtls_ssl_cache_set_timeout( mbedtls_ssl_cache_context *cache, int timeout )
+ 287:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** {
+ 288:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( timeout < 0 ) timeout = 0;
+ 289:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 290:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cache->timeout = timeout;
+ 291:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** }
+ 292:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif /* MBEDTLS_HAVE_TIME */
+ 293:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 294:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** void mbedtls_ssl_cache_set_max_entries( mbedtls_ssl_cache_context *cache, int max )
+ 295:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** {
+ 408              		.loc 1 295 1
+ 409              		.cfi_startproc
+ 410              		@ args = 0, pretend = 0, frame = 8
+ 411              		@ frame_needed = 1, uses_anonymous_args = 0
+ 412              		@ link register save eliminated.
+ 413 0000 80B4     		push	{r7}
+ 414              	.LCFI15:
+ 415              		.cfi_def_cfa_offset 4
+ 416              		.cfi_offset 7, -4
+ 417 0002 83B0     		sub	sp, sp, #12
+ 418              	.LCFI16:
+ 419              		.cfi_def_cfa_offset 16
+ 420 0004 00AF     		add	r7, sp, #0
+ 421              	.LCFI17:
+ 422              		.cfi_def_cfa_register 7
+ 423 0006 7860     		str	r0, [r7, #4]
+ 424 0008 3960     		str	r1, [r7]
+ 296:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     if( max < 0 ) max = 0;
+ 425              		.loc 1 296 7
+ 426 000a 3B68     		ldr	r3, [r7]
+ 427 000c 002B     		cmp	r3, #0
+ 428 000e 01DA     		bge	.L26
+ 429              		.loc 1 296 23 discriminator 1
+ 430 0010 0023     		movs	r3, #0
+ 431 0012 3B60     		str	r3, [r7]
+ 432              	.L26:
+ 297:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 298:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cache->max_entries = max;
+ 433              		.loc 1 298 24
+ 434 0014 7B68     		ldr	r3, [r7, #4]
+ 435 0016 3A68     		ldr	r2, [r7]
+ 436 0018 9A60     		str	r2, [r3, #8]
+ 299:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** }
+ 437              		.loc 1 299 1
+ 438 001a 00BF     		nop
+ 439 001c 0C37     		adds	r7, r7, #12
+ 440              	.LCFI18:
+ 441              		.cfi_def_cfa_offset 4
+ 442 001e BD46     		mov	sp, r7
+ 443              	.LCFI19:
+ 444              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 14
+
+
+ 445              		@ sp needed
+ 446 0020 5DF8047B 		ldr	r7, [sp], #4
+ 447              	.LCFI20:
+ 448              		.cfi_restore 7
+ 449              		.cfi_def_cfa_offset 0
+ 450 0024 7047     		bx	lr
+ 451              		.cfi_endproc
+ 452              	.LFE16:
+ 454              		.section	.text.mbedtls_ssl_cache_free,"ax",%progbits
+ 455              		.align	1
+ 456              		.global	mbedtls_ssl_cache_free
+ 457              		.syntax unified
+ 458              		.thumb
+ 459              		.thumb_func
+ 460              		.fpu fpv4-sp-d16
+ 462              	mbedtls_ssl_cache_free:
+ 463              	.LFB17:
+ 300:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 301:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** void mbedtls_ssl_cache_free( mbedtls_ssl_cache_context *cache )
+ 302:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** {
+ 464              		.loc 1 302 1
+ 465              		.cfi_startproc
+ 466              		@ args = 0, pretend = 0, frame = 16
+ 467              		@ frame_needed = 1, uses_anonymous_args = 0
+ 468 0000 80B5     		push	{r7, lr}
+ 469              	.LCFI21:
+ 470              		.cfi_def_cfa_offset 8
+ 471              		.cfi_offset 7, -8
+ 472              		.cfi_offset 14, -4
+ 473 0002 84B0     		sub	sp, sp, #16
+ 474              	.LCFI22:
+ 475              		.cfi_def_cfa_offset 24
+ 476 0004 00AF     		add	r7, sp, #0
+ 477              	.LCFI23:
+ 478              		.cfi_def_cfa_register 7
+ 479 0006 7860     		str	r0, [r7, #4]
+ 303:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_ssl_cache_entry *cur, *prv;
+ 304:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 305:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cur = cache->chain;
+ 480              		.loc 1 305 9
+ 481 0008 7B68     		ldr	r3, [r7, #4]
+ 482 000a 1B68     		ldr	r3, [r3]
+ 483 000c FB60     		str	r3, [r7, #12]
+ 306:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 307:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     while( cur != NULL )
+ 484              		.loc 1 307 10
+ 485 000e 0BE0     		b	.L28
+ 486              	.L29:
+ 308:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ 309:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         prv = cur;
+ 487              		.loc 1 309 13
+ 488 0010 FB68     		ldr	r3, [r7, #12]
+ 489 0012 BB60     		str	r3, [r7, #8]
+ 310:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         cur = cur->next;
+ 490              		.loc 1 310 13
+ 491 0014 FB68     		ldr	r3, [r7, #12]
+ 492 0016 5B6E     		ldr	r3, [r3, #100]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 15
+
+
+ 493 0018 FB60     		str	r3, [r7, #12]
+ 311:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 312:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         mbedtls_ssl_session_free( &prv->session );
+ 494              		.loc 1 312 9
+ 495 001a BB68     		ldr	r3, [r7, #8]
+ 496 001c 1846     		mov	r0, r3
+ 497 001e FFF7FEFF 		bl	mbedtls_ssl_session_free
+ 313:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 314:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_X509_CRT_PARSE_C)
+ 315:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         mbedtls_free( prv->peer_cert.p );
+ 316:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif /* MBEDTLS_X509_CRT_PARSE_C */
+ 317:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 318:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****         mbedtls_free( prv );
+ 498              		.loc 1 318 9
+ 499 0022 B868     		ldr	r0, [r7, #8]
+ 500 0024 FFF7FEFF 		bl	mbedtls_free
+ 501              	.L28:
+ 307:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     {
+ 502              		.loc 1 307 10
+ 503 0028 FB68     		ldr	r3, [r7, #12]
+ 504 002a 002B     		cmp	r3, #0
+ 505 002c F0D1     		bne	.L29
+ 319:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     }
+ 320:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** 
+ 321:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #if defined(MBEDTLS_THREADING_C)
+ 322:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     mbedtls_mutex_free( &cache->mutex );
+ 323:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** #endif
+ 324:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c ****     cache->chain = NULL;
+ 506              		.loc 1 324 18
+ 507 002e 7B68     		ldr	r3, [r7, #4]
+ 508 0030 0022     		movs	r2, #0
+ 509 0032 1A60     		str	r2, [r3]
+ 325:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\ssl_cache.c **** }
+ 510              		.loc 1 325 1
+ 511 0034 00BF     		nop
+ 512 0036 1037     		adds	r7, r7, #16
+ 513              	.LCFI24:
+ 514              		.cfi_def_cfa_offset 8
+ 515 0038 BD46     		mov	sp, r7
+ 516              	.LCFI25:
+ 517              		.cfi_def_cfa_register 13
+ 518              		@ sp needed
+ 519 003a 80BD     		pop	{r7, pc}
+ 520              		.cfi_endproc
+ 521              	.LFE17:
+ 523              		.text
+ 524              	.Letext0:
+ 525              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 526              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 527              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 528              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 529              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 530              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 531              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdlib.h"
+ 532              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\time.h"
+ 533              		.file 10 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 534              		.file 11 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 16
+
+
+ 535              		.file 12 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ssl_cache.c
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:18     .text.mbedtls_ssl_cache_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:26     .text.mbedtls_ssl_cache_init:00000000 mbedtls_ssl_cache_init
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:71     .text.mbedtls_ssl_cache_init:00000028 $d
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:76     .text.mbedtls_ssl_cache_get:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:83     .text.mbedtls_ssl_cache_get:00000000 mbedtls_ssl_cache_get
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:218    .text.mbedtls_ssl_cache_set:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:225    .text.mbedtls_ssl_cache_set:00000000 mbedtls_ssl_cache_set
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:399    .text.mbedtls_ssl_cache_set_max_entries:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:406    .text.mbedtls_ssl_cache_set_max_entries:00000000 mbedtls_ssl_cache_set_max_entries
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:455    .text.mbedtls_ssl_cache_free:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccwOtW41.s:462    .text.mbedtls_ssl_cache_free:00000000 mbedtls_ssl_cache_free
+
+UNDEFINED SYMBOLS
+memset
+memcmp
+memcpy
+mbedtls_calloc
+mbedtls_ssl_session_free
+mbedtls_free

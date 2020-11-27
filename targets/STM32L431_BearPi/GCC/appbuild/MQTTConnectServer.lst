@@ -1,0 +1,785 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"MQTTConnectServer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata
+  18              		.align	2
+  19              	.LC0:
+  20 0000 4D514973 		.ascii	"MQIsdp\000"
+  20      647000
+  21 0007 00       		.align	2
+  22              	.LC1:
+  23 0008 4D515454 		.ascii	"MQTT\000"
+  23      00
+  24              		.section	.text.MQTTPacket_checkVersion,"ax",%progbits
+  25              		.align	1
+  26              		.global	MQTTPacket_checkVersion
+  27              		.arch armv7e-m
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu fpv4-sp-d16
+  33              	MQTTPacket_checkVersion:
+  34              	.LFB3:
+  35              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** /*******************************************************************************
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  * Copyright (c) 2014 IBM Corp.
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  *
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  * All rights reserved. This program and the accompanying materials
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  * are made available under the terms of the Eclipse Public License v1.0
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  * and Eclipse Distribution License v1.0 which accompany this distribution.
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  *
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  * The Eclipse Public License is available at
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  *    http://www.eclipse.org/legal/epl-v10.html
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  * and the Eclipse Distribution License is available at
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  *   http://www.eclipse.org/org/documents/edl-v10.php.
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  *
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  * Contributors:
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  *    Ian Craggs - initial API and implementation and/or initial documentation
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****  *******************************************************************************/
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** #include "StackTrace.h"
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** #include "MQTTPacket.h"
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** #include <string.h>
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** #define min(a, b) ((a < b) ? a : b)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 2
+
+
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** /**
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * Validates MQTT protocol name and version combinations
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param protocol the MQTT protocol name as an MQTTString
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param version the MQTT protocol version number, as in the connect packet
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @return correct MQTT combination?  1 is true, 0 is false
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   */
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** int MQTTPacket_checkVersion(MQTTString* protocol, int version)
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** {
+  36              		.loc 1 31 1
+  37              		.cfi_startproc
+  38              		@ args = 0, pretend = 0, frame = 16
+  39              		@ frame_needed = 1, uses_anonymous_args = 0
+  40 0000 80B5     		push	{r7, lr}
+  41              	.LCFI0:
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 7, -8
+  44              		.cfi_offset 14, -4
+  45 0002 84B0     		sub	sp, sp, #16
+  46              	.LCFI1:
+  47              		.cfi_def_cfa_offset 24
+  48 0004 00AF     		add	r7, sp, #0
+  49              	.LCFI2:
+  50              		.cfi_def_cfa_register 7
+  51 0006 7860     		str	r0, [r7, #4]
+  52 0008 3960     		str	r1, [r7]
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	int rc = 0;
+  53              		.loc 1 32 6
+  54 000a 0023     		movs	r3, #0
+  55 000c FB60     		str	r3, [r7, #12]
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	if (version == 3 && memcmp(protocol->lenstring.data, "MQIsdp",
+  56              		.loc 1 34 5
+  57 000e 3B68     		ldr	r3, [r7]
+  58 0010 032B     		cmp	r3, #3
+  59 0012 10D1     		bne	.L2
+  60              		.loc 1 34 48 discriminator 1
+  61 0014 7B68     		ldr	r3, [r7, #4]
+  62 0016 9868     		ldr	r0, [r3, #8]
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			min(6, protocol->lenstring.len)) == 0)
+  63              		.loc 1 35 4 discriminator 1
+  64 0018 7B68     		ldr	r3, [r7, #4]
+  65 001a 5B68     		ldr	r3, [r3, #4]
+  66 001c 062B     		cmp	r3, #6
+  67 001e A8BF     		it	ge
+  68 0020 0623     		movge	r3, #6
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			min(6, protocol->lenstring.len)) == 0)
+  69              		.loc 1 34 22 discriminator 1
+  70 0022 1A46     		mov	r2, r3
+  71 0024 1049     		ldr	r1, .L5
+  72 0026 FFF7FEFF 		bl	memcmp
+  73 002a 0346     		mov	r3, r0
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			min(6, protocol->lenstring.len)) == 0)
+  74              		.loc 1 34 19 discriminator 1
+  75 002c 002B     		cmp	r3, #0
+  76 002e 02D1     		bne	.L2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 3
+
+
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		rc = 1;
+  77              		.loc 1 36 6
+  78 0030 0123     		movs	r3, #1
+  79 0032 FB60     		str	r3, [r7, #12]
+  80 0034 12E0     		b	.L3
+  81              	.L2:
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	else if (version == 4 && memcmp(protocol->lenstring.data, "MQTT",
+  82              		.loc 1 37 10
+  83 0036 3B68     		ldr	r3, [r7]
+  84 0038 042B     		cmp	r3, #4
+  85 003a 0FD1     		bne	.L3
+  86              		.loc 1 37 53 discriminator 1
+  87 003c 7B68     		ldr	r3, [r7, #4]
+  88 003e 9868     		ldr	r0, [r3, #8]
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			min(4, protocol->lenstring.len)) == 0)
+  89              		.loc 1 38 4 discriminator 1
+  90 0040 7B68     		ldr	r3, [r7, #4]
+  91 0042 5B68     		ldr	r3, [r3, #4]
+  92 0044 042B     		cmp	r3, #4
+  93 0046 A8BF     		it	ge
+  94 0048 0423     		movge	r3, #4
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	else if (version == 4 && memcmp(protocol->lenstring.data, "MQTT",
+  95              		.loc 1 37 27 discriminator 1
+  96 004a 1A46     		mov	r2, r3
+  97 004c 0749     		ldr	r1, .L5+4
+  98 004e FFF7FEFF 		bl	memcmp
+  99 0052 0346     		mov	r3, r0
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	else if (version == 4 && memcmp(protocol->lenstring.data, "MQTT",
+ 100              		.loc 1 37 24 discriminator 1
+ 101 0054 002B     		cmp	r3, #0
+ 102 0056 01D1     		bne	.L3
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		rc = 1;
+ 103              		.loc 1 39 6
+ 104 0058 0123     		movs	r3, #1
+ 105 005a FB60     		str	r3, [r7, #12]
+ 106              	.L3:
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	return rc;
+ 107              		.loc 1 40 9
+ 108 005c FB68     		ldr	r3, [r7, #12]
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** }
+ 109              		.loc 1 41 1
+ 110 005e 1846     		mov	r0, r3
+ 111 0060 1037     		adds	r7, r7, #16
+ 112              	.LCFI3:
+ 113              		.cfi_def_cfa_offset 8
+ 114 0062 BD46     		mov	sp, r7
+ 115              	.LCFI4:
+ 116              		.cfi_def_cfa_register 13
+ 117              		@ sp needed
+ 118 0064 80BD     		pop	{r7, pc}
+ 119              	.L6:
+ 120 0066 00BF     		.align	2
+ 121              	.L5:
+ 122 0068 00000000 		.word	.LC0
+ 123 006c 08000000 		.word	.LC1
+ 124              		.cfi_endproc
+ 125              	.LFE3:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 4
+
+
+ 127              		.section	.text.MQTTDeserialize_connect,"ax",%progbits
+ 128              		.align	1
+ 129              		.global	MQTTDeserialize_connect
+ 130              		.syntax unified
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.fpu fpv4-sp-d16
+ 135              	MQTTDeserialize_connect:
+ 136              	.LFB4:
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** /**
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * Deserializes the supplied (wire) buffer into connect data structure
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param data the connect data structure to be filled out
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param buf the raw buffer data, of the correct length determined by the remaining length field
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param len the length in bytes of the data in the supplied buffer
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @return error code.  1 is success, 0 is failure
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   */
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** int MQTTDeserialize_connect(MQTTPacket_connectData* data, unsigned char* buf, int len)
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** {
+ 137              		.loc 1 52 1
+ 138              		.cfi_startproc
+ 139              		@ args = 0, pretend = 0, frame = 56
+ 140              		@ frame_needed = 1, uses_anonymous_args = 0
+ 141 0000 80B5     		push	{r7, lr}
+ 142              	.LCFI5:
+ 143              		.cfi_def_cfa_offset 8
+ 144              		.cfi_offset 7, -8
+ 145              		.cfi_offset 14, -4
+ 146 0002 8EB0     		sub	sp, sp, #56
+ 147              	.LCFI6:
+ 148              		.cfi_def_cfa_offset 64
+ 149 0004 00AF     		add	r7, sp, #0
+ 150              	.LCFI7:
+ 151              		.cfi_def_cfa_register 7
+ 152 0006 F860     		str	r0, [r7, #12]
+ 153 0008 B960     		str	r1, [r7, #8]
+ 154 000a 7A60     		str	r2, [r7, #4]
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	MQTTHeader header = {0};
+ 155              		.loc 1 53 13
+ 156 000c 0023     		movs	r3, #0
+ 157 000e BB62     		str	r3, [r7, #40]
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	MQTTConnectFlags flags = {0};
+ 158              		.loc 1 54 19
+ 159 0010 0023     		movs	r3, #0
+ 160 0012 7B62     		str	r3, [r7, #36]
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	unsigned char* curdata = buf;
+ 161              		.loc 1 55 17
+ 162 0014 BB68     		ldr	r3, [r7, #8]
+ 163 0016 3B62     		str	r3, [r7, #32]
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	unsigned char* enddata = &buf[len];
+ 164              		.loc 1 56 27
+ 165 0018 7B68     		ldr	r3, [r7, #4]
+ 166              		.loc 1 56 17
+ 167 001a BA68     		ldr	r2, [r7, #8]
+ 168 001c 1344     		add	r3, r3, r2
+ 169 001e 3B63     		str	r3, [r7, #48]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 5
+
+
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	int rc = 0;
+ 170              		.loc 1 57 6
+ 171 0020 0023     		movs	r3, #0
+ 172 0022 7B63     		str	r3, [r7, #52]
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	MQTTString Protocol;
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	int version;
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	int mylen = 0;
+ 173              		.loc 1 60 6
+ 174 0024 0023     		movs	r3, #0
+ 175 0026 3B61     		str	r3, [r7, #16]
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	FUNC_ENTRY;
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	header.byte = readChar(&curdata);
+ 176              		.loc 1 63 16
+ 177 0028 07F12003 		add	r3, r7, #32
+ 178 002c 1846     		mov	r0, r3
+ 179 002e FFF7FEFF 		bl	readChar
+ 180 0032 0346     		mov	r3, r0
+ 181              		.loc 1 63 14
+ 182 0034 87F82830 		strb	r3, [r7, #40]
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	if (header.bits.type != CONNECT)
+ 183              		.loc 1 64 23
+ 184 0038 97F82830 		ldrb	r3, [r7, #40]	@ zero_extendqisi2
+ 185 003c 23F00F03 		bic	r3, r3, #15
+ 186 0040 DBB2     		uxtb	r3, r3
+ 187              		.loc 1 64 5
+ 188 0042 102B     		cmp	r3, #16
+ 189 0044 40F0C280 		bne	.L21
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		goto exit;
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	curdata += MQTTPacket_decodeBuf(curdata, &mylen); /* read remaining length */
+ 190              		.loc 1 67 13
+ 191 0048 3B6A     		ldr	r3, [r7, #32]
+ 192 004a 07F11002 		add	r2, r7, #16
+ 193 004e 1146     		mov	r1, r2
+ 194 0050 1846     		mov	r0, r3
+ 195 0052 FFF7FEFF 		bl	MQTTPacket_decodeBuf
+ 196 0056 0246     		mov	r2, r0
+ 197              		.loc 1 67 10
+ 198 0058 3B6A     		ldr	r3, [r7, #32]
+ 199 005a 1344     		add	r3, r3, r2
+ 200 005c 3B62     		str	r3, [r7, #32]
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	if (!readMQTTLenString(&Protocol, &curdata, enddata) ||
+ 201              		.loc 1 69 7
+ 202 005e 07F12001 		add	r1, r7, #32
+ 203 0062 07F11403 		add	r3, r7, #20
+ 204 0066 3A6B     		ldr	r2, [r7, #48]
+ 205 0068 1846     		mov	r0, r3
+ 206 006a FFF7FEFF 		bl	readMQTTLenString
+ 207 006e 0346     		mov	r3, r0
+ 208              		.loc 1 69 5
+ 209 0070 002B     		cmp	r3, #0
+ 210 0072 00F0AD80 		beq	.L22
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		enddata - curdata < 0) /* do we have enough data to read the protocol version byte? */
+ 211              		.loc 1 70 11 discriminator 1
+ 212 0076 3B6A     		ldr	r3, [r7, #32]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 6
+
+
+ 213 0078 3A6B     		ldr	r2, [r7, #48]
+ 214 007a D31A     		subs	r3, r2, r3
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		enddata - curdata < 0) /* do we have enough data to read the protocol version byte? */
+ 215              		.loc 1 69 55 discriminator 1
+ 216 007c 002B     		cmp	r3, #0
+ 217 007e C0F2A780 		blt	.L22
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		goto exit;
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	version = (int)readChar(&curdata); /* Protocol version */
+ 218              		.loc 1 73 17
+ 219 0082 07F12003 		add	r3, r7, #32
+ 220 0086 1846     		mov	r0, r3
+ 221 0088 FFF7FEFF 		bl	readChar
+ 222 008c 0346     		mov	r3, r0
+ 223              		.loc 1 73 10
+ 224 008e FB62     		str	r3, [r7, #44]
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	/* If we don't recognize the protocol version, we don't parse the connect packet on the
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	 * basis that we don't know what the format will be.
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	 */
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	if (MQTTPacket_checkVersion(&Protocol, version))
+ 225              		.loc 1 77 6
+ 226 0090 07F11403 		add	r3, r7, #20
+ 227 0094 F96A     		ldr	r1, [r7, #44]
+ 228 0096 1846     		mov	r0, r3
+ 229 0098 FFF7FEFF 		bl	MQTTPacket_checkVersion
+ 230 009c 0346     		mov	r3, r0
+ 231              		.loc 1 77 5
+ 232 009e 002B     		cmp	r3, #0
+ 233 00a0 00F09880 		beq	.L23
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	{
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		flags.all = readChar(&curdata);
+ 234              		.loc 1 79 15
+ 235 00a4 07F12003 		add	r3, r7, #32
+ 236 00a8 1846     		mov	r0, r3
+ 237 00aa FFF7FEFF 		bl	readChar
+ 238 00ae 0346     		mov	r3, r0
+ 239              		.loc 1 79 13
+ 240 00b0 87F82430 		strb	r3, [r7, #36]
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		data->cleansession = flags.bits.cleansession;
+ 241              		.loc 1 80 34
+ 242 00b4 97F82430 		ldrb	r3, [r7, #36]
+ 243 00b8 C3F34003 		ubfx	r3, r3, #1, #1
+ 244 00bc DBB2     		uxtb	r3, r3
+ 245 00be 1A46     		mov	r2, r3
+ 246              		.loc 1 80 22
+ 247 00c0 FB68     		ldr	r3, [r7, #12]
+ 248 00c2 9A76     		strb	r2, [r3, #26]
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		data->keepAliveInterval = readInt(&curdata);
+ 249              		.loc 1 81 29
+ 250 00c4 07F12003 		add	r3, r7, #32
+ 251 00c8 1846     		mov	r0, r3
+ 252 00ca FFF7FEFF 		bl	readInt
+ 253 00ce 0346     		mov	r3, r0
+ 254              		.loc 1 81 27
+ 255 00d0 9AB2     		uxth	r2, r3
+ 256 00d2 FB68     		ldr	r3, [r7, #12]
+ 257 00d4 1A83     		strh	r2, [r3, #24]	@ movhi
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 7
+
+
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		if (!readMQTTLenString(&data->clientID, &curdata, enddata))
+ 258              		.loc 1 82 8
+ 259 00d6 FB68     		ldr	r3, [r7, #12]
+ 260 00d8 0C33     		adds	r3, r3, #12
+ 261 00da 07F12001 		add	r1, r7, #32
+ 262 00de 3A6B     		ldr	r2, [r7, #48]
+ 263 00e0 1846     		mov	r0, r3
+ 264 00e2 FFF7FEFF 		bl	readMQTTLenString
+ 265 00e6 0346     		mov	r3, r0
+ 266              		.loc 1 82 6
+ 267 00e8 002B     		cmp	r3, #0
+ 268 00ea 75D0     		beq	.L24
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			goto exit;
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		data->willFlag = flags.bits.will;
+ 269              		.loc 1 84 30
+ 270 00ec 97F82430 		ldrb	r3, [r7, #36]
+ 271 00f0 C3F38003 		ubfx	r3, r3, #2, #1
+ 272 00f4 DBB2     		uxtb	r3, r3
+ 273 00f6 1A46     		mov	r2, r3
+ 274              		.loc 1 84 18
+ 275 00f8 FB68     		ldr	r3, [r7, #12]
+ 276 00fa DA76     		strb	r2, [r3, #27]
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		if (flags.bits.will)
+ 277              		.loc 1 85 7
+ 278 00fc 97F82430 		ldrb	r3, [r7, #36]	@ zero_extendqisi2
+ 279 0100 03F00403 		and	r3, r3, #4
+ 280 0104 DBB2     		uxtb	r3, r3
+ 281              		.loc 1 85 6
+ 282 0106 002B     		cmp	r3, #0
+ 283 0108 27D0     		beq	.L13
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		{
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			data->will.qos = flags.bits.willQoS;
+ 284              		.loc 1 87 31
+ 285 010a 97F82430 		ldrb	r3, [r7, #36]
+ 286 010e C3F3C103 		ubfx	r3, r3, #3, #2
+ 287 0112 DBB2     		uxtb	r3, r3
+ 288 0114 1A46     		mov	r2, r3
+ 289              		.loc 1 87 19
+ 290 0116 FB68     		ldr	r3, [r7, #12]
+ 291 0118 83F83D20 		strb	r2, [r3, #61]
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			data->will.retained = flags.bits.willRetain;
+ 292              		.loc 1 88 36
+ 293 011c 97F82430 		ldrb	r3, [r7, #36]
+ 294 0120 C3F34013 		ubfx	r3, r3, #5, #1
+ 295 0124 DBB2     		uxtb	r3, r3
+ 296 0126 1A46     		mov	r2, r3
+ 297              		.loc 1 88 24
+ 298 0128 FB68     		ldr	r3, [r7, #12]
+ 299 012a 83F83C20 		strb	r2, [r3, #60]
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			if (!readMQTTLenString(&data->will.topicName, &curdata, enddata) ||
+ 300              		.loc 1 89 9
+ 301 012e FB68     		ldr	r3, [r7, #12]
+ 302 0130 2433     		adds	r3, r3, #36
+ 303 0132 07F12001 		add	r1, r7, #32
+ 304 0136 3A6B     		ldr	r2, [r7, #48]
+ 305 0138 1846     		mov	r0, r3
+ 306 013a FFF7FEFF 		bl	readMQTTLenString
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 8
+
+
+ 307 013e 0346     		mov	r3, r0
+ 308              		.loc 1 89 7
+ 309 0140 002B     		cmp	r3, #0
+ 310 0142 4BD0     		beq	.L25
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 				  !readMQTTLenString(&data->will.message, &curdata, enddata))
+ 311              		.loc 1 90 8 discriminator 1
+ 312 0144 FB68     		ldr	r3, [r7, #12]
+ 313 0146 3033     		adds	r3, r3, #48
+ 314 0148 07F12001 		add	r1, r7, #32
+ 315 014c 3A6B     		ldr	r2, [r7, #48]
+ 316 014e 1846     		mov	r0, r3
+ 317 0150 FFF7FEFF 		bl	readMQTTLenString
+ 318 0154 0346     		mov	r3, r0
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			if (!readMQTTLenString(&data->will.topicName, &curdata, enddata) ||
+ 319              		.loc 1 89 69 discriminator 1
+ 320 0156 002B     		cmp	r3, #0
+ 321 0158 40D0     		beq	.L25
+ 322              	.L13:
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 				goto exit;
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		}
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		if (flags.bits.username)
+ 323              		.loc 1 93 7
+ 324 015a 97F82430 		ldrb	r3, [r7, #36]	@ zero_extendqisi2
+ 325 015e 23F07F03 		bic	r3, r3, #127
+ 326 0162 DBB2     		uxtb	r3, r3
+ 327              		.loc 1 93 6
+ 328 0164 002B     		cmp	r3, #0
+ 329 0166 27D0     		beq	.L15
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		{
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			if (enddata - curdata < 3 || !readMQTTLenString(&data->username, &curdata, enddata))
+ 330              		.loc 1 95 16
+ 331 0168 3B6A     		ldr	r3, [r7, #32]
+ 332 016a 3A6B     		ldr	r2, [r7, #48]
+ 333 016c D31A     		subs	r3, r2, r3
+ 334              		.loc 1 95 7
+ 335 016e 022B     		cmp	r3, #2
+ 336 0170 36DD     		ble	.L26
+ 337              		.loc 1 95 34 discriminator 1
+ 338 0172 FB68     		ldr	r3, [r7, #12]
+ 339 0174 4033     		adds	r3, r3, #64
+ 340 0176 07F12001 		add	r1, r7, #32
+ 341 017a 3A6B     		ldr	r2, [r7, #48]
+ 342 017c 1846     		mov	r0, r3
+ 343 017e FFF7FEFF 		bl	readMQTTLenString
+ 344 0182 0346     		mov	r3, r0
+ 345              		.loc 1 95 30 discriminator 1
+ 346 0184 002B     		cmp	r3, #0
+ 347 0186 2BD0     		beq	.L26
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 				goto exit; /* username flag set, but no username supplied - invalid */
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			if (flags.bits.password &&
+ 348              		.loc 1 97 8
+ 349 0188 97F82430 		ldrb	r3, [r7, #36]	@ zero_extendqisi2
+ 350 018c 03F04003 		and	r3, r3, #64
+ 351 0190 DBB2     		uxtb	r3, r3
+ 352              		.loc 1 97 7
+ 353 0192 002B     		cmp	r3, #0
+ 354 0194 17D0     		beq	.L18
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 9
+
+
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 				(enddata - curdata < 3 || !readMQTTLenString(&data->password, &curdata, enddata)))
+ 355              		.loc 1 98 14 discriminator 1
+ 356 0196 3B6A     		ldr	r3, [r7, #32]
+ 357 0198 3A6B     		ldr	r2, [r7, #48]
+ 358 019a D31A     		subs	r3, r2, r3
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 				(enddata - curdata < 3 || !readMQTTLenString(&data->password, &curdata, enddata)))
+ 359              		.loc 1 97 28 discriminator 1
+ 360 019c 022B     		cmp	r3, #2
+ 361 019e 21DD     		ble	.L27
+ 362              		.loc 1 98 32
+ 363 01a0 FB68     		ldr	r3, [r7, #12]
+ 364 01a2 4C33     		adds	r3, r3, #76
+ 365 01a4 07F12001 		add	r1, r7, #32
+ 366 01a8 3A6B     		ldr	r2, [r7, #48]
+ 367 01aa 1846     		mov	r0, r3
+ 368 01ac FFF7FEFF 		bl	readMQTTLenString
+ 369 01b0 0346     		mov	r3, r0
+ 370              		.loc 1 98 28
+ 371 01b2 002B     		cmp	r3, #0
+ 372 01b4 07D1     		bne	.L18
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 				goto exit; /* password flag set, but no password supplied - invalid */
+ 373              		.loc 1 99 5
+ 374 01b6 15E0     		b	.L27
+ 375              	.L15:
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		}
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		else if (flags.bits.password)
+ 376              		.loc 1 101 12
+ 377 01b8 97F82430 		ldrb	r3, [r7, #36]	@ zero_extendqisi2
+ 378 01bc 03F04003 		and	r3, r3, #64
+ 379 01c0 DBB2     		uxtb	r3, r3
+ 380              		.loc 1 101 11
+ 381 01c2 002B     		cmp	r3, #0
+ 382 01c4 10D1     		bne	.L28
+ 383              	.L18:
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			goto exit; /* password flag set without username - invalid */
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		rc = 1;
+ 384              		.loc 1 103 6
+ 385 01c6 0123     		movs	r3, #1
+ 386 01c8 7B63     		str	r3, [r7, #52]
+ 387 01ca 0EE0     		b	.L9
+ 388              	.L21:
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 389              		.loc 1 65 3
+ 390 01cc 00BF     		nop
+ 391 01ce 0CE0     		b	.L9
+ 392              	.L22:
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 393              		.loc 1 71 3
+ 394 01d0 00BF     		nop
+ 395 01d2 0AE0     		b	.L9
+ 396              	.L23:
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	}
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** exit:
+ 397              		.loc 1 105 1
+ 398 01d4 00BF     		nop
+ 399 01d6 08E0     		b	.L9
+ 400              	.L24:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 10
+
+
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		data->willFlag = flags.bits.will;
+ 401              		.loc 1 83 4
+ 402 01d8 00BF     		nop
+ 403 01da 06E0     		b	.L9
+ 404              	.L25:
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		}
+ 405              		.loc 1 91 5
+ 406 01dc 00BF     		nop
+ 407 01de 04E0     		b	.L9
+ 408              	.L26:
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 			if (flags.bits.password &&
+ 409              		.loc 1 96 5
+ 410 01e0 00BF     		nop
+ 411 01e2 02E0     		b	.L9
+ 412              	.L27:
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		}
+ 413              		.loc 1 99 5
+ 414 01e4 00BF     		nop
+ 415 01e6 00E0     		b	.L9
+ 416              	.L28:
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		rc = 1;
+ 417              		.loc 1 102 4
+ 418 01e8 00BF     		nop
+ 419              	.L9:
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	FUNC_EXIT_RC(rc);
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	return rc;
+ 420              		.loc 1 107 9
+ 421 01ea 7B6B     		ldr	r3, [r7, #52]
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** }
+ 422              		.loc 1 108 1
+ 423 01ec 1846     		mov	r0, r3
+ 424 01ee 3837     		adds	r7, r7, #56
+ 425              	.LCFI8:
+ 426              		.cfi_def_cfa_offset 8
+ 427 01f0 BD46     		mov	sp, r7
+ 428              	.LCFI9:
+ 429              		.cfi_def_cfa_register 13
+ 430              		@ sp needed
+ 431 01f2 80BD     		pop	{r7, pc}
+ 432              		.cfi_endproc
+ 433              	.LFE4:
+ 435              		.section	.text.MQTTSerialize_connack,"ax",%progbits
+ 436              		.align	1
+ 437              		.global	MQTTSerialize_connack
+ 438              		.syntax unified
+ 439              		.thumb
+ 440              		.thumb_func
+ 441              		.fpu fpv4-sp-d16
+ 443              	MQTTSerialize_connack:
+ 444              	.LFB5:
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** /**
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * Serializes the connack packet into the supplied buffer.
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param buf the buffer into which the packet will be serialized
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param buflen the length in bytes of the supplied buffer
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param connack_rc the integer connack return code to be used 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 11
+
+
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @param sessionPresent the MQTT 3.1.1 sessionPresent flag
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   * @return serialized length, or error if 0
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c ****   */
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** int MQTTSerialize_connack(unsigned char* buf, int buflen, unsigned char connack_rc, unsigned char s
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** {
+ 445              		.loc 1 120 1
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 32
+ 448              		@ frame_needed = 1, uses_anonymous_args = 0
+ 449 0000 80B5     		push	{r7, lr}
+ 450              	.LCFI10:
+ 451              		.cfi_def_cfa_offset 8
+ 452              		.cfi_offset 7, -8
+ 453              		.cfi_offset 14, -4
+ 454 0002 88B0     		sub	sp, sp, #32
+ 455              	.LCFI11:
+ 456              		.cfi_def_cfa_offset 40
+ 457 0004 00AF     		add	r7, sp, #0
+ 458              	.LCFI12:
+ 459              		.cfi_def_cfa_register 7
+ 460 0006 F860     		str	r0, [r7, #12]
+ 461 0008 B960     		str	r1, [r7, #8]
+ 462 000a 1146     		mov	r1, r2
+ 463 000c 1A46     		mov	r2, r3
+ 464 000e 0B46     		mov	r3, r1
+ 465 0010 FB71     		strb	r3, [r7, #7]
+ 466 0012 1346     		mov	r3, r2
+ 467 0014 BB71     		strb	r3, [r7, #6]
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	MQTTHeader header = {0};
+ 468              		.loc 1 121 13
+ 469 0016 0023     		movs	r3, #0
+ 470 0018 BB61     		str	r3, [r7, #24]
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	int rc = 0;
+ 471              		.loc 1 122 6
+ 472 001a 0023     		movs	r3, #0
+ 473 001c FB61     		str	r3, [r7, #28]
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	unsigned char *ptr = buf;
+ 474              		.loc 1 123 17
+ 475 001e FB68     		ldr	r3, [r7, #12]
+ 476 0020 7B61     		str	r3, [r7, #20]
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	MQTTConnackFlags flags = {0};
+ 477              		.loc 1 124 19
+ 478 0022 0023     		movs	r3, #0
+ 479 0024 3B61     		str	r3, [r7, #16]
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	FUNC_ENTRY;
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	if (buflen < 2)
+ 480              		.loc 1 127 5
+ 481 0026 BB68     		ldr	r3, [r7, #8]
+ 482 0028 012B     		cmp	r3, #1
+ 483 002a 03DC     		bgt	.L30
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	{
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		rc = MQTTPACKET_BUFFER_TOO_SHORT;
+ 484              		.loc 1 129 6
+ 485 002c 6FF00103 		mvn	r3, #1
+ 486 0030 FB61     		str	r3, [r7, #28]
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 		goto exit;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 12
+
+
+ 487              		.loc 1 130 3
+ 488 0032 32E0     		b	.L31
+ 489              	.L30:
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	}
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	header.byte = 0;
+ 490              		.loc 1 132 14
+ 491 0034 0023     		movs	r3, #0
+ 492 0036 3B76     		strb	r3, [r7, #24]
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	header.bits.type = CONNACK;
+ 493              		.loc 1 133 19
+ 494 0038 3B7E     		ldrb	r3, [r7, #24]
+ 495 003a 0222     		movs	r2, #2
+ 496 003c 62F30713 		bfi	r3, r2, #4, #4
+ 497 0040 3B76     		strb	r3, [r7, #24]
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	writeChar(&ptr, header.byte); /* write header */
+ 498              		.loc 1 134 24
+ 499 0042 3A7E     		ldrb	r2, [r7, #24]	@ zero_extendqisi2
+ 500              		.loc 1 134 2
+ 501 0044 07F11403 		add	r3, r7, #20
+ 502 0048 1146     		mov	r1, r2
+ 503 004a 1846     		mov	r0, r3
+ 504 004c FFF7FEFF 		bl	writeChar
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	ptr += MQTTPacket_encode(ptr, 2); /* write remaining length */
+ 505              		.loc 1 136 9
+ 506 0050 7B69     		ldr	r3, [r7, #20]
+ 507 0052 0221     		movs	r1, #2
+ 508 0054 1846     		mov	r0, r3
+ 509 0056 FFF7FEFF 		bl	MQTTPacket_encode
+ 510 005a 0246     		mov	r2, r0
+ 511              		.loc 1 136 6
+ 512 005c 7B69     		ldr	r3, [r7, #20]
+ 513 005e 1344     		add	r3, r3, r2
+ 514 0060 7B61     		str	r3, [r7, #20]
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	flags.all = 0;
+ 515              		.loc 1 138 12
+ 516 0062 0023     		movs	r3, #0
+ 517 0064 3B74     		strb	r3, [r7, #16]
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	flags.bits.sessionpresent = sessionPresent;
+ 518              		.loc 1 139 28
+ 519 0066 BB79     		ldrb	r3, [r7, #6]
+ 520 0068 03F00103 		and	r3, r3, #1
+ 521 006c DAB2     		uxtb	r2, r3
+ 522 006e 3B7C     		ldrb	r3, [r7, #16]
+ 523 0070 62F30003 		bfi	r3, r2, #0, #1
+ 524 0074 3B74     		strb	r3, [r7, #16]
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	writeChar(&ptr, flags.all); 
+ 525              		.loc 1 140 23
+ 526 0076 3A7C     		ldrb	r2, [r7, #16]	@ zero_extendqisi2
+ 527              		.loc 1 140 2
+ 528 0078 07F11403 		add	r3, r7, #20
+ 529 007c 1146     		mov	r1, r2
+ 530 007e 1846     		mov	r0, r3
+ 531 0080 FFF7FEFF 		bl	writeChar
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	writeChar(&ptr, connack_rc);
+ 532              		.loc 1 141 2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 13
+
+
+ 533 0084 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 534 0086 07F11403 		add	r3, r7, #20
+ 535 008a 1146     		mov	r1, r2
+ 536 008c 1846     		mov	r0, r3
+ 537 008e FFF7FEFF 		bl	writeChar
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	rc = ptr - buf;
+ 538              		.loc 1 143 11
+ 539 0092 7A69     		ldr	r2, [r7, #20]
+ 540              		.loc 1 143 5
+ 541 0094 FB68     		ldr	r3, [r7, #12]
+ 542 0096 D31A     		subs	r3, r2, r3
+ 543 0098 FB61     		str	r3, [r7, #28]
+ 544              	.L31:
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** exit:
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	FUNC_EXIT_RC(rc);
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** 	return rc;
+ 545              		.loc 1 146 9
+ 546 009a FB69     		ldr	r3, [r7, #28]
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTConnectServer.c **** }
+ 547              		.loc 1 147 1
+ 548 009c 1846     		mov	r0, r3
+ 549 009e 2037     		adds	r7, r7, #32
+ 550              	.LCFI13:
+ 551              		.cfi_def_cfa_offset 8
+ 552 00a0 BD46     		mov	sp, r7
+ 553              	.LCFI14:
+ 554              		.cfi_def_cfa_register 13
+ 555              		@ sp needed
+ 556 00a2 80BD     		pop	{r7, pc}
+ 557              		.cfi_endproc
+ 558              	.LFE5:
+ 560              		.text
+ 561              	.Letext0:
+ 562              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 563              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 564              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 565              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 566              		.file 6 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 567              		.file 7 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 MQTTConnectServer.c
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:18     .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:25     .text.MQTTPacket_checkVersion:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:33     .text.MQTTPacket_checkVersion:00000000 MQTTPacket_checkVersion
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:122    .text.MQTTPacket_checkVersion:00000068 $d
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:128    .text.MQTTDeserialize_connect:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:135    .text.MQTTDeserialize_connect:00000000 MQTTDeserialize_connect
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:436    .text.MQTTSerialize_connack:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccZ4elpb.s:443    .text.MQTTSerialize_connack:00000000 MQTTSerialize_connack
+
+UNDEFINED SYMBOLS
+memcmp
+readChar
+MQTTPacket_decodeBuf
+readMQTTLenString
+readInt
+writeChar
+MQTTPacket_encode

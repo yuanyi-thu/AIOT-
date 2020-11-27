@@ -1,0 +1,2874 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"sal.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.bss.s_sal_cb,"aw",%nobits
+  18              		.align	2
+  21              	s_sal_cb:
+  22 0000 00000000 		.space	16
+  22      00000000 
+  22      00000000 
+  22      00000000 
+  23              		.section	.rodata
+  24              		.align	2
+  25              	.LC0:
+  26 0000 25733A23 		.ascii	"%s:###please implement this function by yourself###"
+  26      2323706C 
+  26      65617365 
+  26      20696D70 
+  26      6C656D65 
+  27 0033 230A0D00 		.ascii	"#\012\015\000"
+  28              		.section	.text.link_tcpip_imp_init,"ax",%progbits
+  29              		.align	1
+  30              		.weak	link_tcpip_imp_init
+  31              		.arch armv7e-m
+  32              		.syntax unified
+  33              		.thumb
+  34              		.thumb_func
+  35              		.fpu fpv4-sp-d16
+  37              	link_tcpip_imp_init:
+  38              	.LFB3:
+  39              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** /*
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****  * sal.c
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****  *
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****  *  Created on: 2019��4��26��
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****  *      Author: zhangqf
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****  */
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** ///< attention that this file is the main implement
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** #include <osal.h>
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** #include <sal.h>
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** #include <sal_imp.h>
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** #define CN_LINK_SOCKET_NUM 10
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 2
+
+
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** typedef struct
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     const tag_tcpip_ops    *ops;
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int                     fd;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int                     sock;          ///< returned by the implement functions
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }tag_sock_cb;
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** typedef struct
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     const tag_tcpip_domain *domain;         ///< tcpip stack operations
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int                     sock_cb_num;    ///< how many socket control block could be used
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     osal_mutex_t            sock_cb_mutex;  ///< used to protect the sock control block
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     void                  **sock_cb_tab;    ///< which used to
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }tag_sal_cb;
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** static tag_sal_cb   s_sal_cb;
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** __attribute__((weak))  int link_tcpip_imp_init(void)
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+  40              		.loc 1 36 1
+  41              		.cfi_startproc
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 1, uses_anonymous_args = 0
+  44 0000 80B5     		push	{r7, lr}
+  45              	.LCFI0:
+  46              		.cfi_def_cfa_offset 8
+  47              		.cfi_offset 7, -8
+  48              		.cfi_offset 14, -4
+  49 0002 00AF     		add	r7, sp, #0
+  50              	.LCFI1:
+  51              		.cfi_def_cfa_register 7
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     printf("%s:###please implement this function by yourself####\n\r",__FUNCTION__);
+  52              		.loc 1 37 5
+  53 0004 0349     		ldr	r1, .L3
+  54 0006 0448     		ldr	r0, .L3+4
+  55 0008 FFF7FEFF 		bl	printf
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return -1;
+  56              		.loc 1 38 12
+  57 000c 4FF0FF33 		mov	r3, #-1
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+  58              		.loc 1 39 1
+  59 0010 1846     		mov	r0, r3
+  60 0012 80BD     		pop	{r7, pc}
+  61              	.L4:
+  62              		.align	2
+  63              	.L3:
+  64 0014 00000000 		.word	__FUNCTION__.7151
+  65 0018 00000000 		.word	.LC0
+  66              		.cfi_endproc
+  67              	.LFE3:
+  69              		.section	.text.link_tcpip_init,"ax",%progbits
+  70              		.align	1
+  71              		.global	link_tcpip_init
+  72              		.syntax unified
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 3
+
+
+  73              		.thumb
+  74              		.thumb_func
+  75              		.fpu fpv4-sp-d16
+  77              	link_tcpip_init:
+  78              	.LFB4:
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int link_tcpip_init(void)
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+  79              		.loc 1 44 1
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 8
+  82              		@ frame_needed = 1, uses_anonymous_args = 0
+  83 0000 80B5     		push	{r7, lr}
+  84              	.LCFI2:
+  85              		.cfi_def_cfa_offset 8
+  86              		.cfi_offset 7, -8
+  87              		.cfi_offset 14, -4
+  88 0002 82B0     		sub	sp, sp, #8
+  89              	.LCFI3:
+  90              		.cfi_def_cfa_offset 16
+  91 0004 00AF     		add	r7, sp, #0
+  92              	.LCFI4:
+  93              		.cfi_def_cfa_register 7
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+  94              		.loc 1 45 9
+  95 0006 4FF0FF33 		mov	r3, #-1
+  96 000a 7B60     		str	r3, [r7, #4]
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != s_sal_cb.sock_cb_tab)
+  97              		.loc 1 47 24
+  98 000c 1C4B     		ldr	r3, .L17
+  99 000e DB68     		ldr	r3, [r3, #12]
+ 100              		.loc 1 47 7
+ 101 0010 002B     		cmp	r3, #0
+ 102 0012 2CD1     		bne	.L14
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         goto EXIT_INIT_ERR;
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(false == osal_mutex_create(&s_sal_cb.sock_cb_mutex))
+ 103              		.loc 1 52 17
+ 104 0014 1B48     		ldr	r0, .L17+4
+ 105 0016 FFF7FEFF 		bl	osal_mutex_create
+ 106 001a 0346     		mov	r3, r0
+ 107              		.loc 1 52 7
+ 108 001c 002B     		cmp	r3, #0
+ 109 001e 28D0     		beq	.L15
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         goto EXIT_MUTEX_ERR;
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     s_sal_cb.sock_cb_tab = osal_malloc(CN_LINK_SOCKET_NUM*sizeof(void *));
+ 110              		.loc 1 57 28
+ 111 0020 2820     		movs	r0, #40
+ 112 0022 FFF7FEFF 		bl	osal_malloc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 4
+
+
+ 113 0026 0346     		mov	r3, r0
+ 114              		.loc 1 57 26
+ 115 0028 154A     		ldr	r2, .L17
+ 116 002a D360     		str	r3, [r2, #12]
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL == s_sal_cb.sock_cb_tab)
+ 117              		.loc 1 58 24
+ 118 002c 144B     		ldr	r3, .L17
+ 119 002e DB68     		ldr	r3, [r3, #12]
+ 120              		.loc 1 58 7
+ 121 0030 002B     		cmp	r3, #0
+ 122 0032 11D0     		beq	.L16
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         goto EXIT_MEM_ERR;
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     memset(s_sal_cb.sock_cb_tab,0,CN_LINK_SOCKET_NUM*sizeof(void *));
+ 123              		.loc 1 63 20
+ 124 0034 124B     		ldr	r3, .L17
+ 125 0036 DB68     		ldr	r3, [r3, #12]
+ 126              		.loc 1 63 5
+ 127 0038 2822     		movs	r2, #40
+ 128 003a 0021     		movs	r1, #0
+ 129 003c 1846     		mov	r0, r3
+ 130 003e FFF7FEFF 		bl	memset
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     s_sal_cb.sock_cb_num = CN_LINK_SOCKET_NUM;
+ 131              		.loc 1 64 26
+ 132 0042 0F4B     		ldr	r3, .L17
+ 133 0044 0A22     		movs	r2, #10
+ 134 0046 5A60     		str	r2, [r3, #4]
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     s_sal_cb.domain = NULL;
+ 135              		.loc 1 65 21
+ 136 0048 0D4B     		ldr	r3, .L17
+ 137 004a 0022     		movs	r2, #0
+ 138 004c 1A60     		str	r2, [r3]
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     ret = link_tcpip_imp_init();
+ 139              		.loc 1 67 11
+ 140 004e FFF7FEFF 		bl	link_tcpip_imp_init
+ 141 0052 7860     		str	r0, [r7, #4]
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 142              		.loc 1 69 12
+ 143 0054 7B68     		ldr	r3, [r7, #4]
+ 144 0056 0EE0     		b	.L11
+ 145              	.L16:
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 146              		.loc 1 60 9
+ 147 0058 00BF     		nop
+ 148              	.L10:
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** EXIT_MEM_ERR:
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     osal_mutex_del(s_sal_cb.sock_cb_mutex);
+ 149              		.loc 1 73 5
+ 150 005a 094B     		ldr	r3, .L17
+ 151 005c 9B68     		ldr	r3, [r3, #8]
+ 152 005e 1846     		mov	r0, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 5
+
+
+ 153 0060 FFF7FEFF 		bl	osal_mutex_del
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     s_sal_cb.sock_cb_mutex = cn_mutex_invalid;
+ 154              		.loc 1 74 28
+ 155 0064 064B     		ldr	r3, .L17
+ 156 0066 4FF0FF32 		mov	r2, #-1
+ 157 006a 9A60     		str	r2, [r3, #8]
+ 158 006c 02E0     		b	.L12
+ 159              	.L7:
+ 160              	.L14:
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 161              		.loc 1 49 9
+ 162 006e 00BF     		nop
+ 163 0070 00E0     		b	.L12
+ 164              	.L15:
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 165              		.loc 1 54 9
+ 166 0072 00BF     		nop
+ 167              	.L12:
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** EXIT_MUTEX_ERR:
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** EXIT_INIT_ERR:
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 168              		.loc 1 78 12
+ 169 0074 7B68     		ldr	r3, [r7, #4]
+ 170              	.L11:
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 171              		.loc 1 80 1
+ 172 0076 1846     		mov	r0, r3
+ 173 0078 0837     		adds	r7, r7, #8
+ 174              	.LCFI5:
+ 175              		.cfi_def_cfa_offset 8
+ 176 007a BD46     		mov	sp, r7
+ 177              	.LCFI6:
+ 178              		.cfi_def_cfa_register 13
+ 179              		@ sp needed
+ 180 007c 80BD     		pop	{r7, pc}
+ 181              	.L18:
+ 182 007e 00BF     		.align	2
+ 183              	.L17:
+ 184 0080 00000000 		.word	s_sal_cb
+ 185 0084 08000000 		.word	s_sal_cb+8
+ 186              		.cfi_endproc
+ 187              	.LFE4:
+ 189              		.section	.text.link_sal_install,"ax",%progbits
+ 190              		.align	1
+ 191              		.global	link_sal_install
+ 192              		.syntax unified
+ 193              		.thumb
+ 194              		.thumb_func
+ 195              		.fpu fpv4-sp-d16
+ 197              	link_sal_install:
+ 198              	.LFB5:
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int link_sal_install(const tag_tcpip_domain *domain)
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 199              		.loc 1 83 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 6
+
+
+ 200              		.cfi_startproc
+ 201              		@ args = 0, pretend = 0, frame = 16
+ 202              		@ frame_needed = 1, uses_anonymous_args = 0
+ 203              		@ link register save eliminated.
+ 204 0000 80B4     		push	{r7}
+ 205              	.LCFI7:
+ 206              		.cfi_def_cfa_offset 4
+ 207              		.cfi_offset 7, -4
+ 208 0002 85B0     		sub	sp, sp, #20
+ 209              	.LCFI8:
+ 210              		.cfi_def_cfa_offset 24
+ 211 0004 00AF     		add	r7, sp, #0
+ 212              	.LCFI9:
+ 213              		.cfi_def_cfa_register 7
+ 214 0006 7860     		str	r0, [r7, #4]
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 215              		.loc 1 84 9
+ 216 0008 4FF0FF33 		mov	r3, #-1
+ 217 000c FB60     		str	r3, [r7, #12]
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL == s_sal_cb.domain)
+ 218              		.loc 1 86 24
+ 219 000e 084B     		ldr	r3, .L22
+ 220 0010 1B68     		ldr	r3, [r3]
+ 221              		.loc 1 86 7
+ 222 0012 002B     		cmp	r3, #0
+ 223 0014 04D1     		bne	.L20
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         s_sal_cb.domain = domain;
+ 224              		.loc 1 88 25
+ 225 0016 064A     		ldr	r2, .L22
+ 226 0018 7B68     		ldr	r3, [r7, #4]
+ 227 001a 1360     		str	r3, [r2]
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         ret = 0;
+ 228              		.loc 1 90 13
+ 229 001c 0023     		movs	r3, #0
+ 230 001e FB60     		str	r3, [r7, #12]
+ 231              	.L20:
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 232              		.loc 1 93 12
+ 233 0020 FB68     		ldr	r3, [r7, #12]
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 234              		.loc 1 95 1
+ 235 0022 1846     		mov	r0, r3
+ 236 0024 1437     		adds	r7, r7, #20
+ 237              	.LCFI10:
+ 238              		.cfi_def_cfa_offset 4
+ 239 0026 BD46     		mov	sp, r7
+ 240              	.LCFI11:
+ 241              		.cfi_def_cfa_register 13
+ 242              		@ sp needed
+ 243 0028 5DF8047B 		ldr	r7, [sp], #4
+ 244              	.LCFI12:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 7
+
+
+ 245              		.cfi_restore 7
+ 246              		.cfi_def_cfa_offset 0
+ 247 002c 7047     		bx	lr
+ 248              	.L23:
+ 249 002e 00BF     		.align	2
+ 250              	.L22:
+ 251 0030 00000000 		.word	s_sal_cb
+ 252              		.cfi_endproc
+ 253              	.LFE5:
+ 255              		.section	.text.__sal_sockcb_malloc,"ax",%progbits
+ 256              		.align	1
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	__sal_sockcb_malloc:
+ 263              	.LFB6:
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** ///< malloc a sock fd and memory
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** static void * __sal_sockcb_malloc()
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 264              		.loc 1 99 1
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 8
+ 267              		@ frame_needed = 1, uses_anonymous_args = 0
+ 268 0000 80B5     		push	{r7, lr}
+ 269              	.LCFI13:
+ 270              		.cfi_def_cfa_offset 8
+ 271              		.cfi_offset 7, -8
+ 272              		.cfi_offset 14, -4
+ 273 0002 82B0     		sub	sp, sp, #8
+ 274              	.LCFI14:
+ 275              		.cfi_def_cfa_offset 16
+ 276 0004 00AF     		add	r7, sp, #0
+ 277              	.LCFI15:
+ 278              		.cfi_def_cfa_register 7
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int i =  0;
+ 279              		.loc 1 100 9
+ 280 0006 0023     		movs	r3, #0
+ 281 0008 7B60     		str	r3, [r7, #4]
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = osal_malloc(sizeof(tag_sock_cb));
+ 282              		.loc 1 104 14
+ 283 000a 0C20     		movs	r0, #12
+ 284 000c FFF7FEFF 		bl	osal_malloc
+ 285 0010 3860     		str	r0, [r7]
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL == sockcb)
+ 286              		.loc 1 106 7
+ 287 0012 3B68     		ldr	r3, [r7]
+ 288 0014 002B     		cmp	r3, #0
+ 289 0016 01D1     		bne	.L25
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         return sockcb;
+ 290              		.loc 1 108 16
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 8
+
+
+ 291 0018 3B68     		ldr	r3, [r7]
+ 292 001a 3EE0     		b	.L26
+ 293              	.L25:
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(osal_mutex_lock(s_sal_cb.sock_cb_mutex))
+ 294              		.loc 1 111 8
+ 295 001c 214B     		ldr	r3, .L32
+ 296 001e 9B68     		ldr	r3, [r3, #8]
+ 297 0020 1846     		mov	r0, r3
+ 298 0022 FFF7FEFF 		bl	osal_mutex_lock
+ 299 0026 0346     		mov	r3, r0
+ 300              		.loc 1 111 7
+ 301 0028 002B     		cmp	r3, #0
+ 302 002a 35D0     		beq	.L27
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         for(i = 0;i<s_sal_cb.sock_cb_num;i++ )
+ 303              		.loc 1 113 15
+ 304 002c 0023     		movs	r3, #0
+ 305 002e 7B60     		str	r3, [r7, #4]
+ 306              		.loc 1 113 9
+ 307 0030 1EE0     		b	.L28
+ 308              	.L31:
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             if(s_sal_cb.sock_cb_tab[i] == NULL)
+ 309              		.loc 1 115 24
+ 310 0032 1C4B     		ldr	r3, .L32
+ 311 0034 DA68     		ldr	r2, [r3, #12]
+ 312              		.loc 1 115 36
+ 313 0036 7B68     		ldr	r3, [r7, #4]
+ 314 0038 9B00     		lsls	r3, r3, #2
+ 315 003a 1344     		add	r3, r3, r2
+ 316 003c 1B68     		ldr	r3, [r3]
+ 317              		.loc 1 115 15
+ 318 003e 002B     		cmp	r3, #0
+ 319 0040 13D1     		bne	.L29
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             {
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****                 sockcb->ops = s_sal_cb.domain->ops;
+ 320              		.loc 1 117 39
+ 321 0042 184B     		ldr	r3, .L32
+ 322 0044 1B68     		ldr	r3, [r3]
+ 323              		.loc 1 117 46
+ 324 0046 9A68     		ldr	r2, [r3, #8]
+ 325              		.loc 1 117 29
+ 326 0048 3B68     		ldr	r3, [r7]
+ 327 004a 1A60     		str	r2, [r3]
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****                 sockcb->fd = i;
+ 328              		.loc 1 118 28
+ 329 004c 3B68     		ldr	r3, [r7]
+ 330 004e 7A68     		ldr	r2, [r7, #4]
+ 331 0050 5A60     		str	r2, [r3, #4]
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****                 sockcb->sock = -1;
+ 332              		.loc 1 119 30
+ 333 0052 3B68     		ldr	r3, [r7]
+ 334 0054 4FF0FF32 		mov	r2, #-1
+ 335 0058 9A60     		str	r2, [r3, #8]
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 9
+
+
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****                 s_sal_cb.sock_cb_tab[i] = sockcb;
+ 336              		.loc 1 121 25
+ 337 005a 124B     		ldr	r3, .L32
+ 338 005c DA68     		ldr	r2, [r3, #12]
+ 339              		.loc 1 121 37
+ 340 005e 7B68     		ldr	r3, [r7, #4]
+ 341 0060 9B00     		lsls	r3, r3, #2
+ 342 0062 1344     		add	r3, r3, r2
+ 343              		.loc 1 121 41
+ 344 0064 3A68     		ldr	r2, [r7]
+ 345 0066 1A60     		str	r2, [r3]
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****                 break;
+ 346              		.loc 1 123 17
+ 347 0068 07E0     		b	.L30
+ 348              	.L29:
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 349              		.loc 1 113 43 discriminator 2
+ 350 006a 7B68     		ldr	r3, [r7, #4]
+ 351 006c 0133     		adds	r3, r3, #1
+ 352 006e 7B60     		str	r3, [r7, #4]
+ 353              	.L28:
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 354              		.loc 1 113 29 discriminator 1
+ 355 0070 0C4B     		ldr	r3, .L32
+ 356 0072 5B68     		ldr	r3, [r3, #4]
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 357              		.loc 1 113 9 discriminator 1
+ 358 0074 7A68     		ldr	r2, [r7, #4]
+ 359 0076 9A42     		cmp	r2, r3
+ 360 0078 DBDB     		blt	.L31
+ 361              	.L30:
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             }
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         osal_mutex_unlock(s_sal_cb.sock_cb_mutex);
+ 362              		.loc 1 127 9
+ 363 007a 0A4B     		ldr	r3, .L32
+ 364 007c 9B68     		ldr	r3, [r3, #8]
+ 365 007e 1846     		mov	r0, r3
+ 366 0080 FFF7FEFF 		bl	osal_mutex_unlock
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if(i == s_sal_cb.sock_cb_num)
+ 367              		.loc 1 129 25
+ 368 0084 074B     		ldr	r3, .L32
+ 369 0086 5B68     		ldr	r3, [r3, #4]
+ 370              		.loc 1 129 11
+ 371 0088 7A68     		ldr	r2, [r7, #4]
+ 372 008a 9A42     		cmp	r2, r3
+ 373 008c 04D1     		bne	.L27
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             osal_free(sockcb);
+ 374              		.loc 1 131 13
+ 375 008e 3868     		ldr	r0, [r7]
+ 376 0090 FFF7FEFF 		bl	osal_free
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             sockcb = NULL;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 10
+
+
+ 377              		.loc 1 133 20
+ 378 0094 0023     		movs	r3, #0
+ 379 0096 3B60     		str	r3, [r7]
+ 380              	.L27:
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return sockcb;
+ 381              		.loc 1 138 12
+ 382 0098 3B68     		ldr	r3, [r7]
+ 383              	.L26:
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 384              		.loc 1 139 1
+ 385 009a 1846     		mov	r0, r3
+ 386 009c 0837     		adds	r7, r7, #8
+ 387              	.LCFI16:
+ 388              		.cfi_def_cfa_offset 8
+ 389 009e BD46     		mov	sp, r7
+ 390              	.LCFI17:
+ 391              		.cfi_def_cfa_register 13
+ 392              		@ sp needed
+ 393 00a0 80BD     		pop	{r7, pc}
+ 394              	.L33:
+ 395 00a2 00BF     		.align	2
+ 396              	.L32:
+ 397 00a4 00000000 		.word	s_sal_cb
+ 398              		.cfi_endproc
+ 399              	.LFE6:
+ 401              		.section	.text.__sal_sockcb_free,"ax",%progbits
+ 402              		.align	1
+ 403              		.syntax unified
+ 404              		.thumb
+ 405              		.thumb_func
+ 406              		.fpu fpv4-sp-d16
+ 408              	__sal_sockcb_free:
+ 409              	.LFB7:
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** ///< free the sockfd and the memory in it
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** static void __sal_sockcb_free(int sockfd)
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 410              		.loc 1 143 1
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 16
+ 413              		@ frame_needed = 1, uses_anonymous_args = 0
+ 414 0000 80B5     		push	{r7, lr}
+ 415              	.LCFI18:
+ 416              		.cfi_def_cfa_offset 8
+ 417              		.cfi_offset 7, -8
+ 418              		.cfi_offset 14, -4
+ 419 0002 84B0     		sub	sp, sp, #16
+ 420              	.LCFI19:
+ 421              		.cfi_def_cfa_offset 24
+ 422 0004 00AF     		add	r7, sp, #0
+ 423              	.LCFI20:
+ 424              		.cfi_def_cfa_register 7
+ 425 0006 7860     		str	r0, [r7, #4]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 11
+
+
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb = NULL;
+ 426              		.loc 1 144 18
+ 427 0008 0023     		movs	r3, #0
+ 428 000a FB60     		str	r3, [r7, #12]
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if((sockfd <0 ) || (sockfd >= s_sal_cb.sock_cb_num))
+ 429              		.loc 1 146 7
+ 430 000c 7B68     		ldr	r3, [r7, #4]
+ 431 000e 002B     		cmp	r3, #0
+ 432 0010 23DB     		blt	.L39
+ 433              		.loc 1 146 43 discriminator 1
+ 434 0012 154B     		ldr	r3, .L41
+ 435 0014 5B68     		ldr	r3, [r3, #4]
+ 436              		.loc 1 146 21 discriminator 1
+ 437 0016 7A68     		ldr	r2, [r7, #4]
+ 438 0018 9A42     		cmp	r2, r3
+ 439 001a 1EDA     		bge	.L39
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         return;
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(osal_mutex_lock(s_sal_cb.sock_cb_mutex))
+ 440              		.loc 1 151 8
+ 441 001c 124B     		ldr	r3, .L41
+ 442 001e 9B68     		ldr	r3, [r3, #8]
+ 443 0020 1846     		mov	r0, r3
+ 444 0022 FFF7FEFF 		bl	osal_mutex_lock
+ 445 0026 0346     		mov	r3, r0
+ 446              		.loc 1 151 7
+ 447 0028 002B     		cmp	r3, #0
+ 448 002a 18D0     		beq	.L40
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         sockcb = s_sal_cb.sock_cb_tab[sockfd];
+ 449              		.loc 1 154 26
+ 450 002c 0E4B     		ldr	r3, .L41
+ 451 002e DA68     		ldr	r2, [r3, #12]
+ 452              		.loc 1 154 38
+ 453 0030 7B68     		ldr	r3, [r7, #4]
+ 454 0032 9B00     		lsls	r3, r3, #2
+ 455 0034 1344     		add	r3, r3, r2
+ 456              		.loc 1 154 16
+ 457 0036 1B68     		ldr	r3, [r3]
+ 458 0038 FB60     		str	r3, [r7, #12]
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         s_sal_cb.sock_cb_tab[sockfd]= NULL;
+ 459              		.loc 1 155 17
+ 460 003a 0B4B     		ldr	r3, .L41
+ 461 003c DA68     		ldr	r2, [r3, #12]
+ 462              		.loc 1 155 29
+ 463 003e 7B68     		ldr	r3, [r7, #4]
+ 464 0040 9B00     		lsls	r3, r3, #2
+ 465 0042 1344     		add	r3, r3, r2
+ 466              		.loc 1 155 37
+ 467 0044 0022     		movs	r2, #0
+ 468 0046 1A60     		str	r2, [r3]
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         osal_mutex_unlock(s_sal_cb.sock_cb_mutex);
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 12
+
+
+ 469              		.loc 1 157 9
+ 470 0048 074B     		ldr	r3, .L41
+ 471 004a 9B68     		ldr	r3, [r3, #8]
+ 472 004c 1846     		mov	r0, r3
+ 473 004e FFF7FEFF 		bl	osal_mutex_unlock
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         osal_free(sockcb);
+ 474              		.loc 1 159 9
+ 475 0052 F868     		ldr	r0, [r7, #12]
+ 476 0054 FFF7FEFF 		bl	osal_free
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return;
+ 477              		.loc 1 162 5
+ 478 0058 01E0     		b	.L40
+ 479              	.L39:
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 480              		.loc 1 148 9
+ 481 005a 00BF     		nop
+ 482 005c 00E0     		b	.L34
+ 483              	.L40:
+ 484              		.loc 1 162 5
+ 485 005e 00BF     		nop
+ 486              	.L34:
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 487              		.loc 1 163 1
+ 488 0060 1037     		adds	r7, r7, #16
+ 489              	.LCFI21:
+ 490              		.cfi_def_cfa_offset 8
+ 491 0062 BD46     		mov	sp, r7
+ 492              	.LCFI22:
+ 493              		.cfi_def_cfa_register 13
+ 494              		@ sp needed
+ 495 0064 80BD     		pop	{r7, pc}
+ 496              	.L42:
+ 497 0066 00BF     		.align	2
+ 498              	.L41:
+ 499 0068 00000000 		.word	s_sal_cb
+ 500              		.cfi_endproc
+ 501              	.LFE7:
+ 503              		.section	.text.__sal_sockcb_getcb,"ax",%progbits
+ 504              		.align	1
+ 505              		.syntax unified
+ 506              		.thumb
+ 507              		.thumb_func
+ 508              		.fpu fpv4-sp-d16
+ 510              	__sal_sockcb_getcb:
+ 511              	.LFB8:
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** ///< use this function to get the sockcb
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** static tag_sock_cb * __sal_sockcb_getcb(int sockfd)
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 512              		.loc 1 168 1
+ 513              		.cfi_startproc
+ 514              		@ args = 0, pretend = 0, frame = 16
+ 515              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 13
+
+
+ 516              		@ link register save eliminated.
+ 517 0000 80B4     		push	{r7}
+ 518              	.LCFI23:
+ 519              		.cfi_def_cfa_offset 4
+ 520              		.cfi_offset 7, -4
+ 521 0002 85B0     		sub	sp, sp, #20
+ 522              	.LCFI24:
+ 523              		.cfi_def_cfa_offset 24
+ 524 0004 00AF     		add	r7, sp, #0
+ 525              	.LCFI25:
+ 526              		.cfi_def_cfa_register 7
+ 527 0006 7860     		str	r0, [r7, #4]
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb = NULL;
+ 528              		.loc 1 169 18
+ 529 0008 0023     		movs	r3, #0
+ 530 000a FB60     		str	r3, [r7, #12]
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if((sockfd >=0 ) && (sockfd < s_sal_cb.sock_cb_num))
+ 531              		.loc 1 171 7
+ 532 000c 7B68     		ldr	r3, [r7, #4]
+ 533 000e 002B     		cmp	r3, #0
+ 534 0010 0BDB     		blt	.L44
+ 535              		.loc 1 171 43 discriminator 1
+ 536 0012 094B     		ldr	r3, .L46
+ 537 0014 5B68     		ldr	r3, [r3, #4]
+ 538              		.loc 1 171 22 discriminator 1
+ 539 0016 7A68     		ldr	r2, [r7, #4]
+ 540 0018 9A42     		cmp	r2, r3
+ 541 001a 06DA     		bge	.L44
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         sockcb = s_sal_cb.sock_cb_tab[sockfd];
+ 542              		.loc 1 173 26
+ 543 001c 064B     		ldr	r3, .L46
+ 544 001e DA68     		ldr	r2, [r3, #12]
+ 545              		.loc 1 173 38
+ 546 0020 7B68     		ldr	r3, [r7, #4]
+ 547 0022 9B00     		lsls	r3, r3, #2
+ 548 0024 1344     		add	r3, r3, r2
+ 549              		.loc 1 173 16
+ 550 0026 1B68     		ldr	r3, [r3]
+ 551 0028 FB60     		str	r3, [r7, #12]
+ 552              	.L44:
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return sockcb;
+ 553              		.loc 1 176 12
+ 554 002a FB68     		ldr	r3, [r7, #12]
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 555              		.loc 1 177 1
+ 556 002c 1846     		mov	r0, r3
+ 557 002e 1437     		adds	r7, r7, #20
+ 558              	.LCFI26:
+ 559              		.cfi_def_cfa_offset 4
+ 560 0030 BD46     		mov	sp, r7
+ 561              	.LCFI27:
+ 562              		.cfi_def_cfa_register 13
+ 563              		@ sp needed
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 14
+
+
+ 564 0032 5DF8047B 		ldr	r7, [sp], #4
+ 565              	.LCFI28:
+ 566              		.cfi_restore 7
+ 567              		.cfi_def_cfa_offset 0
+ 568 0036 7047     		bx	lr
+ 569              	.L47:
+ 570              		.align	2
+ 571              	.L46:
+ 572 0038 00000000 		.word	s_sal_cb
+ 573              		.cfi_endproc
+ 574              	.LFE8:
+ 576              		.section	.text.__sal_sockcb_getfd,"ax",%progbits
+ 577              		.align	1
+ 578              		.syntax unified
+ 579              		.thumb
+ 580              		.thumb_func
+ 581              		.fpu fpv4-sp-d16
+ 583              	__sal_sockcb_getfd:
+ 584              	.LFB9:
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** static int   __sal_sockcb_getfd(tag_sock_cb *sockcb)
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 585              		.loc 1 180 1
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 16
+ 588              		@ frame_needed = 1, uses_anonymous_args = 0
+ 589              		@ link register save eliminated.
+ 590 0000 80B4     		push	{r7}
+ 591              	.LCFI29:
+ 592              		.cfi_def_cfa_offset 4
+ 593              		.cfi_offset 7, -4
+ 594 0002 85B0     		sub	sp, sp, #20
+ 595              	.LCFI30:
+ 596              		.cfi_def_cfa_offset 24
+ 597 0004 00AF     		add	r7, sp, #0
+ 598              	.LCFI31:
+ 599              		.cfi_def_cfa_register 7
+ 600 0006 7860     		str	r0, [r7, #4]
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int sockfd = -1;
+ 601              		.loc 1 181 9
+ 602 0008 4FF0FF33 		mov	r3, #-1
+ 603 000c FB60     		str	r3, [r7, #12]
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 604              		.loc 1 183 7
+ 605 000e 7B68     		ldr	r3, [r7, #4]
+ 606 0010 002B     		cmp	r3, #0
+ 607 0012 02D0     		beq	.L49
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         sockfd = sockcb->fd;
+ 608              		.loc 1 185 16
+ 609 0014 7B68     		ldr	r3, [r7, #4]
+ 610 0016 5B68     		ldr	r3, [r3, #4]
+ 611 0018 FB60     		str	r3, [r7, #12]
+ 612              	.L49:
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 15
+
+
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return sockfd;
+ 613              		.loc 1 188 12
+ 614 001a FB68     		ldr	r3, [r7, #12]
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 615              		.loc 1 189 1
+ 616 001c 1846     		mov	r0, r3
+ 617 001e 1437     		adds	r7, r7, #20
+ 618              	.LCFI32:
+ 619              		.cfi_def_cfa_offset 4
+ 620 0020 BD46     		mov	sp, r7
+ 621              	.LCFI33:
+ 622              		.cfi_def_cfa_register 13
+ 623              		@ sp needed
+ 624 0022 5DF8047B 		ldr	r7, [sp], #4
+ 625              	.LCFI34:
+ 626              		.cfi_restore 7
+ 627              		.cfi_def_cfa_offset 0
+ 628 0026 7047     		bx	lr
+ 629              		.cfi_endproc
+ 630              	.LFE9:
+ 632              		.section	.text.sal_socket,"ax",%progbits
+ 633              		.align	1
+ 634              		.global	sal_socket
+ 635              		.syntax unified
+ 636              		.thumb
+ 637              		.thumb_func
+ 638              		.fpu fpv4-sp-d16
+ 640              	sal_socket:
+ 641              	.LFB10:
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_socket(int domain, int type, int protocol)
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 642              		.loc 1 193 1
+ 643              		.cfi_startproc
+ 644              		@ args = 0, pretend = 0, frame = 32
+ 645              		@ frame_needed = 1, uses_anonymous_args = 0
+ 646 0000 80B5     		push	{r7, lr}
+ 647              	.LCFI35:
+ 648              		.cfi_def_cfa_offset 8
+ 649              		.cfi_offset 7, -8
+ 650              		.cfi_offset 14, -4
+ 651 0002 88B0     		sub	sp, sp, #32
+ 652              	.LCFI36:
+ 653              		.cfi_def_cfa_offset 40
+ 654 0004 00AF     		add	r7, sp, #0
+ 655              	.LCFI37:
+ 656              		.cfi_def_cfa_register 7
+ 657 0006 F860     		str	r0, [r7, #12]
+ 658 0008 B960     		str	r1, [r7, #8]
+ 659 000a 7A60     		str	r2, [r7, #4]
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int sockfd = -1;
+ 660              		.loc 1 194 9
+ 661 000c 4FF0FF33 		mov	r3, #-1
+ 662 0010 FB61     		str	r3, [r7, #28]
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int sock = -1;
+ 663              		.loc 1 195 9
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 16
+
+
+ 664 0012 4FF0FF33 		mov	r3, #-1
+ 665 0016 BB61     		str	r3, [r7, #24]
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_malloc();
+ 666              		.loc 1 199 14
+ 667 0018 FFF7FEFF 		bl	__sal_sockcb_malloc
+ 668 001c 7861     		str	r0, [r7, #20]
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 669              		.loc 1 201 7
+ 670 001e 7B69     		ldr	r3, [r7, #20]
+ 671 0020 002B     		cmp	r3, #0
+ 672 0022 28D0     		beq	.L52
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != s_sal_cb.domain)&&(NULL != s_sal_cb.domain->ops) &&\
+ 673              		.loc 1 203 29
+ 674 0024 164B     		ldr	r3, .L56
+ 675 0026 1B68     		ldr	r3, [r3]
+ 676              		.loc 1 203 11
+ 677 0028 002B     		cmp	r3, #0
+ 678 002a 13D0     		beq	.L53
+ 679              		.loc 1 203 56 discriminator 1
+ 680 002c 144B     		ldr	r3, .L56
+ 681 002e 1B68     		ldr	r3, [r3]
+ 682              		.loc 1 203 63 discriminator 1
+ 683 0030 9B68     		ldr	r3, [r3, #8]
+ 684              		.loc 1 203 37 discriminator 1
+ 685 0032 002B     		cmp	r3, #0
+ 686 0034 0ED0     		beq	.L53
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****            (NULL != s_sal_cb.domain->ops->socket))
+ 687              		.loc 1 204 29 discriminator 2
+ 688 0036 124B     		ldr	r3, .L56
+ 689 0038 1B68     		ldr	r3, [r3]
+ 690              		.loc 1 204 36 discriminator 2
+ 691 003a 9B68     		ldr	r3, [r3, #8]
+ 692              		.loc 1 204 41 discriminator 2
+ 693 003c 1B68     		ldr	r3, [r3]
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****            (NULL != s_sal_cb.domain->ops->socket))
+ 694              		.loc 1 203 70 discriminator 2
+ 695 003e 002B     		cmp	r3, #0
+ 696 0040 08D0     		beq	.L53
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             sock = s_sal_cb.domain->ops->socket(domain,type,protocol);
+ 697              		.loc 1 206 28
+ 698 0042 0F4B     		ldr	r3, .L56
+ 699 0044 1B68     		ldr	r3, [r3]
+ 700              		.loc 1 206 35
+ 701 0046 9B68     		ldr	r3, [r3, #8]
+ 702              		.loc 1 206 40
+ 703 0048 1B68     		ldr	r3, [r3]
+ 704              		.loc 1 206 20
+ 705 004a 7A68     		ldr	r2, [r7, #4]
+ 706 004c B968     		ldr	r1, [r7, #8]
+ 707 004e F868     		ldr	r0, [r7, #12]
+ 708 0050 9847     		blx	r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 17
+
+
+ 709              	.LVL0:
+ 710 0052 B861     		str	r0, [r7, #24]
+ 711              	.L53:
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if(-1 != sock)
+ 712              		.loc 1 208 11
+ 713 0054 BB69     		ldr	r3, [r7, #24]
+ 714 0056 B3F1FF3F 		cmp	r3, #-1
+ 715 005a 07D0     		beq	.L54
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             sockcb->sock = sock;
+ 716              		.loc 1 210 26
+ 717 005c 7B69     		ldr	r3, [r7, #20]
+ 718 005e BA69     		ldr	r2, [r7, #24]
+ 719 0060 9A60     		str	r2, [r3, #8]
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             sockfd = __sal_sockcb_getfd(sockcb);
+ 720              		.loc 1 211 22
+ 721 0062 7869     		ldr	r0, [r7, #20]
+ 722 0064 FFF7FEFF 		bl	__sal_sockcb_getfd
+ 723 0068 F861     		str	r0, [r7, #28]
+ 724 006a 04E0     		b	.L52
+ 725              	.L54:
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         else
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             __sal_sockcb_free(sockcb->fd);
+ 726              		.loc 1 215 13
+ 727 006c 7B69     		ldr	r3, [r7, #20]
+ 728 006e 5B68     		ldr	r3, [r3, #4]
+ 729 0070 1846     		mov	r0, r3
+ 730 0072 FFF7FEFF 		bl	__sal_sockcb_free
+ 731              	.L52:
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return sockfd;
+ 732              		.loc 1 220 12
+ 733 0076 FB69     		ldr	r3, [r7, #28]
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 734              		.loc 1 221 1
+ 735 0078 1846     		mov	r0, r3
+ 736 007a 2037     		adds	r7, r7, #32
+ 737              	.LCFI38:
+ 738              		.cfi_def_cfa_offset 8
+ 739 007c BD46     		mov	sp, r7
+ 740              	.LCFI39:
+ 741              		.cfi_def_cfa_register 13
+ 742              		@ sp needed
+ 743 007e 80BD     		pop	{r7, pc}
+ 744              	.L57:
+ 745              		.align	2
+ 746              	.L56:
+ 747 0080 00000000 		.word	s_sal_cb
+ 748              		.cfi_endproc
+ 749              	.LFE10:
+ 751              		.section	.text.sal_bind,"ax",%progbits
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 18
+
+
+ 752              		.align	1
+ 753              		.global	sal_bind
+ 754              		.syntax unified
+ 755              		.thumb
+ 756              		.thumb_func
+ 757              		.fpu fpv4-sp-d16
+ 759              	sal_bind:
+ 760              	.LFB11:
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_bind(int sockfd,const struct sockaddr *addr,socklen_t addrlen)
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 761              		.loc 1 224 1
+ 762              		.cfi_startproc
+ 763              		@ args = 0, pretend = 0, frame = 24
+ 764              		@ frame_needed = 1, uses_anonymous_args = 0
+ 765 0000 80B5     		push	{r7, lr}
+ 766              	.LCFI40:
+ 767              		.cfi_def_cfa_offset 8
+ 768              		.cfi_offset 7, -8
+ 769              		.cfi_offset 14, -4
+ 770 0002 86B0     		sub	sp, sp, #24
+ 771              	.LCFI41:
+ 772              		.cfi_def_cfa_offset 32
+ 773 0004 00AF     		add	r7, sp, #0
+ 774              	.LCFI42:
+ 775              		.cfi_def_cfa_register 7
+ 776 0006 F860     		str	r0, [r7, #12]
+ 777 0008 B960     		str	r1, [r7, #8]
+ 778 000a 7A60     		str	r2, [r7, #4]
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 779              		.loc 1 225 9
+ 780 000c 4FF0FF33 		mov	r3, #-1
+ 781 0010 7B61     		str	r3, [r7, #20]
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 782              		.loc 1 228 14
+ 783 0012 F868     		ldr	r0, [r7, #12]
+ 784 0014 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 785 0018 3861     		str	r0, [r7, #16]
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 786              		.loc 1 229 7
+ 787 001a 3B69     		ldr	r3, [r7, #16]
+ 788 001c 002B     		cmp	r3, #0
+ 789 001e 11D0     		beq	.L59
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops) && (NULL != sockcb->ops->bind))
+ 790              		.loc 1 231 27
+ 791 0020 3B69     		ldr	r3, [r7, #16]
+ 792 0022 1B68     		ldr	r3, [r3]
+ 793              		.loc 1 231 11
+ 794 0024 002B     		cmp	r3, #0
+ 795 0026 0DD0     		beq	.L59
+ 796              		.loc 1 231 52 discriminator 1
+ 797 0028 3B69     		ldr	r3, [r7, #16]
+ 798 002a 1B68     		ldr	r3, [r3]
+ 799              		.loc 1 231 57 discriminator 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 19
+
+
+ 800 002c 5B68     		ldr	r3, [r3, #4]
+ 801              		.loc 1 231 34 discriminator 1
+ 802 002e 002B     		cmp	r3, #0
+ 803 0030 08D0     		beq	.L59
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->bind(sockcb->sock,addr,addrlen);
+ 804              		.loc 1 233 25
+ 805 0032 3B69     		ldr	r3, [r7, #16]
+ 806 0034 1B68     		ldr	r3, [r3]
+ 807              		.loc 1 233 30
+ 808 0036 5B68     		ldr	r3, [r3, #4]
+ 809              		.loc 1 233 19
+ 810 0038 3A69     		ldr	r2, [r7, #16]
+ 811 003a 9068     		ldr	r0, [r2, #8]
+ 812 003c 7A68     		ldr	r2, [r7, #4]
+ 813 003e B968     		ldr	r1, [r7, #8]
+ 814 0040 9847     		blx	r3
+ 815              	.LVL1:
+ 816 0042 7861     		str	r0, [r7, #20]
+ 817              	.L59:
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 818              		.loc 1 237 12
+ 819 0044 7B69     		ldr	r3, [r7, #20]
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 820              		.loc 1 238 1
+ 821 0046 1846     		mov	r0, r3
+ 822 0048 1837     		adds	r7, r7, #24
+ 823              	.LCFI43:
+ 824              		.cfi_def_cfa_offset 8
+ 825 004a BD46     		mov	sp, r7
+ 826              	.LCFI44:
+ 827              		.cfi_def_cfa_register 13
+ 828              		@ sp needed
+ 829 004c 80BD     		pop	{r7, pc}
+ 830              		.cfi_endproc
+ 831              	.LFE11:
+ 833              		.section	.text.sal_listen,"ax",%progbits
+ 834              		.align	1
+ 835              		.global	sal_listen
+ 836              		.syntax unified
+ 837              		.thumb
+ 838              		.thumb_func
+ 839              		.fpu fpv4-sp-d16
+ 841              	sal_listen:
+ 842              	.LFB12:
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_listen(int sockfd,  int backlog)
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 843              		.loc 1 242 1
+ 844              		.cfi_startproc
+ 845              		@ args = 0, pretend = 0, frame = 16
+ 846              		@ frame_needed = 1, uses_anonymous_args = 0
+ 847 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 20
+
+
+ 848              	.LCFI45:
+ 849              		.cfi_def_cfa_offset 8
+ 850              		.cfi_offset 7, -8
+ 851              		.cfi_offset 14, -4
+ 852 0002 84B0     		sub	sp, sp, #16
+ 853              	.LCFI46:
+ 854              		.cfi_def_cfa_offset 24
+ 855 0004 00AF     		add	r7, sp, #0
+ 856              	.LCFI47:
+ 857              		.cfi_def_cfa_register 7
+ 858 0006 7860     		str	r0, [r7, #4]
+ 859 0008 3960     		str	r1, [r7]
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 860              		.loc 1 243 9
+ 861 000a 4FF0FF33 		mov	r3, #-1
+ 862 000e FB60     		str	r3, [r7, #12]
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 863              		.loc 1 246 14
+ 864 0010 7868     		ldr	r0, [r7, #4]
+ 865 0012 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 866 0016 B860     		str	r0, [r7, #8]
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 867              		.loc 1 247 7
+ 868 0018 BB68     		ldr	r3, [r7, #8]
+ 869 001a 002B     		cmp	r3, #0
+ 870 001c 11D0     		beq	.L62
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->listen))
+ 871              		.loc 1 249 27
+ 872 001e BB68     		ldr	r3, [r7, #8]
+ 873 0020 1B68     		ldr	r3, [r3]
+ 874              		.loc 1 249 11
+ 875 0022 002B     		cmp	r3, #0
+ 876 0024 0DD0     		beq	.L62
+ 877              		.loc 1 249 50 discriminator 1
+ 878 0026 BB68     		ldr	r3, [r7, #8]
+ 879 0028 1B68     		ldr	r3, [r3]
+ 880              		.loc 1 249 55 discriminator 1
+ 881 002a 9B68     		ldr	r3, [r3, #8]
+ 882              		.loc 1 249 33 discriminator 1
+ 883 002c 002B     		cmp	r3, #0
+ 884 002e 08D0     		beq	.L62
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->listen(sockcb->sock,backlog);
+ 885              		.loc 1 251 25
+ 886 0030 BB68     		ldr	r3, [r7, #8]
+ 887 0032 1B68     		ldr	r3, [r3]
+ 888              		.loc 1 251 30
+ 889 0034 9B68     		ldr	r3, [r3, #8]
+ 890              		.loc 1 251 19
+ 891 0036 BA68     		ldr	r2, [r7, #8]
+ 892 0038 9268     		ldr	r2, [r2, #8]
+ 893 003a 3968     		ldr	r1, [r7]
+ 894 003c 1046     		mov	r0, r2
+ 895 003e 9847     		blx	r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 21
+
+
+ 896              	.LVL2:
+ 897 0040 F860     		str	r0, [r7, #12]
+ 898              	.L62:
+ 252:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 253:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 254:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 255:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 899              		.loc 1 255 12
+ 900 0042 FB68     		ldr	r3, [r7, #12]
+ 256:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 901              		.loc 1 256 1
+ 902 0044 1846     		mov	r0, r3
+ 903 0046 1037     		adds	r7, r7, #16
+ 904              	.LCFI48:
+ 905              		.cfi_def_cfa_offset 8
+ 906 0048 BD46     		mov	sp, r7
+ 907              	.LCFI49:
+ 908              		.cfi_def_cfa_register 13
+ 909              		@ sp needed
+ 910 004a 80BD     		pop	{r7, pc}
+ 911              		.cfi_endproc
+ 912              	.LFE12:
+ 914              		.section	.text.sal_accept,"ax",%progbits
+ 915              		.align	1
+ 916              		.global	sal_accept
+ 917              		.syntax unified
+ 918              		.thumb
+ 919              		.thumb_func
+ 920              		.fpu fpv4-sp-d16
+ 922              	sal_accept:
+ 923              	.LFB13:
+ 257:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 258:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_accept(int sockfd,struct sockaddr *addr,socklen_t *addrlen)
+ 259:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 924              		.loc 1 259 1
+ 925              		.cfi_startproc
+ 926              		@ args = 0, pretend = 0, frame = 32
+ 927              		@ frame_needed = 1, uses_anonymous_args = 0
+ 928 0000 80B5     		push	{r7, lr}
+ 929              	.LCFI50:
+ 930              		.cfi_def_cfa_offset 8
+ 931              		.cfi_offset 7, -8
+ 932              		.cfi_offset 14, -4
+ 933 0002 88B0     		sub	sp, sp, #32
+ 934              	.LCFI51:
+ 935              		.cfi_def_cfa_offset 40
+ 936 0004 00AF     		add	r7, sp, #0
+ 937              	.LCFI52:
+ 938              		.cfi_def_cfa_register 7
+ 939 0006 F860     		str	r0, [r7, #12]
+ 940 0008 B960     		str	r1, [r7, #8]
+ 941 000a 7A60     		str	r2, [r7, #4]
+ 260:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int sockfd_client = -1;
+ 942              		.loc 1 260 9
+ 943 000c 4FF0FF33 		mov	r3, #-1
+ 944 0010 FB61     		str	r3, [r7, #28]
+ 261:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int sock_client = -1;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 22
+
+
+ 945              		.loc 1 261 9
+ 946 0012 4FF0FF33 		mov	r3, #-1
+ 947 0016 BB61     		str	r3, [r7, #24]
+ 262:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb_client;
+ 263:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 264:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb_server;
+ 265:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 266:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb_server = __sal_sockcb_getcb(sockfd);
+ 948              		.loc 1 266 21
+ 949 0018 F868     		ldr	r0, [r7, #12]
+ 950 001a FFF7FEFF 		bl	__sal_sockcb_getcb
+ 951 001e 7861     		str	r0, [r7, #20]
+ 267:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL == sockcb_server)
+ 952              		.loc 1 267 7
+ 953 0020 7B69     		ldr	r3, [r7, #20]
+ 954 0022 002B     		cmp	r3, #0
+ 955 0024 01D1     		bne	.L65
+ 268:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 269:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         return sockfd_client;
+ 956              		.loc 1 269 16
+ 957 0026 FB69     		ldr	r3, [r7, #28]
+ 958 0028 29E0     		b	.L66
+ 959              	.L65:
+ 270:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 272:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb_client = __sal_sockcb_malloc();
+ 960              		.loc 1 272 21
+ 961 002a FFF7FEFF 		bl	__sal_sockcb_malloc
+ 962 002e 3861     		str	r0, [r7, #16]
+ 273:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 274:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb_client)
+ 963              		.loc 1 274 7
+ 964 0030 3B69     		ldr	r3, [r7, #16]
+ 965 0032 002B     		cmp	r3, #0
+ 966 0034 22D0     		beq	.L67
+ 275:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 276:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb_server->ops)&&(NULL != sockcb_server->ops->accept))
+ 967              		.loc 1 276 34
+ 968 0036 7B69     		ldr	r3, [r7, #20]
+ 969 0038 1B68     		ldr	r3, [r3]
+ 970              		.loc 1 276 11
+ 971 003a 002B     		cmp	r3, #0
+ 972 003c 0DD0     		beq	.L68
+ 973              		.loc 1 276 64 discriminator 1
+ 974 003e 7B69     		ldr	r3, [r7, #20]
+ 975 0040 1B68     		ldr	r3, [r3]
+ 976              		.loc 1 276 69 discriminator 1
+ 977 0042 DB68     		ldr	r3, [r3, #12]
+ 978              		.loc 1 276 40 discriminator 1
+ 979 0044 002B     		cmp	r3, #0
+ 980 0046 08D0     		beq	.L68
+ 277:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 278:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             sock_client = sockcb_server->ops->accept(sockcb_server->sock,addr,addrlen);
+ 981              		.loc 1 278 40
+ 982 0048 7B69     		ldr	r3, [r7, #20]
+ 983 004a 1B68     		ldr	r3, [r3]
+ 984              		.loc 1 278 45
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 23
+
+
+ 985 004c DB68     		ldr	r3, [r3, #12]
+ 986              		.loc 1 278 27
+ 987 004e 7A69     		ldr	r2, [r7, #20]
+ 988 0050 9068     		ldr	r0, [r2, #8]
+ 989 0052 7A68     		ldr	r2, [r7, #4]
+ 990 0054 B968     		ldr	r1, [r7, #8]
+ 991 0056 9847     		blx	r3
+ 992              	.LVL3:
+ 993 0058 B861     		str	r0, [r7, #24]
+ 994              	.L68:
+ 279:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 280:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if(-1 != sock_client)
+ 995              		.loc 1 280 11
+ 996 005a BB69     		ldr	r3, [r7, #24]
+ 997 005c B3F1FF3F 		cmp	r3, #-1
+ 998 0060 07D0     		beq	.L69
+ 281:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 282:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             sockcb_client->sock = sock_client;
+ 999              		.loc 1 282 33
+ 1000 0062 3B69     		ldr	r3, [r7, #16]
+ 1001 0064 BA69     		ldr	r2, [r7, #24]
+ 1002 0066 9A60     		str	r2, [r3, #8]
+ 283:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             sockfd_client = __sal_sockcb_getfd(sockcb_client);
+ 1003              		.loc 1 283 29
+ 1004 0068 3869     		ldr	r0, [r7, #16]
+ 1005 006a FFF7FEFF 		bl	__sal_sockcb_getfd
+ 1006 006e F861     		str	r0, [r7, #28]
+ 1007 0070 04E0     		b	.L67
+ 1008              	.L69:
+ 284:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 285:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         else
+ 286:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 287:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             __sal_sockcb_free(sockcb_client->fd);
+ 1009              		.loc 1 287 13
+ 1010 0072 3B69     		ldr	r3, [r7, #16]
+ 1011 0074 5B68     		ldr	r3, [r3, #4]
+ 1012 0076 1846     		mov	r0, r3
+ 1013 0078 FFF7FEFF 		bl	__sal_sockcb_free
+ 1014              	.L67:
+ 288:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 289:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 290:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 291:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 292:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return sockfd_client;
+ 1015              		.loc 1 292 12
+ 1016 007c FB69     		ldr	r3, [r7, #28]
+ 1017              	.L66:
+ 293:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1018              		.loc 1 293 1
+ 1019 007e 1846     		mov	r0, r3
+ 1020 0080 2037     		adds	r7, r7, #32
+ 1021              	.LCFI53:
+ 1022              		.cfi_def_cfa_offset 8
+ 1023 0082 BD46     		mov	sp, r7
+ 1024              	.LCFI54:
+ 1025              		.cfi_def_cfa_register 13
+ 1026              		@ sp needed
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 24
+
+
+ 1027 0084 80BD     		pop	{r7, pc}
+ 1028              		.cfi_endproc
+ 1029              	.LFE13:
+ 1031              		.section	.text.sal_connect,"ax",%progbits
+ 1032              		.align	1
+ 1033              		.global	sal_connect
+ 1034              		.syntax unified
+ 1035              		.thumb
+ 1036              		.thumb_func
+ 1037              		.fpu fpv4-sp-d16
+ 1039              	sal_connect:
+ 1040              	.LFB14:
+ 294:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 295:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 296:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_connect(int sockfd, const struct sockaddr *addr,socklen_t addrlen)
+ 297:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1041              		.loc 1 297 1
+ 1042              		.cfi_startproc
+ 1043              		@ args = 0, pretend = 0, frame = 24
+ 1044              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1045 0000 80B5     		push	{r7, lr}
+ 1046              	.LCFI55:
+ 1047              		.cfi_def_cfa_offset 8
+ 1048              		.cfi_offset 7, -8
+ 1049              		.cfi_offset 14, -4
+ 1050 0002 86B0     		sub	sp, sp, #24
+ 1051              	.LCFI56:
+ 1052              		.cfi_def_cfa_offset 32
+ 1053 0004 00AF     		add	r7, sp, #0
+ 1054              	.LCFI57:
+ 1055              		.cfi_def_cfa_register 7
+ 1056 0006 F860     		str	r0, [r7, #12]
+ 1057 0008 B960     		str	r1, [r7, #8]
+ 1058 000a 7A60     		str	r2, [r7, #4]
+ 298:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 299:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1059              		.loc 1 299 9
+ 1060 000c 4FF0FF33 		mov	r3, #-1
+ 1061 0010 7B61     		str	r3, [r7, #20]
+ 300:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 301:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 302:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1062              		.loc 1 302 14
+ 1063 0012 F868     		ldr	r0, [r7, #12]
+ 1064 0014 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1065 0018 3861     		str	r0, [r7, #16]
+ 303:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1066              		.loc 1 303 7
+ 1067 001a 3B69     		ldr	r3, [r7, #16]
+ 1068 001c 002B     		cmp	r3, #0
+ 1069 001e 11D0     		beq	.L71
+ 304:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 305:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->connect))
+ 1070              		.loc 1 305 27
+ 1071 0020 3B69     		ldr	r3, [r7, #16]
+ 1072 0022 1B68     		ldr	r3, [r3]
+ 1073              		.loc 1 305 11
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 25
+
+
+ 1074 0024 002B     		cmp	r3, #0
+ 1075 0026 0DD0     		beq	.L71
+ 1076              		.loc 1 305 50 discriminator 1
+ 1077 0028 3B69     		ldr	r3, [r7, #16]
+ 1078 002a 1B68     		ldr	r3, [r3]
+ 1079              		.loc 1 305 55 discriminator 1
+ 1080 002c 1B69     		ldr	r3, [r3, #16]
+ 1081              		.loc 1 305 33 discriminator 1
+ 1082 002e 002B     		cmp	r3, #0
+ 1083 0030 08D0     		beq	.L71
+ 306:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 307:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->connect(sockcb->sock,addr,addrlen);
+ 1084              		.loc 1 307 25
+ 1085 0032 3B69     		ldr	r3, [r7, #16]
+ 1086 0034 1B68     		ldr	r3, [r3]
+ 1087              		.loc 1 307 30
+ 1088 0036 1B69     		ldr	r3, [r3, #16]
+ 1089              		.loc 1 307 19
+ 1090 0038 3A69     		ldr	r2, [r7, #16]
+ 1091 003a 9068     		ldr	r0, [r2, #8]
+ 1092 003c 7A68     		ldr	r2, [r7, #4]
+ 1093 003e B968     		ldr	r1, [r7, #8]
+ 1094 0040 9847     		blx	r3
+ 1095              	.LVL4:
+ 1096 0042 7861     		str	r0, [r7, #20]
+ 1097              	.L71:
+ 308:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 309:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 310:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 311:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1098              		.loc 1 311 12
+ 1099 0044 7B69     		ldr	r3, [r7, #20]
+ 312:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1100              		.loc 1 312 1
+ 1101 0046 1846     		mov	r0, r3
+ 1102 0048 1837     		adds	r7, r7, #24
+ 1103              	.LCFI58:
+ 1104              		.cfi_def_cfa_offset 8
+ 1105 004a BD46     		mov	sp, r7
+ 1106              	.LCFI59:
+ 1107              		.cfi_def_cfa_register 13
+ 1108              		@ sp needed
+ 1109 004c 80BD     		pop	{r7, pc}
+ 1110              		.cfi_endproc
+ 1111              	.LFE14:
+ 1113              		.section	.text.sal_getsockname,"ax",%progbits
+ 1114              		.align	1
+ 1115              		.global	sal_getsockname
+ 1116              		.syntax unified
+ 1117              		.thumb
+ 1118              		.thumb_func
+ 1119              		.fpu fpv4-sp-d16
+ 1121              	sal_getsockname:
+ 1122              	.LFB15:
+ 313:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 314:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_getsockname(int sockfd, struct sockaddr *addr,socklen_t *addrlen)
+ 315:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 26
+
+
+ 1123              		.loc 1 315 1
+ 1124              		.cfi_startproc
+ 1125              		@ args = 0, pretend = 0, frame = 24
+ 1126              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1127 0000 80B5     		push	{r7, lr}
+ 1128              	.LCFI60:
+ 1129              		.cfi_def_cfa_offset 8
+ 1130              		.cfi_offset 7, -8
+ 1131              		.cfi_offset 14, -4
+ 1132 0002 86B0     		sub	sp, sp, #24
+ 1133              	.LCFI61:
+ 1134              		.cfi_def_cfa_offset 32
+ 1135 0004 00AF     		add	r7, sp, #0
+ 1136              	.LCFI62:
+ 1137              		.cfi_def_cfa_register 7
+ 1138 0006 F860     		str	r0, [r7, #12]
+ 1139 0008 B960     		str	r1, [r7, #8]
+ 1140 000a 7A60     		str	r2, [r7, #4]
+ 316:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 317:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1141              		.loc 1 317 9
+ 1142 000c 4FF0FF33 		mov	r3, #-1
+ 1143 0010 7B61     		str	r3, [r7, #20]
+ 318:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 319:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 320:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1144              		.loc 1 320 14
+ 1145 0012 F868     		ldr	r0, [r7, #12]
+ 1146 0014 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1147 0018 3861     		str	r0, [r7, #16]
+ 321:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1148              		.loc 1 321 7
+ 1149 001a 3B69     		ldr	r3, [r7, #16]
+ 1150 001c 002B     		cmp	r3, #0
+ 1151 001e 11D0     		beq	.L74
+ 322:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 323:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->getsockname))
+ 1152              		.loc 1 323 27
+ 1153 0020 3B69     		ldr	r3, [r7, #16]
+ 1154 0022 1B68     		ldr	r3, [r3]
+ 1155              		.loc 1 323 11
+ 1156 0024 002B     		cmp	r3, #0
+ 1157 0026 0DD0     		beq	.L74
+ 1158              		.loc 1 323 50 discriminator 1
+ 1159 0028 3B69     		ldr	r3, [r7, #16]
+ 1160 002a 1B68     		ldr	r3, [r3]
+ 1161              		.loc 1 323 55 discriminator 1
+ 1162 002c 5B69     		ldr	r3, [r3, #20]
+ 1163              		.loc 1 323 33 discriminator 1
+ 1164 002e 002B     		cmp	r3, #0
+ 1165 0030 08D0     		beq	.L74
+ 324:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 325:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->getsockname(sockcb->sock,addr,addrlen);
+ 1166              		.loc 1 325 25
+ 1167 0032 3B69     		ldr	r3, [r7, #16]
+ 1168 0034 1B68     		ldr	r3, [r3]
+ 1169              		.loc 1 325 30
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 27
+
+
+ 1170 0036 5B69     		ldr	r3, [r3, #20]
+ 1171              		.loc 1 325 19
+ 1172 0038 3A69     		ldr	r2, [r7, #16]
+ 1173 003a 9068     		ldr	r0, [r2, #8]
+ 1174 003c 7A68     		ldr	r2, [r7, #4]
+ 1175 003e B968     		ldr	r1, [r7, #8]
+ 1176 0040 9847     		blx	r3
+ 1177              	.LVL5:
+ 1178 0042 7861     		str	r0, [r7, #20]
+ 1179              	.L74:
+ 326:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 327:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 328:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 329:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1180              		.loc 1 329 12
+ 1181 0044 7B69     		ldr	r3, [r7, #20]
+ 330:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1182              		.loc 1 330 1
+ 1183 0046 1846     		mov	r0, r3
+ 1184 0048 1837     		adds	r7, r7, #24
+ 1185              	.LCFI63:
+ 1186              		.cfi_def_cfa_offset 8
+ 1187 004a BD46     		mov	sp, r7
+ 1188              	.LCFI64:
+ 1189              		.cfi_def_cfa_register 13
+ 1190              		@ sp needed
+ 1191 004c 80BD     		pop	{r7, pc}
+ 1192              		.cfi_endproc
+ 1193              	.LFE15:
+ 1195              		.section	.text.sal_getpeername,"ax",%progbits
+ 1196              		.align	1
+ 1197              		.global	sal_getpeername
+ 1198              		.syntax unified
+ 1199              		.thumb
+ 1200              		.thumb_func
+ 1201              		.fpu fpv4-sp-d16
+ 1203              	sal_getpeername:
+ 1204              	.LFB16:
+ 331:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 332:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 333:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_getpeername(int sockfd, struct sockaddr *addr,socklen_t *addrlen)
+ 334:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1205              		.loc 1 334 1
+ 1206              		.cfi_startproc
+ 1207              		@ args = 0, pretend = 0, frame = 24
+ 1208              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1209 0000 80B5     		push	{r7, lr}
+ 1210              	.LCFI65:
+ 1211              		.cfi_def_cfa_offset 8
+ 1212              		.cfi_offset 7, -8
+ 1213              		.cfi_offset 14, -4
+ 1214 0002 86B0     		sub	sp, sp, #24
+ 1215              	.LCFI66:
+ 1216              		.cfi_def_cfa_offset 32
+ 1217 0004 00AF     		add	r7, sp, #0
+ 1218              	.LCFI67:
+ 1219              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 28
+
+
+ 1220 0006 F860     		str	r0, [r7, #12]
+ 1221 0008 B960     		str	r1, [r7, #8]
+ 1222 000a 7A60     		str	r2, [r7, #4]
+ 335:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 336:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1223              		.loc 1 336 9
+ 1224 000c 4FF0FF33 		mov	r3, #-1
+ 1225 0010 7B61     		str	r3, [r7, #20]
+ 337:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 338:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 339:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1226              		.loc 1 339 14
+ 1227 0012 F868     		ldr	r0, [r7, #12]
+ 1228 0014 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1229 0018 3861     		str	r0, [r7, #16]
+ 340:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1230              		.loc 1 340 7
+ 1231 001a 3B69     		ldr	r3, [r7, #16]
+ 1232 001c 002B     		cmp	r3, #0
+ 1233 001e 11D0     		beq	.L77
+ 341:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 342:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->getpeername))
+ 1234              		.loc 1 342 27
+ 1235 0020 3B69     		ldr	r3, [r7, #16]
+ 1236 0022 1B68     		ldr	r3, [r3]
+ 1237              		.loc 1 342 11
+ 1238 0024 002B     		cmp	r3, #0
+ 1239 0026 0DD0     		beq	.L77
+ 1240              		.loc 1 342 50 discriminator 1
+ 1241 0028 3B69     		ldr	r3, [r7, #16]
+ 1242 002a 1B68     		ldr	r3, [r3]
+ 1243              		.loc 1 342 55 discriminator 1
+ 1244 002c 9B69     		ldr	r3, [r3, #24]
+ 1245              		.loc 1 342 33 discriminator 1
+ 1246 002e 002B     		cmp	r3, #0
+ 1247 0030 08D0     		beq	.L77
+ 343:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 344:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->getpeername(sockcb->sock,addr,addrlen);
+ 1248              		.loc 1 344 25
+ 1249 0032 3B69     		ldr	r3, [r7, #16]
+ 1250 0034 1B68     		ldr	r3, [r3]
+ 1251              		.loc 1 344 30
+ 1252 0036 9B69     		ldr	r3, [r3, #24]
+ 1253              		.loc 1 344 19
+ 1254 0038 3A69     		ldr	r2, [r7, #16]
+ 1255 003a 9068     		ldr	r0, [r2, #8]
+ 1256 003c 7A68     		ldr	r2, [r7, #4]
+ 1257 003e B968     		ldr	r1, [r7, #8]
+ 1258 0040 9847     		blx	r3
+ 1259              	.LVL6:
+ 1260 0042 7861     		str	r0, [r7, #20]
+ 1261              	.L77:
+ 345:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 346:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 347:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 348:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1262              		.loc 1 348 12
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 29
+
+
+ 1263 0044 7B69     		ldr	r3, [r7, #20]
+ 349:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1264              		.loc 1 349 1
+ 1265 0046 1846     		mov	r0, r3
+ 1266 0048 1837     		adds	r7, r7, #24
+ 1267              	.LCFI68:
+ 1268              		.cfi_def_cfa_offset 8
+ 1269 004a BD46     		mov	sp, r7
+ 1270              	.LCFI69:
+ 1271              		.cfi_def_cfa_register 13
+ 1272              		@ sp needed
+ 1273 004c 80BD     		pop	{r7, pc}
+ 1274              		.cfi_endproc
+ 1275              	.LFE16:
+ 1277              		.section	.text.sal_getsockopt,"ax",%progbits
+ 1278              		.align	1
+ 1279              		.global	sal_getsockopt
+ 1280              		.syntax unified
+ 1281              		.thumb
+ 1282              		.thumb_func
+ 1283              		.fpu fpv4-sp-d16
+ 1285              	sal_getsockopt:
+ 1286              	.LFB17:
+ 350:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 351:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 352:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_getsockopt (int sockfd, int level, int optname, void *optval, int *optlen)
+ 353:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1287              		.loc 1 353 1
+ 1288              		.cfi_startproc
+ 1289              		@ args = 4, pretend = 0, frame = 24
+ 1290              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1291 0000 90B5     		push	{r4, r7, lr}
+ 1292              	.LCFI70:
+ 1293              		.cfi_def_cfa_offset 12
+ 1294              		.cfi_offset 4, -12
+ 1295              		.cfi_offset 7, -8
+ 1296              		.cfi_offset 14, -4
+ 1297 0002 89B0     		sub	sp, sp, #36
+ 1298              	.LCFI71:
+ 1299              		.cfi_def_cfa_offset 48
+ 1300 0004 02AF     		add	r7, sp, #8
+ 1301              	.LCFI72:
+ 1302              		.cfi_def_cfa 7, 40
+ 1303 0006 F860     		str	r0, [r7, #12]
+ 1304 0008 B960     		str	r1, [r7, #8]
+ 1305 000a 7A60     		str	r2, [r7, #4]
+ 1306 000c 3B60     		str	r3, [r7]
+ 354:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 355:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1307              		.loc 1 355 9
+ 1308 000e 4FF0FF33 		mov	r3, #-1
+ 1309 0012 7B61     		str	r3, [r7, #20]
+ 356:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 357:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 358:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1310              		.loc 1 358 14
+ 1311 0014 F868     		ldr	r0, [r7, #12]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 30
+
+
+ 1312 0016 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1313 001a 3861     		str	r0, [r7, #16]
+ 359:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1314              		.loc 1 359 7
+ 1315 001c 3B69     		ldr	r3, [r7, #16]
+ 1316 001e 002B     		cmp	r3, #0
+ 1317 0020 14D0     		beq	.L80
+ 360:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 361:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->getsockopt))
+ 1318              		.loc 1 361 27
+ 1319 0022 3B69     		ldr	r3, [r7, #16]
+ 1320 0024 1B68     		ldr	r3, [r3]
+ 1321              		.loc 1 361 11
+ 1322 0026 002B     		cmp	r3, #0
+ 1323 0028 10D0     		beq	.L80
+ 1324              		.loc 1 361 50 discriminator 1
+ 1325 002a 3B69     		ldr	r3, [r7, #16]
+ 1326 002c 1B68     		ldr	r3, [r3]
+ 1327              		.loc 1 361 55 discriminator 1
+ 1328 002e 1B6A     		ldr	r3, [r3, #32]
+ 1329              		.loc 1 361 33 discriminator 1
+ 1330 0030 002B     		cmp	r3, #0
+ 1331 0032 0BD0     		beq	.L80
+ 362:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 363:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->getsockopt(sockcb->sock,level,optname,optval,optlen);
+ 1332              		.loc 1 363 25
+ 1333 0034 3B69     		ldr	r3, [r7, #16]
+ 1334 0036 1B68     		ldr	r3, [r3]
+ 1335              		.loc 1 363 30
+ 1336 0038 1C6A     		ldr	r4, [r3, #32]
+ 1337              		.loc 1 363 19
+ 1338 003a 3B69     		ldr	r3, [r7, #16]
+ 1339 003c 9868     		ldr	r0, [r3, #8]
+ 1340 003e BB6A     		ldr	r3, [r7, #40]
+ 1341 0040 0093     		str	r3, [sp]
+ 1342 0042 3B68     		ldr	r3, [r7]
+ 1343 0044 7A68     		ldr	r2, [r7, #4]
+ 1344 0046 B968     		ldr	r1, [r7, #8]
+ 1345 0048 A047     		blx	r4
+ 1346              	.LVL7:
+ 1347 004a 7861     		str	r0, [r7, #20]
+ 1348              	.L80:
+ 364:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 365:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 366:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1349              		.loc 1 367 12
+ 1350 004c 7B69     		ldr	r3, [r7, #20]
+ 368:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1351              		.loc 1 368 1
+ 1352 004e 1846     		mov	r0, r3
+ 1353 0050 1C37     		adds	r7, r7, #28
+ 1354              	.LCFI73:
+ 1355              		.cfi_def_cfa_offset 12
+ 1356 0052 BD46     		mov	sp, r7
+ 1357              	.LCFI74:
+ 1358              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 31
+
+
+ 1359              		@ sp needed
+ 1360 0054 90BD     		pop	{r4, r7, pc}
+ 1361              		.cfi_endproc
+ 1362              	.LFE17:
+ 1364              		.section	.text.sal_setsockopt,"ax",%progbits
+ 1365              		.align	1
+ 1366              		.global	sal_setsockopt
+ 1367              		.syntax unified
+ 1368              		.thumb
+ 1369              		.thumb_func
+ 1370              		.fpu fpv4-sp-d16
+ 1372              	sal_setsockopt:
+ 1373              	.LFB18:
+ 369:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 370:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_setsockopt (int sockfd, int level, int optname, const void *optval, int optlen)
+ 371:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1374              		.loc 1 371 1
+ 1375              		.cfi_startproc
+ 1376              		@ args = 4, pretend = 0, frame = 24
+ 1377              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1378 0000 90B5     		push	{r4, r7, lr}
+ 1379              	.LCFI75:
+ 1380              		.cfi_def_cfa_offset 12
+ 1381              		.cfi_offset 4, -12
+ 1382              		.cfi_offset 7, -8
+ 1383              		.cfi_offset 14, -4
+ 1384 0002 89B0     		sub	sp, sp, #36
+ 1385              	.LCFI76:
+ 1386              		.cfi_def_cfa_offset 48
+ 1387 0004 02AF     		add	r7, sp, #8
+ 1388              	.LCFI77:
+ 1389              		.cfi_def_cfa 7, 40
+ 1390 0006 F860     		str	r0, [r7, #12]
+ 1391 0008 B960     		str	r1, [r7, #8]
+ 1392 000a 7A60     		str	r2, [r7, #4]
+ 1393 000c 3B60     		str	r3, [r7]
+ 372:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 373:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1394              		.loc 1 373 9
+ 1395 000e 4FF0FF33 		mov	r3, #-1
+ 1396 0012 7B61     		str	r3, [r7, #20]
+ 374:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 375:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 376:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1397              		.loc 1 376 14
+ 1398 0014 F868     		ldr	r0, [r7, #12]
+ 1399 0016 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1400 001a 3861     		str	r0, [r7, #16]
+ 377:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1401              		.loc 1 377 7
+ 1402 001c 3B69     		ldr	r3, [r7, #16]
+ 1403 001e 002B     		cmp	r3, #0
+ 1404 0020 14D0     		beq	.L83
+ 378:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 379:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->setsockopt))
+ 1405              		.loc 1 379 27
+ 1406 0022 3B69     		ldr	r3, [r7, #16]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 32
+
+
+ 1407 0024 1B68     		ldr	r3, [r3]
+ 1408              		.loc 1 379 11
+ 1409 0026 002B     		cmp	r3, #0
+ 1410 0028 10D0     		beq	.L83
+ 1411              		.loc 1 379 50 discriminator 1
+ 1412 002a 3B69     		ldr	r3, [r7, #16]
+ 1413 002c 1B68     		ldr	r3, [r3]
+ 1414              		.loc 1 379 55 discriminator 1
+ 1415 002e DB69     		ldr	r3, [r3, #28]
+ 1416              		.loc 1 379 33 discriminator 1
+ 1417 0030 002B     		cmp	r3, #0
+ 1418 0032 0BD0     		beq	.L83
+ 380:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 381:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->setsockopt(sockcb->sock,level,optname,optval,optlen);
+ 1419              		.loc 1 381 25
+ 1420 0034 3B69     		ldr	r3, [r7, #16]
+ 1421 0036 1B68     		ldr	r3, [r3]
+ 1422              		.loc 1 381 30
+ 1423 0038 DC69     		ldr	r4, [r3, #28]
+ 1424              		.loc 1 381 19
+ 1425 003a 3B69     		ldr	r3, [r7, #16]
+ 1426 003c 9868     		ldr	r0, [r3, #8]
+ 1427 003e BB6A     		ldr	r3, [r7, #40]
+ 1428 0040 0093     		str	r3, [sp]
+ 1429 0042 3B68     		ldr	r3, [r7]
+ 1430 0044 7A68     		ldr	r2, [r7, #4]
+ 1431 0046 B968     		ldr	r1, [r7, #8]
+ 1432 0048 A047     		blx	r4
+ 1433              	.LVL8:
+ 1434 004a 7861     		str	r0, [r7, #20]
+ 1435              	.L83:
+ 382:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 383:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 384:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 385:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1436              		.loc 1 385 12
+ 1437 004c 7B69     		ldr	r3, [r7, #20]
+ 386:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1438              		.loc 1 386 1
+ 1439 004e 1846     		mov	r0, r3
+ 1440 0050 1C37     		adds	r7, r7, #28
+ 1441              	.LCFI78:
+ 1442              		.cfi_def_cfa_offset 12
+ 1443 0052 BD46     		mov	sp, r7
+ 1444              	.LCFI79:
+ 1445              		.cfi_def_cfa_register 13
+ 1446              		@ sp needed
+ 1447 0054 90BD     		pop	{r4, r7, pc}
+ 1448              		.cfi_endproc
+ 1449              	.LFE18:
+ 1451              		.section	.text.sal_recv,"ax",%progbits
+ 1452              		.align	1
+ 1453              		.global	sal_recv
+ 1454              		.syntax unified
+ 1455              		.thumb
+ 1456              		.thumb_func
+ 1457              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 33
+
+
+ 1459              	sal_recv:
+ 1460              	.LFB19:
+ 387:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 388:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_recv(int sockfd,void *buf,size_t len,int flags)
+ 389:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1461              		.loc 1 389 1
+ 1462              		.cfi_startproc
+ 1463              		@ args = 0, pretend = 0, frame = 24
+ 1464              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1465 0000 90B5     		push	{r4, r7, lr}
+ 1466              	.LCFI80:
+ 1467              		.cfi_def_cfa_offset 12
+ 1468              		.cfi_offset 4, -12
+ 1469              		.cfi_offset 7, -8
+ 1470              		.cfi_offset 14, -4
+ 1471 0002 87B0     		sub	sp, sp, #28
+ 1472              	.LCFI81:
+ 1473              		.cfi_def_cfa_offset 40
+ 1474 0004 00AF     		add	r7, sp, #0
+ 1475              	.LCFI82:
+ 1476              		.cfi_def_cfa_register 7
+ 1477 0006 F860     		str	r0, [r7, #12]
+ 1478 0008 B960     		str	r1, [r7, #8]
+ 1479 000a 7A60     		str	r2, [r7, #4]
+ 1480 000c 3B60     		str	r3, [r7]
+ 390:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 391:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1481              		.loc 1 391 9
+ 1482 000e 4FF0FF33 		mov	r3, #-1
+ 1483 0012 7B61     		str	r3, [r7, #20]
+ 392:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 393:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 394:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1484              		.loc 1 394 14
+ 1485 0014 F868     		ldr	r0, [r7, #12]
+ 1486 0016 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1487 001a 3861     		str	r0, [r7, #16]
+ 395:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1488              		.loc 1 395 7
+ 1489 001c 3B69     		ldr	r3, [r7, #16]
+ 1490 001e 002B     		cmp	r3, #0
+ 1491 0020 12D0     		beq	.L86
+ 396:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 397:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->recv))
+ 1492              		.loc 1 397 27
+ 1493 0022 3B69     		ldr	r3, [r7, #16]
+ 1494 0024 1B68     		ldr	r3, [r3]
+ 1495              		.loc 1 397 11
+ 1496 0026 002B     		cmp	r3, #0
+ 1497 0028 0ED0     		beq	.L86
+ 1498              		.loc 1 397 50 discriminator 1
+ 1499 002a 3B69     		ldr	r3, [r7, #16]
+ 1500 002c 1B68     		ldr	r3, [r3]
+ 1501              		.loc 1 397 55 discriminator 1
+ 1502 002e DB6A     		ldr	r3, [r3, #44]
+ 1503              		.loc 1 397 33 discriminator 1
+ 1504 0030 002B     		cmp	r3, #0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 34
+
+
+ 1505 0032 09D0     		beq	.L86
+ 398:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 399:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->recv(sockcb->sock,buf,len,flags);
+ 1506              		.loc 1 399 25
+ 1507 0034 3B69     		ldr	r3, [r7, #16]
+ 1508 0036 1B68     		ldr	r3, [r3]
+ 1509              		.loc 1 399 30
+ 1510 0038 DC6A     		ldr	r4, [r3, #44]
+ 1511              		.loc 1 399 19
+ 1512 003a 3B69     		ldr	r3, [r7, #16]
+ 1513 003c 9868     		ldr	r0, [r3, #8]
+ 1514 003e 7A68     		ldr	r2, [r7, #4]
+ 1515 0040 3B68     		ldr	r3, [r7]
+ 1516 0042 B968     		ldr	r1, [r7, #8]
+ 1517 0044 A047     		blx	r4
+ 1518              	.LVL9:
+ 1519 0046 7861     		str	r0, [r7, #20]
+ 1520              	.L86:
+ 400:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 401:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 402:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 403:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1521              		.loc 1 403 12
+ 1522 0048 7B69     		ldr	r3, [r7, #20]
+ 404:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1523              		.loc 1 404 1
+ 1524 004a 1846     		mov	r0, r3
+ 1525 004c 1C37     		adds	r7, r7, #28
+ 1526              	.LCFI83:
+ 1527              		.cfi_def_cfa_offset 12
+ 1528 004e BD46     		mov	sp, r7
+ 1529              	.LCFI84:
+ 1530              		.cfi_def_cfa_register 13
+ 1531              		@ sp needed
+ 1532 0050 90BD     		pop	{r4, r7, pc}
+ 1533              		.cfi_endproc
+ 1534              	.LFE19:
+ 1536              		.section	.text.sal_recvfrom,"ax",%progbits
+ 1537              		.align	1
+ 1538              		.global	sal_recvfrom
+ 1539              		.syntax unified
+ 1540              		.thumb
+ 1541              		.thumb_func
+ 1542              		.fpu fpv4-sp-d16
+ 1544              	sal_recvfrom:
+ 1545              	.LFB20:
+ 405:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 406:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_recvfrom(int sockfd, void *buf, size_t len, int flags,
+ 407:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****       struct sockaddr *from, socklen_t *fromlen)
+ 408:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1546              		.loc 1 408 1
+ 1547              		.cfi_startproc
+ 1548              		@ args = 8, pretend = 0, frame = 24
+ 1549              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1550 0000 90B5     		push	{r4, r7, lr}
+ 1551              	.LCFI85:
+ 1552              		.cfi_def_cfa_offset 12
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 35
+
+
+ 1553              		.cfi_offset 4, -12
+ 1554              		.cfi_offset 7, -8
+ 1555              		.cfi_offset 14, -4
+ 1556 0002 89B0     		sub	sp, sp, #36
+ 1557              	.LCFI86:
+ 1558              		.cfi_def_cfa_offset 48
+ 1559 0004 02AF     		add	r7, sp, #8
+ 1560              	.LCFI87:
+ 1561              		.cfi_def_cfa 7, 40
+ 1562 0006 F860     		str	r0, [r7, #12]
+ 1563 0008 B960     		str	r1, [r7, #8]
+ 1564 000a 7A60     		str	r2, [r7, #4]
+ 1565 000c 3B60     		str	r3, [r7]
+ 409:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 410:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1566              		.loc 1 410 9
+ 1567 000e 4FF0FF33 		mov	r3, #-1
+ 1568 0012 7B61     		str	r3, [r7, #20]
+ 411:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 412:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 413:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1569              		.loc 1 413 14
+ 1570 0014 F868     		ldr	r0, [r7, #12]
+ 1571 0016 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1572 001a 3861     		str	r0, [r7, #16]
+ 414:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1573              		.loc 1 414 7
+ 1574 001c 3B69     		ldr	r3, [r7, #16]
+ 1575 001e 002B     		cmp	r3, #0
+ 1576 0020 16D0     		beq	.L89
+ 415:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 416:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->recvfrom))
+ 1577              		.loc 1 416 27
+ 1578 0022 3B69     		ldr	r3, [r7, #16]
+ 1579 0024 1B68     		ldr	r3, [r3]
+ 1580              		.loc 1 416 11
+ 1581 0026 002B     		cmp	r3, #0
+ 1582 0028 12D0     		beq	.L89
+ 1583              		.loc 1 416 50 discriminator 1
+ 1584 002a 3B69     		ldr	r3, [r7, #16]
+ 1585 002c 1B68     		ldr	r3, [r3]
+ 1586              		.loc 1 416 55 discriminator 1
+ 1587 002e 1B6B     		ldr	r3, [r3, #48]
+ 1588              		.loc 1 416 33 discriminator 1
+ 1589 0030 002B     		cmp	r3, #0
+ 1590 0032 0DD0     		beq	.L89
+ 417:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 418:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->recvfrom(sockcb->sock,buf,len,flags,from,fromlen);
+ 1591              		.loc 1 418 25
+ 1592 0034 3B69     		ldr	r3, [r7, #16]
+ 1593 0036 1B68     		ldr	r3, [r3]
+ 1594              		.loc 1 418 30
+ 1595 0038 1C6B     		ldr	r4, [r3, #48]
+ 1596              		.loc 1 418 19
+ 1597 003a 3B69     		ldr	r3, [r7, #16]
+ 1598 003c 9868     		ldr	r0, [r3, #8]
+ 1599 003e 7A68     		ldr	r2, [r7, #4]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 36
+
+
+ 1600 0040 FB6A     		ldr	r3, [r7, #44]
+ 1601 0042 0193     		str	r3, [sp, #4]
+ 1602 0044 BB6A     		ldr	r3, [r7, #40]
+ 1603 0046 0093     		str	r3, [sp]
+ 1604 0048 3B68     		ldr	r3, [r7]
+ 1605 004a B968     		ldr	r1, [r7, #8]
+ 1606 004c A047     		blx	r4
+ 1607              	.LVL10:
+ 1608 004e 7861     		str	r0, [r7, #20]
+ 1609              	.L89:
+ 419:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 420:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 421:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 422:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1610              		.loc 1 422 12
+ 1611 0050 7B69     		ldr	r3, [r7, #20]
+ 423:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1612              		.loc 1 423 1
+ 1613 0052 1846     		mov	r0, r3
+ 1614 0054 1C37     		adds	r7, r7, #28
+ 1615              	.LCFI88:
+ 1616              		.cfi_def_cfa_offset 12
+ 1617 0056 BD46     		mov	sp, r7
+ 1618              	.LCFI89:
+ 1619              		.cfi_def_cfa_register 13
+ 1620              		@ sp needed
+ 1621 0058 90BD     		pop	{r4, r7, pc}
+ 1622              		.cfi_endproc
+ 1623              	.LFE20:
+ 1625              		.section	.text.sal_send,"ax",%progbits
+ 1626              		.align	1
+ 1627              		.global	sal_send
+ 1628              		.syntax unified
+ 1629              		.thumb
+ 1630              		.thumb_func
+ 1631              		.fpu fpv4-sp-d16
+ 1633              	sal_send:
+ 1634              	.LFB21:
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 425:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_send(int sockfd,const void *buf,size_t len,int flags)
+ 426:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1635              		.loc 1 426 1
+ 1636              		.cfi_startproc
+ 1637              		@ args = 0, pretend = 0, frame = 24
+ 1638              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1639 0000 90B5     		push	{r4, r7, lr}
+ 1640              	.LCFI90:
+ 1641              		.cfi_def_cfa_offset 12
+ 1642              		.cfi_offset 4, -12
+ 1643              		.cfi_offset 7, -8
+ 1644              		.cfi_offset 14, -4
+ 1645 0002 87B0     		sub	sp, sp, #28
+ 1646              	.LCFI91:
+ 1647              		.cfi_def_cfa_offset 40
+ 1648 0004 00AF     		add	r7, sp, #0
+ 1649              	.LCFI92:
+ 1650              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 37
+
+
+ 1651 0006 F860     		str	r0, [r7, #12]
+ 1652 0008 B960     		str	r1, [r7, #8]
+ 1653 000a 7A60     		str	r2, [r7, #4]
+ 1654 000c 3B60     		str	r3, [r7]
+ 427:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 428:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1655              		.loc 1 428 9
+ 1656 000e 4FF0FF33 		mov	r3, #-1
+ 1657 0012 7B61     		str	r3, [r7, #20]
+ 429:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 430:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 431:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1658              		.loc 1 431 14
+ 1659 0014 F868     		ldr	r0, [r7, #12]
+ 1660 0016 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1661 001a 3861     		str	r0, [r7, #16]
+ 432:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1662              		.loc 1 432 7
+ 1663 001c 3B69     		ldr	r3, [r7, #16]
+ 1664 001e 002B     		cmp	r3, #0
+ 1665 0020 12D0     		beq	.L92
+ 433:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 434:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->send))
+ 1666              		.loc 1 434 27
+ 1667 0022 3B69     		ldr	r3, [r7, #16]
+ 1668 0024 1B68     		ldr	r3, [r3]
+ 1669              		.loc 1 434 11
+ 1670 0026 002B     		cmp	r3, #0
+ 1671 0028 0ED0     		beq	.L92
+ 1672              		.loc 1 434 50 discriminator 1
+ 1673 002a 3B69     		ldr	r3, [r7, #16]
+ 1674 002c 1B68     		ldr	r3, [r3]
+ 1675              		.loc 1 434 55 discriminator 1
+ 1676 002e 5B6A     		ldr	r3, [r3, #36]
+ 1677              		.loc 1 434 33 discriminator 1
+ 1678 0030 002B     		cmp	r3, #0
+ 1679 0032 09D0     		beq	.L92
+ 435:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 436:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->send(sockcb->sock,buf,len,flags);
+ 1680              		.loc 1 436 25
+ 1681 0034 3B69     		ldr	r3, [r7, #16]
+ 1682 0036 1B68     		ldr	r3, [r3]
+ 1683              		.loc 1 436 30
+ 1684 0038 5C6A     		ldr	r4, [r3, #36]
+ 1685              		.loc 1 436 19
+ 1686 003a 3B69     		ldr	r3, [r7, #16]
+ 1687 003c 9868     		ldr	r0, [r3, #8]
+ 1688 003e 7A68     		ldr	r2, [r7, #4]
+ 1689 0040 3B68     		ldr	r3, [r7]
+ 1690 0042 B968     		ldr	r1, [r7, #8]
+ 1691 0044 A047     		blx	r4
+ 1692              	.LVL11:
+ 1693 0046 7861     		str	r0, [r7, #20]
+ 1694              	.L92:
+ 437:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 438:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 439:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 38
+
+
+ 440:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1695              		.loc 1 440 12
+ 1696 0048 7B69     		ldr	r3, [r7, #20]
+ 441:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1697              		.loc 1 441 1
+ 1698 004a 1846     		mov	r0, r3
+ 1699 004c 1C37     		adds	r7, r7, #28
+ 1700              	.LCFI93:
+ 1701              		.cfi_def_cfa_offset 12
+ 1702 004e BD46     		mov	sp, r7
+ 1703              	.LCFI94:
+ 1704              		.cfi_def_cfa_register 13
+ 1705              		@ sp needed
+ 1706 0050 90BD     		pop	{r4, r7, pc}
+ 1707              		.cfi_endproc
+ 1708              	.LFE21:
+ 1710              		.section	.text.sal_sendto,"ax",%progbits
+ 1711              		.align	1
+ 1712              		.global	sal_sendto
+ 1713              		.syntax unified
+ 1714              		.thumb
+ 1715              		.thumb_func
+ 1716              		.fpu fpv4-sp-d16
+ 1718              	sal_sendto:
+ 1719              	.LFB22:
+ 442:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 443:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_sendto(int sockfd, const void *buf, size_t len, int flags,
+ 444:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     const struct sockaddr *to, socklen_t tolen)
+ 445:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1720              		.loc 1 445 1
+ 1721              		.cfi_startproc
+ 1722              		@ args = 8, pretend = 0, frame = 24
+ 1723              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1724 0000 90B5     		push	{r4, r7, lr}
+ 1725              	.LCFI95:
+ 1726              		.cfi_def_cfa_offset 12
+ 1727              		.cfi_offset 4, -12
+ 1728              		.cfi_offset 7, -8
+ 1729              		.cfi_offset 14, -4
+ 1730 0002 89B0     		sub	sp, sp, #36
+ 1731              	.LCFI96:
+ 1732              		.cfi_def_cfa_offset 48
+ 1733 0004 02AF     		add	r7, sp, #8
+ 1734              	.LCFI97:
+ 1735              		.cfi_def_cfa 7, 40
+ 1736 0006 F860     		str	r0, [r7, #12]
+ 1737 0008 B960     		str	r1, [r7, #8]
+ 1738 000a 7A60     		str	r2, [r7, #4]
+ 1739 000c 3B60     		str	r3, [r7]
+ 446:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 447:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1740              		.loc 1 447 9
+ 1741 000e 4FF0FF33 		mov	r3, #-1
+ 1742 0012 7B61     		str	r3, [r7, #20]
+ 448:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 449:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 450:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 39
+
+
+ 1743              		.loc 1 450 14
+ 1744 0014 F868     		ldr	r0, [r7, #12]
+ 1745 0016 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1746 001a 3861     		str	r0, [r7, #16]
+ 451:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1747              		.loc 1 451 7
+ 1748 001c 3B69     		ldr	r3, [r7, #16]
+ 1749 001e 002B     		cmp	r3, #0
+ 1750 0020 16D0     		beq	.L95
+ 452:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 453:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->sendto))
+ 1751              		.loc 1 453 27
+ 1752 0022 3B69     		ldr	r3, [r7, #16]
+ 1753 0024 1B68     		ldr	r3, [r3]
+ 1754              		.loc 1 453 11
+ 1755 0026 002B     		cmp	r3, #0
+ 1756 0028 12D0     		beq	.L95
+ 1757              		.loc 1 453 50 discriminator 1
+ 1758 002a 3B69     		ldr	r3, [r7, #16]
+ 1759 002c 1B68     		ldr	r3, [r3]
+ 1760              		.loc 1 453 55 discriminator 1
+ 1761 002e 9B6A     		ldr	r3, [r3, #40]
+ 1762              		.loc 1 453 33 discriminator 1
+ 1763 0030 002B     		cmp	r3, #0
+ 1764 0032 0DD0     		beq	.L95
+ 454:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 455:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->sendto(sockcb->sock,buf,len,flags,to,tolen);
+ 1765              		.loc 1 455 25
+ 1766 0034 3B69     		ldr	r3, [r7, #16]
+ 1767 0036 1B68     		ldr	r3, [r3]
+ 1768              		.loc 1 455 30
+ 1769 0038 9C6A     		ldr	r4, [r3, #40]
+ 1770              		.loc 1 455 19
+ 1771 003a 3B69     		ldr	r3, [r7, #16]
+ 1772 003c 9868     		ldr	r0, [r3, #8]
+ 1773 003e 7A68     		ldr	r2, [r7, #4]
+ 1774 0040 FB6A     		ldr	r3, [r7, #44]
+ 1775 0042 0193     		str	r3, [sp, #4]
+ 1776 0044 BB6A     		ldr	r3, [r7, #40]
+ 1777 0046 0093     		str	r3, [sp]
+ 1778 0048 3B68     		ldr	r3, [r7]
+ 1779 004a B968     		ldr	r1, [r7, #8]
+ 1780 004c A047     		blx	r4
+ 1781              	.LVL12:
+ 1782 004e 7861     		str	r0, [r7, #20]
+ 1783              	.L95:
+ 456:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 457:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 458:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 459:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1784              		.loc 1 459 12
+ 1785 0050 7B69     		ldr	r3, [r7, #20]
+ 460:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1786              		.loc 1 460 1
+ 1787 0052 1846     		mov	r0, r3
+ 1788 0054 1C37     		adds	r7, r7, #28
+ 1789              	.LCFI98:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 40
+
+
+ 1790              		.cfi_def_cfa_offset 12
+ 1791 0056 BD46     		mov	sp, r7
+ 1792              	.LCFI99:
+ 1793              		.cfi_def_cfa_register 13
+ 1794              		@ sp needed
+ 1795 0058 90BD     		pop	{r4, r7, pc}
+ 1796              		.cfi_endproc
+ 1797              	.LFE22:
+ 1799              		.section	.text.sal_shutdown,"ax",%progbits
+ 1800              		.align	1
+ 1801              		.global	sal_shutdown
+ 1802              		.syntax unified
+ 1803              		.thumb
+ 1804              		.thumb_func
+ 1805              		.fpu fpv4-sp-d16
+ 1807              	sal_shutdown:
+ 1808              	.LFB23:
+ 461:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 462:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 463:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_shutdown(int sockfd, int how)
+ 464:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1809              		.loc 1 464 1
+ 1810              		.cfi_startproc
+ 1811              		@ args = 0, pretend = 0, frame = 16
+ 1812              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1813 0000 80B5     		push	{r7, lr}
+ 1814              	.LCFI100:
+ 1815              		.cfi_def_cfa_offset 8
+ 1816              		.cfi_offset 7, -8
+ 1817              		.cfi_offset 14, -4
+ 1818 0002 84B0     		sub	sp, sp, #16
+ 1819              	.LCFI101:
+ 1820              		.cfi_def_cfa_offset 24
+ 1821 0004 00AF     		add	r7, sp, #0
+ 1822              	.LCFI102:
+ 1823              		.cfi_def_cfa_register 7
+ 1824 0006 7860     		str	r0, [r7, #4]
+ 1825 0008 3960     		str	r1, [r7]
+ 465:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 466:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1826              		.loc 1 466 9
+ 1827 000a 4FF0FF33 		mov	r3, #-1
+ 1828 000e FB60     		str	r3, [r7, #12]
+ 467:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 468:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 469:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1829              		.loc 1 469 14
+ 1830 0010 7868     		ldr	r0, [r7, #4]
+ 1831 0012 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1832 0016 B860     		str	r0, [r7, #8]
+ 470:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1833              		.loc 1 470 7
+ 1834 0018 BB68     		ldr	r3, [r7, #8]
+ 1835 001a 002B     		cmp	r3, #0
+ 1836 001c 11D0     		beq	.L98
+ 471:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 472:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->shutdown))
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 41
+
+
+ 1837              		.loc 1 472 27
+ 1838 001e BB68     		ldr	r3, [r7, #8]
+ 1839 0020 1B68     		ldr	r3, [r3]
+ 1840              		.loc 1 472 11
+ 1841 0022 002B     		cmp	r3, #0
+ 1842 0024 0DD0     		beq	.L98
+ 1843              		.loc 1 472 50 discriminator 1
+ 1844 0026 BB68     		ldr	r3, [r7, #8]
+ 1845 0028 1B68     		ldr	r3, [r3]
+ 1846              		.loc 1 472 55 discriminator 1
+ 1847 002a 5B6B     		ldr	r3, [r3, #52]
+ 1848              		.loc 1 472 33 discriminator 1
+ 1849 002c 002B     		cmp	r3, #0
+ 1850 002e 08D0     		beq	.L98
+ 473:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 474:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->shutdown(sockcb->sock,how);
+ 1851              		.loc 1 474 25
+ 1852 0030 BB68     		ldr	r3, [r7, #8]
+ 1853 0032 1B68     		ldr	r3, [r3]
+ 1854              		.loc 1 474 30
+ 1855 0034 5B6B     		ldr	r3, [r3, #52]
+ 1856              		.loc 1 474 19
+ 1857 0036 BA68     		ldr	r2, [r7, #8]
+ 1858 0038 9268     		ldr	r2, [r2, #8]
+ 1859 003a 3968     		ldr	r1, [r7]
+ 1860 003c 1046     		mov	r0, r2
+ 1861 003e 9847     		blx	r3
+ 1862              	.LVL13:
+ 1863 0040 F860     		str	r0, [r7, #12]
+ 1864              	.L98:
+ 475:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 476:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 477:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 478:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1865              		.loc 1 478 12
+ 1866 0042 FB68     		ldr	r3, [r7, #12]
+ 479:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1867              		.loc 1 479 1
+ 1868 0044 1846     		mov	r0, r3
+ 1869 0046 1037     		adds	r7, r7, #16
+ 1870              	.LCFI103:
+ 1871              		.cfi_def_cfa_offset 8
+ 1872 0048 BD46     		mov	sp, r7
+ 1873              	.LCFI104:
+ 1874              		.cfi_def_cfa_register 13
+ 1875              		@ sp needed
+ 1876 004a 80BD     		pop	{r7, pc}
+ 1877              		.cfi_endproc
+ 1878              	.LFE23:
+ 1880              		.section	.text.sal_closesocket,"ax",%progbits
+ 1881              		.align	1
+ 1882              		.global	sal_closesocket
+ 1883              		.syntax unified
+ 1884              		.thumb
+ 1885              		.thumb_func
+ 1886              		.fpu fpv4-sp-d16
+ 1888              	sal_closesocket:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 42
+
+
+ 1889              	.LFB24:
+ 480:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 481:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_closesocket(int sockfd)
+ 482:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1890              		.loc 1 482 1
+ 1891              		.cfi_startproc
+ 1892              		@ args = 0, pretend = 0, frame = 16
+ 1893              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1894 0000 80B5     		push	{r7, lr}
+ 1895              	.LCFI105:
+ 1896              		.cfi_def_cfa_offset 8
+ 1897              		.cfi_offset 7, -8
+ 1898              		.cfi_offset 14, -4
+ 1899 0002 84B0     		sub	sp, sp, #16
+ 1900              	.LCFI106:
+ 1901              		.cfi_def_cfa_offset 24
+ 1902 0004 00AF     		add	r7, sp, #0
+ 1903              	.LCFI107:
+ 1904              		.cfi_def_cfa_register 7
+ 1905 0006 7860     		str	r0, [r7, #4]
+ 483:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 484:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 1906              		.loc 1 484 9
+ 1907 0008 4FF0FF33 		mov	r3, #-1
+ 1908 000c FB60     		str	r3, [r7, #12]
+ 485:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 486:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 487:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(sockfd);
+ 1909              		.loc 1 487 14
+ 1910 000e 7868     		ldr	r0, [r7, #4]
+ 1911 0010 FFF7FEFF 		bl	__sal_sockcb_getcb
+ 1912 0014 B860     		str	r0, [r7, #8]
+ 488:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 1913              		.loc 1 488 7
+ 1914 0016 BB68     		ldr	r3, [r7, #8]
+ 1915 0018 002B     		cmp	r3, #0
+ 1916 001a 15D0     		beq	.L101
+ 489:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 490:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->closesocket))
+ 1917              		.loc 1 490 27
+ 1918 001c BB68     		ldr	r3, [r7, #8]
+ 1919 001e 1B68     		ldr	r3, [r3]
+ 1920              		.loc 1 490 11
+ 1921 0020 002B     		cmp	r3, #0
+ 1922 0022 0CD0     		beq	.L102
+ 1923              		.loc 1 490 50 discriminator 1
+ 1924 0024 BB68     		ldr	r3, [r7, #8]
+ 1925 0026 1B68     		ldr	r3, [r3]
+ 1926              		.loc 1 490 55 discriminator 1
+ 1927 0028 9B6B     		ldr	r3, [r3, #56]
+ 1928              		.loc 1 490 33 discriminator 1
+ 1929 002a 002B     		cmp	r3, #0
+ 1930 002c 07D0     		beq	.L102
+ 491:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 492:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->closesocket(sockcb->sock);
+ 1931              		.loc 1 492 25
+ 1932 002e BB68     		ldr	r3, [r7, #8]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 43
+
+
+ 1933 0030 1B68     		ldr	r3, [r3]
+ 1934              		.loc 1 492 30
+ 1935 0032 9B6B     		ldr	r3, [r3, #56]
+ 1936              		.loc 1 492 19
+ 1937 0034 BA68     		ldr	r2, [r7, #8]
+ 1938 0036 9268     		ldr	r2, [r2, #8]
+ 1939 0038 1046     		mov	r0, r2
+ 1940 003a 9847     		blx	r3
+ 1941              	.LVL14:
+ 1942 003c F860     		str	r0, [r7, #12]
+ 1943              	.L102:
+ 493:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 494:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 495:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         __sal_sockcb_free(sockcb->fd);
+ 1944              		.loc 1 495 9
+ 1945 003e BB68     		ldr	r3, [r7, #8]
+ 1946 0040 5B68     		ldr	r3, [r3, #4]
+ 1947 0042 1846     		mov	r0, r3
+ 1948 0044 FFF7FEFF 		bl	__sal_sockcb_free
+ 1949              	.L101:
+ 496:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 497:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 498:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 1950              		.loc 1 498 12
+ 1951 0048 FB68     		ldr	r3, [r7, #12]
+ 499:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 1952              		.loc 1 499 1
+ 1953 004a 1846     		mov	r0, r3
+ 1954 004c 1037     		adds	r7, r7, #16
+ 1955              	.LCFI108:
+ 1956              		.cfi_def_cfa_offset 8
+ 1957 004e BD46     		mov	sp, r7
+ 1958              	.LCFI109:
+ 1959              		.cfi_def_cfa_register 13
+ 1960              		@ sp needed
+ 1961 0050 80BD     		pop	{r7, pc}
+ 1962              		.cfi_endproc
+ 1963              	.LFE24:
+ 1965              		.section	.text.sal_gethostbyname,"ax",%progbits
+ 1966              		.align	1
+ 1967              		.global	sal_gethostbyname
+ 1968              		.syntax unified
+ 1969              		.thumb
+ 1970              		.thumb_func
+ 1971              		.fpu fpv4-sp-d16
+ 1973              	sal_gethostbyname:
+ 1974              	.LFB25:
+ 500:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 501:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** struct hostent * sal_gethostbyname(const char *name)
+ 502:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 1975              		.loc 1 502 1
+ 1976              		.cfi_startproc
+ 1977              		@ args = 0, pretend = 0, frame = 16
+ 1978              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1979 0000 80B5     		push	{r7, lr}
+ 1980              	.LCFI110:
+ 1981              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 44
+
+
+ 1982              		.cfi_offset 7, -8
+ 1983              		.cfi_offset 14, -4
+ 1984 0002 84B0     		sub	sp, sp, #16
+ 1985              	.LCFI111:
+ 1986              		.cfi_def_cfa_offset 24
+ 1987 0004 00AF     		add	r7, sp, #0
+ 1988              	.LCFI112:
+ 1989              		.cfi_def_cfa_register 7
+ 1990 0006 7860     		str	r0, [r7, #4]
+ 503:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     struct hostent *ret =NULL;
+ 1991              		.loc 1 503 21
+ 1992 0008 0023     		movs	r3, #0
+ 1993 000a FB60     		str	r3, [r7, #12]
+ 504:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if((NULL != s_sal_cb.domain)&&(NULL != s_sal_cb.domain->ops) &&\
+ 1994              		.loc 1 504 25
+ 1995 000c 0D4B     		ldr	r3, .L107
+ 1996 000e 1B68     		ldr	r3, [r3]
+ 1997              		.loc 1 504 7
+ 1998 0010 002B     		cmp	r3, #0
+ 1999 0012 11D0     		beq	.L105
+ 2000              		.loc 1 504 52 discriminator 1
+ 2001 0014 0B4B     		ldr	r3, .L107
+ 2002 0016 1B68     		ldr	r3, [r3]
+ 2003              		.loc 1 504 59 discriminator 1
+ 2004 0018 9B68     		ldr	r3, [r3, #8]
+ 2005              		.loc 1 504 33 discriminator 1
+ 2006 001a 002B     		cmp	r3, #0
+ 2007 001c 0CD0     		beq	.L105
+ 505:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****        (NULL != s_sal_cb.domain->ops->gethostbyname))
+ 2008              		.loc 1 505 25 discriminator 2
+ 2009 001e 094B     		ldr	r3, .L107
+ 2010 0020 1B68     		ldr	r3, [r3]
+ 2011              		.loc 1 505 32 discriminator 2
+ 2012 0022 9B68     		ldr	r3, [r3, #8]
+ 2013              		.loc 1 505 37 discriminator 2
+ 2014 0024 DB6B     		ldr	r3, [r3, #60]
+ 504:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if((NULL != s_sal_cb.domain)&&(NULL != s_sal_cb.domain->ops) &&\
+ 2015              		.loc 1 504 66 discriminator 2
+ 2016 0026 002B     		cmp	r3, #0
+ 2017 0028 06D0     		beq	.L105
+ 506:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 507:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         ret = (struct hostent *)s_sal_cb.domain->ops->gethostbyname(name);
+ 2018              		.loc 1 507 41
+ 2019 002a 064B     		ldr	r3, .L107
+ 2020 002c 1B68     		ldr	r3, [r3]
+ 2021              		.loc 1 507 48
+ 2022 002e 9B68     		ldr	r3, [r3, #8]
+ 2023              		.loc 1 507 53
+ 2024 0030 DB6B     		ldr	r3, [r3, #60]
+ 2025              		.loc 1 507 33
+ 2026 0032 7868     		ldr	r0, [r7, #4]
+ 2027 0034 9847     		blx	r3
+ 2028              	.LVL15:
+ 2029 0036 F860     		str	r0, [r7, #12]
+ 2030              	.L105:
+ 508:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 509:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 45
+
+
+ 2031              		.loc 1 509 12
+ 2032 0038 FB68     		ldr	r3, [r7, #12]
+ 510:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 2033              		.loc 1 510 1
+ 2034 003a 1846     		mov	r0, r3
+ 2035 003c 1037     		adds	r7, r7, #16
+ 2036              	.LCFI113:
+ 2037              		.cfi_def_cfa_offset 8
+ 2038 003e BD46     		mov	sp, r7
+ 2039              	.LCFI114:
+ 2040              		.cfi_def_cfa_register 13
+ 2041              		@ sp needed
+ 2042 0040 80BD     		pop	{r7, pc}
+ 2043              	.L108:
+ 2044 0042 00BF     		.align	2
+ 2045              	.L107:
+ 2046 0044 00000000 		.word	s_sal_cb
+ 2047              		.cfi_endproc
+ 2048              	.LFE25:
+ 2050              		.section	.text.sal_select,"ax",%progbits
+ 2051              		.align	1
+ 2052              		.global	sal_select
+ 2053              		.syntax unified
+ 2054              		.thumb
+ 2055              		.thumb_func
+ 2056              		.fpu fpv4-sp-d16
+ 2058              	sal_select:
+ 2059              	.LFB26:
+ 511:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 512:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** int sal_select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *time
+ 513:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** {
+ 2060              		.loc 1 513 1
+ 2061              		.cfi_startproc
+ 2062              		@ args = 4, pretend = 0, frame = 24
+ 2063              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2064 0000 90B5     		push	{r4, r7, lr}
+ 2065              	.LCFI115:
+ 2066              		.cfi_def_cfa_offset 12
+ 2067              		.cfi_offset 4, -12
+ 2068              		.cfi_offset 7, -8
+ 2069              		.cfi_offset 14, -4
+ 2070 0002 89B0     		sub	sp, sp, #36
+ 2071              	.LCFI116:
+ 2072              		.cfi_def_cfa_offset 48
+ 2073 0004 02AF     		add	r7, sp, #8
+ 2074              	.LCFI117:
+ 2075              		.cfi_def_cfa 7, 40
+ 2076 0006 F860     		str	r0, [r7, #12]
+ 2077 0008 B960     		str	r1, [r7, #8]
+ 2078 000a 7A60     		str	r2, [r7, #4]
+ 2079 000c 3B60     		str	r3, [r7]
+ 514:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     int ret = -1;
+ 2080              		.loc 1 514 9
+ 2081 000e 4FF0FF33 		mov	r3, #-1
+ 2082 0012 7B61     		str	r3, [r7, #20]
+ 515:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     tag_sock_cb *sockcb;
+ 516:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 46
+
+
+ 517:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     sockcb = __sal_sockcb_getcb(nfds-1);
+ 2083              		.loc 1 517 14
+ 2084 0014 FB68     		ldr	r3, [r7, #12]
+ 2085 0016 013B     		subs	r3, r3, #1
+ 2086 0018 1846     		mov	r0, r3
+ 2087 001a FFF7FEFF 		bl	__sal_sockcb_getcb
+ 2088 001e 3861     		str	r0, [r7, #16]
+ 518:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     if(NULL != sockcb)
+ 2089              		.loc 1 518 7
+ 2090 0020 3B69     		ldr	r3, [r7, #16]
+ 2091 0022 002B     		cmp	r3, #0
+ 2092 0024 15D0     		beq	.L110
+ 519:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     {
+ 520:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         if((NULL != sockcb->ops)&&(NULL != sockcb->ops->select))
+ 2093              		.loc 1 520 27
+ 2094 0026 3B69     		ldr	r3, [r7, #16]
+ 2095 0028 1B68     		ldr	r3, [r3]
+ 2096              		.loc 1 520 11
+ 2097 002a 002B     		cmp	r3, #0
+ 2098 002c 11D0     		beq	.L110
+ 2099              		.loc 1 520 50 discriminator 1
+ 2100 002e 3B69     		ldr	r3, [r7, #16]
+ 2101 0030 1B68     		ldr	r3, [r3]
+ 2102              		.loc 1 520 55 discriminator 1
+ 2103 0032 1B6C     		ldr	r3, [r3, #64]
+ 2104              		.loc 1 520 33 discriminator 1
+ 2105 0034 002B     		cmp	r3, #0
+ 2106 0036 0CD0     		beq	.L110
+ 521:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         {
+ 522:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****             ret = sockcb->ops->select(sockcb->sock+1, readfds, writefds, exceptfds, timeout);
+ 2107              		.loc 1 522 25
+ 2108 0038 3B69     		ldr	r3, [r7, #16]
+ 2109 003a 1B68     		ldr	r3, [r3]
+ 2110              		.loc 1 522 30
+ 2111 003c 1C6C     		ldr	r4, [r3, #64]
+ 2112              		.loc 1 522 45
+ 2113 003e 3B69     		ldr	r3, [r7, #16]
+ 2114 0040 9B68     		ldr	r3, [r3, #8]
+ 2115              		.loc 1 522 19
+ 2116 0042 581C     		adds	r0, r3, #1
+ 2117 0044 BB6A     		ldr	r3, [r7, #40]
+ 2118 0046 0093     		str	r3, [sp]
+ 2119 0048 3B68     		ldr	r3, [r7]
+ 2120 004a 7A68     		ldr	r2, [r7, #4]
+ 2121 004c B968     		ldr	r1, [r7, #8]
+ 2122 004e A047     		blx	r4
+ 2123              	.LVL16:
+ 2124 0050 7861     		str	r0, [r7, #20]
+ 2125              	.L110:
+ 523:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****         }
+ 524:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     }
+ 525:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** 
+ 526:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c ****     return ret;
+ 2126              		.loc 1 526 12
+ 2127 0052 7B69     		ldr	r3, [r7, #20]
+ 527:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/tcpip/sal\sal.c **** }
+ 2128              		.loc 1 527 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 47
+
+
+ 2129 0054 1846     		mov	r0, r3
+ 2130 0056 1C37     		adds	r7, r7, #28
+ 2131              	.LCFI118:
+ 2132              		.cfi_def_cfa_offset 12
+ 2133 0058 BD46     		mov	sp, r7
+ 2134              	.LCFI119:
+ 2135              		.cfi_def_cfa_register 13
+ 2136              		@ sp needed
+ 2137 005a 90BD     		pop	{r4, r7, pc}
+ 2138              		.cfi_endproc
+ 2139              	.LFE26:
+ 2141              		.section	.rodata.__FUNCTION__.7151,"a"
+ 2142              		.align	2
+ 2145              	__FUNCTION__.7151:
+ 2146 0000 6C696E6B 		.ascii	"link_tcpip_imp_init\000"
+ 2146      5F746370 
+ 2146      69705F69 
+ 2146      6D705F69 
+ 2146      6E697400 
+ 2147              		.text
+ 2148              	.Letext0:
+ 2149              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 2150              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 2151              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 2152              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 2153              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 2154              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 2155              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_time
+ 2156              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\selec
+ 2157              		.file 10 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 2158              		.file 11 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 2159              		.file 12 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 48
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sal.c
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:18     .bss.s_sal_cb:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:21     .bss.s_sal_cb:00000000 s_sal_cb
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:24     .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:29     .text.link_tcpip_imp_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:37     .text.link_tcpip_imp_init:00000000 link_tcpip_imp_init
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:64     .text.link_tcpip_imp_init:00000014 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:2145   .rodata.__FUNCTION__.7151:00000000 __FUNCTION__.7151
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:70     .text.link_tcpip_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:77     .text.link_tcpip_init:00000000 link_tcpip_init
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:184    .text.link_tcpip_init:00000080 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:190    .text.link_sal_install:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:197    .text.link_sal_install:00000000 link_sal_install
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:251    .text.link_sal_install:00000030 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:256    .text.__sal_sockcb_malloc:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:262    .text.__sal_sockcb_malloc:00000000 __sal_sockcb_malloc
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:397    .text.__sal_sockcb_malloc:000000a4 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:402    .text.__sal_sockcb_free:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:408    .text.__sal_sockcb_free:00000000 __sal_sockcb_free
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:499    .text.__sal_sockcb_free:00000068 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:504    .text.__sal_sockcb_getcb:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:510    .text.__sal_sockcb_getcb:00000000 __sal_sockcb_getcb
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:572    .text.__sal_sockcb_getcb:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:577    .text.__sal_sockcb_getfd:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:583    .text.__sal_sockcb_getfd:00000000 __sal_sockcb_getfd
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:633    .text.sal_socket:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:640    .text.sal_socket:00000000 sal_socket
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:747    .text.sal_socket:00000080 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:752    .text.sal_bind:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:759    .text.sal_bind:00000000 sal_bind
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:834    .text.sal_listen:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:841    .text.sal_listen:00000000 sal_listen
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:915    .text.sal_accept:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:922    .text.sal_accept:00000000 sal_accept
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1032   .text.sal_connect:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1039   .text.sal_connect:00000000 sal_connect
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1114   .text.sal_getsockname:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1121   .text.sal_getsockname:00000000 sal_getsockname
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1196   .text.sal_getpeername:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1203   .text.sal_getpeername:00000000 sal_getpeername
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1278   .text.sal_getsockopt:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1285   .text.sal_getsockopt:00000000 sal_getsockopt
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1365   .text.sal_setsockopt:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1372   .text.sal_setsockopt:00000000 sal_setsockopt
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1452   .text.sal_recv:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1459   .text.sal_recv:00000000 sal_recv
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1537   .text.sal_recvfrom:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1544   .text.sal_recvfrom:00000000 sal_recvfrom
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1626   .text.sal_send:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1633   .text.sal_send:00000000 sal_send
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1711   .text.sal_sendto:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1718   .text.sal_sendto:00000000 sal_sendto
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1800   .text.sal_shutdown:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1807   .text.sal_shutdown:00000000 sal_shutdown
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1881   .text.sal_closesocket:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1888   .text.sal_closesocket:00000000 sal_closesocket
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s 			page 49
+
+
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1966   .text.sal_gethostbyname:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:1973   .text.sal_gethostbyname:00000000 sal_gethostbyname
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:2046   .text.sal_gethostbyname:00000044 $d
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:2051   .text.sal_select:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:2058   .text.sal_select:00000000 sal_select
+C:\Users\lenovo\AppData\Local\Temp\ccMKENHe.s:2142   .rodata.__FUNCTION__.7151:00000000 $d
+
+UNDEFINED SYMBOLS
+printf
+osal_mutex_create
+osal_malloc
+memset
+osal_mutex_del
+osal_mutex_lock
+osal_mutex_unlock
+osal_free

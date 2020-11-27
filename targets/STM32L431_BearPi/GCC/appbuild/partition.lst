@@ -1,0 +1,816 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"partition.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.bss.s_partition,"aw",%nobits
+  18              		.align	2
+  21              	s_partition:
+  22 0000 00000000 		.space	4
+  23              		.section	.bss.max_part_num,"aw",%nobits
+  24              		.align	2
+  27              	max_part_num:
+  28 0000 00000000 		.space	4
+  29              		.section	.text.storage_partition_init,"ax",%progbits
+  30              		.align	1
+  31              		.global	storage_partition_init
+  32              		.arch armv7e-m
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  36              		.fpu fpv4-sp-d16
+  38              	storage_partition_init:
+  39              	.LFB3:
+  40              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/s
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** #include "partition.h"
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** #include "storage.h"
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** #include <stdio.h>
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** static const storage_partition *s_partition = NULL;
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** static int max_part_num = 0;
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** int storage_partition_init(storage_partition *part, int32_t max_num)
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** {
+  41              		.loc 1 9 1
+  42              		.cfi_startproc
+  43              		@ args = 0, pretend = 0, frame = 8
+  44              		@ frame_needed = 1, uses_anonymous_args = 0
+  45              		@ link register save eliminated.
+  46 0000 80B4     		push	{r7}
+  47              	.LCFI0:
+  48              		.cfi_def_cfa_offset 4
+  49              		.cfi_offset 7, -4
+  50 0002 83B0     		sub	sp, sp, #12
+  51              	.LCFI1:
+  52              		.cfi_def_cfa_offset 16
+  53 0004 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 2
+
+
+  54              	.LCFI2:
+  55              		.cfi_def_cfa_register 7
+  56 0006 7860     		str	r0, [r7, #4]
+  57 0008 3960     		str	r1, [r7]
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if (part != NULL && s_partition == NULL) {
+  58              		.loc 1 10 6
+  59 000a 7B68     		ldr	r3, [r7, #4]
+  60 000c 002B     		cmp	r3, #0
+  61 000e 0BD0     		beq	.L2
+  62              		.loc 1 10 35 discriminator 1
+  63 0010 094B     		ldr	r3, .L4
+  64 0012 1B68     		ldr	r3, [r3]
+  65              		.loc 1 10 20 discriminator 1
+  66 0014 002B     		cmp	r3, #0
+  67 0016 07D1     		bne	.L2
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     s_partition = part;
+  68              		.loc 1 11 17
+  69 0018 074A     		ldr	r2, .L4
+  70 001a 7B68     		ldr	r3, [r7, #4]
+  71 001c 1360     		str	r3, [r2]
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     max_part_num = max_num;
+  72              		.loc 1 12 18
+  73 001e 074A     		ldr	r2, .L4+4
+  74 0020 3B68     		ldr	r3, [r7]
+  75 0022 1360     		str	r3, [r2]
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return 0;
+  76              		.loc 1 13 12
+  77 0024 0023     		movs	r3, #0
+  78 0026 01E0     		b	.L3
+  79              	.L2:
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   }
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   return -1;
+  80              		.loc 1 15 10
+  81 0028 4FF0FF33 		mov	r3, #-1
+  82              	.L3:
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** }
+  83              		.loc 1 16 1
+  84 002c 1846     		mov	r0, r3
+  85 002e 0C37     		adds	r7, r7, #12
+  86              	.LCFI3:
+  87              		.cfi_def_cfa_offset 4
+  88 0030 BD46     		mov	sp, r7
+  89              	.LCFI4:
+  90              		.cfi_def_cfa_register 13
+  91              		@ sp needed
+  92 0032 5DF8047B 		ldr	r7, [sp], #4
+  93              	.LCFI5:
+  94              		.cfi_restore 7
+  95              		.cfi_def_cfa_offset 0
+  96 0036 7047     		bx	lr
+  97              	.L5:
+  98              		.align	2
+  99              	.L4:
+ 100 0038 00000000 		.word	s_partition
+ 101 003c 00000000 		.word	max_part_num
+ 102              		.cfi_endproc
+ 103              	.LFE3:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 3
+
+
+ 105              		.section	.text.storage_partition_deinit,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	storage_partition_deinit
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 111              		.fpu fpv4-sp-d16
+ 113              	storage_partition_deinit:
+ 114              	.LFB4:
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** int storage_partition_deinit()
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** {
+ 115              		.loc 1 19 1
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 1, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+ 120 0000 80B4     		push	{r7}
+ 121              	.LCFI6:
+ 122              		.cfi_def_cfa_offset 4
+ 123              		.cfi_offset 7, -4
+ 124 0002 00AF     		add	r7, sp, #0
+ 125              	.LCFI7:
+ 126              		.cfi_def_cfa_register 7
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if (s_partition != NULL) {
+ 127              		.loc 1 20 19
+ 128 0004 094B     		ldr	r3, .L9
+ 129 0006 1B68     		ldr	r3, [r3]
+ 130              		.loc 1 20 6
+ 131 0008 002B     		cmp	r3, #0
+ 132 000a 07D0     		beq	.L7
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     s_partition = NULL;
+ 133              		.loc 1 21 17
+ 134 000c 074B     		ldr	r3, .L9
+ 135 000e 0022     		movs	r2, #0
+ 136 0010 1A60     		str	r2, [r3]
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     max_part_num = 0;
+ 137              		.loc 1 22 18
+ 138 0012 074B     		ldr	r3, .L9+4
+ 139 0014 0022     		movs	r2, #0
+ 140 0016 1A60     		str	r2, [r3]
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return 0;
+ 141              		.loc 1 23 12
+ 142 0018 0023     		movs	r3, #0
+ 143 001a 01E0     		b	.L8
+ 144              	.L7:
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   }
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   return -1;
+ 145              		.loc 1 25 10
+ 146 001c 4FF0FF33 		mov	r3, #-1
+ 147              	.L8:
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** }
+ 148              		.loc 1 26 1
+ 149 0020 1846     		mov	r0, r3
+ 150 0022 BD46     		mov	sp, r7
+ 151              	.LCFI8:
+ 152              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 4
+
+
+ 153              		@ sp needed
+ 154 0024 5DF8047B 		ldr	r7, [sp], #4
+ 155              	.LCFI9:
+ 156              		.cfi_restore 7
+ 157              		.cfi_def_cfa_offset 0
+ 158 0028 7047     		bx	lr
+ 159              	.L10:
+ 160 002a 00BF     		.align	2
+ 161              	.L9:
+ 162 002c 00000000 		.word	s_partition
+ 163 0030 00000000 		.word	max_part_num
+ 164              		.cfi_endproc
+ 165              	.LFE4:
+ 167              		.section	.rodata
+ 168              		.align	2
+ 169              	.LC0:
+ 170 0000 25733A69 		.ascii	"%s:invalid args!\012\000"
+ 170      6E76616C 
+ 170      69642061 
+ 170      72677321 
+ 170      0A00
+ 171              		.section	.text.storage_partition_read,"ax",%progbits
+ 172              		.align	1
+ 173              		.global	storage_partition_read
+ 174              		.syntax unified
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.fpu fpv4-sp-d16
+ 179              	storage_partition_read:
+ 180              	.LFB5:
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** int storage_partition_read(int part_id, uint8_t *buf, uint32_t len, uint32_t offset)
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** {
+ 181              		.loc 1 29 1
+ 182              		.cfi_startproc
+ 183              		@ args = 0, pretend = 0, frame = 24
+ 184              		@ frame_needed = 1, uses_anonymous_args = 0
+ 185 0000 80B5     		push	{r7, lr}
+ 186              	.LCFI10:
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 7, -8
+ 189              		.cfi_offset 14, -4
+ 190 0002 86B0     		sub	sp, sp, #24
+ 191              	.LCFI11:
+ 192              		.cfi_def_cfa_offset 32
+ 193 0004 00AF     		add	r7, sp, #0
+ 194              	.LCFI12:
+ 195              		.cfi_def_cfa_register 7
+ 196 0006 F860     		str	r0, [r7, #12]
+ 197 0008 B960     		str	r1, [r7, #8]
+ 198 000a 7A60     		str	r2, [r7, #4]
+ 199 000c 3B60     		str	r3, [r7]
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   const storage_partition *sp;
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if (part_id >= max_part_num || buf == NULL)
+ 200              		.loc 1 32 15
+ 201 000e 194B     		ldr	r3, .L16
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 5
+
+
+ 202 0010 1B68     		ldr	r3, [r3]
+ 203              		.loc 1 32 6
+ 204 0012 FA68     		ldr	r2, [r7, #12]
+ 205 0014 9A42     		cmp	r2, r3
+ 206 0016 02DA     		bge	.L12
+ 207              		.loc 1 32 31 discriminator 1
+ 208 0018 BB68     		ldr	r3, [r7, #8]
+ 209 001a 002B     		cmp	r3, #0
+ 210 001c 02D1     		bne	.L13
+ 211              	.L12:
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 212              		.loc 1 33 12
+ 213 001e 4FF0FF33 		mov	r3, #-1
+ 214 0022 22E0     		b	.L14
+ 215              	.L13:
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   sp = &s_partition[part_id];
+ 216              		.loc 1 35 8
+ 217 0024 144B     		ldr	r3, .L16+4
+ 218 0026 1A68     		ldr	r2, [r3]
+ 219              		.loc 1 35 20
+ 220 0028 FB68     		ldr	r3, [r7, #12]
+ 221 002a 1B01     		lsls	r3, r3, #4
+ 222              		.loc 1 35 6
+ 223 002c 1344     		add	r3, r3, r2
+ 224 002e 7B61     		str	r3, [r7, #20]
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if ((offset + len) > (sp->start_addr + sp->size)) {
+ 225              		.loc 1 36 15
+ 226 0030 3A68     		ldr	r2, [r7]
+ 227 0032 7B68     		ldr	r3, [r7, #4]
+ 228 0034 1A44     		add	r2, r2, r3
+ 229              		.loc 1 36 27
+ 230 0036 7B69     		ldr	r3, [r7, #20]
+ 231 0038 9968     		ldr	r1, [r3, #8]
+ 232              		.loc 1 36 44
+ 233 003a 7B69     		ldr	r3, [r7, #20]
+ 234 003c DB68     		ldr	r3, [r3, #12]
+ 235              		.loc 1 36 40
+ 236 003e 0B44     		add	r3, r3, r1
+ 237              		.loc 1 36 6
+ 238 0040 9A42     		cmp	r2, r3
+ 239 0042 06D9     		bls	.L15
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     printf("%s:invalid args!\n", __func__);
+ 240              		.loc 1 37 5
+ 241 0044 0D49     		ldr	r1, .L16+8
+ 242 0046 0E48     		ldr	r0, .L16+12
+ 243 0048 FFF7FEFF 		bl	printf
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 244              		.loc 1 38 12
+ 245 004c 4FF0FF33 		mov	r3, #-1
+ 246 0050 0BE0     		b	.L14
+ 247              	.L15:
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   }
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   return storage_device_read(sp->dev_id, buf, len, sp->start_addr + offset);
+ 248              		.loc 1 41 32
+ 249 0052 7B69     		ldr	r3, [r7, #20]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 6
+
+
+ 250 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 251              		.loc 1 41 10
+ 252 0056 1846     		mov	r0, r3
+ 253              		.loc 1 41 54
+ 254 0058 7B69     		ldr	r3, [r7, #20]
+ 255 005a 9A68     		ldr	r2, [r3, #8]
+ 256              		.loc 1 41 10
+ 257 005c 3B68     		ldr	r3, [r7]
+ 258 005e 1344     		add	r3, r3, r2
+ 259 0060 7A68     		ldr	r2, [r7, #4]
+ 260 0062 B968     		ldr	r1, [r7, #8]
+ 261 0064 FFF7FEFF 		bl	storage_device_read
+ 262 0068 0346     		mov	r3, r0
+ 263              	.L14:
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** }
+ 264              		.loc 1 42 1
+ 265 006a 1846     		mov	r0, r3
+ 266 006c 1837     		adds	r7, r7, #24
+ 267              	.LCFI13:
+ 268              		.cfi_def_cfa_offset 8
+ 269 006e BD46     		mov	sp, r7
+ 270              	.LCFI14:
+ 271              		.cfi_def_cfa_register 13
+ 272              		@ sp needed
+ 273 0070 80BD     		pop	{r7, pc}
+ 274              	.L17:
+ 275 0072 00BF     		.align	2
+ 276              	.L16:
+ 277 0074 00000000 		.word	max_part_num
+ 278 0078 00000000 		.word	s_partition
+ 279 007c 00000000 		.word	__func__.6660
+ 280 0080 00000000 		.word	.LC0
+ 281              		.cfi_endproc
+ 282              	.LFE5:
+ 284              		.section	.text.storage_partition_write,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	storage_partition_write
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 290              		.fpu fpv4-sp-d16
+ 292              	storage_partition_write:
+ 293              	.LFB6:
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** int storage_partition_write(int part_id, uint8_t *buf, uint32_t len, uint32_t offset)
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** {
+ 294              		.loc 1 45 1
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 24
+ 297              		@ frame_needed = 1, uses_anonymous_args = 0
+ 298 0000 80B5     		push	{r7, lr}
+ 299              	.LCFI15:
+ 300              		.cfi_def_cfa_offset 8
+ 301              		.cfi_offset 7, -8
+ 302              		.cfi_offset 14, -4
+ 303 0002 86B0     		sub	sp, sp, #24
+ 304              	.LCFI16:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 7
+
+
+ 305              		.cfi_def_cfa_offset 32
+ 306 0004 00AF     		add	r7, sp, #0
+ 307              	.LCFI17:
+ 308              		.cfi_def_cfa_register 7
+ 309 0006 F860     		str	r0, [r7, #12]
+ 310 0008 B960     		str	r1, [r7, #8]
+ 311 000a 7A60     		str	r2, [r7, #4]
+ 312 000c 3B60     		str	r3, [r7]
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   const storage_partition *sp;
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if (part_id >= max_part_num || buf == NULL)
+ 313              		.loc 1 48 15
+ 314 000e 194B     		ldr	r3, .L23
+ 315 0010 1B68     		ldr	r3, [r3]
+ 316              		.loc 1 48 6
+ 317 0012 FA68     		ldr	r2, [r7, #12]
+ 318 0014 9A42     		cmp	r2, r3
+ 319 0016 02DA     		bge	.L19
+ 320              		.loc 1 48 31 discriminator 1
+ 321 0018 BB68     		ldr	r3, [r7, #8]
+ 322 001a 002B     		cmp	r3, #0
+ 323 001c 02D1     		bne	.L20
+ 324              	.L19:
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 325              		.loc 1 49 12
+ 326 001e 4FF0FF33 		mov	r3, #-1
+ 327 0022 22E0     		b	.L21
+ 328              	.L20:
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   sp = &s_partition[part_id];
+ 329              		.loc 1 51 8
+ 330 0024 144B     		ldr	r3, .L23+4
+ 331 0026 1A68     		ldr	r2, [r3]
+ 332              		.loc 1 51 20
+ 333 0028 FB68     		ldr	r3, [r7, #12]
+ 334 002a 1B01     		lsls	r3, r3, #4
+ 335              		.loc 1 51 6
+ 336 002c 1344     		add	r3, r3, r2
+ 337 002e 7B61     		str	r3, [r7, #20]
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if ((offset + len) > (sp->start_addr + sp->size)) {
+ 338              		.loc 1 52 15
+ 339 0030 3A68     		ldr	r2, [r7]
+ 340 0032 7B68     		ldr	r3, [r7, #4]
+ 341 0034 1A44     		add	r2, r2, r3
+ 342              		.loc 1 52 27
+ 343 0036 7B69     		ldr	r3, [r7, #20]
+ 344 0038 9968     		ldr	r1, [r3, #8]
+ 345              		.loc 1 52 44
+ 346 003a 7B69     		ldr	r3, [r7, #20]
+ 347 003c DB68     		ldr	r3, [r3, #12]
+ 348              		.loc 1 52 40
+ 349 003e 0B44     		add	r3, r3, r1
+ 350              		.loc 1 52 6
+ 351 0040 9A42     		cmp	r2, r3
+ 352 0042 06D9     		bls	.L22
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     printf("%s:invalid args!\n", __func__);
+ 353              		.loc 1 53 5
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 8
+
+
+ 354 0044 0D49     		ldr	r1, .L23+8
+ 355 0046 0E48     		ldr	r0, .L23+12
+ 356 0048 FFF7FEFF 		bl	printf
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 357              		.loc 1 54 12
+ 358 004c 4FF0FF33 		mov	r3, #-1
+ 359 0050 0BE0     		b	.L21
+ 360              	.L22:
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   }
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   return storage_device_write(sp->dev_id, buf, len, sp->start_addr + offset);
+ 361              		.loc 1 57 33
+ 362 0052 7B69     		ldr	r3, [r7, #20]
+ 363 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 364              		.loc 1 57 10
+ 365 0056 1846     		mov	r0, r3
+ 366              		.loc 1 57 55
+ 367 0058 7B69     		ldr	r3, [r7, #20]
+ 368 005a 9A68     		ldr	r2, [r3, #8]
+ 369              		.loc 1 57 10
+ 370 005c 3B68     		ldr	r3, [r7]
+ 371 005e 1344     		add	r3, r3, r2
+ 372 0060 7A68     		ldr	r2, [r7, #4]
+ 373 0062 B968     		ldr	r1, [r7, #8]
+ 374 0064 FFF7FEFF 		bl	storage_device_write
+ 375 0068 0346     		mov	r3, r0
+ 376              	.L21:
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** }
+ 377              		.loc 1 58 1
+ 378 006a 1846     		mov	r0, r3
+ 379 006c 1837     		adds	r7, r7, #24
+ 380              	.LCFI18:
+ 381              		.cfi_def_cfa_offset 8
+ 382 006e BD46     		mov	sp, r7
+ 383              	.LCFI19:
+ 384              		.cfi_def_cfa_register 13
+ 385              		@ sp needed
+ 386 0070 80BD     		pop	{r7, pc}
+ 387              	.L24:
+ 388 0072 00BF     		.align	2
+ 389              	.L23:
+ 390 0074 00000000 		.word	max_part_num
+ 391 0078 00000000 		.word	s_partition
+ 392 007c 00000000 		.word	__func__.6668
+ 393 0080 00000000 		.word	.LC0
+ 394              		.cfi_endproc
+ 395              	.LFE6:
+ 397              		.section	.text.storage_partition_erase_write,"ax",%progbits
+ 398              		.align	1
+ 399              		.global	storage_partition_erase_write
+ 400              		.syntax unified
+ 401              		.thumb
+ 402              		.thumb_func
+ 403              		.fpu fpv4-sp-d16
+ 405              	storage_partition_erase_write:
+ 406              	.LFB7:
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 9
+
+
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** int storage_partition_erase_write(int part_id, uint8_t *buf, uint32_t len, uint32_t offset)
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** {
+ 407              		.loc 1 61 1
+ 408              		.cfi_startproc
+ 409              		@ args = 0, pretend = 0, frame = 24
+ 410              		@ frame_needed = 1, uses_anonymous_args = 0
+ 411 0000 80B5     		push	{r7, lr}
+ 412              	.LCFI20:
+ 413              		.cfi_def_cfa_offset 8
+ 414              		.cfi_offset 7, -8
+ 415              		.cfi_offset 14, -4
+ 416 0002 86B0     		sub	sp, sp, #24
+ 417              	.LCFI21:
+ 418              		.cfi_def_cfa_offset 32
+ 419 0004 00AF     		add	r7, sp, #0
+ 420              	.LCFI22:
+ 421              		.cfi_def_cfa_register 7
+ 422 0006 F860     		str	r0, [r7, #12]
+ 423 0008 B960     		str	r1, [r7, #8]
+ 424 000a 7A60     		str	r2, [r7, #4]
+ 425 000c 3B60     		str	r3, [r7]
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   const storage_partition *sp;
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if (part_id >= max_part_num || buf == NULL)
+ 426              		.loc 1 64 15
+ 427 000e 194B     		ldr	r3, .L30
+ 428 0010 1B68     		ldr	r3, [r3]
+ 429              		.loc 1 64 6
+ 430 0012 FA68     		ldr	r2, [r7, #12]
+ 431 0014 9A42     		cmp	r2, r3
+ 432 0016 02DA     		bge	.L26
+ 433              		.loc 1 64 31 discriminator 1
+ 434 0018 BB68     		ldr	r3, [r7, #8]
+ 435 001a 002B     		cmp	r3, #0
+ 436 001c 02D1     		bne	.L27
+ 437              	.L26:
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 438              		.loc 1 65 12
+ 439 001e 4FF0FF33 		mov	r3, #-1
+ 440 0022 22E0     		b	.L28
+ 441              	.L27:
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   sp = &s_partition[part_id];
+ 442              		.loc 1 67 8
+ 443 0024 144B     		ldr	r3, .L30+4
+ 444 0026 1A68     		ldr	r2, [r3]
+ 445              		.loc 1 67 20
+ 446 0028 FB68     		ldr	r3, [r7, #12]
+ 447 002a 1B01     		lsls	r3, r3, #4
+ 448              		.loc 1 67 6
+ 449 002c 1344     		add	r3, r3, r2
+ 450 002e 7B61     		str	r3, [r7, #20]
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if ((offset + len) > (sp->start_addr + sp->size)){
+ 451              		.loc 1 68 15
+ 452 0030 3A68     		ldr	r2, [r7]
+ 453 0032 7B68     		ldr	r3, [r7, #4]
+ 454 0034 1A44     		add	r2, r2, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 10
+
+
+ 455              		.loc 1 68 27
+ 456 0036 7B69     		ldr	r3, [r7, #20]
+ 457 0038 9968     		ldr	r1, [r3, #8]
+ 458              		.loc 1 68 44
+ 459 003a 7B69     		ldr	r3, [r7, #20]
+ 460 003c DB68     		ldr	r3, [r3, #12]
+ 461              		.loc 1 68 40
+ 462 003e 0B44     		add	r3, r3, r1
+ 463              		.loc 1 68 6
+ 464 0040 9A42     		cmp	r2, r3
+ 465 0042 06D9     		bls	.L29
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     printf("%s:invalid args!\n", __func__);
+ 466              		.loc 1 69 5
+ 467 0044 0D49     		ldr	r1, .L30+8
+ 468 0046 0E48     		ldr	r0, .L30+12
+ 469 0048 FFF7FEFF 		bl	printf
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 470              		.loc 1 70 12
+ 471 004c 4FF0FF33 		mov	r3, #-1
+ 472 0050 0BE0     		b	.L28
+ 473              	.L29:
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   }
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   return storage_device_erase_write(sp->dev_id, buf, len, sp->start_addr + offset);
+ 474              		.loc 1 72 39
+ 475 0052 7B69     		ldr	r3, [r7, #20]
+ 476 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 477              		.loc 1 72 10
+ 478 0056 1846     		mov	r0, r3
+ 479              		.loc 1 72 61
+ 480 0058 7B69     		ldr	r3, [r7, #20]
+ 481 005a 9A68     		ldr	r2, [r3, #8]
+ 482              		.loc 1 72 10
+ 483 005c 3B68     		ldr	r3, [r7]
+ 484 005e 1344     		add	r3, r3, r2
+ 485 0060 7A68     		ldr	r2, [r7, #4]
+ 486 0062 B968     		ldr	r1, [r7, #8]
+ 487 0064 FFF7FEFF 		bl	storage_device_erase_write
+ 488 0068 0346     		mov	r3, r0
+ 489              	.L28:
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** }
+ 490              		.loc 1 73 1
+ 491 006a 1846     		mov	r0, r3
+ 492 006c 1837     		adds	r7, r7, #24
+ 493              	.LCFI23:
+ 494              		.cfi_def_cfa_offset 8
+ 495 006e BD46     		mov	sp, r7
+ 496              	.LCFI24:
+ 497              		.cfi_def_cfa_register 13
+ 498              		@ sp needed
+ 499 0070 80BD     		pop	{r7, pc}
+ 500              	.L31:
+ 501 0072 00BF     		.align	2
+ 502              	.L30:
+ 503 0074 00000000 		.word	max_part_num
+ 504 0078 00000000 		.word	s_partition
+ 505 007c 00000000 		.word	__func__.6676
+ 506 0080 00000000 		.word	.LC0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 11
+
+
+ 507              		.cfi_endproc
+ 508              	.LFE7:
+ 510              		.section	.text.storage_partition_erase,"ax",%progbits
+ 511              		.align	1
+ 512              		.global	storage_partition_erase
+ 513              		.syntax unified
+ 514              		.thumb
+ 515              		.thumb_func
+ 516              		.fpu fpv4-sp-d16
+ 518              	storage_partition_erase:
+ 519              	.LFB8:
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** int storage_partition_erase(int part_id, uint32_t offset, uint32_t len)
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** {
+ 520              		.loc 1 76 1
+ 521              		.cfi_startproc
+ 522              		@ args = 0, pretend = 0, frame = 24
+ 523              		@ frame_needed = 1, uses_anonymous_args = 0
+ 524 0000 80B5     		push	{r7, lr}
+ 525              	.LCFI25:
+ 526              		.cfi_def_cfa_offset 8
+ 527              		.cfi_offset 7, -8
+ 528              		.cfi_offset 14, -4
+ 529 0002 86B0     		sub	sp, sp, #24
+ 530              	.LCFI26:
+ 531              		.cfi_def_cfa_offset 32
+ 532 0004 00AF     		add	r7, sp, #0
+ 533              	.LCFI27:
+ 534              		.cfi_def_cfa_register 7
+ 535 0006 F860     		str	r0, [r7, #12]
+ 536 0008 B960     		str	r1, [r7, #8]
+ 537 000a 7A60     		str	r2, [r7, #4]
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   const storage_partition *sp;
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if (part_id >= max_part_num)
+ 538              		.loc 1 79 15
+ 539 000c 174B     		ldr	r3, .L36
+ 540 000e 1B68     		ldr	r3, [r3]
+ 541              		.loc 1 79 6
+ 542 0010 FA68     		ldr	r2, [r7, #12]
+ 543 0012 9A42     		cmp	r2, r3
+ 544 0014 02DB     		blt	.L33
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 545              		.loc 1 80 12
+ 546 0016 4FF0FF33 		mov	r3, #-1
+ 547 001a 22E0     		b	.L34
+ 548              	.L33:
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   sp = &s_partition[part_id];
+ 549              		.loc 1 82 8
+ 550 001c 144B     		ldr	r3, .L36+4
+ 551 001e 1A68     		ldr	r2, [r3]
+ 552              		.loc 1 82 20
+ 553 0020 FB68     		ldr	r3, [r7, #12]
+ 554 0022 1B01     		lsls	r3, r3, #4
+ 555              		.loc 1 82 6
+ 556 0024 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 12
+
+
+ 557 0026 7B61     		str	r3, [r7, #20]
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   if ((offset + len) > (sp->start_addr + sp->size)){
+ 558              		.loc 1 83 15
+ 559 0028 BA68     		ldr	r2, [r7, #8]
+ 560 002a 7B68     		ldr	r3, [r7, #4]
+ 561 002c 1A44     		add	r2, r2, r3
+ 562              		.loc 1 83 27
+ 563 002e 7B69     		ldr	r3, [r7, #20]
+ 564 0030 9968     		ldr	r1, [r3, #8]
+ 565              		.loc 1 83 44
+ 566 0032 7B69     		ldr	r3, [r7, #20]
+ 567 0034 DB68     		ldr	r3, [r3, #12]
+ 568              		.loc 1 83 40
+ 569 0036 0B44     		add	r3, r3, r1
+ 570              		.loc 1 83 6
+ 571 0038 9A42     		cmp	r2, r3
+ 572 003a 06D9     		bls	.L35
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     printf("%s:invalid args!\n", __func__);
+ 573              		.loc 1 84 5
+ 574 003c 0D49     		ldr	r1, .L36+8
+ 575 003e 0E48     		ldr	r0, .L36+12
+ 576 0040 FFF7FEFF 		bl	printf
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****     return -1;
+ 577              		.loc 1 85 12
+ 578 0044 4FF0FF33 		mov	r3, #-1
+ 579 0048 0BE0     		b	.L34
+ 580              	.L35:
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   }
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** 
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c ****   return storage_device_erase(sp->dev_id, sp->start_addr + offset, len);
+ 581              		.loc 1 88 33
+ 582 004a 7B69     		ldr	r3, [r7, #20]
+ 583 004c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 584              		.loc 1 88 10
+ 585 004e 1846     		mov	r0, r3
+ 586              		.loc 1 88 45
+ 587 0050 7B69     		ldr	r3, [r7, #20]
+ 588 0052 9A68     		ldr	r2, [r3, #8]
+ 589              		.loc 1 88 10
+ 590 0054 BB68     		ldr	r3, [r7, #8]
+ 591 0056 1344     		add	r3, r3, r2
+ 592 0058 7A68     		ldr	r2, [r7, #4]
+ 593 005a 1946     		mov	r1, r3
+ 594 005c FFF7FEFF 		bl	storage_device_erase
+ 595 0060 0346     		mov	r3, r0
+ 596              	.L34:
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\partition.c **** }
+ 597              		.loc 1 89 1
+ 598 0062 1846     		mov	r0, r3
+ 599 0064 1837     		adds	r7, r7, #24
+ 600              	.LCFI28:
+ 601              		.cfi_def_cfa_offset 8
+ 602 0066 BD46     		mov	sp, r7
+ 603              	.LCFI29:
+ 604              		.cfi_def_cfa_register 13
+ 605              		@ sp needed
+ 606 0068 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 13
+
+
+ 607              	.L37:
+ 608 006a 00BF     		.align	2
+ 609              	.L36:
+ 610 006c 00000000 		.word	max_part_num
+ 611 0070 00000000 		.word	s_partition
+ 612 0074 00000000 		.word	__func__.6683
+ 613 0078 00000000 		.word	.LC0
+ 614              		.cfi_endproc
+ 615              	.LFE8:
+ 617              		.section	.rodata.__func__.6660,"a"
+ 618              		.align	2
+ 621              	__func__.6660:
+ 622 0000 73746F72 		.ascii	"storage_partition_read\000"
+ 622      6167655F 
+ 622      70617274 
+ 622      6974696F 
+ 622      6E5F7265 
+ 623              		.section	.rodata.__func__.6668,"a"
+ 624              		.align	2
+ 627              	__func__.6668:
+ 628 0000 73746F72 		.ascii	"storage_partition_write\000"
+ 628      6167655F 
+ 628      70617274 
+ 628      6974696F 
+ 628      6E5F7772 
+ 629              		.section	.rodata.__func__.6676,"a"
+ 630              		.align	2
+ 633              	__func__.6676:
+ 634 0000 73746F72 		.ascii	"storage_partition_erase_write\000"
+ 634      6167655F 
+ 634      70617274 
+ 634      6974696F 
+ 634      6E5F6572 
+ 635              		.section	.rodata.__func__.6683,"a"
+ 636              		.align	2
+ 639              	__func__.6683:
+ 640 0000 73746F72 		.ascii	"storage_partition_erase\000"
+ 640      6167655F 
+ 640      70617274 
+ 640      6974696F 
+ 640      6E5F6572 
+ 641              		.text
+ 642              	.Letext0:
+ 643              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 644              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 645              		.file 4 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/s
+ 646              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 647              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 648              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 649              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 partition.c
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:18     .bss.s_partition:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:21     .bss.s_partition:00000000 s_partition
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:24     .bss.max_part_num:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:27     .bss.max_part_num:00000000 max_part_num
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:30     .text.storage_partition_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:38     .text.storage_partition_init:00000000 storage_partition_init
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:100    .text.storage_partition_init:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:106    .text.storage_partition_deinit:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:113    .text.storage_partition_deinit:00000000 storage_partition_deinit
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:162    .text.storage_partition_deinit:0000002c $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:168    .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:172    .text.storage_partition_read:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:179    .text.storage_partition_read:00000000 storage_partition_read
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:277    .text.storage_partition_read:00000074 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:621    .rodata.__func__.6660:00000000 __func__.6660
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:285    .text.storage_partition_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:292    .text.storage_partition_write:00000000 storage_partition_write
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:390    .text.storage_partition_write:00000074 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:627    .rodata.__func__.6668:00000000 __func__.6668
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:398    .text.storage_partition_erase_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:405    .text.storage_partition_erase_write:00000000 storage_partition_erase_write
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:503    .text.storage_partition_erase_write:00000074 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:633    .rodata.__func__.6676:00000000 __func__.6676
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:511    .text.storage_partition_erase:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:518    .text.storage_partition_erase:00000000 storage_partition_erase
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:610    .text.storage_partition_erase:0000006c $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:639    .rodata.__func__.6683:00000000 __func__.6683
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:618    .rodata.__func__.6660:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:624    .rodata.__func__.6668:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:630    .rodata.__func__.6676:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccLOtWZx.s:636    .rodata.__func__.6683:00000000 $d
+
+UNDEFINED SYMBOLS
+printf
+storage_device_read
+storage_device_write
+storage_device_erase_write
+storage_device_erase

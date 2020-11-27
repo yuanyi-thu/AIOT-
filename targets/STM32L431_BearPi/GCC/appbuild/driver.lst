@@ -1,0 +1,2543 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"driver.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.bss.s_los_driv_module,"aw",%nobits
+  18              		.align	2
+  21              	s_los_driv_module:
+  22 0000 00000000 		.space	12
+  22      00000000 
+  22      00000000 
+  23              		.section	.text.__driv_match,"ax",%progbits
+  24              		.align	1
+  25              		.arch armv7e-m
+  26              		.syntax unified
+  27              		.thumb
+  28              		.thumb_func
+  29              		.fpu fpv4-sp-d16
+  31              	__driv_match:
+  32              	.LFB3:
+  33              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/d
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  *---------------------------------------------------------------------------*/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 2
+
+
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /**
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  *  2019-05-14 09:36  zhangqianfu  The first version  
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  *
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****  */
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #include <string.h>
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #include <stdio.h>
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #include <stdlib.h>
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #include <driver.h>
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #if CONFIG_DRIVER_ENABLE
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #include <sys/fcntl.h>
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #include <sys/types.h>
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #define cn_driv_status_initialized     (1<<0)
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #define cn_driv_status_opend           (1<<1)
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //define the error type has happened in the driver
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** typedef enum
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     en_dev_err_none = 0,   //no err happened
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     en_dev_err_init,       //call bsp open function failed
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     en_dev_err_open,       //call bsp init function failed
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }en_dev_error_type;
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** struct driv_cb
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     void                  *nxt;              //add the deice to device list
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     void                  *pri;              //bsp developed para
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     const char            *name;             //the device name
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     int                    flagmask;         //copy from the register
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     const los_driv_op_t   *op;               //operation method
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     unsigned int           drivstatus;       //show the state here like init or something like this
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     los_dev_t              devlst;           //the open list,support the multi open
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //following member used for the debug
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     size_t            total_write;            //how many data has been sent
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     size_t            total_read;             //how many data has received
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     size_t            opencounter;            //reference counter
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     unsigned int      errno;                  //the last errno has happend
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** };
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** typedef struct
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_mutex_t                    lock;      //used to lock the devlst
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb                 *drivlst;   //all the dev will be added to the list
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     unsigned int                    drivnum;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 3
+
+
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }los_driv_module;
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** static  los_driv_module   s_los_driv_module ;  //manage all the driver here
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //used this function to find a dev
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** static struct driv_cb *__driv_match(const char *name)
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+  34              		.loc 1 88 1
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 16
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 80B5     		push	{r7, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 84B0     		sub	sp, sp, #16
+  44              	.LCFI1:
+  45              		.cfi_def_cfa_offset 24
+  46 0004 00AF     		add	r7, sp, #0
+  47              	.LCFI2:
+  48              		.cfi_def_cfa_register 7
+  49 0006 7860     		str	r0, [r7, #4]
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *ret = NULL;
+  50              		.loc 1 89 21
+  51 0008 0023     		movs	r3, #0
+  52 000a FB60     		str	r3, [r7, #12]
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     ret = s_los_driv_module.drivlst;
+  53              		.loc 1 91 9
+  54 000c 0C4B     		ldr	r3, .L8
+  55 000e 5B68     		ldr	r3, [r3, #4]
+  56 0010 FB60     		str	r3, [r7, #12]
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     while(NULL != ret)
+  57              		.loc 1 92 10
+  58 0012 0BE0     		b	.L2
+  59              	.L5:
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if(0 == strcmp(name,ret->name))
+  60              		.loc 1 94 17
+  61 0014 FB68     		ldr	r3, [r7, #12]
+  62 0016 9B68     		ldr	r3, [r3, #8]
+  63 0018 1946     		mov	r1, r3
+  64 001a 7868     		ldr	r0, [r7, #4]
+  65 001c FFF7FEFF 		bl	strcmp
+  66 0020 0346     		mov	r3, r0
+  67              		.loc 1 94 11
+  68 0022 002B     		cmp	r3, #0
+  69 0024 06D0     		beq	.L7
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             break;
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         ret = ret->nxt;
+  70              		.loc 1 98 13
+  71 0026 FB68     		ldr	r3, [r7, #12]
+  72 0028 1B68     		ldr	r3, [r3]
+  73 002a FB60     		str	r3, [r7, #12]
+  74              	.L2:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 4
+
+
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+  75              		.loc 1 92 10
+  76 002c FB68     		ldr	r3, [r7, #12]
+  77 002e 002B     		cmp	r3, #0
+  78 0030 F0D1     		bne	.L5
+  79 0032 00E0     		b	.L4
+  80              	.L7:
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+  81              		.loc 1 96 13
+  82 0034 00BF     		nop
+  83              	.L4:
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+  84              		.loc 1 101 12
+  85 0036 FB68     		ldr	r3, [r7, #12]
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+  86              		.loc 1 102 1
+  87 0038 1846     		mov	r0, r3
+  88 003a 1037     		adds	r7, r7, #16
+  89              	.LCFI3:
+  90              		.cfi_def_cfa_offset 8
+  91 003c BD46     		mov	sp, r7
+  92              	.LCFI4:
+  93              		.cfi_def_cfa_register 13
+  94              		@ sp needed
+  95 003e 80BD     		pop	{r7, pc}
+  96              	.L9:
+  97              		.align	2
+  98              	.L8:
+  99 0040 00000000 		.word	s_los_driv_module
+ 100              		.cfi_endproc
+ 101              	.LFE3:
+ 103              		.section	.text.los_driv_register,"ax",%progbits
+ 104              		.align	1
+ 105              		.global	los_driv_register
+ 106              		.syntax unified
+ 107              		.thumb
+ 108              		.thumb_func
+ 109              		.fpu fpv4-sp-d16
+ 111              	los_driv_register:
+ 112              	.LFB4:
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :bsp developer use this function to add a device to the system
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :NULL if failed else return the device handle
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** los_driv_t los_driv_register(os_driv_para_t *para)
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 113              		.loc 1 111 1
+ 114              		.cfi_startproc
+ 115              		@ args = 0, pretend = 0, frame = 16
+ 116              		@ frame_needed = 1, uses_anonymous_args = 0
+ 117 0000 80B5     		push	{r7, lr}
+ 118              	.LCFI5:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 5
+
+
+ 119              		.cfi_def_cfa_offset 8
+ 120              		.cfi_offset 7, -8
+ 121              		.cfi_offset 14, -4
+ 122 0002 84B0     		sub	sp, sp, #16
+ 123              	.LCFI6:
+ 124              		.cfi_def_cfa_offset 24
+ 125 0004 00AF     		add	r7, sp, #0
+ 126              	.LCFI7:
+ 127              		.cfi_def_cfa_register 7
+ 128 0006 7860     		str	r0, [r7, #4]
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb  *driv = NULL;
+ 129              		.loc 1 112 22
+ 130 0008 0023     		movs	r3, #0
+ 131 000a FB60     		str	r3, [r7, #12]
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if((NULL == para->name)||(NULL == para->op))
+ 132              		.loc 1 114 21
+ 133 000c 7B68     		ldr	r3, [r7, #4]
+ 134 000e 1B68     		ldr	r3, [r3]
+ 135              		.loc 1 114 7
+ 136 0010 002B     		cmp	r3, #0
+ 137 0012 51D0     		beq	.L22
+ 138              		.loc 1 114 43 discriminator 1
+ 139 0014 7B68     		ldr	r3, [r7, #4]
+ 140 0016 5B68     		ldr	r3, [r3, #4]
+ 141              		.loc 1 114 28 discriminator 1
+ 142 0018 002B     		cmp	r3, #0
+ 143 001a 4DD0     		beq	.L22
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_PARAS;
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv = osal_malloc(sizeof(struct driv_cb));
+ 144              		.loc 1 119 12
+ 145 001c 2C20     		movs	r0, #44
+ 146 001e FFF7FEFF 		bl	osal_malloc
+ 147 0022 F860     		str	r0, [r7, #12]
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL == driv)
+ 148              		.loc 1 120 7
+ 149 0024 FB68     		ldr	r3, [r7, #12]
+ 150 0026 002B     		cmp	r3, #0
+ 151 0028 48D0     		beq	.L23
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_MALLOC;
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     memset(driv,0,sizeof(struct driv_cb));
+ 152              		.loc 1 124 5
+ 153 002a 2C22     		movs	r2, #44
+ 154 002c 0021     		movs	r1, #0
+ 155 002e F868     		ldr	r0, [r7, #12]
+ 156 0030 FFF7FEFF 		bl	memset
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //do the member initialize
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->name = para->name;
+ 157              		.loc 1 127 22
+ 158 0034 7B68     		ldr	r3, [r7, #4]
+ 159 0036 1A68     		ldr	r2, [r3]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 6
+
+
+ 160              		.loc 1 127 16
+ 161 0038 FB68     		ldr	r3, [r7, #12]
+ 162 003a 9A60     		str	r2, [r3, #8]
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->op = para->op;
+ 163              		.loc 1 128 20
+ 164 003c 7B68     		ldr	r3, [r7, #4]
+ 165 003e 5A68     		ldr	r2, [r3, #4]
+ 166              		.loc 1 128 14
+ 167 0040 FB68     		ldr	r3, [r7, #12]
+ 168 0042 1A61     		str	r2, [r3, #16]
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->pri = para->pri;
+ 169              		.loc 1 129 21
+ 170 0044 7B68     		ldr	r3, [r7, #4]
+ 171 0046 9A68     		ldr	r2, [r3, #8]
+ 172              		.loc 1 129 15
+ 173 0048 FB68     		ldr	r3, [r7, #12]
+ 174 004a 5A60     		str	r2, [r3, #4]
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->flagmask = para->flag;
+ 175              		.loc 1 130 26
+ 176 004c 7B68     		ldr	r3, [r7, #4]
+ 177 004e DB68     		ldr	r3, [r3, #12]
+ 178 0050 1A46     		mov	r2, r3
+ 179              		.loc 1 130 20
+ 180 0052 FB68     		ldr	r3, [r7, #12]
+ 181 0054 DA60     		str	r2, [r3, #12]
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //add it to the device list if no device with the same name exsit
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(false == osal_mutex_lock(s_los_driv_module.lock))
+ 182              		.loc 1 133 17
+ 183 0056 1C4B     		ldr	r3, .L26
+ 184 0058 1B68     		ldr	r3, [r3]
+ 185 005a 1846     		mov	r0, r3
+ 186 005c FFF7FEFF 		bl	osal_mutex_lock
+ 187 0060 0346     		mov	r3, r0
+ 188              		.loc 1 133 7
+ 189 0062 002B     		cmp	r3, #0
+ 190 0064 21D0     		beq	.L24
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_MUTEX;
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL != __driv_match(para->name))
+ 191              		.loc 1 138 16
+ 192 0066 7B68     		ldr	r3, [r7, #4]
+ 193 0068 1B68     		ldr	r3, [r3]
+ 194 006a 1846     		mov	r0, r3
+ 195 006c FFF7FEFF 		bl	__driv_match
+ 196 0070 0346     		mov	r3, r0
+ 197              		.loc 1 138 7
+ 198 0072 002B     		cmp	r3, #0
+ 199 0074 12D1     		bne	.L25
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_EXISTED;
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->nxt = s_los_driv_module.drivlst;
+ 200              		.loc 1 143 34
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 7
+
+
+ 201 0076 144B     		ldr	r3, .L26
+ 202 0078 5A68     		ldr	r2, [r3, #4]
+ 203              		.loc 1 143 15
+ 204 007a FB68     		ldr	r3, [r7, #12]
+ 205 007c 1A60     		str	r2, [r3]
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     s_los_driv_module.drivlst = driv;
+ 206              		.loc 1 144 31
+ 207 007e 124A     		ldr	r2, .L26
+ 208 0080 FB68     		ldr	r3, [r7, #12]
+ 209 0082 5360     		str	r3, [r2, #4]
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_mutex_unlock(s_los_driv_module.lock);
+ 210              		.loc 1 145 5
+ 211 0084 104B     		ldr	r3, .L26
+ 212 0086 1B68     		ldr	r3, [r3]
+ 213 0088 1846     		mov	r0, r3
+ 214 008a FFF7FEFF 		bl	osal_mutex_unlock
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     s_los_driv_module.drivnum++;
+ 215              		.loc 1 147 22
+ 216 008e 0E4B     		ldr	r3, .L26
+ 217 0090 9B68     		ldr	r3, [r3, #8]
+ 218              		.loc 1 147 30
+ 219 0092 0133     		adds	r3, r3, #1
+ 220 0094 0C4A     		ldr	r2, .L26
+ 221 0096 9360     		str	r3, [r2, #8]
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return driv;
+ 222              		.loc 1 149 12
+ 223 0098 FB68     		ldr	r3, [r7, #12]
+ 224 009a 11E0     		b	.L19
+ 225              	.L25:
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 226              		.loc 1 140 9
+ 227 009c 00BF     		nop
+ 228              	.L18:
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_EXISTED:
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_mutex_unlock(s_los_driv_module.lock);
+ 229              		.loc 1 153 5
+ 230 009e 0A4B     		ldr	r3, .L26
+ 231 00a0 1B68     		ldr	r3, [r3]
+ 232 00a2 1846     		mov	r0, r3
+ 233 00a4 FFF7FEFF 		bl	osal_mutex_unlock
+ 234 00a8 00E0     		b	.L16
+ 235              	.L24:
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 236              		.loc 1 135 9
+ 237 00aa 00BF     		nop
+ 238              	.L16:
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_MUTEX:
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_free(driv);
+ 239              		.loc 1 155 5
+ 240 00ac F868     		ldr	r0, [r7, #12]
+ 241 00ae FFF7FEFF 		bl	osal_free
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv = NULL;
+ 242              		.loc 1 156 10
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 8
+
+
+ 243 00b2 0023     		movs	r3, #0
+ 244 00b4 FB60     		str	r3, [r7, #12]
+ 245 00b6 02E0     		b	.L20
+ 246              	.L13:
+ 247              	.L22:
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 248              		.loc 1 116 9
+ 249 00b8 00BF     		nop
+ 250 00ba 00E0     		b	.L20
+ 251              	.L23:
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 252              		.loc 1 122 9
+ 253 00bc 00BF     		nop
+ 254              	.L20:
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_MALLOC:
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_PARAS:
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return driv;
+ 255              		.loc 1 159 12
+ 256 00be FB68     		ldr	r3, [r7, #12]
+ 257              	.L19:
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 258              		.loc 1 160 1
+ 259 00c0 1846     		mov	r0, r3
+ 260 00c2 1037     		adds	r7, r7, #16
+ 261              	.LCFI8:
+ 262              		.cfi_def_cfa_offset 8
+ 263 00c4 BD46     		mov	sp, r7
+ 264              	.LCFI9:
+ 265              		.cfi_def_cfa_register 13
+ 266              		@ sp needed
+ 267 00c6 80BD     		pop	{r7, pc}
+ 268              	.L27:
+ 269              		.align	2
+ 270              	.L26:
+ 271 00c8 00000000 		.word	s_los_driv_module
+ 272              		.cfi_endproc
+ 273              	.LFE4:
+ 275              		.section	.text.los_driv_unregister,"ax",%progbits
+ 276              		.align	1
+ 277              		.global	los_driv_unregister
+ 278              		.syntax unified
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.fpu fpv4-sp-d16
+ 283              	los_driv_unregister:
+ 284              	.LFB5:
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :bsp developer use this function to remove a device from the system
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :if the device has been refered,then will fail here
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** bool_t los_driv_unregister(const char *name)
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 285              		.loc 1 168 1
+ 286              		.cfi_startproc
+ 287              		@ args = 0, pretend = 0, frame = 24
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 9
+
+
+ 288              		@ frame_needed = 1, uses_anonymous_args = 0
+ 289 0000 80B5     		push	{r7, lr}
+ 290              	.LCFI10:
+ 291              		.cfi_def_cfa_offset 8
+ 292              		.cfi_offset 7, -8
+ 293              		.cfi_offset 14, -4
+ 294 0002 86B0     		sub	sp, sp, #24
+ 295              	.LCFI11:
+ 296              		.cfi_def_cfa_offset 32
+ 297 0004 00AF     		add	r7, sp, #0
+ 298              	.LCFI12:
+ 299              		.cfi_def_cfa_register 7
+ 300 0006 7860     		str	r0, [r7, #4]
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *tmp = NULL;
+ 301              		.loc 1 169 21
+ 302 0008 0023     		movs	r3, #0
+ 303 000a 7B61     		str	r3, [r7, #20]
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *pre = NULL;
+ 304              		.loc 1 170 21
+ 305 000c 0023     		movs	r3, #0
+ 306 000e 3B61     		str	r3, [r7, #16]
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     bool_t         ret = false;
+ 307              		.loc 1 171 20
+ 308 0010 0023     		movs	r3, #0
+ 309 0012 FB60     		str	r3, [r7, #12]
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL == name)
+ 310              		.loc 1 172 7
+ 311 0014 7B68     		ldr	r3, [r7, #4]
+ 312 0016 002B     		cmp	r3, #0
+ 313 0018 01D1     		bne	.L29
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         return ret;
+ 314              		.loc 1 174 16
+ 315 001a FB68     		ldr	r3, [r7, #12]
+ 316 001c 3FE0     		b	.L30
+ 317              	.L29:
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(osal_mutex_lock(s_los_driv_module.lock))
+ 318              		.loc 1 177 8
+ 319 001e 224B     		ldr	r3, .L40
+ 320 0020 1B68     		ldr	r3, [r3]
+ 321 0022 1846     		mov	r0, r3
+ 322 0024 FFF7FEFF 		bl	osal_mutex_lock
+ 323 0028 0346     		mov	r3, r0
+ 324              		.loc 1 177 7
+ 325 002a 002B     		cmp	r3, #0
+ 326 002c 36D0     		beq	.L31
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         tmp = s_los_driv_module.drivlst;
+ 327              		.loc 1 179 13
+ 328 002e 1E4B     		ldr	r3, .L40
+ 329 0030 5B68     		ldr	r3, [r3, #4]
+ 330 0032 7B61     		str	r3, [r7, #20]
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         pre = NULL;
+ 331              		.loc 1 180 13
+ 332 0034 0023     		movs	r3, #0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 10
+
+
+ 333 0036 3B61     		str	r3, [r7, #16]
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         while(NULL != tmp)
+ 334              		.loc 1 181 14
+ 335 0038 0DE0     		b	.L32
+ 336              	.L35:
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             if( 0 == strcmp(name,tmp->name))
+ 337              		.loc 1 183 22
+ 338 003a 7B69     		ldr	r3, [r7, #20]
+ 339 003c 9B68     		ldr	r3, [r3, #8]
+ 340 003e 1946     		mov	r1, r3
+ 341 0040 7868     		ldr	r0, [r7, #4]
+ 342 0042 FFF7FEFF 		bl	strcmp
+ 343 0046 0346     		mov	r3, r0
+ 344              		.loc 1 183 15
+ 345 0048 002B     		cmp	r3, #0
+ 346 004a 08D0     		beq	.L39
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 break;
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             pre = tmp;
+ 347              		.loc 1 187 17
+ 348 004c 7B69     		ldr	r3, [r7, #20]
+ 349 004e 3B61     		str	r3, [r7, #16]
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             tmp = tmp->nxt;
+ 350              		.loc 1 188 17
+ 351 0050 7B69     		ldr	r3, [r7, #20]
+ 352 0052 1B68     		ldr	r3, [r3]
+ 353 0054 7B61     		str	r3, [r7, #20]
+ 354              	.L32:
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 355              		.loc 1 181 14
+ 356 0056 7B69     		ldr	r3, [r7, #20]
+ 357 0058 002B     		cmp	r3, #0
+ 358 005a EED1     		bne	.L35
+ 359 005c 00E0     		b	.L34
+ 360              	.L39:
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 361              		.loc 1 185 17
+ 362 005e 00BF     		nop
+ 363              	.L34:
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if(NULL != tmp)  //find the device here
+ 364              		.loc 1 190 11
+ 365 0060 7B69     		ldr	r3, [r7, #20]
+ 366 0062 002B     		cmp	r3, #0
+ 367 0064 15D0     		beq	.L36
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             if(pre == NULL)
+ 368              		.loc 1 192 15
+ 369 0066 3B69     		ldr	r3, [r7, #16]
+ 370 0068 002B     		cmp	r3, #0
+ 371 006a 04D1     		bne	.L37
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 s_los_driv_module.drivlst = tmp->nxt;
+ 372              		.loc 1 194 48
+ 373 006c 7B69     		ldr	r3, [r7, #20]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 11
+
+
+ 374 006e 1B68     		ldr	r3, [r3]
+ 375              		.loc 1 194 43
+ 376 0070 0D4A     		ldr	r2, .L40
+ 377 0072 5360     		str	r3, [r2, #4]
+ 378 0074 03E0     		b	.L38
+ 379              	.L37:
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             else
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 pre->nxt = tmp->nxt;
+ 380              		.loc 1 198 31
+ 381 0076 7B69     		ldr	r3, [r7, #20]
+ 382 0078 1A68     		ldr	r2, [r3]
+ 383              		.loc 1 198 26
+ 384 007a 3B69     		ldr	r3, [r7, #16]
+ 385 007c 1A60     		str	r2, [r3]
+ 386              	.L38:
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             osal_free(tmp);
+ 387              		.loc 1 201 13
+ 388 007e 7869     		ldr	r0, [r7, #20]
+ 389 0080 FFF7FEFF 		bl	osal_free
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             ret = true;
+ 390              		.loc 1 202 17
+ 391 0084 0123     		movs	r3, #1
+ 392 0086 FB60     		str	r3, [r7, #12]
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             s_los_driv_module.drivnum--;
+ 393              		.loc 1 204 30
+ 394 0088 074B     		ldr	r3, .L40
+ 395 008a 9B68     		ldr	r3, [r3, #8]
+ 396              		.loc 1 204 38
+ 397 008c 013B     		subs	r3, r3, #1
+ 398 008e 064A     		ldr	r2, .L40
+ 399 0090 9360     		str	r3, [r2, #8]
+ 400              	.L36:
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         osal_mutex_unlock(s_los_driv_module.lock);
+ 401              		.loc 1 207 9
+ 402 0092 054B     		ldr	r3, .L40
+ 403 0094 1B68     		ldr	r3, [r3]
+ 404 0096 1846     		mov	r0, r3
+ 405 0098 FFF7FEFF 		bl	osal_mutex_unlock
+ 406              	.L31:
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+ 407              		.loc 1 210 12
+ 408 009c FB68     		ldr	r3, [r7, #12]
+ 409              	.L30:
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 410              		.loc 1 211 1
+ 411 009e 1846     		mov	r0, r3
+ 412 00a0 1837     		adds	r7, r7, #24
+ 413              	.LCFI13:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 12
+
+
+ 414              		.cfi_def_cfa_offset 8
+ 415 00a2 BD46     		mov	sp, r7
+ 416              	.LCFI14:
+ 417              		.cfi_def_cfa_register 13
+ 418              		@ sp needed
+ 419 00a4 80BD     		pop	{r7, pc}
+ 420              	.L41:
+ 421 00a6 00BF     		.align	2
+ 422              	.L40:
+ 423 00a8 00000000 		.word	s_los_driv_module
+ 424              		.cfi_endproc
+ 425              	.LFE5:
+ 427              		.section	.text.los_driv_event,"ax",%progbits
+ 428              		.align	1
+ 429              		.global	los_driv_event
+ 430              		.syntax unified
+ 431              		.thumb
+ 432              		.thumb_func
+ 433              		.fpu fpv4-sp-d16
+ 435              	los_driv_event:
+ 436              	.LFB6:
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :bsp developer use this function to notify the application any event has happened
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :not implement yet,we will do it as the asynchronize call
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** bool_t los_driv_event(los_driv_t driv,unsigned int event,void *para)
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 437              		.loc 1 219 1
+ 438              		.cfi_startproc
+ 439              		@ args = 0, pretend = 0, frame = 16
+ 440              		@ frame_needed = 1, uses_anonymous_args = 0
+ 441              		@ link register save eliminated.
+ 442 0000 80B4     		push	{r7}
+ 443              	.LCFI15:
+ 444              		.cfi_def_cfa_offset 4
+ 445              		.cfi_offset 7, -4
+ 446 0002 85B0     		sub	sp, sp, #20
+ 447              	.LCFI16:
+ 448              		.cfi_def_cfa_offset 24
+ 449 0004 00AF     		add	r7, sp, #0
+ 450              	.LCFI17:
+ 451              		.cfi_def_cfa_register 7
+ 452 0006 F860     		str	r0, [r7, #12]
+ 453 0008 B960     		str	r1, [r7, #8]
+ 454 000a 7A60     		str	r2, [r7, #4]
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return false;
+ 455              		.loc 1 220 12
+ 456 000c 0023     		movs	r3, #0
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 457              		.loc 1 221 1
+ 458 000e 1846     		mov	r0, r3
+ 459 0010 1437     		adds	r7, r7, #20
+ 460              	.LCFI18:
+ 461              		.cfi_def_cfa_offset 4
+ 462 0012 BD46     		mov	sp, r7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 13
+
+
+ 463              	.LCFI19:
+ 464              		.cfi_def_cfa_register 13
+ 465              		@ sp needed
+ 466 0014 5DF8047B 		ldr	r7, [sp], #4
+ 467              	.LCFI20:
+ 468              		.cfi_restore 7
+ 469              		.cfi_def_cfa_offset 0
+ 470 0018 7047     		bx	lr
+ 471              		.cfi_endproc
+ 472              	.LFE6:
+ 474              		.section	.text.osdriv_load_static,"ax",%progbits
+ 475              		.align	1
+ 476              		.syntax unified
+ 477              		.thumb
+ 478              		.thumb_func
+ 479              		.fpu fpv4-sp-d16
+ 481              	osdriv_load_static:
+ 482              	.LFB7:
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #ifdef __CC_ARM /* ARM C Compiler ,like keil,options for linker:--keep *.o(osdriv)*/
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** extern unsigned int osdriv$$Base;
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** extern unsigned int osdriv$$Limit;
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //#pragma section("osdriv", read)
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #endif
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** static void osdriv_load_static(void){
+ 483              		.loc 1 231 37
+ 484              		.cfi_startproc
+ 485              		@ args = 0, pretend = 0, frame = 16
+ 486              		@ frame_needed = 1, uses_anonymous_args = 0
+ 487 0000 80B5     		push	{r7, lr}
+ 488              	.LCFI21:
+ 489              		.cfi_def_cfa_offset 8
+ 490              		.cfi_offset 7, -8
+ 491              		.cfi_offset 14, -4
+ 492 0002 84B0     		sub	sp, sp, #16
+ 493              	.LCFI22:
+ 494              		.cfi_def_cfa_offset 24
+ 495 0004 00AF     		add	r7, sp, #0
+ 496              	.LCFI23:
+ 497              		.cfi_def_cfa_register 7
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     os_driv_para_t *para;
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     unsigned int num = 0;
+ 498              		.loc 1 234 18
+ 499 0006 0023     		movs	r3, #0
+ 500 0008 7B60     		str	r3, [r7, #4]
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     int i = 0;
+ 501              		.loc 1 235 9
+ 502 000a 0023     		movs	r3, #0
+ 503 000c BB60     		str	r3, [r7, #8]
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #if defined (__CC_ARM)    //you could add other compiler like this
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     num = ((unsigned int)&osdriv$$Limit-(unsigned int)&osdriv$$Base)/sizeof(os_driv_para_t);
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     para = (os_driv_para_t *) &osdriv$$Base;
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #elif defined(__GNUC__)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 14
+
+
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     extern unsigned int __osdriv_start;
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     extern unsigned int __osdriv_end;
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     para = (os_driv_para_t *)&__osdriv_start;
+ 504              		.loc 1 242 10
+ 505 000e 0D4B     		ldr	r3, .L48
+ 506 0010 FB60     		str	r3, [r7, #12]
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     num = ((unsigned int )(uintptr_t)&__osdriv_end - (unsigned int)(uintptr_t)&__osdriv_start)/size
+ 507              		.loc 1 243 12
+ 508 0012 0D4A     		ldr	r2, .L48+4
+ 509              		.loc 1 243 54
+ 510 0014 0B4B     		ldr	r3, .L48
+ 511              		.loc 1 243 52
+ 512 0016 D31A     		subs	r3, r2, r3
+ 513              		.loc 1 243 9
+ 514 0018 1B09     		lsrs	r3, r3, #4
+ 515 001a 7B60     		str	r3, [r7, #4]
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #else
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     #error("unknown compiler here");
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #endif
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     for(i =0;i<num;i++)
+ 516              		.loc 1 247 11
+ 517 001c 0023     		movs	r3, #0
+ 518 001e BB60     		str	r3, [r7, #8]
+ 519              		.loc 1 247 5
+ 520 0020 08E0     		b	.L45
+ 521              	.L46:
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         los_driv_register(para);
+ 522              		.loc 1 249 9 discriminator 3
+ 523 0022 F868     		ldr	r0, [r7, #12]
+ 524 0024 FFF7FEFF 		bl	los_driv_register
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         para++;
+ 525              		.loc 1 250 13 discriminator 3
+ 526 0028 FB68     		ldr	r3, [r7, #12]
+ 527 002a 1033     		adds	r3, r3, #16
+ 528 002c FB60     		str	r3, [r7, #12]
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 529              		.loc 1 247 21 discriminator 3
+ 530 002e BB68     		ldr	r3, [r7, #8]
+ 531 0030 0133     		adds	r3, r3, #1
+ 532 0032 BB60     		str	r3, [r7, #8]
+ 533              	.L45:
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 534              		.loc 1 247 15 discriminator 1
+ 535 0034 BB68     		ldr	r3, [r7, #8]
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 536              		.loc 1 247 5 discriminator 1
+ 537 0036 7A68     		ldr	r2, [r7, #4]
+ 538 0038 9A42     		cmp	r2, r3
+ 539 003a F2D8     		bhi	.L46
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 252:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 253:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return;
+ 540              		.loc 1 253 5
+ 541 003c 00BF     		nop
+ 254:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 542              		.loc 1 254 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 15
+
+
+ 543 003e 1037     		adds	r7, r7, #16
+ 544              	.LCFI24:
+ 545              		.cfi_def_cfa_offset 8
+ 546 0040 BD46     		mov	sp, r7
+ 547              	.LCFI25:
+ 548              		.cfi_def_cfa_register 13
+ 549              		@ sp needed
+ 550 0042 80BD     		pop	{r7, pc}
+ 551              	.L49:
+ 552              		.align	2
+ 553              	.L48:
+ 554 0044 00000000 		.word	__osdriv_start
+ 555 0048 00000000 		.word	__osdriv_end
+ 556              		.cfi_endproc
+ 557              	.LFE7:
+ 559              		.section	.text.los_driv_init,"ax",%progbits
+ 560              		.align	1
+ 561              		.global	los_driv_init
+ 562              		.syntax unified
+ 563              		.thumb
+ 564              		.thumb_func
+ 565              		.fpu fpv4-sp-d16
+ 567              	los_driv_init:
+ 568              	.LFB8:
+ 255:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 256:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 257:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :the device module entry
+ 258:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :
+ 259:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :call this function to initialize the device module here
+ 260:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               load the static init from section os_device
+ 261:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 262:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** bool_t  los_driv_init()
+ 263:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 569              		.loc 1 263 1
+ 570              		.cfi_startproc
+ 571              		@ args = 0, pretend = 0, frame = 8
+ 572              		@ frame_needed = 1, uses_anonymous_args = 0
+ 573 0000 80B5     		push	{r7, lr}
+ 574              	.LCFI26:
+ 575              		.cfi_def_cfa_offset 8
+ 576              		.cfi_offset 7, -8
+ 577              		.cfi_offset 14, -4
+ 578 0002 82B0     		sub	sp, sp, #8
+ 579              	.LCFI27:
+ 580              		.cfi_def_cfa_offset 16
+ 581 0004 00AF     		add	r7, sp, #0
+ 582              	.LCFI28:
+ 583              		.cfi_def_cfa_register 7
+ 264:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     bool_t ret = false;
+ 584              		.loc 1 264 12
+ 585 0006 0023     		movs	r3, #0
+ 586 0008 7B60     		str	r3, [r7, #4]
+ 265:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 266:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     ret = osal_mutex_create(&s_los_driv_module.lock);
+ 587              		.loc 1 266 11
+ 588 000a 0848     		ldr	r0, .L55
+ 589 000c FFF7FEFF 		bl	osal_mutex_create
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 16
+
+
+ 590 0010 7860     		str	r0, [r7, #4]
+ 267:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(false == ret)
+ 591              		.loc 1 267 7
+ 592 0012 7B68     		ldr	r3, [r7, #4]
+ 593 0014 002B     		cmp	r3, #0
+ 594 0016 02D0     		beq	.L54
+ 268:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 269:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_MUTEX;
+ 270:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 272:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //load all the static device init
+ 273:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osdriv_load_static();
+ 595              		.loc 1 273 5
+ 596 0018 FFF7FEFF 		bl	osdriv_load_static
+ 597 001c 00E0     		b	.L52
+ 598              	.L54:
+ 269:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 599              		.loc 1 269 9
+ 600 001e 00BF     		nop
+ 601              	.L52:
+ 274:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 275:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_MUTEX:
+ 276:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+ 602              		.loc 1 276 12
+ 603 0020 7B68     		ldr	r3, [r7, #4]
+ 277:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 604              		.loc 1 277 1
+ 605 0022 1846     		mov	r0, r3
+ 606 0024 0837     		adds	r7, r7, #8
+ 607              	.LCFI29:
+ 608              		.cfi_def_cfa_offset 8
+ 609 0026 BD46     		mov	sp, r7
+ 610              	.LCFI30:
+ 611              		.cfi_def_cfa_register 13
+ 612              		@ sp needed
+ 613 0028 80BD     		pop	{r7, pc}
+ 614              	.L56:
+ 615 002a 00BF     		.align	2
+ 616              	.L55:
+ 617 002c 00000000 		.word	s_los_driv_module
+ 618              		.cfi_endproc
+ 619              	.LFE8:
+ 621              		.section	.text.los_dev_open,"ax",%progbits
+ 622              		.align	1
+ 623              		.global	los_dev_open
+ 624              		.syntax unified
+ 625              		.thumb
+ 626              		.thumb_func
+ 627              		.fpu fpv4-sp-d16
+ 629              	los_dev_open:
+ 630              	.LFB9:
+ 278:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 279:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //here we define the data structure which used by the driv application apis
+ 280:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** struct dev_cb
+ 281:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 282:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     void *nxt;            //used by the open lst
+ 283:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     void *driv;           //which attached dri here
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 17
+
+
+ 284:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     int openflag;       //here means the open state here
+ 285:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     unsigned int offset;
+ 286:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //the following for the debug
+ 287:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     unsigned int readbytes;
+ 288:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     unsigned int writebytes;
+ 289:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** };
+ 290:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 291:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 292:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :open the device with the specified name
+ 293:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :
+ 294:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :if first open the device,then will call the init function if exsited
+ 295:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 296:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** los_dev_t  los_dev_open  (const char *name,unsigned int flag)
+ 297:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 631              		.loc 1 297 1
+ 632              		.cfi_startproc
+ 633              		@ args = 0, pretend = 0, frame = 24
+ 634              		@ frame_needed = 1, uses_anonymous_args = 0
+ 635 0000 80B5     		push	{r7, lr}
+ 636              	.LCFI31:
+ 637              		.cfi_def_cfa_offset 8
+ 638              		.cfi_offset 7, -8
+ 639              		.cfi_offset 14, -4
+ 640 0002 86B0     		sub	sp, sp, #24
+ 641              	.LCFI32:
+ 642              		.cfi_def_cfa_offset 32
+ 643 0004 00AF     		add	r7, sp, #0
+ 644              	.LCFI33:
+ 645              		.cfi_def_cfa_register 7
+ 646 0006 7860     		str	r0, [r7, #4]
+ 647 0008 3960     		str	r1, [r7]
+ 298:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     bool_t opret = true;           //operate result
+ 648              		.loc 1 298 12
+ 649 000a 0123     		movs	r3, #1
+ 650 000c 3B61     		str	r3, [r7, #16]
+ 299:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *driv = NULL;   //the driver attached
+ 651              		.loc 1 299 21
+ 652 000e 0023     		movs	r3, #0
+ 653 0010 FB60     		str	r3, [r7, #12]
+ 300:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct dev_cb  *dev = NULL;    //the device opened
+ 654              		.loc 1 300 21
+ 655 0012 0023     		movs	r3, #0
+ 656 0014 7B61     		str	r3, [r7, #20]
+ 301:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if ( NULL == name )
+ 657              		.loc 1 301 8
+ 658 0016 7B68     		ldr	r3, [r7, #4]
+ 659 0018 002B     		cmp	r3, #0
+ 660 001a 00F08480 		beq	.L74
+ 302:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 303:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_PARAERR;
+ 304:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 305:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 306:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     dev = osal_malloc(sizeof(struct dev_cb));
+ 661              		.loc 1 306 11
+ 662 001e 1820     		movs	r0, #24
+ 663 0020 FFF7FEFF 		bl	osal_malloc
+ 664 0024 7861     		str	r0, [r7, #20]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 18
+
+
+ 307:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if (NULL == dev)
+ 665              		.loc 1 307 8
+ 666 0026 7B69     		ldr	r3, [r7, #20]
+ 667 0028 002B     		cmp	r3, #0
+ 668 002a 7ED0     		beq	.L75
+ 308:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 309:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_MEMERR;
+ 310:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 311:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     memset(dev,0,sizeof(struct dev_cb));
+ 669              		.loc 1 311 5
+ 670 002c 1822     		movs	r2, #24
+ 671 002e 0021     		movs	r1, #0
+ 672 0030 7869     		ldr	r0, [r7, #20]
+ 673 0032 FFF7FEFF 		bl	memset
+ 312:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 313:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     opret = osal_mutex_lock(s_los_driv_module.lock);
+ 674              		.loc 1 313 13
+ 675 0036 404B     		ldr	r3, .L79
+ 676 0038 1B68     		ldr	r3, [r3]
+ 677 003a 1846     		mov	r0, r3
+ 678 003c FFF7FEFF 		bl	osal_mutex_lock
+ 679 0040 3861     		str	r0, [r7, #16]
+ 314:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(false == opret)
+ 680              		.loc 1 314 7
+ 681 0042 3B69     		ldr	r3, [r7, #16]
+ 682 0044 002B     		cmp	r3, #0
+ 683 0046 67D0     		beq	.L76
+ 315:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 316:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_MUTEXERR;
+ 317:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 318:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 319:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv = __driv_match(name);
+ 684              		.loc 1 319 12
+ 685 0048 7868     		ldr	r0, [r7, #4]
+ 686 004a FFF7FEFF 		bl	__driv_match
+ 687 004e F860     		str	r0, [r7, #12]
+ 320:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL == driv)
+ 688              		.loc 1 320 7
+ 689 0050 FB68     		ldr	r3, [r7, #12]
+ 690 0052 002B     		cmp	r3, #0
+ 691 0054 57D0     		beq	.L77
+ 321:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 322:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_DRIVERR;
+ 323:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 324:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //WE DON'T CARE TOO MUCH ABOUT THE RD AND WR FLAG,MAY BE TODO IT IN THE NEXT VERSION HERE
+ 325:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if((O_EXCL & (unsigned int )driv->flagmask) && (NULL != driv->devlst))
+ 692              		.loc 1 325 37
+ 693 0056 FB68     		ldr	r3, [r7, #12]
+ 694 0058 DB68     		ldr	r3, [r3, #12]
+ 695              		.loc 1 325 16
+ 696 005a 03F40063 		and	r3, r3, #2048
+ 697              		.loc 1 325 7
+ 698 005e 002B     		cmp	r3, #0
+ 699 0060 03D0     		beq	.L65
+ 700              		.loc 1 325 65 discriminator 1
+ 701 0062 FB68     		ldr	r3, [r7, #12]
+ 702 0064 9B69     		ldr	r3, [r3, #24]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 19
+
+
+ 703              		.loc 1 325 49 discriminator 1
+ 704 0066 002B     		cmp	r3, #0
+ 705 0068 4FD1     		bne	.L78
+ 706              	.L65:
+ 326:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 327:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_EXCLERR;
+ 328:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 329:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 330:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if((0 == (driv->drivstatus & cn_driv_status_initialized)) && \
+ 707              		.loc 1 330 19
+ 708 006a FB68     		ldr	r3, [r7, #12]
+ 709 006c 5B69     		ldr	r3, [r3, #20]
+ 710              		.loc 1 330 32
+ 711 006e 03F00103 		and	r3, r3, #1
+ 712              		.loc 1 330 7
+ 713 0072 002B     		cmp	r3, #0
+ 714 0074 19D1     		bne	.L66
+ 331:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         (NULL != driv->op->init))
+ 715              		.loc 1 331 22 discriminator 1
+ 716 0076 FB68     		ldr	r3, [r7, #12]
+ 717 0078 1B69     		ldr	r3, [r3, #16]
+ 718              		.loc 1 331 26 discriminator 1
+ 719 007a 9B69     		ldr	r3, [r3, #24]
+ 330:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         (NULL != driv->op->init))
+ 720              		.loc 1 330 63 discriminator 1
+ 721 007c 002B     		cmp	r3, #0
+ 722 007e 14D0     		beq	.L66
+ 332:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 333:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         opret = driv->op->init(driv->pri);
+ 723              		.loc 1 333 21
+ 724 0080 FB68     		ldr	r3, [r7, #12]
+ 725 0082 1B69     		ldr	r3, [r3, #16]
+ 726              		.loc 1 333 25
+ 727 0084 9B69     		ldr	r3, [r3, #24]
+ 728              		.loc 1 333 17
+ 729 0086 FA68     		ldr	r2, [r7, #12]
+ 730 0088 5268     		ldr	r2, [r2, #4]
+ 731 008a 1046     		mov	r0, r2
+ 732 008c 9847     		blx	r3
+ 733              	.LVL0:
+ 734 008e 3861     		str	r0, [r7, #16]
+ 334:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if(false == opret)
+ 735              		.loc 1 334 11
+ 736 0090 3B69     		ldr	r3, [r7, #16]
+ 737 0092 002B     		cmp	r3, #0
+ 738 0094 03D1     		bne	.L67
+ 335:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 336:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             driv->errno = en_dev_err_init;
+ 739              		.loc 1 336 25
+ 740 0096 FB68     		ldr	r3, [r7, #12]
+ 741 0098 0122     		movs	r2, #1
+ 742 009a 9A62     		str	r2, [r3, #40]
+ 337:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             goto EXIT_INITERR;
+ 743              		.loc 1 337 13
+ 744 009c 36E0     		b	.L72
+ 745              	.L67:
+ 338:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 20
+
+
+ 339:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         driv->drivstatus |= cn_driv_status_initialized;
+ 746              		.loc 1 339 26
+ 747 009e FB68     		ldr	r3, [r7, #12]
+ 748 00a0 5B69     		ldr	r3, [r3, #20]
+ 749 00a2 43F00102 		orr	r2, r3, #1
+ 750 00a6 FB68     		ldr	r3, [r7, #12]
+ 751 00a8 5A61     		str	r2, [r3, #20]
+ 752              	.L66:
+ 340:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 341:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 342:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL != driv->op->open)
+ 753              		.loc 1 342 20
+ 754 00aa FB68     		ldr	r3, [r7, #12]
+ 755 00ac 1B69     		ldr	r3, [r3, #16]
+ 756              		.loc 1 342 24
+ 757 00ae 1B68     		ldr	r3, [r3]
+ 758              		.loc 1 342 7
+ 759 00b0 002B     		cmp	r3, #0
+ 760 00b2 0FD0     		beq	.L68
+ 343:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 344:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         opret = driv->op->open(driv->pri,flag);
+ 761              		.loc 1 344 21
+ 762 00b4 FB68     		ldr	r3, [r7, #12]
+ 763 00b6 1B69     		ldr	r3, [r3, #16]
+ 764              		.loc 1 344 25
+ 765 00b8 1B68     		ldr	r3, [r3]
+ 766              		.loc 1 344 17
+ 767 00ba FA68     		ldr	r2, [r7, #12]
+ 768 00bc 5268     		ldr	r2, [r2, #4]
+ 769 00be 3968     		ldr	r1, [r7]
+ 770 00c0 1046     		mov	r0, r2
+ 771 00c2 9847     		blx	r3
+ 772              	.LVL1:
+ 773 00c4 3861     		str	r0, [r7, #16]
+ 345:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if(false == opret)
+ 774              		.loc 1 345 11
+ 775 00c6 3B69     		ldr	r3, [r7, #16]
+ 776 00c8 002B     		cmp	r3, #0
+ 777 00ca 03D1     		bne	.L68
+ 346:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 347:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             driv->errno = en_dev_err_open;
+ 778              		.loc 1 347 25
+ 779 00cc FB68     		ldr	r3, [r7, #12]
+ 780 00ce 0222     		movs	r2, #2
+ 781 00d0 9A62     		str	r2, [r3, #40]
+ 348:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             goto EXIT_OPENERR;
+ 782              		.loc 1 348 13
+ 783 00d2 1BE0     		b	.L72
+ 784              	.L68:
+ 349:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 350:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 351:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 352:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //reach here means all the initialize is ok
+ 353:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //add the dev to the list of the drive and  attach the driv to the device
+ 354:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->opencounter++;
+ 785              		.loc 1 354 9
+ 786 00d4 FB68     		ldr	r3, [r7, #12]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 21
+
+
+ 787 00d6 5B6A     		ldr	r3, [r3, #36]
+ 788              		.loc 1 354 22
+ 789 00d8 5A1C     		adds	r2, r3, #1
+ 790 00da FB68     		ldr	r3, [r7, #12]
+ 791 00dc 5A62     		str	r2, [r3, #36]
+ 355:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     dev->nxt = driv->devlst;
+ 792              		.loc 1 355 20
+ 793 00de FB68     		ldr	r3, [r7, #12]
+ 794 00e0 9A69     		ldr	r2, [r3, #24]
+ 795              		.loc 1 355 14
+ 796 00e2 7B69     		ldr	r3, [r7, #20]
+ 797 00e4 1A60     		str	r2, [r3]
+ 356:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->devlst = dev;
+ 798              		.loc 1 356 18
+ 799 00e6 FB68     		ldr	r3, [r7, #12]
+ 800 00e8 7A69     		ldr	r2, [r7, #20]
+ 801 00ea 9A61     		str	r2, [r3, #24]
+ 357:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 358:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     dev->driv = driv;
+ 802              		.loc 1 358 15
+ 803 00ec 7B69     		ldr	r3, [r7, #20]
+ 804 00ee FA68     		ldr	r2, [r7, #12]
+ 805 00f0 5A60     		str	r2, [r3, #4]
+ 359:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     dev->openflag =  flag;
+ 806              		.loc 1 359 19
+ 807 00f2 3A68     		ldr	r2, [r7]
+ 808 00f4 7B69     		ldr	r3, [r7, #20]
+ 809 00f6 9A60     		str	r2, [r3, #8]
+ 360:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 361:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_mutex_unlock(s_los_driv_module.lock);
+ 810              		.loc 1 361 5
+ 811 00f8 0F4B     		ldr	r3, .L79
+ 812 00fa 1B68     		ldr	r3, [r3]
+ 813 00fc 1846     		mov	r0, r3
+ 814 00fe FFF7FEFF 		bl	osal_mutex_unlock
+ 362:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return dev;
+ 815              		.loc 1 362 12
+ 816 0102 7B69     		ldr	r3, [r7, #20]
+ 817 0104 13E0     		b	.L69
+ 818              	.L64:
+ 819              	.L70:
+ 820              	.L71:
+ 821              	.L77:
+ 322:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 822              		.loc 1 322 9
+ 823 0106 00BF     		nop
+ 824 0108 00E0     		b	.L72
+ 825              	.L78:
+ 327:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 826              		.loc 1 327 9
+ 827 010a 00BF     		nop
+ 828              	.L72:
+ 363:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 364:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_OPENERR:
+ 365:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_INITERR:
+ 366:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_EXCLERR:
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_DRIVERR:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 22
+
+
+ 368:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_mutex_unlock(s_los_driv_module.lock);
+ 829              		.loc 1 368 5
+ 830 010c 0A4B     		ldr	r3, .L79
+ 831 010e 1B68     		ldr	r3, [r3]
+ 832 0110 1846     		mov	r0, r3
+ 833 0112 FFF7FEFF 		bl	osal_mutex_unlock
+ 834 0116 00E0     		b	.L62
+ 835              	.L76:
+ 316:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 836              		.loc 1 316 9
+ 837 0118 00BF     		nop
+ 838              	.L62:
+ 369:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_MUTEXERR:
+ 370:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_free(dev);
+ 839              		.loc 1 370 5
+ 840 011a 7869     		ldr	r0, [r7, #20]
+ 841 011c FFF7FEFF 		bl	osal_free
+ 371:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     dev = NULL;
+ 842              		.loc 1 371 9
+ 843 0120 0023     		movs	r3, #0
+ 844 0122 7B61     		str	r3, [r7, #20]
+ 845 0124 02E0     		b	.L73
+ 846              	.L59:
+ 847              	.L74:
+ 303:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 848              		.loc 1 303 9
+ 849 0126 00BF     		nop
+ 850 0128 00E0     		b	.L73
+ 851              	.L75:
+ 309:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 852              		.loc 1 309 9
+ 853 012a 00BF     		nop
+ 854              	.L73:
+ 372:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_MEMERR:
+ 373:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_PARAERR:
+ 374:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return dev;
+ 855              		.loc 1 374 12
+ 856 012c 7B69     		ldr	r3, [r7, #20]
+ 857              	.L69:
+ 375:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 858              		.loc 1 375 1
+ 859 012e 1846     		mov	r0, r3
+ 860 0130 1837     		adds	r7, r7, #24
+ 861              	.LCFI34:
+ 862              		.cfi_def_cfa_offset 8
+ 863 0132 BD46     		mov	sp, r7
+ 864              	.LCFI35:
+ 865              		.cfi_def_cfa_register 13
+ 866              		@ sp needed
+ 867 0134 80BD     		pop	{r7, pc}
+ 868              	.L80:
+ 869 0136 00BF     		.align	2
+ 870              	.L79:
+ 871 0138 00000000 		.word	s_los_driv_module
+ 872              		.cfi_endproc
+ 873              	.LFE9:
+ 875              		.section	.text.los_dev_close,"ax",%progbits
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 23
+
+
+ 876              		.align	1
+ 877              		.global	los_dev_close
+ 878              		.syntax unified
+ 879              		.thumb
+ 880              		.thumb_func
+ 881              		.fpu fpv4-sp-d16
+ 883              	los_dev_close:
+ 884              	.LFB10:
+ 376:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 377:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 378:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :close the device of opened
+ 379:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :handle returned by open
+ 380:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :
+ 381:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 382:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** bool_t  los_dev_close  (los_dev_t dev)
+ 383:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 885              		.loc 1 383 1
+ 886              		.cfi_startproc
+ 887              		@ args = 0, pretend = 0, frame = 24
+ 888              		@ frame_needed = 1, uses_anonymous_args = 0
+ 889 0000 80B5     		push	{r7, lr}
+ 890              	.LCFI36:
+ 891              		.cfi_def_cfa_offset 8
+ 892              		.cfi_offset 7, -8
+ 893              		.cfi_offset 14, -4
+ 894 0002 86B0     		sub	sp, sp, #24
+ 895              	.LCFI37:
+ 896              		.cfi_def_cfa_offset 32
+ 897 0004 00AF     		add	r7, sp, #0
+ 898              	.LCFI38:
+ 899              		.cfi_def_cfa_register 7
+ 900 0006 7860     		str	r0, [r7, #4]
+ 384:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     bool_t ret = false;
+ 901              		.loc 1 384 12
+ 902 0008 0023     		movs	r3, #0
+ 903 000a 7B61     		str	r3, [r7, #20]
+ 385:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct dev_cb *devcb = NULL;
+ 904              		.loc 1 385 20
+ 905 000c 0023     		movs	r3, #0
+ 906 000e FB60     		str	r3, [r7, #12]
+ 386:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct dev_cb *tmp = NULL;
+ 907              		.loc 1 386 20
+ 908 0010 0023     		movs	r3, #0
+ 909 0012 3B61     		str	r3, [r7, #16]
+ 387:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *driv = NULL;
+ 910              		.loc 1 387 21
+ 911 0014 0023     		movs	r3, #0
+ 912 0016 BB60     		str	r3, [r7, #8]
+ 388:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 389:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if ( NULL == dev )
+ 913              		.loc 1 389 8
+ 914 0018 7B68     		ldr	r3, [r7, #4]
+ 915 001a 002B     		cmp	r3, #0
+ 916 001c 6BD0     		beq	.L98
+ 390:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 391:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_PARAERR;
+ 392:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 24
+
+
+ 393:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     devcb = dev;
+ 917              		.loc 1 393 11
+ 918 001e 7B68     		ldr	r3, [r7, #4]
+ 919 0020 FB60     		str	r3, [r7, #12]
+ 394:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 395:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(false == osal_mutex_lock(s_los_driv_module.lock))
+ 920              		.loc 1 395 17
+ 921 0022 394B     		ldr	r3, .L102
+ 922 0024 1B68     		ldr	r3, [r3]
+ 923 0026 1846     		mov	r0, r3
+ 924 0028 FFF7FEFF 		bl	osal_mutex_lock
+ 925 002c 0346     		mov	r3, r0
+ 926              		.loc 1 395 7
+ 927 002e 002B     		cmp	r3, #0
+ 928 0030 63D0     		beq	.L99
+ 396:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 397:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_MUTEXERR;
+ 398:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 399:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 400:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     //deattach the dev from the driv
+ 401:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv = devcb->driv;
+ 929              		.loc 1 401 10
+ 930 0032 FB68     		ldr	r3, [r7, #12]
+ 931 0034 5B68     		ldr	r3, [r3, #4]
+ 932 0036 BB60     		str	r3, [r7, #8]
+ 402:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL == driv)
+ 933              		.loc 1 402 7
+ 934 0038 BB68     		ldr	r3, [r7, #8]
+ 935 003a 002B     		cmp	r3, #0
+ 936 003c 52D0     		beq	.L100
+ 403:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 404:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         goto EXIT_DRIVERR;
+ 405:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 406:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 407:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(devcb == driv->devlst)
+ 937              		.loc 1 407 21
+ 938 003e BB68     		ldr	r3, [r7, #8]
+ 939 0040 9B69     		ldr	r3, [r3, #24]
+ 940              		.loc 1 407 7
+ 941 0042 FA68     		ldr	r2, [r7, #12]
+ 942 0044 9A42     		cmp	r2, r3
+ 943 0046 04D1     		bne	.L87
+ 408:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 409:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         driv->devlst = devcb->nxt;
+ 944              		.loc 1 409 29
+ 945 0048 FB68     		ldr	r3, [r7, #12]
+ 946 004a 1A68     		ldr	r2, [r3]
+ 947              		.loc 1 409 22
+ 948 004c BB68     		ldr	r3, [r7, #8]
+ 949 004e 9A61     		str	r2, [r3, #24]
+ 950 0050 16E0     		b	.L88
+ 951              	.L87:
+ 410:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 411:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     else
+ 412:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 413:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         tmp = driv->devlst;
+ 952              		.loc 1 413 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 25
+
+
+ 953 0052 BB68     		ldr	r3, [r7, #8]
+ 954 0054 9B69     		ldr	r3, [r3, #24]
+ 955 0056 3B61     		str	r3, [r7, #16]
+ 414:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         while(NULL != tmp)
+ 956              		.loc 1 414 14
+ 957 0058 0CE0     		b	.L89
+ 958              	.L92:
+ 415:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 416:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             if(tmp->nxt == devcb)
+ 959              		.loc 1 416 19
+ 960 005a 3B69     		ldr	r3, [r7, #16]
+ 961 005c 1B68     		ldr	r3, [r3]
+ 962              		.loc 1 416 15
+ 963 005e FA68     		ldr	r2, [r7, #12]
+ 964 0060 9A42     		cmp	r2, r3
+ 965 0062 04D1     		bne	.L90
+ 417:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 418:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 tmp->nxt = devcb->nxt;
+ 966              		.loc 1 418 33
+ 967 0064 FB68     		ldr	r3, [r7, #12]
+ 968 0066 1A68     		ldr	r2, [r3]
+ 969              		.loc 1 418 26
+ 970 0068 3B69     		ldr	r3, [r7, #16]
+ 971 006a 1A60     		str	r2, [r3]
+ 419:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 break;
+ 972              		.loc 1 419 17
+ 973 006c 05E0     		b	.L91
+ 974              	.L90:
+ 420:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 421:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             tmp = tmp->nxt;
+ 975              		.loc 1 421 17
+ 976 006e 3B69     		ldr	r3, [r7, #16]
+ 977 0070 1B68     		ldr	r3, [r3]
+ 978 0072 3B61     		str	r3, [r7, #16]
+ 979              	.L89:
+ 414:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 980              		.loc 1 414 14
+ 981 0074 3B69     		ldr	r3, [r7, #16]
+ 982 0076 002B     		cmp	r3, #0
+ 983 0078 EFD1     		bne	.L92
+ 984              	.L91:
+ 422:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 423:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if(NULL == tmp)
+ 985              		.loc 1 423 11
+ 986 007a 3B69     		ldr	r3, [r7, #16]
+ 987 007c 002B     		cmp	r3, #0
+ 988 007e 33D0     		beq	.L101
+ 989              	.L88:
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 425:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             goto EXIT_DETACHERR;
+ 426:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 427:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 428:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL != driv->op->close)
+ 990              		.loc 1 428 20
+ 991 0080 BB68     		ldr	r3, [r7, #8]
+ 992 0082 1B69     		ldr	r3, [r3, #16]
+ 993              		.loc 1 428 24
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 26
+
+
+ 994 0084 DB68     		ldr	r3, [r3, #12]
+ 995              		.loc 1 428 7
+ 996 0086 002B     		cmp	r3, #0
+ 997 0088 06D0     		beq	.L93
+ 429:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 430:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         driv->op->close(driv->pri);
+ 998              		.loc 1 430 13
+ 999 008a BB68     		ldr	r3, [r7, #8]
+ 1000 008c 1B69     		ldr	r3, [r3, #16]
+ 1001              		.loc 1 430 17
+ 1002 008e DB68     		ldr	r3, [r3, #12]
+ 1003              		.loc 1 430 9
+ 1004 0090 BA68     		ldr	r2, [r7, #8]
+ 1005 0092 5268     		ldr	r2, [r2, #4]
+ 1006 0094 1046     		mov	r0, r2
+ 1007 0096 9847     		blx	r3
+ 1008              	.LVL2:
+ 1009              	.L93:
+ 431:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 432:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 433:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if((NULL == driv->devlst) && (NULL != driv->op->deinit))
+ 1010              		.loc 1 433 21
+ 1011 0098 BB68     		ldr	r3, [r7, #8]
+ 1012 009a 9B69     		ldr	r3, [r3, #24]
+ 1013              		.loc 1 433 7
+ 1014 009c 002B     		cmp	r3, #0
+ 1015 009e 11D1     		bne	.L94
+ 1016              		.loc 1 433 47 discriminator 1
+ 1017 00a0 BB68     		ldr	r3, [r7, #8]
+ 1018 00a2 1B69     		ldr	r3, [r3, #16]
+ 1019              		.loc 1 433 51 discriminator 1
+ 1020 00a4 DB69     		ldr	r3, [r3, #28]
+ 1021              		.loc 1 433 31 discriminator 1
+ 1022 00a6 002B     		cmp	r3, #0
+ 1023 00a8 0CD0     		beq	.L94
+ 434:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 435:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         driv->op->deinit(driv->pri);
+ 1024              		.loc 1 435 13
+ 1025 00aa BB68     		ldr	r3, [r7, #8]
+ 1026 00ac 1B69     		ldr	r3, [r3, #16]
+ 1027              		.loc 1 435 17
+ 1028 00ae DB69     		ldr	r3, [r3, #28]
+ 1029              		.loc 1 435 9
+ 1030 00b0 BA68     		ldr	r2, [r7, #8]
+ 1031 00b2 5268     		ldr	r2, [r2, #4]
+ 1032 00b4 1046     		mov	r0, r2
+ 1033 00b6 9847     		blx	r3
+ 1034              	.LVL3:
+ 436:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         driv->drivstatus &= (~cn_driv_status_initialized);
+ 1035              		.loc 1 436 26
+ 1036 00b8 BB68     		ldr	r3, [r7, #8]
+ 1037 00ba 5B69     		ldr	r3, [r3, #20]
+ 1038 00bc 23F00102 		bic	r2, r3, #1
+ 1039 00c0 BB68     		ldr	r3, [r7, #8]
+ 1040 00c2 5A61     		str	r2, [r3, #20]
+ 1041              	.L94:
+ 437:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 27
+
+
+ 438:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 439:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_free(dev);
+ 1042              		.loc 1 439 5
+ 1043 00c4 7868     		ldr	r0, [r7, #4]
+ 1044 00c6 FFF7FEFF 		bl	osal_free
+ 440:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     driv->opencounter--;
+ 1045              		.loc 1 440 9
+ 1046 00ca BB68     		ldr	r3, [r7, #8]
+ 1047 00cc 5B6A     		ldr	r3, [r3, #36]
+ 1048              		.loc 1 440 22
+ 1049 00ce 5A1E     		subs	r2, r3, #1
+ 1050 00d0 BB68     		ldr	r3, [r7, #8]
+ 1051 00d2 5A62     		str	r2, [r3, #36]
+ 441:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 442:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_mutex_unlock(s_los_driv_module.lock);
+ 1052              		.loc 1 442 5
+ 1053 00d4 0C4B     		ldr	r3, .L102
+ 1054 00d6 1B68     		ldr	r3, [r3]
+ 1055 00d8 1846     		mov	r0, r3
+ 1056 00da FFF7FEFF 		bl	osal_mutex_unlock
+ 443:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 444:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     ret = true;
+ 1057              		.loc 1 444 9
+ 1058 00de 0123     		movs	r3, #1
+ 1059 00e0 7B61     		str	r3, [r7, #20]
+ 1060 00e2 02E0     		b	.L95
+ 1061              	.L86:
+ 1062              	.L100:
+ 404:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 1063              		.loc 1 404 9
+ 1064 00e4 00BF     		nop
+ 1065 00e6 00E0     		b	.L95
+ 1066              	.L101:
+ 425:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 1067              		.loc 1 425 13
+ 1068 00e8 00BF     		nop
+ 1069              	.L95:
+ 445:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 446:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_DETACHERR:
+ 447:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_DRIVERR:
+ 448:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     osal_mutex_unlock(s_los_driv_module.lock);
+ 1070              		.loc 1 448 5
+ 1071 00ea 074B     		ldr	r3, .L102
+ 1072 00ec 1B68     		ldr	r3, [r3]
+ 1073 00ee 1846     		mov	r0, r3
+ 1074 00f0 FFF7FEFF 		bl	osal_mutex_unlock
+ 1075 00f4 02E0     		b	.L96
+ 1076              	.L83:
+ 1077              	.L98:
+ 391:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 1078              		.loc 1 391 9
+ 1079 00f6 00BF     		nop
+ 1080 00f8 00E0     		b	.L96
+ 1081              	.L99:
+ 397:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 1082              		.loc 1 397 9
+ 1083 00fa 00BF     		nop
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 28
+
+
+ 1084              	.L96:
+ 449:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_MUTEXERR:
+ 450:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** EXIT_PARAERR:
+ 451:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+ 1085              		.loc 1 451 12
+ 1086 00fc 7B69     		ldr	r3, [r7, #20]
+ 452:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 1087              		.loc 1 452 1
+ 1088 00fe 1846     		mov	r0, r3
+ 1089 0100 1837     		adds	r7, r7, #24
+ 1090              	.LCFI39:
+ 1091              		.cfi_def_cfa_offset 8
+ 1092 0102 BD46     		mov	sp, r7
+ 1093              	.LCFI40:
+ 1094              		.cfi_def_cfa_register 13
+ 1095              		@ sp needed
+ 1096 0104 80BD     		pop	{r7, pc}
+ 1097              	.L103:
+ 1098 0106 00BF     		.align	2
+ 1099              	.L102:
+ 1100 0108 00000000 		.word	s_los_driv_module
+ 1101              		.cfi_endproc
+ 1102              	.LFE10:
+ 1104              		.section	.text.los_dev_read,"ax",%progbits
+ 1105              		.align	1
+ 1106              		.global	los_dev_read
+ 1107              		.syntax unified
+ 1108              		.thumb
+ 1109              		.thumb_func
+ 1110              		.fpu fpv4-sp-d16
+ 1112              	los_dev_read:
+ 1113              	.LFB11:
+ 453:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 454:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 455:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :use this function to read data from the device
+ 456:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :dev,returned by the los_dev_open function
+ 457:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               offet:from where to read,only used for storage device
+ 458:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               buf:used to storage the data
+ 459:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               len:the length of the buf
+ 460:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               timeout:the waittime if no data current
+ 461:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :how many data has been read to the buf
+ 462:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 463:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** ssize_t   los_dev_read  (los_dev_t dev,size_t offset, void *buf,size_t len,uint32_t timeout)
+ 464:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 1114              		.loc 1 464 1
+ 1115              		.cfi_startproc
+ 1116              		@ args = 4, pretend = 0, frame = 32
+ 1117              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1118 0000 90B5     		push	{r4, r7, lr}
+ 1119              	.LCFI41:
+ 1120              		.cfi_def_cfa_offset 12
+ 1121              		.cfi_offset 4, -12
+ 1122              		.cfi_offset 7, -8
+ 1123              		.cfi_offset 14, -4
+ 1124 0002 8BB0     		sub	sp, sp, #44
+ 1125              	.LCFI42:
+ 1126              		.cfi_def_cfa_offset 56
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 29
+
+
+ 1127 0004 02AF     		add	r7, sp, #8
+ 1128              	.LCFI43:
+ 1129              		.cfi_def_cfa 7, 48
+ 1130 0006 F860     		str	r0, [r7, #12]
+ 1131 0008 B960     		str	r1, [r7, #8]
+ 1132 000a 7A60     		str	r2, [r7, #4]
+ 1133 000c 3B60     		str	r3, [r7]
+ 465:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     ssize_t ret = 0;
+ 1134              		.loc 1 465 13
+ 1135 000e 0023     		movs	r3, #0
+ 1136 0010 FB61     		str	r3, [r7, #28]
+ 466:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct dev_cb  *devcb;
+ 467:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *drivcb;
+ 468:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 469:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if((NULL != dev)&&(NULL != buf)&&(0 != len))
+ 1137              		.loc 1 469 7
+ 1138 0012 FB68     		ldr	r3, [r7, #12]
+ 1139 0014 002B     		cmp	r3, #0
+ 1140 0016 2ED0     		beq	.L105
+ 1141              		.loc 1 469 21 discriminator 1
+ 1142 0018 7B68     		ldr	r3, [r7, #4]
+ 1143 001a 002B     		cmp	r3, #0
+ 1144 001c 2BD0     		beq	.L105
+ 1145              		.loc 1 469 36 discriminator 2
+ 1146 001e 3B68     		ldr	r3, [r7]
+ 1147 0020 002B     		cmp	r3, #0
+ 1148 0022 28D0     		beq	.L105
+ 470:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 471:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         devcb = dev;
+ 1149              		.loc 1 471 15
+ 1150 0024 FB68     		ldr	r3, [r7, #12]
+ 1151 0026 BB61     		str	r3, [r7, #24]
+ 472:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if((0 == ((uint32_t)devcb->openflag & O_WRONLY)))
+ 1152              		.loc 1 472 34
+ 1153 0028 BB69     		ldr	r3, [r7, #24]
+ 1154 002a 9B68     		ldr	r3, [r3, #8]
+ 1155              		.loc 1 472 45
+ 1156 002c 03F00103 		and	r3, r3, #1
+ 1157              		.loc 1 472 11
+ 1158 0030 002B     		cmp	r3, #0
+ 1159 0032 20D1     		bne	.L105
+ 473:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 474:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             drivcb = devcb->driv;
+ 1160              		.loc 1 474 20
+ 1161 0034 BB69     		ldr	r3, [r7, #24]
+ 1162 0036 5B68     		ldr	r3, [r3, #4]
+ 1163 0038 7B61     		str	r3, [r7, #20]
+ 475:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             if((NULL != drivcb->op)&&(NULL != drivcb->op->read))
+ 1164              		.loc 1 475 31
+ 1165 003a 7B69     		ldr	r3, [r7, #20]
+ 1166 003c 1B69     		ldr	r3, [r3, #16]
+ 1167              		.loc 1 475 15
+ 1168 003e 002B     		cmp	r3, #0
+ 1169 0040 19D0     		beq	.L105
+ 1170              		.loc 1 475 53 discriminator 1
+ 1171 0042 7B69     		ldr	r3, [r7, #20]
+ 1172 0044 1B69     		ldr	r3, [r3, #16]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 30
+
+
+ 1173              		.loc 1 475 57 discriminator 1
+ 1174 0046 5B68     		ldr	r3, [r3, #4]
+ 1175              		.loc 1 475 36 discriminator 1
+ 1176 0048 002B     		cmp	r3, #0
+ 1177 004a 14D0     		beq	.L105
+ 476:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 477:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 ret = drivcb->op->read( drivcb->pri,offset,buf,len,timeout);
+ 1178              		.loc 1 477 29
+ 1179 004c 7B69     		ldr	r3, [r7, #20]
+ 1180 004e 1B69     		ldr	r3, [r3, #16]
+ 1181              		.loc 1 477 33
+ 1182 0050 5C68     		ldr	r4, [r3, #4]
+ 1183              		.loc 1 477 23
+ 1184 0052 7B69     		ldr	r3, [r7, #20]
+ 1185 0054 5868     		ldr	r0, [r3, #4]
+ 1186 0056 3B6B     		ldr	r3, [r7, #48]
+ 1187 0058 0093     		str	r3, [sp]
+ 1188 005a 3B68     		ldr	r3, [r7]
+ 1189 005c 7A68     		ldr	r2, [r7, #4]
+ 1190 005e B968     		ldr	r1, [r7, #8]
+ 1191 0060 A047     		blx	r4
+ 1192              	.LVL4:
+ 1193 0062 F861     		str	r0, [r7, #28]
+ 478:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 if(ret > 0)
+ 1194              		.loc 1 478 19
+ 1195 0064 FB69     		ldr	r3, [r7, #28]
+ 1196 0066 002B     		cmp	r3, #0
+ 1197 0068 05DD     		ble	.L105
+ 479:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 {
+ 480:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                     drivcb->total_read += ret;
+ 1198              		.loc 1 480 40
+ 1199 006a 7B69     		ldr	r3, [r7, #20]
+ 1200 006c 1A6A     		ldr	r2, [r3, #32]
+ 1201 006e FB69     		ldr	r3, [r7, #28]
+ 1202 0070 1A44     		add	r2, r2, r3
+ 1203 0072 7B69     		ldr	r3, [r7, #20]
+ 1204 0074 1A62     		str	r2, [r3, #32]
+ 1205              	.L105:
+ 481:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 }
+ 482:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 483:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 484:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 485:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 486:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+ 1206              		.loc 1 486 12
+ 1207 0076 FB69     		ldr	r3, [r7, #28]
+ 487:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 1208              		.loc 1 487 1
+ 1209 0078 1846     		mov	r0, r3
+ 1210 007a 2437     		adds	r7, r7, #36
+ 1211              	.LCFI44:
+ 1212              		.cfi_def_cfa_offset 12
+ 1213 007c BD46     		mov	sp, r7
+ 1214              	.LCFI45:
+ 1215              		.cfi_def_cfa_register 13
+ 1216              		@ sp needed
+ 1217 007e 90BD     		pop	{r4, r7, pc}
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 31
+
+
+ 1218              		.cfi_endproc
+ 1219              	.LFE11:
+ 1221              		.section	.text.los_dev_write,"ax",%progbits
+ 1222              		.align	1
+ 1223              		.global	los_dev_write
+ 1224              		.syntax unified
+ 1225              		.thumb
+ 1226              		.thumb_func
+ 1227              		.fpu fpv4-sp-d16
+ 1229              	los_dev_write:
+ 1230              	.LFB12:
+ 488:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 489:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 490:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :use this function to write data to the device
+ 491:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :dev,returned by the los_dev_open function
+ 492:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               offset: from where to write,only used for storage device
+ 493:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               buf:the data to be written
+ 494:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               len:the length of the buf
+ 495:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               timeout:the waittime if no data current
+ 496:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :how many data has been written to the device
+ 497:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 498:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** ssize_t los_dev_write (los_dev_t dev,size_t offset,const void *buf,size_t len, uint32_t timeout)
+ 499:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 1231              		.loc 1 499 1
+ 1232              		.cfi_startproc
+ 1233              		@ args = 4, pretend = 0, frame = 32
+ 1234              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1235 0000 90B5     		push	{r4, r7, lr}
+ 1236              	.LCFI46:
+ 1237              		.cfi_def_cfa_offset 12
+ 1238              		.cfi_offset 4, -12
+ 1239              		.cfi_offset 7, -8
+ 1240              		.cfi_offset 14, -4
+ 1241 0002 8BB0     		sub	sp, sp, #44
+ 1242              	.LCFI47:
+ 1243              		.cfi_def_cfa_offset 56
+ 1244 0004 02AF     		add	r7, sp, #8
+ 1245              	.LCFI48:
+ 1246              		.cfi_def_cfa 7, 48
+ 1247 0006 F860     		str	r0, [r7, #12]
+ 1248 0008 B960     		str	r1, [r7, #8]
+ 1249 000a 7A60     		str	r2, [r7, #4]
+ 1250 000c 3B60     		str	r3, [r7]
+ 500:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     ssize_t ret = 0;
+ 1251              		.loc 1 500 13
+ 1252 000e 0023     		movs	r3, #0
+ 1253 0010 FB61     		str	r3, [r7, #28]
+ 501:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct dev_cb  *devcb;
+ 502:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *drivcb;
+ 503:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 504:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if((NULL != dev) && (NULL != buf) && (len != 0))
+ 1254              		.loc 1 504 7
+ 1255 0012 FB68     		ldr	r3, [r7, #12]
+ 1256 0014 002B     		cmp	r3, #0
+ 1257 0016 34D0     		beq	.L108
+ 1258              		.loc 1 504 22 discriminator 1
+ 1259 0018 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 32
+
+
+ 1260 001a 002B     		cmp	r3, #0
+ 1261 001c 31D0     		beq	.L108
+ 1262              		.loc 1 504 39 discriminator 2
+ 1263 001e 3B68     		ldr	r3, [r7]
+ 1264 0020 002B     		cmp	r3, #0
+ 1265 0022 2ED0     		beq	.L108
+ 505:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 506:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         devcb = dev;
+ 1266              		.loc 1 506 15
+ 1267 0024 FB68     		ldr	r3, [r7, #12]
+ 1268 0026 BB61     		str	r3, [r7, #24]
+ 507:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if((((uint32_t)devcb->openflag) & O_WRONLY) || (((uint32_t)devcb->openflag) & O_RDWR))
+ 1269              		.loc 1 507 29
+ 1270 0028 BB69     		ldr	r3, [r7, #24]
+ 1271 002a 9B68     		ldr	r3, [r3, #8]
+ 1272              		.loc 1 507 41
+ 1273 002c 03F00103 		and	r3, r3, #1
+ 1274              		.loc 1 507 11
+ 1275 0030 002B     		cmp	r3, #0
+ 1276 0032 05D1     		bne	.L109
+ 1277              		.loc 1 507 73 discriminator 1
+ 1278 0034 BB69     		ldr	r3, [r7, #24]
+ 1279 0036 9B68     		ldr	r3, [r3, #8]
+ 1280              		.loc 1 507 85 discriminator 1
+ 1281 0038 03F00203 		and	r3, r3, #2
+ 1282              		.loc 1 507 53 discriminator 1
+ 1283 003c 002B     		cmp	r3, #0
+ 1284 003e 20D0     		beq	.L108
+ 1285              	.L109:
+ 508:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 509:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             drivcb = devcb->driv;
+ 1286              		.loc 1 509 20
+ 1287 0040 BB69     		ldr	r3, [r7, #24]
+ 1288 0042 5B68     		ldr	r3, [r3, #4]
+ 1289 0044 7B61     		str	r3, [r7, #20]
+ 510:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             if((NULL != drivcb->op)&&(NULL != drivcb->op->write))
+ 1290              		.loc 1 510 31
+ 1291 0046 7B69     		ldr	r3, [r7, #20]
+ 1292 0048 1B69     		ldr	r3, [r3, #16]
+ 1293              		.loc 1 510 15
+ 1294 004a 002B     		cmp	r3, #0
+ 1295 004c 19D0     		beq	.L108
+ 1296              		.loc 1 510 53 discriminator 1
+ 1297 004e 7B69     		ldr	r3, [r7, #20]
+ 1298 0050 1B69     		ldr	r3, [r3, #16]
+ 1299              		.loc 1 510 57 discriminator 1
+ 1300 0052 9B68     		ldr	r3, [r3, #8]
+ 1301              		.loc 1 510 36 discriminator 1
+ 1302 0054 002B     		cmp	r3, #0
+ 1303 0056 14D0     		beq	.L108
+ 511:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 512:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 ret = drivcb->op->write( drivcb->pri,offset,buf,len,timeout);
+ 1304              		.loc 1 512 29
+ 1305 0058 7B69     		ldr	r3, [r7, #20]
+ 1306 005a 1B69     		ldr	r3, [r3, #16]
+ 1307              		.loc 1 512 33
+ 1308 005c 9C68     		ldr	r4, [r3, #8]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 33
+
+
+ 1309              		.loc 1 512 23
+ 1310 005e 7B69     		ldr	r3, [r7, #20]
+ 1311 0060 5868     		ldr	r0, [r3, #4]
+ 1312 0062 3B6B     		ldr	r3, [r7, #48]
+ 1313 0064 0093     		str	r3, [sp]
+ 1314 0066 3B68     		ldr	r3, [r7]
+ 1315 0068 7A68     		ldr	r2, [r7, #4]
+ 1316 006a B968     		ldr	r1, [r7, #8]
+ 1317 006c A047     		blx	r4
+ 1318              	.LVL5:
+ 1319 006e F861     		str	r0, [r7, #28]
+ 513:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 if(ret > 0)
+ 1320              		.loc 1 513 19
+ 1321 0070 FB69     		ldr	r3, [r7, #28]
+ 1322 0072 002B     		cmp	r3, #0
+ 1323 0074 05DD     		ble	.L108
+ 514:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 {
+ 515:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                     drivcb->total_write += ret;
+ 1324              		.loc 1 515 41
+ 1325 0076 7B69     		ldr	r3, [r7, #20]
+ 1326 0078 DA69     		ldr	r2, [r3, #28]
+ 1327 007a FB69     		ldr	r3, [r7, #28]
+ 1328 007c 1A44     		add	r2, r2, r3
+ 1329 007e 7B69     		ldr	r3, [r7, #20]
+ 1330 0080 DA61     		str	r2, [r3, #28]
+ 1331              	.L108:
+ 516:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 }
+ 517:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 518:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 519:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 520:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 521:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+ 1332              		.loc 1 521 12
+ 1333 0082 FB69     		ldr	r3, [r7, #28]
+ 522:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 1334              		.loc 1 522 1
+ 1335 0084 1846     		mov	r0, r3
+ 1336 0086 2437     		adds	r7, r7, #36
+ 1337              	.LCFI49:
+ 1338              		.cfi_def_cfa_offset 12
+ 1339 0088 BD46     		mov	sp, r7
+ 1340              	.LCFI50:
+ 1341              		.cfi_def_cfa_register 13
+ 1342              		@ sp needed
+ 1343 008a 90BD     		pop	{r4, r7, pc}
+ 1344              		.cfi_endproc
+ 1345              	.LFE12:
+ 1347              		.section	.text.los_dev_ioctl,"ax",%progbits
+ 1348              		.align	1
+ 1349              		.global	los_dev_ioctl
+ 1350              		.syntax unified
+ 1351              		.thumb
+ 1352              		.thumb_func
+ 1353              		.fpu fpv4-sp-d16
+ 1355              	los_dev_ioctl:
+ 1356              	.LFB13:
+ 523:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 34
+
+
+ 524:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 525:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :use this function to control the device
+ 526:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :dev,returned by the los_dev_open function
+ 527:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               cmd, must compatible with bsp develop
+ 528:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               para,used with cmd, its length and format depend on the bsp develop
+ 529:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :ctrol true or false
+ 530:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 531:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** bool_t los_dev_ioctl (los_dev_t dev,unsigned int cmd,void *para,int paralen)
+ 532:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 1357              		.loc 1 532 1
+ 1358              		.cfi_startproc
+ 1359              		@ args = 0, pretend = 0, frame = 32
+ 1360              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1361 0000 90B5     		push	{r4, r7, lr}
+ 1362              	.LCFI51:
+ 1363              		.cfi_def_cfa_offset 12
+ 1364              		.cfi_offset 4, -12
+ 1365              		.cfi_offset 7, -8
+ 1366              		.cfi_offset 14, -4
+ 1367 0002 89B0     		sub	sp, sp, #36
+ 1368              	.LCFI52:
+ 1369              		.cfi_def_cfa_offset 48
+ 1370 0004 00AF     		add	r7, sp, #0
+ 1371              	.LCFI53:
+ 1372              		.cfi_def_cfa_register 7
+ 1373 0006 F860     		str	r0, [r7, #12]
+ 1374 0008 B960     		str	r1, [r7, #8]
+ 1375 000a 7A60     		str	r2, [r7, #4]
+ 1376 000c 3B60     		str	r3, [r7]
+ 533:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     bool_t ret = false;
+ 1377              		.loc 1 533 12
+ 1378 000e 0023     		movs	r3, #0
+ 1379 0010 FB61     		str	r3, [r7, #28]
+ 534:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct dev_cb  *devcb;
+ 535:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *drivcb;
+ 536:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 537:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL != dev)
+ 1380              		.loc 1 537 7
+ 1381 0012 FB68     		ldr	r3, [r7, #12]
+ 1382 0014 002B     		cmp	r3, #0
+ 1383 0016 17D0     		beq	.L112
+ 538:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 539:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         devcb = dev;
+ 1384              		.loc 1 539 15
+ 1385 0018 FB68     		ldr	r3, [r7, #12]
+ 1386 001a BB61     		str	r3, [r7, #24]
+ 540:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         drivcb = devcb->driv;
+ 1387              		.loc 1 540 16
+ 1388 001c BB69     		ldr	r3, [r7, #24]
+ 1389 001e 5B68     		ldr	r3, [r3, #4]
+ 1390 0020 7B61     		str	r3, [r7, #20]
+ 541:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if((NULL != drivcb->op)&&(NULL != drivcb->op->ioctl))
+ 1391              		.loc 1 541 27
+ 1392 0022 7B69     		ldr	r3, [r7, #20]
+ 1393 0024 1B69     		ldr	r3, [r3, #16]
+ 1394              		.loc 1 541 11
+ 1395 0026 002B     		cmp	r3, #0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 35
+
+
+ 1396 0028 0ED0     		beq	.L112
+ 1397              		.loc 1 541 49 discriminator 1
+ 1398 002a 7B69     		ldr	r3, [r7, #20]
+ 1399 002c 1B69     		ldr	r3, [r3, #16]
+ 1400              		.loc 1 541 53 discriminator 1
+ 1401 002e 1B69     		ldr	r3, [r3, #16]
+ 1402              		.loc 1 541 32 discriminator 1
+ 1403 0030 002B     		cmp	r3, #0
+ 1404 0032 09D0     		beq	.L112
+ 542:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 543:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             ret = drivcb->op->ioctl( drivcb->pri,cmd,para,paralen);
+ 1405              		.loc 1 543 25
+ 1406 0034 7B69     		ldr	r3, [r7, #20]
+ 1407 0036 1B69     		ldr	r3, [r3, #16]
+ 1408              		.loc 1 543 29
+ 1409 0038 1C69     		ldr	r4, [r3, #16]
+ 1410              		.loc 1 543 19
+ 1411 003a 7B69     		ldr	r3, [r7, #20]
+ 1412 003c 5868     		ldr	r0, [r3, #4]
+ 1413 003e 3B68     		ldr	r3, [r7]
+ 1414 0040 7A68     		ldr	r2, [r7, #4]
+ 1415 0042 B968     		ldr	r1, [r7, #8]
+ 1416 0044 A047     		blx	r4
+ 1417              	.LVL6:
+ 1418 0046 F861     		str	r0, [r7, #28]
+ 1419              	.L112:
+ 544:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 545:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 546:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 547:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+ 1420              		.loc 1 547 12
+ 1421 0048 FB69     		ldr	r3, [r7, #28]
+ 548:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 1422              		.loc 1 548 1
+ 1423 004a 1846     		mov	r0, r3
+ 1424 004c 2437     		adds	r7, r7, #36
+ 1425              	.LCFI54:
+ 1426              		.cfi_def_cfa_offset 12
+ 1427 004e BD46     		mov	sp, r7
+ 1428              	.LCFI55:
+ 1429              		.cfi_def_cfa_register 13
+ 1430              		@ sp needed
+ 1431 0050 90BD     		pop	{r4, r7, pc}
+ 1432              		.cfi_endproc
+ 1433              	.LFE13:
+ 1435              		.section	.text.los_dev_seek,"ax",%progbits
+ 1436              		.align	1
+ 1437              		.global	los_dev_seek
+ 1438              		.syntax unified
+ 1439              		.thumb
+ 1440              		.thumb_func
+ 1441              		.fpu fpv4-sp-d16
+ 1443              	los_dev_seek:
+ 1444              	.LFB14:
+ 549:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 550:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** /*******************************************************************************
+ 551:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** function     :use this function to set the buffer current position,like lseek
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 36
+
+
+ 552:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** parameters   :dev,returned by the los_dev_open function
+ 553:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               offset, refer to the lseek
+ 554:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****               fromwhere, refer to the lseek
+ 555:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** instruction  :return the current write/read position if success, else -1
+ 556:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** *******************************************************************************/
+ 557:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** off_t  los_dev_seek (los_dev_t dev,off_t offset,int fromwhere)
+ 558:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ 1445              		.loc 1 558 1
+ 1446              		.cfi_startproc
+ 1447              		@ args = 0, pretend = 0, frame = 32
+ 1448              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1449 0000 80B5     		push	{r7, lr}
+ 1450              	.LCFI56:
+ 1451              		.cfi_def_cfa_offset 8
+ 1452              		.cfi_offset 7, -8
+ 1453              		.cfi_offset 14, -4
+ 1454 0002 88B0     		sub	sp, sp, #32
+ 1455              	.LCFI57:
+ 1456              		.cfi_def_cfa_offset 40
+ 1457 0004 00AF     		add	r7, sp, #0
+ 1458              	.LCFI58:
+ 1459              		.cfi_def_cfa_register 7
+ 1460 0006 F860     		str	r0, [r7, #12]
+ 1461 0008 B960     		str	r1, [r7, #8]
+ 1462 000a 7A60     		str	r2, [r7, #4]
+ 559:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     off_t ret = -1;
+ 1463              		.loc 1 559 11
+ 1464 000c 4FF0FF33 		mov	r3, #-1
+ 1465 0010 FB61     		str	r3, [r7, #28]
+ 560:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct dev_cb  *devcb;
+ 561:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb *drivcb;
+ 562:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 563:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(NULL != dev)
+ 1466              		.loc 1 563 7
+ 1467 0012 FB68     		ldr	r3, [r7, #12]
+ 1468 0014 002B     		cmp	r3, #0
+ 1469 0016 16D0     		beq	.L115
+ 564:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 565:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         devcb = dev;
+ 1470              		.loc 1 565 15
+ 1471 0018 FB68     		ldr	r3, [r7, #12]
+ 1472 001a BB61     		str	r3, [r7, #24]
+ 566:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         drivcb = devcb->driv;
+ 1473              		.loc 1 566 16
+ 1474 001c BB69     		ldr	r3, [r7, #24]
+ 1475 001e 5B68     		ldr	r3, [r3, #4]
+ 1476 0020 7B61     		str	r3, [r7, #20]
+ 567:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if((NULL != drivcb->op)&&(NULL != drivcb->op->seek))
+ 1477              		.loc 1 567 27
+ 1478 0022 7B69     		ldr	r3, [r7, #20]
+ 1479 0024 1B69     		ldr	r3, [r3, #16]
+ 1480              		.loc 1 567 11
+ 1481 0026 002B     		cmp	r3, #0
+ 1482 0028 0DD0     		beq	.L115
+ 1483              		.loc 1 567 49 discriminator 1
+ 1484 002a 7B69     		ldr	r3, [r7, #20]
+ 1485 002c 1B69     		ldr	r3, [r3, #16]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 37
+
+
+ 1486              		.loc 1 567 53 discriminator 1
+ 1487 002e 5B69     		ldr	r3, [r3, #20]
+ 1488              		.loc 1 567 32 discriminator 1
+ 1489 0030 002B     		cmp	r3, #0
+ 1490 0032 08D0     		beq	.L115
+ 568:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 569:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             ret = drivcb->op->seek( drivcb->pri,offset,fromwhere);
+ 1491              		.loc 1 569 25
+ 1492 0034 7B69     		ldr	r3, [r7, #20]
+ 1493 0036 1B69     		ldr	r3, [r3, #16]
+ 1494              		.loc 1 569 29
+ 1495 0038 5B69     		ldr	r3, [r3, #20]
+ 1496              		.loc 1 569 19
+ 1497 003a 7A69     		ldr	r2, [r7, #20]
+ 1498 003c 5068     		ldr	r0, [r2, #4]
+ 1499 003e 7A68     		ldr	r2, [r7, #4]
+ 1500 0040 B968     		ldr	r1, [r7, #8]
+ 1501 0042 9847     		blx	r3
+ 1502              	.LVL7:
+ 1503 0044 F861     		str	r0, [r7, #28]
+ 1504              	.L115:
+ 570:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 571:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 572:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 573:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return ret;
+ 1505              		.loc 1 573 12
+ 1506 0046 FB69     		ldr	r3, [r7, #28]
+ 574:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 1507              		.loc 1 574 1
+ 1508 0048 1846     		mov	r0, r3
+ 1509 004a 2037     		adds	r7, r7, #32
+ 1510              	.LCFI59:
+ 1511              		.cfi_def_cfa_offset 8
+ 1512 004c BD46     		mov	sp, r7
+ 1513              	.LCFI60:
+ 1514              		.cfi_def_cfa_register 13
+ 1515              		@ sp needed
+ 1516 004e 80BD     		pop	{r7, pc}
+ 1517              		.cfi_endproc
+ 1518              	.LFE14:
+ 1520              		.section	.rodata
+ 1521              		.align	2
+ 1522              	.LC0:
+ 1523 0000 25733A74 		.ascii	"%s:total %d drivers\012\015\000"
+ 1523      6F74616C 
+ 1523      20256420 
+ 1523      64726976 
+ 1523      6572730A 
+ 1524 0016 0000     		.align	2
+ 1525              	.LC1:
+ 1526 0018 73746174 		.ascii	"status\000"
+ 1526      757300
+ 1527 001f 00       		.align	2
+ 1528              	.LC2:
+ 1529 0020 666C6167 		.ascii	"flagmask\000"
+ 1529      6D61736B 
+ 1529      00
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 38
+
+
+ 1530 0029 000000   		.align	2
+ 1531              	.LC3:
+ 1532 002c 64726976 		.ascii	"drivername\000"
+ 1532      65726E61 
+ 1532      6D6500
+ 1533 0037 00       		.align	2
+ 1534              	.LC4:
+ 1535 0038 252D3136 		.ascii	"%-16s %-8s %-8s %-8s %-8s %-8s %-8s\015\012\000"
+ 1535      7320252D 
+ 1535      38732025 
+ 1535      2D387320 
+ 1535      252D3873 
+ 1536 005e 0000     		.align	2
+ 1537              	.LC5:
+ 1538 0060 6572726E 		.ascii	"errno\000"
+ 1538      6F00
+ 1539 0066 0000     		.align	2
+ 1540              	.LC6:
+ 1541 0068 6F70656E 		.ascii	"open\000"
+ 1541      00
+ 1542 006d 000000   		.align	2
+ 1543              	.LC7:
+ 1544 0070 72656164 		.ascii	"readbyte\000"
+ 1544      62797465 
+ 1544      00
+ 1545 0079 000000   		.align	2
+ 1546              	.LC8:
+ 1547 007c 77726974 		.ascii	"writbyte\000"
+ 1547      62797465 
+ 1547      00
+ 1548 0085 000000   		.align	2
+ 1549              	.LC9:
+ 1550 0088 252D3136 		.ascii	"%-16s %08x %08x %08x %08x %08x %08x\015\012\000"
+ 1550      73202530 
+ 1550      38782025 
+ 1550      30387820 
+ 1550      25303878 
+ 1551              		.section	.text.__driv_show_shell,"ax",%progbits
+ 1552              		.align	1
+ 1553              		.syntax unified
+ 1554              		.thumb
+ 1555              		.thumb_func
+ 1556              		.fpu fpv4-sp-d16
+ 1558              	__driv_show_shell:
+ 1559              	.LFB15:
+ 575:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 576:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 577:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //the following function should be implement by the vfs,
+ 578:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //this is very important for the multi io operation, like the select epoll and so on
+ 579:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //bool_t     los_dev_upara_set (los_dev_t dev,void *para);
+ 580:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //void*      los_dev_upara_get (los_dev_t dev);
+ 581:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 582:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //export some shell for the driver debug
+ 583:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** #include <shell.h>
+ 584:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** //use this function to show all the driver infomation
+ 585:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** static int  __driv_show_shell(int argc,const char *argv[])
+ 586:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 39
+
+
+ 1560              		.loc 1 586 1
+ 1561              		.cfi_startproc
+ 1562              		@ args = 0, pretend = 0, frame = 16
+ 1563              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1564 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1565              	.LCFI61:
+ 1566              		.cfi_def_cfa_offset 20
+ 1567              		.cfi_offset 4, -20
+ 1568              		.cfi_offset 5, -16
+ 1569              		.cfi_offset 6, -12
+ 1570              		.cfi_offset 7, -8
+ 1571              		.cfi_offset 14, -4
+ 1572 0002 89B0     		sub	sp, sp, #36
+ 1573              	.LCFI62:
+ 1574              		.cfi_def_cfa_offset 56
+ 1575 0004 04AF     		add	r7, sp, #16
+ 1576              	.LCFI63:
+ 1577              		.cfi_def_cfa 7, 40
+ 1578 0006 7860     		str	r0, [r7, #4]
+ 1579 0008 3960     		str	r1, [r7]
+ 587:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     struct driv_cb  *driv;
+ 588:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 589:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     if(osal_mutex_lock(s_los_driv_module.lock))
+ 1580              		.loc 1 589 8
+ 1581 000a 264B     		ldr	r3, .L123
+ 1582 000c 1B68     		ldr	r3, [r3]
+ 1583 000e 1846     		mov	r0, r3
+ 1584 0010 FFF7FEFF 		bl	osal_mutex_lock
+ 1585 0014 0346     		mov	r3, r0
+ 1586              		.loc 1 589 7
+ 1587 0016 002B     		cmp	r3, #0
+ 1588 0018 3FD0     		beq	.L118
+ 590:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     {
+ 591:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         printf("%s:total %d drivers\n\r",__FUNCTION__,s_los_driv_module.drivnum);
+ 1589              		.loc 1 591 9
+ 1590 001a 224B     		ldr	r3, .L123
+ 1591 001c 9B68     		ldr	r3, [r3, #8]
+ 1592 001e 1A46     		mov	r2, r3
+ 1593 0020 2149     		ldr	r1, .L123+4
+ 1594 0022 2248     		ldr	r0, .L123+8
+ 1595 0024 FFF7FEFF 		bl	printf
+ 592:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         if(s_los_driv_module.drivnum != 0) //print all the driver
+ 1596              		.loc 1 592 29
+ 1597 0028 1E4B     		ldr	r3, .L123
+ 1598 002a 9B68     		ldr	r3, [r3, #8]
+ 1599              		.loc 1 592 11
+ 1600 002c 002B     		cmp	r3, #0
+ 1601 002e 2FD0     		beq	.L119
+ 593:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         {
+ 594:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 595:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             printf("%-16s %-8s %-8s %-8s %-8s %-8s %-8s\r\n",\
+ 1602              		.loc 1 595 13
+ 1603 0030 1F4B     		ldr	r3, .L123+12
+ 1604 0032 0393     		str	r3, [sp, #12]
+ 1605 0034 1F4B     		ldr	r3, .L123+16
+ 1606 0036 0293     		str	r3, [sp, #8]
+ 1607 0038 1F4B     		ldr	r3, .L123+20
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 40
+
+
+ 1608 003a 0193     		str	r3, [sp, #4]
+ 1609 003c 1F4B     		ldr	r3, .L123+24
+ 1610 003e 0093     		str	r3, [sp]
+ 1611 0040 1F4B     		ldr	r3, .L123+28
+ 1612 0042 204A     		ldr	r2, .L123+32
+ 1613 0044 2049     		ldr	r1, .L123+36
+ 1614 0046 2148     		ldr	r0, .L123+40
+ 1615 0048 FFF7FEFF 		bl	printf
+ 596:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 "drivername","flagmask","status","writbyte","readbyte","open","errno");
+ 597:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 598:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             driv = s_los_driv_module.drivlst;
+ 1616              		.loc 1 598 18
+ 1617 004c 154B     		ldr	r3, .L123
+ 1618 004e 5B68     		ldr	r3, [r3, #4]
+ 1619 0050 FB60     		str	r3, [r7, #12]
+ 599:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             while(NULL != driv)
+ 1620              		.loc 1 599 18
+ 1621 0052 1AE0     		b	.L120
+ 1622              	.L121:
+ 600:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 601:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 printf("%-16s %08x %08x %08x %08x %08x %08x\r\n",driv->name,driv->flagmask,\
+ 1623              		.loc 1 601 17
+ 1624 0054 FB68     		ldr	r3, [r7, #12]
+ 1625 0056 9C68     		ldr	r4, [r3, #8]
+ 1626 0058 FB68     		ldr	r3, [r7, #12]
+ 1627 005a DD68     		ldr	r5, [r3, #12]
+ 1628 005c FB68     		ldr	r3, [r7, #12]
+ 1629 005e 5E69     		ldr	r6, [r3, #20]
+ 1630 0060 FB68     		ldr	r3, [r7, #12]
+ 1631 0062 DB69     		ldr	r3, [r3, #28]
+ 1632 0064 FA68     		ldr	r2, [r7, #12]
+ 1633 0066 126A     		ldr	r2, [r2, #32]
+ 1634 0068 F968     		ldr	r1, [r7, #12]
+ 1635 006a 496A     		ldr	r1, [r1, #36]
+ 1636 006c F868     		ldr	r0, [r7, #12]
+ 1637 006e 806A     		ldr	r0, [r0, #40]
+ 1638 0070 0390     		str	r0, [sp, #12]
+ 1639 0072 0291     		str	r1, [sp, #8]
+ 1640 0074 0192     		str	r2, [sp, #4]
+ 1641 0076 0093     		str	r3, [sp]
+ 1642 0078 3346     		mov	r3, r6
+ 1643 007a 2A46     		mov	r2, r5
+ 1644 007c 2146     		mov	r1, r4
+ 1645 007e 1448     		ldr	r0, .L123+44
+ 1646 0080 FFF7FEFF 		bl	printf
+ 602:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 driv->drivstatus,driv->total_write,driv->total_read,driv->opencounter,driv->errno);
+ 603:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****                 driv=driv->nxt;
+ 1647              		.loc 1 603 21
+ 1648 0084 FB68     		ldr	r3, [r7, #12]
+ 1649 0086 1B68     		ldr	r3, [r3]
+ 1650 0088 FB60     		str	r3, [r7, #12]
+ 1651              	.L120:
+ 599:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             {
+ 1652              		.loc 1 599 18
+ 1653 008a FB68     		ldr	r3, [r7, #12]
+ 1654 008c 002B     		cmp	r3, #0
+ 1655 008e E1D1     		bne	.L121
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 41
+
+
+ 1656              	.L119:
+ 604:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****             }
+ 605:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         }
+ 606:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 607:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****         osal_mutex_unlock(s_los_driv_module.lock);
+ 1657              		.loc 1 607 9
+ 1658 0090 044B     		ldr	r3, .L123
+ 1659 0092 1B68     		ldr	r3, [r3]
+ 1660 0094 1846     		mov	r0, r3
+ 1661 0096 FFF7FEFF 		bl	osal_mutex_unlock
+ 1662              	.L118:
+ 608:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     }
+ 609:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** 
+ 610:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c ****     return 0;
+ 1663              		.loc 1 610 12
+ 1664 009a 0023     		movs	r3, #0
+ 611:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/driver\driver.c **** }
+ 1665              		.loc 1 611 1
+ 1666 009c 1846     		mov	r0, r3
+ 1667 009e 1437     		adds	r7, r7, #20
+ 1668              	.LCFI64:
+ 1669              		.cfi_def_cfa_offset 20
+ 1670 00a0 BD46     		mov	sp, r7
+ 1671              	.LCFI65:
+ 1672              		.cfi_def_cfa_register 13
+ 1673              		@ sp needed
+ 1674 00a2 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1675              	.L124:
+ 1676              		.align	2
+ 1677              	.L123:
+ 1678 00a4 00000000 		.word	s_los_driv_module
+ 1679 00a8 00000000 		.word	__FUNCTION__.7756
+ 1680 00ac 00000000 		.word	.LC0
+ 1681 00b0 60000000 		.word	.LC5
+ 1682 00b4 68000000 		.word	.LC6
+ 1683 00b8 70000000 		.word	.LC7
+ 1684 00bc 7C000000 		.word	.LC8
+ 1685 00c0 18000000 		.word	.LC1
+ 1686 00c4 20000000 		.word	.LC2
+ 1687 00c8 2C000000 		.word	.LC3
+ 1688 00cc 38000000 		.word	.LC4
+ 1689 00d0 88000000 		.word	.LC9
+ 1690              		.cfi_endproc
+ 1691              	.LFE15:
+ 1693              		.section	.rodata
+ 1694 00ae 0000     		.align	2
+ 1695              	.LC10:
+ 1696 00b0 6465766C 		.ascii	"devlst\000"
+ 1696      737400
+ 1697              		.section	oshell,"a"
+ 1698              		.align	2
+ 1701              	__oshell___driv_show_shell:
+ 1702 0000 B0000000 		.word	.LC10
+ 1703 0004 B0000000 		.word	.LC10
+ 1704 0008 00000000 		.word	__driv_show_shell
+ 1705 000c 0000     		.short	0
+ 1706 000e 0400     		.short	4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 42
+
+
+ 1707              		.section	.rodata.__FUNCTION__.7756,"a"
+ 1708              		.align	2
+ 1711              	__FUNCTION__.7756:
+ 1712 0000 5F5F6472 		.ascii	"__driv_show_shell\000"
+ 1712      69765F73 
+ 1712      686F775F 
+ 1712      7368656C 
+ 1712      6C00
+ 1713              		.text
+ 1714              	.Letext0:
+ 1715              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 1716              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 1717              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 1718              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 1719              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 1720              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 1721              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\types
+ 1722              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdlib.h"
+ 1723              		.file 10 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 1724              		.file 11 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 1725              		.file 12 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\time.h"
+ 1726              		.file 13 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 driver.c
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:18     .bss.s_los_driv_module:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:21     .bss.s_los_driv_module:00000000 s_los_driv_module
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:24     .text.__driv_match:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:31     .text.__driv_match:00000000 __driv_match
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:99     .text.__driv_match:00000040 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:104    .text.los_driv_register:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:111    .text.los_driv_register:00000000 los_driv_register
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:271    .text.los_driv_register:000000c8 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:276    .text.los_driv_unregister:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:283    .text.los_driv_unregister:00000000 los_driv_unregister
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:423    .text.los_driv_unregister:000000a8 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:428    .text.los_driv_event:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:435    .text.los_driv_event:00000000 los_driv_event
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:475    .text.osdriv_load_static:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:481    .text.osdriv_load_static:00000000 osdriv_load_static
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:554    .text.osdriv_load_static:00000044 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:560    .text.los_driv_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:567    .text.los_driv_init:00000000 los_driv_init
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:617    .text.los_driv_init:0000002c $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:622    .text.los_dev_open:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:629    .text.los_dev_open:00000000 los_dev_open
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:871    .text.los_dev_open:00000138 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:876    .text.los_dev_close:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:883    .text.los_dev_close:00000000 los_dev_close
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1100   .text.los_dev_close:00000108 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1105   .text.los_dev_read:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1112   .text.los_dev_read:00000000 los_dev_read
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1222   .text.los_dev_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1229   .text.los_dev_write:00000000 los_dev_write
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1348   .text.los_dev_ioctl:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1355   .text.los_dev_ioctl:00000000 los_dev_ioctl
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1436   .text.los_dev_seek:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1443   .text.los_dev_seek:00000000 los_dev_seek
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1521   .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1552   .text.__driv_show_shell:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1558   .text.__driv_show_shell:00000000 __driv_show_shell
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1678   .text.__driv_show_shell:000000a4 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1711   .rodata.__FUNCTION__.7756:00000000 __FUNCTION__.7756
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1698   oshell:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1701   oshell:00000000 __oshell___driv_show_shell
+C:\Users\lenovo\AppData\Local\Temp\ccQOITiV.s:1708   .rodata.__FUNCTION__.7756:00000000 $d
+
+UNDEFINED SYMBOLS
+strcmp
+osal_malloc
+memset
+osal_mutex_lock
+osal_mutex_unlock
+osal_free
+__osdriv_start
+__osdriv_end
+osal_mutex_create
+printf

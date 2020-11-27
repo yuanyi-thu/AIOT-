@@ -1,0 +1,684 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"storage.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.bss.s_device,"aw",%nobits
+  18              		.align	2
+  21              	s_device:
+  22 0000 00000000 		.space	4
+  23              		.section	.bss.max_dev_num,"aw",%nobits
+  24              		.align	2
+  27              	max_dev_num:
+  28 0000 00000000 		.space	4
+  29              		.section	.text.storage_dev_install,"ax",%progbits
+  30              		.align	1
+  31              		.global	storage_dev_install
+  32              		.arch armv7e-m
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  36              		.fpu fpv4-sp-d16
+  38              	storage_dev_install:
+  39              	.LFB0:
+  40              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/s
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** #include "storage.h"
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** static const storage_device *s_device = NULL;
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** static uint32_t max_dev_num = 0;
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** int storage_dev_install(storage_device *dev, uint32_t max_num)
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** {
+  41              		.loc 1 7 1
+  42              		.cfi_startproc
+  43              		@ args = 0, pretend = 0, frame = 16
+  44              		@ frame_needed = 1, uses_anonymous_args = 0
+  45 0000 80B5     		push	{r7, lr}
+  46              	.LCFI0:
+  47              		.cfi_def_cfa_offset 8
+  48              		.cfi_offset 7, -8
+  49              		.cfi_offset 14, -4
+  50 0002 84B0     		sub	sp, sp, #16
+  51              	.LCFI1:
+  52              		.cfi_def_cfa_offset 24
+  53 0004 00AF     		add	r7, sp, #0
+  54              	.LCFI2:
+  55              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 2
+
+
+  56 0006 7860     		str	r0, [r7, #4]
+  57 0008 3960     		str	r1, [r7]
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   int i = 0;
+  58              		.loc 1 8 7
+  59 000a 0023     		movs	r3, #0
+  60 000c FB60     		str	r3, [r7, #12]
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   if (dev != NULL && s_device == NULL) {
+  61              		.loc 1 9 6
+  62 000e 7B68     		ldr	r3, [r7, #4]
+  63 0010 002B     		cmp	r3, #0
+  64 0012 22D0     		beq	.L2
+  65              		.loc 1 9 31 discriminator 1
+  66 0014 144B     		ldr	r3, .L7
+  67 0016 1B68     		ldr	r3, [r3]
+  68              		.loc 1 9 19 discriminator 1
+  69 0018 002B     		cmp	r3, #0
+  70 001a 1ED1     		bne	.L2
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     for (i = 0; i < max_num; i++) {
+  71              		.loc 1 10 12
+  72 001c 0023     		movs	r3, #0
+  73 001e FB60     		str	r3, [r7, #12]
+  74              		.loc 1 10 5
+  75 0020 0FE0     		b	.L3
+  76              	.L5:
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****       if (dev[i].init != NULL) {
+  77              		.loc 1 11 14
+  78 0022 FB68     		ldr	r3, [r7, #12]
+  79 0024 5B01     		lsls	r3, r3, #5
+  80 0026 7A68     		ldr	r2, [r7, #4]
+  81 0028 1344     		add	r3, r3, r2
+  82              		.loc 1 11 17
+  83 002a DB68     		ldr	r3, [r3, #12]
+  84              		.loc 1 11 10
+  85 002c 002B     		cmp	r3, #0
+  86 002e 05D0     		beq	.L4
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****         dev[i].init();
+  87              		.loc 1 12 12
+  88 0030 FB68     		ldr	r3, [r7, #12]
+  89 0032 5B01     		lsls	r3, r3, #5
+  90 0034 7A68     		ldr	r2, [r7, #4]
+  91 0036 1344     		add	r3, r3, r2
+  92              		.loc 1 12 15
+  93 0038 DB68     		ldr	r3, [r3, #12]
+  94              		.loc 1 12 9
+  95 003a 9847     		blx	r3
+  96              	.LVL0:
+  97              	.L4:
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     for (i = 0; i < max_num; i++) {
+  98              		.loc 1 10 31 discriminator 2
+  99 003c FB68     		ldr	r3, [r7, #12]
+ 100 003e 0133     		adds	r3, r3, #1
+ 101 0040 FB60     		str	r3, [r7, #12]
+ 102              	.L3:
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     for (i = 0; i < max_num; i++) {
+ 103              		.loc 1 10 19 discriminator 1
+ 104 0042 FB68     		ldr	r3, [r7, #12]
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     for (i = 0; i < max_num; i++) {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 3
+
+
+ 105              		.loc 1 10 5 discriminator 1
+ 106 0044 3A68     		ldr	r2, [r7]
+ 107 0046 9A42     		cmp	r2, r3
+ 108 0048 EBD8     		bhi	.L5
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****       }
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     }
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     s_device = dev;
+ 109              		.loc 1 16 14
+ 110 004a 074A     		ldr	r2, .L7
+ 111 004c 7B68     		ldr	r3, [r7, #4]
+ 112 004e 1360     		str	r3, [r2]
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     max_dev_num = max_num;
+ 113              		.loc 1 17 17
+ 114 0050 064A     		ldr	r2, .L7+4
+ 115 0052 3B68     		ldr	r3, [r7]
+ 116 0054 1360     		str	r3, [r2]
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     return 0;
+ 117              		.loc 1 18 12
+ 118 0056 0023     		movs	r3, #0
+ 119 0058 01E0     		b	.L6
+ 120              	.L2:
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   }
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   return -1;
+ 121              		.loc 1 20 10
+ 122 005a 4FF0FF33 		mov	r3, #-1
+ 123              	.L6:
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** }
+ 124              		.loc 1 21 1
+ 125 005e 1846     		mov	r0, r3
+ 126 0060 1037     		adds	r7, r7, #16
+ 127              	.LCFI3:
+ 128              		.cfi_def_cfa_offset 8
+ 129 0062 BD46     		mov	sp, r7
+ 130              	.LCFI4:
+ 131              		.cfi_def_cfa_register 13
+ 132              		@ sp needed
+ 133 0064 80BD     		pop	{r7, pc}
+ 134              	.L8:
+ 135 0066 00BF     		.align	2
+ 136              	.L7:
+ 137 0068 00000000 		.word	s_device
+ 138 006c 00000000 		.word	max_dev_num
+ 139              		.cfi_endproc
+ 140              	.LFE0:
+ 142              		.section	.text.storage_dev_uninstall,"ax",%progbits
+ 143              		.align	1
+ 144              		.global	storage_dev_uninstall
+ 145              		.syntax unified
+ 146              		.thumb
+ 147              		.thumb_func
+ 148              		.fpu fpv4-sp-d16
+ 150              	storage_dev_uninstall:
+ 151              	.LFB1:
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** int storage_dev_uninstall()
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 4
+
+
+ 152              		.loc 1 24 1
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 1, uses_anonymous_args = 0
+ 156              		@ link register save eliminated.
+ 157 0000 80B4     		push	{r7}
+ 158              	.LCFI5:
+ 159              		.cfi_def_cfa_offset 4
+ 160              		.cfi_offset 7, -4
+ 161 0002 00AF     		add	r7, sp, #0
+ 162              	.LCFI6:
+ 163              		.cfi_def_cfa_register 7
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   if (s_device != NULL) {
+ 164              		.loc 1 25 16
+ 165 0004 094B     		ldr	r3, .L12
+ 166 0006 1B68     		ldr	r3, [r3]
+ 167              		.loc 1 25 6
+ 168 0008 002B     		cmp	r3, #0
+ 169 000a 07D0     		beq	.L10
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     s_device = NULL;
+ 170              		.loc 1 26 14
+ 171 000c 074B     		ldr	r3, .L12
+ 172 000e 0022     		movs	r2, #0
+ 173 0010 1A60     		str	r2, [r3]
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     max_dev_num = 0;
+ 174              		.loc 1 27 17
+ 175 0012 074B     		ldr	r3, .L12+4
+ 176 0014 0022     		movs	r2, #0
+ 177 0016 1A60     		str	r2, [r3]
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     return 0;
+ 178              		.loc 1 28 12
+ 179 0018 0023     		movs	r3, #0
+ 180 001a 01E0     		b	.L11
+ 181              	.L10:
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   }
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   return -1;
+ 182              		.loc 1 30 10
+ 183 001c 4FF0FF33 		mov	r3, #-1
+ 184              	.L11:
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** }
+ 185              		.loc 1 31 1
+ 186 0020 1846     		mov	r0, r3
+ 187 0022 BD46     		mov	sp, r7
+ 188              	.LCFI7:
+ 189              		.cfi_def_cfa_register 13
+ 190              		@ sp needed
+ 191 0024 5DF8047B 		ldr	r7, [sp], #4
+ 192              	.LCFI8:
+ 193              		.cfi_restore 7
+ 194              		.cfi_def_cfa_offset 0
+ 195 0028 7047     		bx	lr
+ 196              	.L13:
+ 197 002a 00BF     		.align	2
+ 198              	.L12:
+ 199 002c 00000000 		.word	s_device
+ 200 0030 00000000 		.word	max_dev_num
+ 201              		.cfi_endproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 5
+
+
+ 202              	.LFE1:
+ 204              		.section	.text.storage_device_erase,"ax",%progbits
+ 205              		.align	1
+ 206              		.global	storage_device_erase
+ 207              		.syntax unified
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.fpu fpv4-sp-d16
+ 212              	storage_device_erase:
+ 213              	.LFB2:
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** int storage_device_erase(int dev_id, uint32_t addr, uint32_t len)
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** {
+ 214              		.loc 1 34 1
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 16
+ 217              		@ frame_needed = 1, uses_anonymous_args = 0
+ 218 0000 80B5     		push	{r7, lr}
+ 219              	.LCFI9:
+ 220              		.cfi_def_cfa_offset 8
+ 221              		.cfi_offset 7, -8
+ 222              		.cfi_offset 14, -4
+ 223 0002 84B0     		sub	sp, sp, #16
+ 224              	.LCFI10:
+ 225              		.cfi_def_cfa_offset 24
+ 226 0004 00AF     		add	r7, sp, #0
+ 227              	.LCFI11:
+ 228              		.cfi_def_cfa_register 7
+ 229 0006 F860     		str	r0, [r7, #12]
+ 230 0008 B960     		str	r1, [r7, #8]
+ 231 000a 7A60     		str	r2, [r7, #4]
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   if (dev_id < max_dev_num && s_device != NULL && s_device[dev_id].erase != NULL) {
+ 232              		.loc 1 35 14
+ 233 000c FA68     		ldr	r2, [r7, #12]
+ 234 000e 114B     		ldr	r3, .L17
+ 235 0010 1B68     		ldr	r3, [r3]
+ 236              		.loc 1 35 6
+ 237 0012 9A42     		cmp	r2, r3
+ 238 0014 17D2     		bcs	.L15
+ 239              		.loc 1 35 40 discriminator 1
+ 240 0016 104B     		ldr	r3, .L17+4
+ 241 0018 1B68     		ldr	r3, [r3]
+ 242              		.loc 1 35 28 discriminator 1
+ 243 001a 002B     		cmp	r3, #0
+ 244 001c 13D0     		beq	.L15
+ 245              		.loc 1 35 59 discriminator 2
+ 246 001e 0E4B     		ldr	r3, .L17+4
+ 247 0020 1A68     		ldr	r2, [r3]
+ 248 0022 FB68     		ldr	r3, [r7, #12]
+ 249 0024 5B01     		lsls	r3, r3, #5
+ 250 0026 1344     		add	r3, r3, r2
+ 251              		.loc 1 35 67 discriminator 2
+ 252 0028 9B69     		ldr	r3, [r3, #24]
+ 253              		.loc 1 35 48 discriminator 2
+ 254 002a 002B     		cmp	r3, #0
+ 255 002c 0BD0     		beq	.L15
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     return s_device[dev_id].erase(addr, len);
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 6
+
+
+ 256              		.loc 1 36 20
+ 257 002e 0A4B     		ldr	r3, .L17+4
+ 258 0030 1A68     		ldr	r2, [r3]
+ 259 0032 FB68     		ldr	r3, [r7, #12]
+ 260 0034 5B01     		lsls	r3, r3, #5
+ 261 0036 1344     		add	r3, r3, r2
+ 262              		.loc 1 36 28
+ 263 0038 9B69     		ldr	r3, [r3, #24]
+ 264              		.loc 1 36 12
+ 265 003a 7A68     		ldr	r2, [r7, #4]
+ 266 003c 1146     		mov	r1, r2
+ 267 003e B868     		ldr	r0, [r7, #8]
+ 268 0040 9847     		blx	r3
+ 269              	.LVL1:
+ 270 0042 0346     		mov	r3, r0
+ 271 0044 01E0     		b	.L16
+ 272              	.L15:
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   }
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   return -1;
+ 273              		.loc 1 38 10
+ 274 0046 4FF0FF33 		mov	r3, #-1
+ 275              	.L16:
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** }
+ 276              		.loc 1 39 1
+ 277 004a 1846     		mov	r0, r3
+ 278 004c 1037     		adds	r7, r7, #16
+ 279              	.LCFI12:
+ 280              		.cfi_def_cfa_offset 8
+ 281 004e BD46     		mov	sp, r7
+ 282              	.LCFI13:
+ 283              		.cfi_def_cfa_register 13
+ 284              		@ sp needed
+ 285 0050 80BD     		pop	{r7, pc}
+ 286              	.L18:
+ 287 0052 00BF     		.align	2
+ 288              	.L17:
+ 289 0054 00000000 		.word	max_dev_num
+ 290 0058 00000000 		.word	s_device
+ 291              		.cfi_endproc
+ 292              	.LFE2:
+ 294              		.section	.text.storage_device_erase_write,"ax",%progbits
+ 295              		.align	1
+ 296              		.global	storage_device_erase_write
+ 297              		.syntax unified
+ 298              		.thumb
+ 299              		.thumb_func
+ 300              		.fpu fpv4-sp-d16
+ 302              	storage_device_erase_write:
+ 303              	.LFB3:
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** int storage_device_erase_write(int dev_id, uint8_t *buf, uint32_t len, uint32_t addr)
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** {
+ 304              		.loc 1 42 1
+ 305              		.cfi_startproc
+ 306              		@ args = 0, pretend = 0, frame = 16
+ 307              		@ frame_needed = 1, uses_anonymous_args = 0
+ 308 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 7
+
+
+ 309              	.LCFI14:
+ 310              		.cfi_def_cfa_offset 8
+ 311              		.cfi_offset 7, -8
+ 312              		.cfi_offset 14, -4
+ 313 0002 84B0     		sub	sp, sp, #16
+ 314              	.LCFI15:
+ 315              		.cfi_def_cfa_offset 24
+ 316 0004 00AF     		add	r7, sp, #0
+ 317              	.LCFI16:
+ 318              		.cfi_def_cfa_register 7
+ 319 0006 F860     		str	r0, [r7, #12]
+ 320 0008 B960     		str	r1, [r7, #8]
+ 321 000a 7A60     		str	r2, [r7, #4]
+ 322 000c 3B60     		str	r3, [r7]
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   if (dev_id < max_dev_num && s_device != NULL && s_device[dev_id].erase_write != NULL) {
+ 323              		.loc 1 43 14
+ 324 000e FA68     		ldr	r2, [r7, #12]
+ 325 0010 104B     		ldr	r3, .L22
+ 326 0012 1B68     		ldr	r3, [r3]
+ 327              		.loc 1 43 6
+ 328 0014 9A42     		cmp	r2, r3
+ 329 0016 17D2     		bcs	.L20
+ 330              		.loc 1 43 40 discriminator 1
+ 331 0018 0F4B     		ldr	r3, .L22+4
+ 332 001a 1B68     		ldr	r3, [r3]
+ 333              		.loc 1 43 28 discriminator 1
+ 334 001c 002B     		cmp	r3, #0
+ 335 001e 13D0     		beq	.L20
+ 336              		.loc 1 43 59 discriminator 2
+ 337 0020 0D4B     		ldr	r3, .L22+4
+ 338 0022 1A68     		ldr	r2, [r3]
+ 339 0024 FB68     		ldr	r3, [r7, #12]
+ 340 0026 5B01     		lsls	r3, r3, #5
+ 341 0028 1344     		add	r3, r3, r2
+ 342              		.loc 1 43 67 discriminator 2
+ 343 002a DB69     		ldr	r3, [r3, #28]
+ 344              		.loc 1 43 48 discriminator 2
+ 345 002c 002B     		cmp	r3, #0
+ 346 002e 0BD0     		beq	.L20
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     return s_device[dev_id].erase_write(buf, len, addr);
+ 347              		.loc 1 44 20
+ 348 0030 094B     		ldr	r3, .L22+4
+ 349 0032 1A68     		ldr	r2, [r3]
+ 350 0034 FB68     		ldr	r3, [r7, #12]
+ 351 0036 5B01     		lsls	r3, r3, #5
+ 352 0038 1344     		add	r3, r3, r2
+ 353              		.loc 1 44 28
+ 354 003a DB69     		ldr	r3, [r3, #28]
+ 355              		.loc 1 44 12
+ 356 003c 7968     		ldr	r1, [r7, #4]
+ 357 003e 3A68     		ldr	r2, [r7]
+ 358 0040 B868     		ldr	r0, [r7, #8]
+ 359 0042 9847     		blx	r3
+ 360              	.LVL2:
+ 361 0044 0346     		mov	r3, r0
+ 362 0046 01E0     		b	.L21
+ 363              	.L20:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 8
+
+
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   }
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   return -1;
+ 364              		.loc 1 46 10
+ 365 0048 4FF0FF33 		mov	r3, #-1
+ 366              	.L21:
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** }
+ 367              		.loc 1 47 1
+ 368 004c 1846     		mov	r0, r3
+ 369 004e 1037     		adds	r7, r7, #16
+ 370              	.LCFI17:
+ 371              		.cfi_def_cfa_offset 8
+ 372 0050 BD46     		mov	sp, r7
+ 373              	.LCFI18:
+ 374              		.cfi_def_cfa_register 13
+ 375              		@ sp needed
+ 376 0052 80BD     		pop	{r7, pc}
+ 377              	.L23:
+ 378              		.align	2
+ 379              	.L22:
+ 380 0054 00000000 		.word	max_dev_num
+ 381 0058 00000000 		.word	s_device
+ 382              		.cfi_endproc
+ 383              	.LFE3:
+ 385              		.section	.text.storage_device_write,"ax",%progbits
+ 386              		.align	1
+ 387              		.global	storage_device_write
+ 388              		.syntax unified
+ 389              		.thumb
+ 390              		.thumb_func
+ 391              		.fpu fpv4-sp-d16
+ 393              	storage_device_write:
+ 394              	.LFB4:
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** int storage_device_write(int dev_id, uint8_t *buf, uint32_t len, uint32_t addr)
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** {
+ 395              		.loc 1 50 1
+ 396              		.cfi_startproc
+ 397              		@ args = 0, pretend = 0, frame = 16
+ 398              		@ frame_needed = 1, uses_anonymous_args = 0
+ 399 0000 80B5     		push	{r7, lr}
+ 400              	.LCFI19:
+ 401              		.cfi_def_cfa_offset 8
+ 402              		.cfi_offset 7, -8
+ 403              		.cfi_offset 14, -4
+ 404 0002 84B0     		sub	sp, sp, #16
+ 405              	.LCFI20:
+ 406              		.cfi_def_cfa_offset 24
+ 407 0004 00AF     		add	r7, sp, #0
+ 408              	.LCFI21:
+ 409              		.cfi_def_cfa_register 7
+ 410 0006 F860     		str	r0, [r7, #12]
+ 411 0008 B960     		str	r1, [r7, #8]
+ 412 000a 7A60     		str	r2, [r7, #4]
+ 413 000c 3B60     		str	r3, [r7]
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   if (dev_id < max_dev_num && s_device != NULL && s_device[dev_id].write != NULL) {
+ 414              		.loc 1 51 14
+ 415 000e FA68     		ldr	r2, [r7, #12]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 9
+
+
+ 416 0010 104B     		ldr	r3, .L27
+ 417 0012 1B68     		ldr	r3, [r3]
+ 418              		.loc 1 51 6
+ 419 0014 9A42     		cmp	r2, r3
+ 420 0016 17D2     		bcs	.L25
+ 421              		.loc 1 51 40 discriminator 1
+ 422 0018 0F4B     		ldr	r3, .L27+4
+ 423 001a 1B68     		ldr	r3, [r3]
+ 424              		.loc 1 51 28 discriminator 1
+ 425 001c 002B     		cmp	r3, #0
+ 426 001e 13D0     		beq	.L25
+ 427              		.loc 1 51 59 discriminator 2
+ 428 0020 0D4B     		ldr	r3, .L27+4
+ 429 0022 1A68     		ldr	r2, [r3]
+ 430 0024 FB68     		ldr	r3, [r7, #12]
+ 431 0026 5B01     		lsls	r3, r3, #5
+ 432 0028 1344     		add	r3, r3, r2
+ 433              		.loc 1 51 67 discriminator 2
+ 434 002a 5B69     		ldr	r3, [r3, #20]
+ 435              		.loc 1 51 48 discriminator 2
+ 436 002c 002B     		cmp	r3, #0
+ 437 002e 0BD0     		beq	.L25
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     return s_device[dev_id].write(buf, len, addr);
+ 438              		.loc 1 52 20
+ 439 0030 094B     		ldr	r3, .L27+4
+ 440 0032 1A68     		ldr	r2, [r3]
+ 441 0034 FB68     		ldr	r3, [r7, #12]
+ 442 0036 5B01     		lsls	r3, r3, #5
+ 443 0038 1344     		add	r3, r3, r2
+ 444              		.loc 1 52 28
+ 445 003a 5B69     		ldr	r3, [r3, #20]
+ 446              		.loc 1 52 12
+ 447 003c 7968     		ldr	r1, [r7, #4]
+ 448 003e 3A68     		ldr	r2, [r7]
+ 449 0040 B868     		ldr	r0, [r7, #8]
+ 450 0042 9847     		blx	r3
+ 451              	.LVL3:
+ 452 0044 0346     		mov	r3, r0
+ 453 0046 01E0     		b	.L26
+ 454              	.L25:
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   }
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   return -1;
+ 455              		.loc 1 54 10
+ 456 0048 4FF0FF33 		mov	r3, #-1
+ 457              	.L26:
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** }
+ 458              		.loc 1 55 1
+ 459 004c 1846     		mov	r0, r3
+ 460 004e 1037     		adds	r7, r7, #16
+ 461              	.LCFI22:
+ 462              		.cfi_def_cfa_offset 8
+ 463 0050 BD46     		mov	sp, r7
+ 464              	.LCFI23:
+ 465              		.cfi_def_cfa_register 13
+ 466              		@ sp needed
+ 467 0052 80BD     		pop	{r7, pc}
+ 468              	.L28:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 10
+
+
+ 469              		.align	2
+ 470              	.L27:
+ 471 0054 00000000 		.word	max_dev_num
+ 472 0058 00000000 		.word	s_device
+ 473              		.cfi_endproc
+ 474              	.LFE4:
+ 476              		.section	.text.storage_device_read,"ax",%progbits
+ 477              		.align	1
+ 478              		.global	storage_device_read
+ 479              		.syntax unified
+ 480              		.thumb
+ 481              		.thumb_func
+ 482              		.fpu fpv4-sp-d16
+ 484              	storage_device_read:
+ 485              	.LFB5:
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** int storage_device_read(int dev_id, uint8_t *buf, uint32_t len, uint32_t addr)
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** {
+ 486              		.loc 1 58 1
+ 487              		.cfi_startproc
+ 488              		@ args = 0, pretend = 0, frame = 16
+ 489              		@ frame_needed = 1, uses_anonymous_args = 0
+ 490 0000 80B5     		push	{r7, lr}
+ 491              	.LCFI24:
+ 492              		.cfi_def_cfa_offset 8
+ 493              		.cfi_offset 7, -8
+ 494              		.cfi_offset 14, -4
+ 495 0002 84B0     		sub	sp, sp, #16
+ 496              	.LCFI25:
+ 497              		.cfi_def_cfa_offset 24
+ 498 0004 00AF     		add	r7, sp, #0
+ 499              	.LCFI26:
+ 500              		.cfi_def_cfa_register 7
+ 501 0006 F860     		str	r0, [r7, #12]
+ 502 0008 B960     		str	r1, [r7, #8]
+ 503 000a 7A60     		str	r2, [r7, #4]
+ 504 000c 3B60     		str	r3, [r7]
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** 
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   if (dev_id < max_dev_num && s_device != NULL && s_device[dev_id].read != NULL) {
+ 505              		.loc 1 60 14
+ 506 000e FA68     		ldr	r2, [r7, #12]
+ 507 0010 104B     		ldr	r3, .L32
+ 508 0012 1B68     		ldr	r3, [r3]
+ 509              		.loc 1 60 6
+ 510 0014 9A42     		cmp	r2, r3
+ 511 0016 17D2     		bcs	.L30
+ 512              		.loc 1 60 40 discriminator 1
+ 513 0018 0F4B     		ldr	r3, .L32+4
+ 514 001a 1B68     		ldr	r3, [r3]
+ 515              		.loc 1 60 28 discriminator 1
+ 516 001c 002B     		cmp	r3, #0
+ 517 001e 13D0     		beq	.L30
+ 518              		.loc 1 60 59 discriminator 2
+ 519 0020 0D4B     		ldr	r3, .L32+4
+ 520 0022 1A68     		ldr	r2, [r3]
+ 521 0024 FB68     		ldr	r3, [r7, #12]
+ 522 0026 5B01     		lsls	r3, r3, #5
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 11
+
+
+ 523 0028 1344     		add	r3, r3, r2
+ 524              		.loc 1 60 67 discriminator 2
+ 525 002a 1B69     		ldr	r3, [r3, #16]
+ 526              		.loc 1 60 48 discriminator 2
+ 527 002c 002B     		cmp	r3, #0
+ 528 002e 0BD0     		beq	.L30
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****     return s_device[dev_id].read(buf, len, addr);
+ 529              		.loc 1 61 20
+ 530 0030 094B     		ldr	r3, .L32+4
+ 531 0032 1A68     		ldr	r2, [r3]
+ 532 0034 FB68     		ldr	r3, [r7, #12]
+ 533 0036 5B01     		lsls	r3, r3, #5
+ 534 0038 1344     		add	r3, r3, r2
+ 535              		.loc 1 61 28
+ 536 003a 1B69     		ldr	r3, [r3, #16]
+ 537              		.loc 1 61 12
+ 538 003c 7968     		ldr	r1, [r7, #4]
+ 539 003e 3A68     		ldr	r2, [r7]
+ 540 0040 B868     		ldr	r0, [r7, #8]
+ 541 0042 9847     		blx	r3
+ 542              	.LVL4:
+ 543 0044 0346     		mov	r3, r0
+ 544 0046 01E0     		b	.L31
+ 545              	.L30:
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   }
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c ****   return -1;
+ 546              		.loc 1 63 10
+ 547 0048 4FF0FF33 		mov	r3, #-1
+ 548              	.L31:
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/storage\storage.c **** }
+ 549              		.loc 1 64 1
+ 550 004c 1846     		mov	r0, r3
+ 551 004e 1037     		adds	r7, r7, #16
+ 552              	.LCFI27:
+ 553              		.cfi_def_cfa_offset 8
+ 554 0050 BD46     		mov	sp, r7
+ 555              	.LCFI28:
+ 556              		.cfi_def_cfa_register 13
+ 557              		@ sp needed
+ 558 0052 80BD     		pop	{r7, pc}
+ 559              	.L33:
+ 560              		.align	2
+ 561              	.L32:
+ 562 0054 00000000 		.word	max_dev_num
+ 563 0058 00000000 		.word	s_device
+ 564              		.cfi_endproc
+ 565              	.LFE5:
+ 567              		.text
+ 568              	.Letext0:
+ 569              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 570              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 571              		.file 4 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/s
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 storage.c
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:18     .bss.s_device:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:21     .bss.s_device:00000000 s_device
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:24     .bss.max_dev_num:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:27     .bss.max_dev_num:00000000 max_dev_num
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:30     .text.storage_dev_install:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:38     .text.storage_dev_install:00000000 storage_dev_install
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:137    .text.storage_dev_install:00000068 $d
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:143    .text.storage_dev_uninstall:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:150    .text.storage_dev_uninstall:00000000 storage_dev_uninstall
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:199    .text.storage_dev_uninstall:0000002c $d
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:205    .text.storage_device_erase:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:212    .text.storage_device_erase:00000000 storage_device_erase
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:289    .text.storage_device_erase:00000054 $d
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:295    .text.storage_device_erase_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:302    .text.storage_device_erase_write:00000000 storage_device_erase_write
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:380    .text.storage_device_erase_write:00000054 $d
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:386    .text.storage_device_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:393    .text.storage_device_write:00000000 storage_device_write
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:471    .text.storage_device_write:00000054 $d
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:477    .text.storage_device_read:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:484    .text.storage_device_read:00000000 storage_device_read
+C:\Users\lenovo\AppData\Local\Temp\cck8bPcQ.s:562    .text.storage_device_read:00000054 $d
+
+NO UNDEFINED SYMBOLS

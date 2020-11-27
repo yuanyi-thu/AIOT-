@@ -1,0 +1,728 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"los_init.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	m_aucSysMem0,4,4
+  18              		.section	.text.osEnableFPU,"ax",%progbits
+  19              		.align	1
+  20              		.global	osEnableFPU
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	osEnableFPU:
+  28              	.LFB314:
+  29              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/o
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 2
+
+
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #include "los_sys.h"
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #include "los_tick.h"
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #include "los_task.ph"
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #include "los_config.h"
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_HEAP_IMPROVED == YES)
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #include "mem.h"
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #include "los_exc.ph"
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #ifdef __cplusplus
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if __cplusplus
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** extern "C" {
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif /* __cpluscplus */
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif /* __cpluscplus */
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** LITE_OS_SEC_BSS UINT8* m_aucSysMem0;
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if ((LOSCFG_PLATFORM_EXC == YES) && (LOSCFG_SAVE_EXC_INFO == YES))
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** LITE_OS_SEC_BSS UINT8 m_aucTaskArray[MAX_EXC_MEM_SIZE];
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** LITE_OS_SEC_TEXT_INIT void osEnableFPU(void)
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** {
+  30              		.loc 1 60 1
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 1, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35 0000 80B4     		push	{r7}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 4
+  38              		.cfi_offset 7, -4
+  39 0002 00AF     		add	r7, sp, #0
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_register 7
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     *(volatile UINT32 *)0xE000ED88 |= ((3UL << 20)|(3UL << 22));
+  42              		.loc 1 61 36
+  43 0004 054B     		ldr	r3, .L2
+  44 0006 1B68     		ldr	r3, [r3]
+  45 0008 044A     		ldr	r2, .L2
+  46 000a 43F47003 		orr	r3, r3, #15728640
+  47 000e 1360     		str	r3, [r2]
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** }
+  48              		.loc 1 62 1
+  49 0010 00BF     		nop
+  50 0012 BD46     		mov	sp, r7
+  51              	.LCFI2:
+  52              		.cfi_def_cfa_register 13
+  53              		@ sp needed
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 3
+
+
+  54 0014 5DF8047B 		ldr	r7, [sp], #4
+  55              	.LCFI3:
+  56              		.cfi_restore 7
+  57              		.cfi_def_cfa_offset 0
+  58 0018 7047     		bx	lr
+  59              	.L3:
+  60 001a 00BF     		.align	2
+  61              	.L2:
+  62 001c 88ED00E0 		.word	-536810104
+  63              		.cfi_endproc
+  64              	.LFE314:
+  66              		.section	.text.LOS_Reboot,"ax",%progbits
+  67              		.align	1
+  68              		.global	LOS_Reboot
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  72              		.fpu fpv4-sp-d16
+  74              	LOS_Reboot:
+  75              	.LFB315:
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** /*****************************************************************************
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Function    : LOS_Reboot
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Description : system exception, die in here, wait for watchdog.
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Input       : None
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Output      : None
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Return      : None
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  *****************************************************************************/
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** LITE_OS_SEC_TEXT_INIT VOID LOS_Reboot(VOID)
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** {
+  76              		.loc 1 72 1
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 1, uses_anonymous_args = 0
+  80 0000 80B5     		push	{r7, lr}
+  81              	.LCFI4:
+  82              		.cfi_def_cfa_offset 8
+  83              		.cfi_offset 7, -8
+  84              		.cfi_offset 14, -4
+  85 0002 00AF     		add	r7, sp, #0
+  86              	.LCFI5:
+  87              		.cfi_def_cfa_register 7
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     (VOID) LOS_IntLock();
+  88              		.loc 1 73 12
+  89 0004 FFF7FEFF 		bl	LOS_IntLock
+  90              	.L5:
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     while (1)
+  91              		.loc 1 74 11 discriminator 1
+  92 0008 FEE7     		b	.L5
+  93              		.cfi_endproc
+  94              	.LFE315:
+  96              		.section	.text.osRegister,"ax",%progbits
+  97              		.align	1
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 4
+
+
+ 103              	osRegister:
+ 104              	.LFB316:
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** }
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** /*****************************************************************************
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Function    : osRegister
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Description : Configuring the maximum number of tasks
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Input       : None
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Output      : None
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Return      : None
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  *****************************************************************************/
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** LITE_OS_SEC_TEXT_INIT static VOID osRegister(VOID)
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** {
+ 105              		.loc 1 86 1
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 1, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 110 0000 80B4     		push	{r7}
+ 111              	.LCFI6:
+ 112              		.cfi_def_cfa_offset 4
+ 113              		.cfi_offset 7, -4
+ 114 0002 00AF     		add	r7, sp, #0
+ 115              	.LCFI7:
+ 116              		.cfi_def_cfa_register 7
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     g_uwTskMaxNum = LOSCFG_BASE_CORE_TSK_LIMIT + 1; /* Reserved 1 for IDLE */
+ 117              		.loc 1 87 19
+ 118 0004 034B     		ldr	r3, .L8
+ 119 0006 1022     		movs	r2, #16
+ 120 0008 1A60     		str	r2, [r3]
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     return;
+ 121              		.loc 1 89 5
+ 122 000a 00BF     		nop
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** }
+ 123              		.loc 1 90 1
+ 124 000c BD46     		mov	sp, r7
+ 125              	.LCFI8:
+ 126              		.cfi_def_cfa_register 13
+ 127              		@ sp needed
+ 128 000e 5DF8047B 		ldr	r7, [sp], #4
+ 129              	.LCFI9:
+ 130              		.cfi_restore 7
+ 131              		.cfi_def_cfa_offset 0
+ 132 0012 7047     		bx	lr
+ 133              	.L9:
+ 134              		.align	2
+ 135              	.L8:
+ 136 0014 00000000 		.word	g_uwTskMaxNum
+ 137              		.cfi_endproc
+ 138              	.LFE316:
+ 140              		.section	.rodata
+ 141              		.align	2
+ 142              	.LC0:
+ 143 0000 5B455252 		.ascii	"[ERR] \000"
+ 143      5D2000
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 5
+
+
+ 144 0007 00       		.align	2
+ 145              	.LC1:
+ 146 0008 6F735469 		.ascii	"osTickStart error\000"
+ 146      636B5374 
+ 146      61727420 
+ 146      6572726F 
+ 146      7200
+ 147              		.section	.text.LOS_Start,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	LOS_Start
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.fpu fpv4-sp-d16
+ 155              	LOS_Start:
+ 156              	.LFB317:
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** /*****************************************************************************
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Function    : LOS_Start
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Description : Task start function
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Input       : None
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Output      : None
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Return      : LOS_OK on success or error code on failure
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  *****************************************************************************/
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_Start(VOID)
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** {
+ 157              		.loc 1 100 1
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 8
+ 160              		@ frame_needed = 1, uses_anonymous_args = 0
+ 161 0000 80B5     		push	{r7, lr}
+ 162              	.LCFI10:
+ 163              		.cfi_def_cfa_offset 8
+ 164              		.cfi_offset 7, -8
+ 165              		.cfi_offset 14, -4
+ 166 0002 82B0     		sub	sp, sp, #8
+ 167              	.LCFI11:
+ 168              		.cfi_def_cfa_offset 16
+ 169 0004 00AF     		add	r7, sp, #0
+ 170              	.LCFI12:
+ 171              		.cfi_def_cfa_register 7
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     UINT32 uwRet;
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_BASE_CORE_TICK_HW_TIME == NO)
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     uwRet = osTickStart();
+ 172              		.loc 1 103 13
+ 173 0006 FFF7FEFF 		bl	osTickStart
+ 174 000a 7860     		str	r0, [r7, #4]
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     if (uwRet != LOS_OK)
+ 175              		.loc 1 105 8
+ 176 000c 7B68     		ldr	r3, [r7, #4]
+ 177 000e 002B     		cmp	r3, #0
+ 178 0010 07D0     		beq	.L11
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         PRINT_ERR("osTickStart error\n");
+ 179              		.loc 1 107 9
+ 180 0012 0748     		ldr	r0, .L13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 6
+
+
+ 181 0014 FFF7FEFF 		bl	printf
+ 182 0018 0648     		ldr	r0, .L13+4
+ 183 001a FFF7FEFF 		bl	puts
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         return uwRet;
+ 184              		.loc 1 108 16
+ 185 001e 7B68     		ldr	r3, [r7, #4]
+ 186 0020 02E0     		b	.L12
+ 187              	.L11:
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #else
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     extern int os_timer_init(void);
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     uwRet = os_timer_init();
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     if (uwRet != LOS_OK)
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         PRINT_ERR("os_timer_init error\n");
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         return uwRet;
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_LIB_LIBC_NEWLIB_REENT == YES)
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     extern VOID osTaskSwitchImpurePtr(VOID);
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     osTaskSwitchImpurePtr();
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     LOS_StartToRun();
+ 188              		.loc 1 125 5
+ 189 0022 FFF7FEFF 		bl	LOS_StartToRun
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     return uwRet;
+ 190              		.loc 1 127 12
+ 191 0026 7B68     		ldr	r3, [r7, #4]
+ 192              	.L12:
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** }
+ 193              		.loc 1 128 1
+ 194 0028 1846     		mov	r0, r3
+ 195 002a 0837     		adds	r7, r7, #8
+ 196              	.LCFI13:
+ 197              		.cfi_def_cfa_offset 8
+ 198 002c BD46     		mov	sp, r7
+ 199              	.LCFI14:
+ 200              		.cfi_def_cfa_register 13
+ 201              		@ sp needed
+ 202 002e 80BD     		pop	{r7, pc}
+ 203              	.L14:
+ 204              		.align	2
+ 205              	.L13:
+ 206 0030 00000000 		.word	.LC0
+ 207 0034 08000000 		.word	.LC1
+ 208              		.cfi_endproc
+ 209              	.LFE317:
+ 211              		.section	.rodata
+ 212 001a 0000     		.align	2
+ 213              	.LC2:
+ 214 001c 6F734D65 		.ascii	"osMemSystemInit error %d\012\000"
+ 214      6D537973 
+ 214      74656D49 
+ 214      6E697420 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 7
+
+
+ 214      6572726F 
+ 215 0036 0000     		.align	2
+ 216              	.LC3:
+ 217 0038 6F735461 		.ascii	"osTaskInit error\000"
+ 217      736B496E 
+ 217      69742065 
+ 217      72726F72 
+ 217      00
+ 218 0049 000000   		.align	2
+ 219              	.LC4:
+ 220 004c 6F735175 		.ascii	"osQueueInit error\000"
+ 220      65756549 
+ 220      6E697420 
+ 220      6572726F 
+ 220      7200
+ 221              		.section	.text.LOS_KernelInit,"ax",%progbits
+ 222              		.align	1
+ 223              		.global	LOS_KernelInit
+ 224              		.syntax unified
+ 225              		.thumb
+ 226              		.thumb_func
+ 227              		.fpu fpv4-sp-d16
+ 229              	LOS_KernelInit:
+ 230              	.LFB318:
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** /*****************************************************************************
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Function    : LOS_KernelInit
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Description : System kernel initialization function, configure all system modules
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Input       : None
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Output      : None
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  Return      : LOS_OK on success or error code on failure
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****  *****************************************************************************/
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_KernelInit(VOID)
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** {
+ 231              		.loc 1 138 1
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 8
+ 234              		@ frame_needed = 1, uses_anonymous_args = 0
+ 235 0000 80B5     		push	{r7, lr}
+ 236              	.LCFI15:
+ 237              		.cfi_def_cfa_offset 8
+ 238              		.cfi_offset 7, -8
+ 239              		.cfi_offset 14, -4
+ 240 0002 82B0     		sub	sp, sp, #8
+ 241              	.LCFI16:
+ 242              		.cfi_def_cfa_offset 16
+ 243 0004 00AF     		add	r7, sp, #0
+ 244              	.LCFI17:
+ 245              		.cfi_def_cfa_register 7
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     UINT32 uwRet;
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     osRegister();
+ 246              		.loc 1 141 5
+ 247 0006 FFF7FEFF 		bl	osRegister
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_HEAP_IMPROVED != YES)
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 8
+
+
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     m_aucSysMem0 = OS_SYS_MEM_ADDR;
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     uwRet = osMemSystemInit();
+ 248              		.loc 1 148 13
+ 249 000a FFF7FEFF 		bl	osMemSystemInit
+ 250 000e 7860     		str	r0, [r7, #4]
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     if (uwRet != LOS_OK)
+ 251              		.loc 1 150 8
+ 252 0010 7B68     		ldr	r3, [r7, #4]
+ 253 0012 002B     		cmp	r3, #0
+ 254 0014 08D0     		beq	.L16
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         PRINT_ERR("osMemSystemInit error %d\n", uwRet);/*lint !e515*/
+ 255              		.loc 1 152 9
+ 256 0016 2448     		ldr	r0, .L23
+ 257 0018 FFF7FEFF 		bl	printf
+ 258 001c 7968     		ldr	r1, [r7, #4]
+ 259 001e 2348     		ldr	r0, .L23+4
+ 260 0020 FFF7FEFF 		bl	printf
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         return uwRet;
+ 261              		.loc 1 153 16
+ 262 0024 7B68     		ldr	r3, [r7, #4]
+ 263 0026 3AE0     		b	.L17
+ 264              	.L16:
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_PLATFORM_HWI == YES)
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         osHwiInit();
+ 265              		.loc 1 158 9
+ 266 0028 FFF7FEFF 		bl	osHwiInit
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         osExcInit(MAX_EXC_MEM_SIZE);
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     uwRet =osTaskInit();
+ 267              		.loc 1 168 12
+ 268 002c FFF7FEFF 		bl	osTaskInit
+ 269 0030 7860     		str	r0, [r7, #4]
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     if (uwRet != LOS_OK)
+ 270              		.loc 1 169 8
+ 271 0032 7B68     		ldr	r3, [r7, #4]
+ 272 0034 002B     		cmp	r3, #0
+ 273 0036 07D0     		beq	.L18
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         PRINT_ERR("osTaskInit error\n");
+ 274              		.loc 1 171 9
+ 275 0038 1B48     		ldr	r0, .L23
+ 276 003a FFF7FEFF 		bl	printf
+ 277 003e 1C48     		ldr	r0, .L23+8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 9
+
+
+ 278 0040 FFF7FEFF 		bl	puts
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         return uwRet;
+ 279              		.loc 1 172 16
+ 280 0044 7B68     		ldr	r3, [r7, #4]
+ 281 0046 2AE0     		b	.L17
+ 282              	.L18:
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_BASE_CORE_TSK_MONITOR == YES)
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         osTaskMonInit();
+ 283              		.loc 1 177 9
+ 284 0048 FFF7FEFF 		bl	osTaskMonInit
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_BASE_CORE_CPUP == YES)
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         uwRet = osCpupInit();
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         if (uwRet != LOS_OK)
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         {
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             PRINT_ERR("osCpupInit error\n");
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             return uwRet;
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         }
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_BASE_IPC_SEM == YES)
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         uwRet = osSemInit();
+ 285              		.loc 1 194 17
+ 286 004c FFF7FEFF 		bl	osSemInit
+ 287 0050 7860     		str	r0, [r7, #4]
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         if (uwRet != LOS_OK)
+ 288              		.loc 1 195 12
+ 289 0052 7B68     		ldr	r3, [r7, #4]
+ 290 0054 002B     		cmp	r3, #0
+ 291 0056 01D0     		beq	.L19
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         {
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             return uwRet;
+ 292              		.loc 1 197 20
+ 293 0058 7B68     		ldr	r3, [r7, #4]
+ 294 005a 20E0     		b	.L17
+ 295              	.L19:
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         }
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_BASE_IPC_MUX == YES)
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         uwRet = osMuxInit();
+ 296              		.loc 1 204 17
+ 297 005c FFF7FEFF 		bl	osMuxInit
+ 298 0060 7860     		str	r0, [r7, #4]
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         if (uwRet != LOS_OK)
+ 299              		.loc 1 205 12
+ 300 0062 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 10
+
+
+ 301 0064 002B     		cmp	r3, #0
+ 302 0066 01D0     		beq	.L20
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         {
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             return uwRet;
+ 303              		.loc 1 207 20
+ 304 0068 7B68     		ldr	r3, [r7, #4]
+ 305 006a 18E0     		b	.L17
+ 306              	.L20:
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         }
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_BASE_IPC_QUEUE == YES)
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         uwRet = osQueueInit();
+ 307              		.loc 1 214 17
+ 308 006c FFF7FEFF 		bl	osQueueInit
+ 309 0070 7860     		str	r0, [r7, #4]
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         if (uwRet != LOS_OK)
+ 310              		.loc 1 215 12
+ 311 0072 7B68     		ldr	r3, [r7, #4]
+ 312 0074 002B     		cmp	r3, #0
+ 313 0076 07D0     		beq	.L21
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         {
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             PRINT_ERR("osQueueInit error\n");
+ 314              		.loc 1 217 13
+ 315 0078 0B48     		ldr	r0, .L23
+ 316 007a FFF7FEFF 		bl	printf
+ 317 007e 0D48     		ldr	r0, .L23+12
+ 318 0080 FFF7FEFF 		bl	puts
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             return uwRet;
+ 319              		.loc 1 218 20
+ 320 0084 7B68     		ldr	r3, [r7, #4]
+ 321 0086 0AE0     		b	.L17
+ 322              	.L21:
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         }
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_BASE_CORE_SWTMR == YES)
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         uwRet = osSwTmrInit();
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         if (uwRet != LOS_OK)
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         {
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             PRINT_ERR("osSwTmrInit error\n");
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****             return uwRet;
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         }
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     #if(LOSCFG_BASE_CORE_TIMESLICE == YES)
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     osTimesliceInit();
+ 323              		.loc 1 235 5
+ 324 0088 FFF7FEFF 		bl	osTimesliceInit
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     #endif
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     uwRet = osIdleTaskCreate();
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 11
+
+
+ 325              		.loc 1 238 13
+ 326 008c FFF7FEFF 		bl	osIdleTaskCreate
+ 327 0090 7860     		str	r0, [r7, #4]
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     if (uwRet != LOS_OK)
+ 328              		.loc 1 239 8
+ 329 0092 7B68     		ldr	r3, [r7, #4]
+ 330 0094 002B     		cmp	r3, #0
+ 331 0096 01D0     		beq	.L22
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         return uwRet;
+ 332              		.loc 1 241 16
+ 333 0098 7B68     		ldr	r3, [r7, #4]
+ 334 009a 00E0     		b	.L17
+ 335              	.L22:
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_TEST == YES)
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     uwRet = los_TestInit();
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     if (uwRet != LOS_OK)
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     {
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         PRINT_ERR("los_TestInit error\n");
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****         return uwRet;
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     }
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 252:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 253:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_DEFERED_JOB == YES)
+ 254:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     extern UINT32 osDeferedTaskInit(VOID);
+ 255:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     osDeferedTaskInit();
+ 256:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 257:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 258:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #if (LOSCFG_ENABLE_MPU == YES)
+ 259:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     void mpu_init (void);
+ 260:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     mpu_init ();
+ 261:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** #endif
+ 262:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** 
+ 263:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c ****     return LOS_OK;
+ 336              		.loc 1 263 12
+ 337 009c 0023     		movs	r3, #0
+ 338              	.L17:
+ 264:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\los_init.c **** }
+ 339              		.loc 1 264 1
+ 340 009e 1846     		mov	r0, r3
+ 341 00a0 0837     		adds	r7, r7, #8
+ 342              	.LCFI18:
+ 343              		.cfi_def_cfa_offset 8
+ 344 00a2 BD46     		mov	sp, r7
+ 345              	.LCFI19:
+ 346              		.cfi_def_cfa_register 13
+ 347              		@ sp needed
+ 348 00a4 80BD     		pop	{r7, pc}
+ 349              	.L24:
+ 350 00a6 00BF     		.align	2
+ 351              	.L23:
+ 352 00a8 00000000 		.word	.LC0
+ 353 00ac 1C000000 		.word	.LC2
+ 354 00b0 38000000 		.word	.LC3
+ 355 00b4 4C000000 		.word	.LC4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 12
+
+
+ 356              		.cfi_endproc
+ 357              	.LFE318:
+ 359              		.text
+ 360              	.Letext0:
+ 361              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 362              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 363              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 364              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 365              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 366              		.file 7 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/o
+ 367              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 368              		.file 9 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/o
+ 369              		.file 10 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/targets/S
+ 370              		.file 11 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 371              		.file 12 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 372              		.file 13 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 373              		.file 14 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 374              		.file 15 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 375              		.file 16 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 376              		.file 17 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 377              		.file 18 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 378              		.file 19 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 379              		.file 20 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 380              		.file 21 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 381              		.file 22 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 382              		.file 23 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 383              		.file 24 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_init.c
+                            *COM*:00000004 m_aucSysMem0
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:19     .text.osEnableFPU:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:27     .text.osEnableFPU:00000000 osEnableFPU
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:62     .text.osEnableFPU:0000001c $d
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:67     .text.LOS_Reboot:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:74     .text.LOS_Reboot:00000000 LOS_Reboot
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:97     .text.osRegister:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:103    .text.osRegister:00000000 osRegister
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:136    .text.osRegister:00000014 $d
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:141    .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:148    .text.LOS_Start:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:155    .text.LOS_Start:00000000 LOS_Start
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:206    .text.LOS_Start:00000030 $d
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:222    .text.LOS_KernelInit:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:229    .text.LOS_KernelInit:00000000 LOS_KernelInit
+C:\Users\lenovo\AppData\Local\Temp\cc4DFjDg.s:352    .text.LOS_KernelInit:000000a8 $d
+
+UNDEFINED SYMBOLS
+LOS_IntLock
+g_uwTskMaxNum
+osTickStart
+printf
+puts
+LOS_StartToRun
+osMemSystemInit
+osHwiInit
+osTaskInit
+osTaskMonInit
+osSemInit
+osMuxInit
+osQueueInit
+osTimesliceInit
+osIdleTaskCreate

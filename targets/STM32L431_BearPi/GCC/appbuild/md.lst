@@ -1,0 +1,2603 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"md.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.supported_digests,"a"
+  18              		.align	2
+  21              	supported_digests:
+  22 0000 06000000 		.word	6
+  23 0004 05000000 		.word	5
+  24 0008 00000000 		.word	0
+  25              		.section	.text.mbedtls_md_list,"ax",%progbits
+  26              		.align	1
+  27              		.global	mbedtls_md_list
+  28              		.arch armv7e-m
+  29              		.syntax unified
+  30              		.thumb
+  31              		.thumb_func
+  32              		.fpu fpv4-sp-d16
+  34              	mbedtls_md_list:
+  35              	.LFB3:
+  36              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** /**
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  * \file mbedtls_md.c
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  * \brief Generic message digest wrapper for mbed TLS
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  * \author Adriaan de Jong <dejong@fox-it.com>
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  SPDX-License-Identifier: Apache-2.0
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  not use this file except in compliance with the License.
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  You may obtain a copy of the License at
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  http://www.apache.org/licenses/LICENSE-2.0
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  Unless required by applicable law or agreed to in writing, software
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  See the License for the specific language governing permissions and
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  limitations under the License.
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  *  This file is part of mbed TLS (https://tls.mbed.org)
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  */
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 2
+
+
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if !defined(MBEDTLS_CONFIG_FILE)
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include "mbedtls/config.h"
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #else
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include MBEDTLS_CONFIG_FILE
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD_C)
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include "mbedtls/md.h"
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include "mbedtls/md_internal.h"
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include "mbedtls/platform_util.h"
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_PLATFORM_C)
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include "mbedtls/platform.h"
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #else
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include <stdlib.h>
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #define mbedtls_calloc    calloc
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #define mbedtls_free       free
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include <string.h>
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_FS_IO)
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #include <stdio.h>
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** /*
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  * Reminder: update profiles in x509_crt.c when adding a new hash!
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****  */
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** static const int supported_digests[] = {
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA512_C)
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_SHA512,
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_SHA384,
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA256_C)
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_SHA256,
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_SHA224,
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA1_C)
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_SHA1,
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_RIPEMD160_C)
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_RIPEMD160,
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD5_C)
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_MD5,
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD4_C)
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_MD4,
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 3
+
+
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD2_C)
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_MD2,
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         MBEDTLS_MD_NONE
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** };
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** const int *mbedtls_md_list( void )
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+  37              		.loc 1 91 1
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41              		@ link register save eliminated.
+  42 0000 80B4     		push	{r7}
+  43              	.LCFI0:
+  44              		.cfi_def_cfa_offset 4
+  45              		.cfi_offset 7, -4
+  46 0002 00AF     		add	r7, sp, #0
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_register 7
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( supported_digests );
+  49              		.loc 1 92 11
+  50 0004 024B     		ldr	r3, .L3
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+  51              		.loc 1 93 1
+  52 0006 1846     		mov	r0, r3
+  53 0008 BD46     		mov	sp, r7
+  54              	.LCFI2:
+  55              		.cfi_def_cfa_register 13
+  56              		@ sp needed
+  57 000a 5DF8047B 		ldr	r7, [sp], #4
+  58              	.LCFI3:
+  59              		.cfi_restore 7
+  60              		.cfi_def_cfa_offset 0
+  61 000e 7047     		bx	lr
+  62              	.L4:
+  63              		.align	2
+  64              	.L3:
+  65 0010 00000000 		.word	supported_digests
+  66              		.cfi_endproc
+  67              	.LFE3:
+  69              		.section	.rodata
+  70              		.align	2
+  71              	.LC0:
+  72 0000 53484132 		.ascii	"SHA224\000"
+  72      323400
+  73 0007 00       		.align	2
+  74              	.LC1:
+  75 0008 53484132 		.ascii	"SHA256\000"
+  75      353600
+  76              		.section	.text.mbedtls_md_info_from_string,"ax",%progbits
+  77              		.align	1
+  78              		.global	mbedtls_md_info_from_string
+  79              		.syntax unified
+  80              		.thumb
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 4
+
+
+  81              		.thumb_func
+  82              		.fpu fpv4-sp-d16
+  84              	mbedtls_md_info_from_string:
+  85              	.LFB4:
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** const mbedtls_md_info_t *mbedtls_md_info_from_string( const char *md_name )
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+  86              		.loc 1 96 1
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 8
+  89              		@ frame_needed = 1, uses_anonymous_args = 0
+  90 0000 80B5     		push	{r7, lr}
+  91              	.LCFI4:
+  92              		.cfi_def_cfa_offset 8
+  93              		.cfi_offset 7, -8
+  94              		.cfi_offset 14, -4
+  95 0002 82B0     		sub	sp, sp, #8
+  96              	.LCFI5:
+  97              		.cfi_def_cfa_offset 16
+  98 0004 00AF     		add	r7, sp, #0
+  99              	.LCFI6:
+ 100              		.cfi_def_cfa_register 7
+ 101 0006 7860     		str	r0, [r7, #4]
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( NULL == md_name )
+ 102              		.loc 1 97 7
+ 103 0008 7B68     		ldr	r3, [r7, #4]
+ 104 000a 002B     		cmp	r3, #0
+ 105 000c 01D1     		bne	.L6
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( NULL );
+ 106              		.loc 1 98 15
+ 107 000e 0023     		movs	r3, #0
+ 108 0010 18E0     		b	.L7
+ 109              	.L6:
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     /* Get the appropriate digest information */
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD2_C)
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "MD2", md_name ) )
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_MD2 );
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD4_C)
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "MD4", md_name ) )
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_MD4 );
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD5_C)
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "MD5", md_name ) )
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_MD5 );
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_RIPEMD160_C)
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "RIPEMD160", md_name ) )
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_RIPEMD160 );
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA1_C)
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "SHA1", md_name ) || !strcmp( "SHA", md_name ) )
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_SHA1 );
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA256_C)
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "SHA224", md_name ) )
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 5
+
+
+ 110              		.loc 1 122 10
+ 111 0012 7968     		ldr	r1, [r7, #4]
+ 112 0014 0D48     		ldr	r0, .L10
+ 113 0016 FFF7FEFF 		bl	strcmp
+ 114 001a 0346     		mov	r3, r0
+ 115              		.loc 1 122 7
+ 116 001c 002B     		cmp	r3, #0
+ 117 001e 04D1     		bne	.L8
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_SHA224 );
+ 118              		.loc 1 123 16
+ 119 0020 0520     		movs	r0, #5
+ 120 0022 FFF7FEFF 		bl	mbedtls_md_info_from_type
+ 121 0026 0346     		mov	r3, r0
+ 122 0028 0CE0     		b	.L7
+ 123              	.L8:
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "SHA256", md_name ) )
+ 124              		.loc 1 124 10
+ 125 002a 7968     		ldr	r1, [r7, #4]
+ 126 002c 0848     		ldr	r0, .L10+4
+ 127 002e FFF7FEFF 		bl	strcmp
+ 128 0032 0346     		mov	r3, r0
+ 129              		.loc 1 124 7
+ 130 0034 002B     		cmp	r3, #0
+ 131 0036 04D1     		bne	.L9
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_SHA256 );
+ 132              		.loc 1 125 16
+ 133 0038 0620     		movs	r0, #6
+ 134 003a FFF7FEFF 		bl	mbedtls_md_info_from_type
+ 135 003e 0346     		mov	r3, r0
+ 136 0040 00E0     		b	.L7
+ 137              	.L9:
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA512_C)
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "SHA384", md_name ) )
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_SHA384 );
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( !strcmp( "SHA512", md_name ) )
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return mbedtls_md_info_from_type( MBEDTLS_MD_SHA512 );
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( NULL );
+ 138              		.loc 1 133 11
+ 139 0042 0023     		movs	r3, #0
+ 140              	.L7:
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 141              		.loc 1 134 1
+ 142 0044 1846     		mov	r0, r3
+ 143 0046 0837     		adds	r7, r7, #8
+ 144              	.LCFI7:
+ 145              		.cfi_def_cfa_offset 8
+ 146 0048 BD46     		mov	sp, r7
+ 147              	.LCFI8:
+ 148              		.cfi_def_cfa_register 13
+ 149              		@ sp needed
+ 150 004a 80BD     		pop	{r7, pc}
+ 151              	.L11:
+ 152              		.align	2
+ 153              	.L10:
+ 154 004c 00000000 		.word	.LC0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 6
+
+
+ 155 0050 08000000 		.word	.LC1
+ 156              		.cfi_endproc
+ 157              	.LFE4:
+ 159              		.section	.text.mbedtls_md_info_from_type,"ax",%progbits
+ 160              		.align	1
+ 161              		.global	mbedtls_md_info_from_type
+ 162              		.syntax unified
+ 163              		.thumb
+ 164              		.thumb_func
+ 165              		.fpu fpv4-sp-d16
+ 167              	mbedtls_md_info_from_type:
+ 168              	.LFB5:
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** const mbedtls_md_info_t *mbedtls_md_info_from_type( mbedtls_md_type_t md_type )
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 169              		.loc 1 137 1
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 8
+ 172              		@ frame_needed = 1, uses_anonymous_args = 0
+ 173              		@ link register save eliminated.
+ 174 0000 80B4     		push	{r7}
+ 175              	.LCFI9:
+ 176              		.cfi_def_cfa_offset 4
+ 177              		.cfi_offset 7, -4
+ 178 0002 83B0     		sub	sp, sp, #12
+ 179              	.LCFI10:
+ 180              		.cfi_def_cfa_offset 16
+ 181 0004 00AF     		add	r7, sp, #0
+ 182              	.LCFI11:
+ 183              		.cfi_def_cfa_register 7
+ 184 0006 0346     		mov	r3, r0
+ 185 0008 FB71     		strb	r3, [r7, #7]
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     switch( md_type )
+ 186              		.loc 1 138 5
+ 187 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 188 000c 052B     		cmp	r3, #5
+ 189 000e 02D0     		beq	.L13
+ 190 0010 062B     		cmp	r3, #6
+ 191 0012 02D0     		beq	.L14
+ 192 0014 03E0     		b	.L17
+ 193              	.L13:
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD2_C)
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_MD2:
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_md2_info );
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD4_C)
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_MD4:
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_md4_info );
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_MD5_C)
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_MD5:
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_md5_info );
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_RIPEMD160_C)
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_RIPEMD160:
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_ripemd160_info );
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 7
+
+
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA1_C)
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_SHA1:
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_sha1_info );
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA256_C)
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_SHA224:
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_sha224_info );
+ 194              		.loc 1 162 21
+ 195 0016 054B     		ldr	r3, .L18
+ 196 0018 02E0     		b	.L16
+ 197              	.L14:
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_SHA256:
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_sha256_info );
+ 198              		.loc 1 164 21
+ 199 001a 054B     		ldr	r3, .L18+4
+ 200 001c 00E0     		b	.L16
+ 201              	.L17:
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_SHA512_C)
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_SHA384:
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_sha384_info );
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         case MBEDTLS_MD_SHA512:
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( &mbedtls_sha512_info );
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         default:
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( NULL );
+ 202              		.loc 1 173 19
+ 203 001e 0023     		movs	r3, #0
+ 204              	.L16:
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     }
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 205              		.loc 1 175 1
+ 206 0020 1846     		mov	r0, r3
+ 207 0022 0C37     		adds	r7, r7, #12
+ 208              	.LCFI12:
+ 209              		.cfi_def_cfa_offset 4
+ 210 0024 BD46     		mov	sp, r7
+ 211              	.LCFI13:
+ 212              		.cfi_def_cfa_register 13
+ 213              		@ sp needed
+ 214 0026 5DF8047B 		ldr	r7, [sp], #4
+ 215              	.LCFI14:
+ 216              		.cfi_restore 7
+ 217              		.cfi_def_cfa_offset 0
+ 218 002a 7047     		bx	lr
+ 219              	.L19:
+ 220              		.align	2
+ 221              	.L18:
+ 222 002c 00000000 		.word	mbedtls_sha224_info
+ 223 0030 00000000 		.word	mbedtls_sha256_info
+ 224              		.cfi_endproc
+ 225              	.LFE5:
+ 227              		.section	.text.mbedtls_md_init,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	mbedtls_md_init
+ 230              		.syntax unified
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 8
+
+
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv4-sp-d16
+ 235              	mbedtls_md_init:
+ 236              	.LFB6:
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** void mbedtls_md_init( mbedtls_md_context_t *ctx )
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 237              		.loc 1 178 1
+ 238              		.cfi_startproc
+ 239              		@ args = 0, pretend = 0, frame = 8
+ 240              		@ frame_needed = 1, uses_anonymous_args = 0
+ 241 0000 80B5     		push	{r7, lr}
+ 242              	.LCFI15:
+ 243              		.cfi_def_cfa_offset 8
+ 244              		.cfi_offset 7, -8
+ 245              		.cfi_offset 14, -4
+ 246 0002 82B0     		sub	sp, sp, #8
+ 247              	.LCFI16:
+ 248              		.cfi_def_cfa_offset 16
+ 249 0004 00AF     		add	r7, sp, #0
+ 250              	.LCFI17:
+ 251              		.cfi_def_cfa_register 7
+ 252 0006 7860     		str	r0, [r7, #4]
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     memset( ctx, 0, sizeof( mbedtls_md_context_t ) );
+ 253              		.loc 1 179 5
+ 254 0008 0C22     		movs	r2, #12
+ 255 000a 0021     		movs	r1, #0
+ 256 000c 7868     		ldr	r0, [r7, #4]
+ 257 000e FFF7FEFF 		bl	memset
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 258              		.loc 1 180 1
+ 259 0012 00BF     		nop
+ 260 0014 0837     		adds	r7, r7, #8
+ 261              	.LCFI18:
+ 262              		.cfi_def_cfa_offset 8
+ 263 0016 BD46     		mov	sp, r7
+ 264              	.LCFI19:
+ 265              		.cfi_def_cfa_register 13
+ 266              		@ sp needed
+ 267 0018 80BD     		pop	{r7, pc}
+ 268              		.cfi_endproc
+ 269              	.LFE6:
+ 271              		.section	.text.mbedtls_md_free,"ax",%progbits
+ 272              		.align	1
+ 273              		.global	mbedtls_md_free
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.fpu fpv4-sp-d16
+ 279              	mbedtls_md_free:
+ 280              	.LFB7:
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** void mbedtls_md_free( mbedtls_md_context_t *ctx )
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 281              		.loc 1 183 1
+ 282              		.cfi_startproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 9
+
+
+ 283              		@ args = 0, pretend = 0, frame = 8
+ 284              		@ frame_needed = 1, uses_anonymous_args = 0
+ 285 0000 80B5     		push	{r7, lr}
+ 286              	.LCFI20:
+ 287              		.cfi_def_cfa_offset 8
+ 288              		.cfi_offset 7, -8
+ 289              		.cfi_offset 14, -4
+ 290 0002 82B0     		sub	sp, sp, #8
+ 291              	.LCFI21:
+ 292              		.cfi_def_cfa_offset 16
+ 293 0004 00AF     		add	r7, sp, #0
+ 294              	.LCFI22:
+ 295              		.cfi_def_cfa_register 7
+ 296 0006 7860     		str	r0, [r7, #4]
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL )
+ 297              		.loc 1 184 7
+ 298 0008 7B68     		ldr	r3, [r7, #4]
+ 299 000a 002B     		cmp	r3, #0
+ 300 000c 26D0     		beq	.L27
+ 301              		.loc 1 184 27 discriminator 1
+ 302 000e 7B68     		ldr	r3, [r7, #4]
+ 303 0010 1B68     		ldr	r3, [r3]
+ 304              		.loc 1 184 21 discriminator 1
+ 305 0012 002B     		cmp	r3, #0
+ 306 0014 22D0     		beq	.L27
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return;
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx->md_ctx != NULL )
+ 307              		.loc 1 187 12
+ 308 0016 7B68     		ldr	r3, [r7, #4]
+ 309 0018 5B68     		ldr	r3, [r3, #4]
+ 310              		.loc 1 187 7
+ 311 001a 002B     		cmp	r3, #0
+ 312 001c 06D0     		beq	.L25
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         ctx->md_info->ctx_free_func( ctx->md_ctx );
+ 313              		.loc 1 188 12
+ 314 001e 7B68     		ldr	r3, [r7, #4]
+ 315 0020 1B68     		ldr	r3, [r3]
+ 316              		.loc 1 188 21
+ 317 0022 5B6A     		ldr	r3, [r3, #36]
+ 318              		.loc 1 188 9
+ 319 0024 7A68     		ldr	r2, [r7, #4]
+ 320 0026 5268     		ldr	r2, [r2, #4]
+ 321 0028 1046     		mov	r0, r2
+ 322 002a 9847     		blx	r3
+ 323              	.LVL0:
+ 324              	.L25:
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx->hmac_ctx != NULL )
+ 325              		.loc 1 190 12
+ 326 002c 7B68     		ldr	r3, [r7, #4]
+ 327 002e 9B68     		ldr	r3, [r3, #8]
+ 328              		.loc 1 190 7
+ 329 0030 002B     		cmp	r3, #0
+ 330 0032 0ED0     		beq	.L26
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         mbedtls_platform_zeroize( ctx->hmac_ctx,
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 10
+
+
+ 331              		.loc 1 192 9
+ 332 0034 7B68     		ldr	r3, [r7, #4]
+ 333 0036 9A68     		ldr	r2, [r3, #8]
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                   2 * ctx->md_info->block_size );
+ 334              		.loc 1 193 42
+ 335 0038 7B68     		ldr	r3, [r7, #4]
+ 336 003a 1B68     		ldr	r3, [r3]
+ 337              		.loc 1 193 51
+ 338 003c DB68     		ldr	r3, [r3, #12]
+ 339              		.loc 1 193 37
+ 340 003e 5B00     		lsls	r3, r3, #1
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                   2 * ctx->md_info->block_size );
+ 341              		.loc 1 192 9
+ 342 0040 1946     		mov	r1, r3
+ 343 0042 1046     		mov	r0, r2
+ 344 0044 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         mbedtls_free( ctx->hmac_ctx );
+ 345              		.loc 1 194 9
+ 346 0048 7B68     		ldr	r3, [r7, #4]
+ 347 004a 9B68     		ldr	r3, [r3, #8]
+ 348 004c 1846     		mov	r0, r3
+ 349 004e FFF7FEFF 		bl	mbedtls_free
+ 350              	.L26:
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     }
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_platform_zeroize( ctx, sizeof( mbedtls_md_context_t ) );
+ 351              		.loc 1 197 5
+ 352 0052 0C21     		movs	r1, #12
+ 353 0054 7868     		ldr	r0, [r7, #4]
+ 354 0056 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 355 005a 00E0     		b	.L21
+ 356              	.L27:
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 357              		.loc 1 185 9
+ 358 005c 00BF     		nop
+ 359              	.L21:
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 360              		.loc 1 198 1
+ 361 005e 0837     		adds	r7, r7, #8
+ 362              	.LCFI23:
+ 363              		.cfi_def_cfa_offset 8
+ 364 0060 BD46     		mov	sp, r7
+ 365              	.LCFI24:
+ 366              		.cfi_def_cfa_register 13
+ 367              		@ sp needed
+ 368 0062 80BD     		pop	{r7, pc}
+ 369              		.cfi_endproc
+ 370              	.LFE7:
+ 372              		.section	.text.mbedtls_md_clone,"ax",%progbits
+ 373              		.align	1
+ 374              		.global	mbedtls_md_clone
+ 375              		.syntax unified
+ 376              		.thumb
+ 377              		.thumb_func
+ 378              		.fpu fpv4-sp-d16
+ 380              	mbedtls_md_clone:
+ 381              	.LFB8:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 11
+
+
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_clone( mbedtls_md_context_t *dst,
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                       const mbedtls_md_context_t *src )
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 382              		.loc 1 202 1
+ 383              		.cfi_startproc
+ 384              		@ args = 0, pretend = 0, frame = 8
+ 385              		@ frame_needed = 1, uses_anonymous_args = 0
+ 386 0000 80B5     		push	{r7, lr}
+ 387              	.LCFI25:
+ 388              		.cfi_def_cfa_offset 8
+ 389              		.cfi_offset 7, -8
+ 390              		.cfi_offset 14, -4
+ 391 0002 82B0     		sub	sp, sp, #8
+ 392              	.LCFI26:
+ 393              		.cfi_def_cfa_offset 16
+ 394 0004 00AF     		add	r7, sp, #0
+ 395              	.LCFI27:
+ 396              		.cfi_def_cfa_register 7
+ 397 0006 7860     		str	r0, [r7, #4]
+ 398 0008 3960     		str	r1, [r7]
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( dst == NULL || dst->md_info == NULL ||
+ 399              		.loc 1 203 7
+ 400 000a 7B68     		ldr	r3, [r7, #4]
+ 401 000c 002B     		cmp	r3, #0
+ 402 000e 10D0     		beq	.L29
+ 403              		.loc 1 203 27 discriminator 1
+ 404 0010 7B68     		ldr	r3, [r7, #4]
+ 405 0012 1B68     		ldr	r3, [r3]
+ 406              		.loc 1 203 21 discriminator 1
+ 407 0014 002B     		cmp	r3, #0
+ 408 0016 0CD0     		beq	.L29
+ 409              		.loc 1 203 45 discriminator 2
+ 410 0018 3B68     		ldr	r3, [r7]
+ 411 001a 002B     		cmp	r3, #0
+ 412 001c 09D0     		beq	.L29
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         src == NULL || src->md_info == NULL ||
+ 413              		.loc 1 204 27
+ 414 001e 3B68     		ldr	r3, [r7]
+ 415 0020 1B68     		ldr	r3, [r3]
+ 416              		.loc 1 204 21
+ 417 0022 002B     		cmp	r3, #0
+ 418 0024 05D0     		beq	.L29
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         dst->md_info != src->md_info )
+ 419              		.loc 1 205 12 discriminator 1
+ 420 0026 7B68     		ldr	r3, [r7, #4]
+ 421 0028 1A68     		ldr	r2, [r3]
+ 422              		.loc 1 205 28 discriminator 1
+ 423 002a 3B68     		ldr	r3, [r7]
+ 424 002c 1B68     		ldr	r3, [r3]
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         src == NULL || src->md_info == NULL ||
+ 425              		.loc 1 204 45 discriminator 1
+ 426 002e 9A42     		cmp	r2, r3
+ 427 0030 01D0     		beq	.L30
+ 428              	.L29:
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 12
+
+
+ 429              		.loc 1 207 15
+ 430 0032 084B     		ldr	r3, .L32
+ 431 0034 09E0     		b	.L31
+ 432              	.L30:
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     }
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     dst->md_info->clone_func( dst->md_ctx, src->md_ctx );
+ 433              		.loc 1 210 8
+ 434 0036 7B68     		ldr	r3, [r7, #4]
+ 435 0038 1B68     		ldr	r3, [r3]
+ 436              		.loc 1 210 17
+ 437 003a 9B6A     		ldr	r3, [r3, #40]
+ 438              		.loc 1 210 5
+ 439 003c 7A68     		ldr	r2, [r7, #4]
+ 440 003e 5068     		ldr	r0, [r2, #4]
+ 441              		.loc 1 210 47
+ 442 0040 3A68     		ldr	r2, [r7]
+ 443 0042 5268     		ldr	r2, [r2, #4]
+ 444              		.loc 1 210 5
+ 445 0044 1146     		mov	r1, r2
+ 446 0046 9847     		blx	r3
+ 447              	.LVL1:
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( 0 );
+ 448              		.loc 1 212 11
+ 449 0048 0023     		movs	r3, #0
+ 450              	.L31:
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 451              		.loc 1 213 1
+ 452 004a 1846     		mov	r0, r3
+ 453 004c 0837     		adds	r7, r7, #8
+ 454              	.LCFI28:
+ 455              		.cfi_def_cfa_offset 8
+ 456 004e BD46     		mov	sp, r7
+ 457              	.LCFI29:
+ 458              		.cfi_def_cfa_register 13
+ 459              		@ sp needed
+ 460 0050 80BD     		pop	{r7, pc}
+ 461              	.L33:
+ 462 0052 00BF     		.align	2
+ 463              	.L32:
+ 464 0054 00AFFFFF 		.word	-20736
+ 465              		.cfi_endproc
+ 466              	.LFE8:
+ 468              		.section	.text.mbedtls_md_init_ctx,"ax",%progbits
+ 469              		.align	1
+ 470              		.global	mbedtls_md_init_ctx
+ 471              		.syntax unified
+ 472              		.thumb
+ 473              		.thumb_func
+ 474              		.fpu fpv4-sp-d16
+ 476              	mbedtls_md_init_ctx:
+ 477              	.LFB9:
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if ! defined(MBEDTLS_DEPRECATED_REMOVED)
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_init_ctx( mbedtls_md_context_t *ctx, const mbedtls_md_info_t *md_info )
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 13
+
+
+ 478              		.loc 1 217 1
+ 479              		.cfi_startproc
+ 480              		@ args = 0, pretend = 0, frame = 8
+ 481              		@ frame_needed = 1, uses_anonymous_args = 0
+ 482 0000 80B5     		push	{r7, lr}
+ 483              	.LCFI30:
+ 484              		.cfi_def_cfa_offset 8
+ 485              		.cfi_offset 7, -8
+ 486              		.cfi_offset 14, -4
+ 487 0002 82B0     		sub	sp, sp, #8
+ 488              	.LCFI31:
+ 489              		.cfi_def_cfa_offset 16
+ 490 0004 00AF     		add	r7, sp, #0
+ 491              	.LCFI32:
+ 492              		.cfi_def_cfa_register 7
+ 493 0006 7860     		str	r0, [r7, #4]
+ 494 0008 3960     		str	r1, [r7]
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return mbedtls_md_setup( ctx, md_info, 1 );
+ 495              		.loc 1 218 12
+ 496 000a 0122     		movs	r2, #1
+ 497 000c 3968     		ldr	r1, [r7]
+ 498 000e 7868     		ldr	r0, [r7, #4]
+ 499 0010 FFF7FEFF 		bl	mbedtls_md_setup
+ 500 0014 0346     		mov	r3, r0
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 501              		.loc 1 219 1
+ 502 0016 1846     		mov	r0, r3
+ 503 0018 0837     		adds	r7, r7, #8
+ 504              	.LCFI33:
+ 505              		.cfi_def_cfa_offset 8
+ 506 001a BD46     		mov	sp, r7
+ 507              	.LCFI34:
+ 508              		.cfi_def_cfa_register 13
+ 509              		@ sp needed
+ 510 001c 80BD     		pop	{r7, pc}
+ 511              		.cfi_endproc
+ 512              	.LFE9:
+ 514              		.section	.text.mbedtls_md_setup,"ax",%progbits
+ 515              		.align	1
+ 516              		.global	mbedtls_md_setup
+ 517              		.syntax unified
+ 518              		.thumb
+ 519              		.thumb_func
+ 520              		.fpu fpv4-sp-d16
+ 522              	mbedtls_md_setup:
+ 523              	.LFB10:
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_setup( mbedtls_md_context_t *ctx, const mbedtls_md_info_t *md_info, int hmac )
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 524              		.loc 1 223 1
+ 525              		.cfi_startproc
+ 526              		@ args = 0, pretend = 0, frame = 16
+ 527              		@ frame_needed = 1, uses_anonymous_args = 0
+ 528 0000 80B5     		push	{r7, lr}
+ 529              	.LCFI35:
+ 530              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 14
+
+
+ 531              		.cfi_offset 7, -8
+ 532              		.cfi_offset 14, -4
+ 533 0002 84B0     		sub	sp, sp, #16
+ 534              	.LCFI36:
+ 535              		.cfi_def_cfa_offset 24
+ 536 0004 00AF     		add	r7, sp, #0
+ 537              	.LCFI37:
+ 538              		.cfi_def_cfa_register 7
+ 539 0006 F860     		str	r0, [r7, #12]
+ 540 0008 B960     		str	r1, [r7, #8]
+ 541 000a 7A60     		str	r2, [r7, #4]
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( md_info == NULL || ctx == NULL )
+ 542              		.loc 1 224 7
+ 543 000c BB68     		ldr	r3, [r7, #8]
+ 544 000e 002B     		cmp	r3, #0
+ 545 0010 02D0     		beq	.L37
+ 546              		.loc 1 224 25 discriminator 1
+ 547 0012 FB68     		ldr	r3, [r7, #12]
+ 548 0014 002B     		cmp	r3, #0
+ 549 0016 01D1     		bne	.L38
+ 550              	.L37:
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 551              		.loc 1 225 15
+ 552 0018 164B     		ldr	r3, .L42
+ 553 001a 27E0     		b	.L39
+ 554              	.L38:
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ctx->md_ctx = md_info->ctx_alloc_func() ) == NULL )
+ 555              		.loc 1 227 32
+ 556 001c BB68     		ldr	r3, [r7, #8]
+ 557 001e 1B6A     		ldr	r3, [r3, #32]
+ 558              		.loc 1 227 25
+ 559 0020 9847     		blx	r3
+ 560              	.LVL2:
+ 561 0022 0246     		mov	r2, r0
+ 562              		.loc 1 227 23
+ 563 0024 FB68     		ldr	r3, [r7, #12]
+ 564 0026 5A60     		str	r2, [r3, #4]
+ 565              		.loc 1 227 14
+ 566 0028 FB68     		ldr	r3, [r7, #12]
+ 567 002a 5B68     		ldr	r3, [r3, #4]
+ 568              		.loc 1 227 7
+ 569 002c 002B     		cmp	r3, #0
+ 570 002e 01D1     		bne	.L40
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_ALLOC_FAILED );
+ 571              		.loc 1 228 15
+ 572 0030 114B     		ldr	r3, .L42+4
+ 573 0032 1BE0     		b	.L39
+ 574              	.L40:
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( hmac != 0 )
+ 575              		.loc 1 230 7
+ 576 0034 7B68     		ldr	r3, [r7, #4]
+ 577 0036 002B     		cmp	r3, #0
+ 578 0038 14D0     		beq	.L41
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         ctx->hmac_ctx = mbedtls_calloc( 2, md_info->block_size );
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 15
+
+
+ 579              		.loc 1 232 51
+ 580 003a BB68     		ldr	r3, [r7, #8]
+ 581 003c DB68     		ldr	r3, [r3, #12]
+ 582              		.loc 1 232 25
+ 583 003e 1946     		mov	r1, r3
+ 584 0040 0220     		movs	r0, #2
+ 585 0042 FFF7FEFF 		bl	mbedtls_calloc
+ 586 0046 0246     		mov	r2, r0
+ 587              		.loc 1 232 23
+ 588 0048 FB68     		ldr	r3, [r7, #12]
+ 589 004a 9A60     		str	r2, [r3, #8]
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         if( ctx->hmac_ctx == NULL )
+ 590              		.loc 1 233 16
+ 591 004c FB68     		ldr	r3, [r7, #12]
+ 592 004e 9B68     		ldr	r3, [r3, #8]
+ 593              		.loc 1 233 11
+ 594 0050 002B     		cmp	r3, #0
+ 595 0052 07D1     		bne	.L41
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         {
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             md_info->ctx_free_func( ctx->md_ctx );
+ 596              		.loc 1 235 20
+ 597 0054 BB68     		ldr	r3, [r7, #8]
+ 598 0056 5B6A     		ldr	r3, [r3, #36]
+ 599              		.loc 1 235 13
+ 600 0058 FA68     		ldr	r2, [r7, #12]
+ 601 005a 5268     		ldr	r2, [r2, #4]
+ 602 005c 1046     		mov	r0, r2
+ 603 005e 9847     		blx	r3
+ 604              	.LVL3:
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             return( MBEDTLS_ERR_MD_ALLOC_FAILED );
+ 605              		.loc 1 236 19
+ 606 0060 054B     		ldr	r3, .L42+4
+ 607 0062 03E0     		b	.L39
+ 608              	.L41:
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         }
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     }
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     ctx->md_info = md_info;
+ 609              		.loc 1 240 18
+ 610 0064 FB68     		ldr	r3, [r7, #12]
+ 611 0066 BA68     		ldr	r2, [r7, #8]
+ 612 0068 1A60     		str	r2, [r3]
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( 0 );
+ 613              		.loc 1 242 11
+ 614 006a 0023     		movs	r3, #0
+ 615              	.L39:
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 616              		.loc 1 243 1
+ 617 006c 1846     		mov	r0, r3
+ 618 006e 1037     		adds	r7, r7, #16
+ 619              	.LCFI38:
+ 620              		.cfi_def_cfa_offset 8
+ 621 0070 BD46     		mov	sp, r7
+ 622              	.LCFI39:
+ 623              		.cfi_def_cfa_register 13
+ 624              		@ sp needed
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 16
+
+
+ 625 0072 80BD     		pop	{r7, pc}
+ 626              	.L43:
+ 627              		.align	2
+ 628              	.L42:
+ 629 0074 00AFFFFF 		.word	-20736
+ 630 0078 80AEFFFF 		.word	-20864
+ 631              		.cfi_endproc
+ 632              	.LFE10:
+ 634              		.section	.text.mbedtls_md_starts,"ax",%progbits
+ 635              		.align	1
+ 636              		.global	mbedtls_md_starts
+ 637              		.syntax unified
+ 638              		.thumb
+ 639              		.thumb_func
+ 640              		.fpu fpv4-sp-d16
+ 642              	mbedtls_md_starts:
+ 643              	.LFB11:
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_starts( mbedtls_md_context_t *ctx )
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 644              		.loc 1 246 1
+ 645              		.cfi_startproc
+ 646              		@ args = 0, pretend = 0, frame = 8
+ 647              		@ frame_needed = 1, uses_anonymous_args = 0
+ 648 0000 80B5     		push	{r7, lr}
+ 649              	.LCFI40:
+ 650              		.cfi_def_cfa_offset 8
+ 651              		.cfi_offset 7, -8
+ 652              		.cfi_offset 14, -4
+ 653 0002 82B0     		sub	sp, sp, #8
+ 654              	.LCFI41:
+ 655              		.cfi_def_cfa_offset 16
+ 656 0004 00AF     		add	r7, sp, #0
+ 657              	.LCFI42:
+ 658              		.cfi_def_cfa_register 7
+ 659 0006 7860     		str	r0, [r7, #4]
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL )
+ 660              		.loc 1 247 7
+ 661 0008 7B68     		ldr	r3, [r7, #4]
+ 662 000a 002B     		cmp	r3, #0
+ 663 000c 03D0     		beq	.L45
+ 664              		.loc 1 247 27 discriminator 1
+ 665 000e 7B68     		ldr	r3, [r7, #4]
+ 666 0010 1B68     		ldr	r3, [r3]
+ 667              		.loc 1 247 21 discriminator 1
+ 668 0012 002B     		cmp	r3, #0
+ 669 0014 01D1     		bne	.L46
+ 670              	.L45:
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 671              		.loc 1 248 15
+ 672 0016 074B     		ldr	r3, .L48
+ 673 0018 07E0     		b	.L47
+ 674              	.L46:
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->starts_func( ctx->md_ctx ) );
+ 675              		.loc 1 250 16
+ 676 001a 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 17
+
+
+ 677 001c 1B68     		ldr	r3, [r3]
+ 678              		.loc 1 250 25
+ 679 001e 1B69     		ldr	r3, [r3, #16]
+ 680              		.loc 1 250 13
+ 681 0020 7A68     		ldr	r2, [r7, #4]
+ 682 0022 5268     		ldr	r2, [r2, #4]
+ 683 0024 1046     		mov	r0, r2
+ 684 0026 9847     		blx	r3
+ 685              	.LVL4:
+ 686 0028 0346     		mov	r3, r0
+ 687              	.L47:
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 688              		.loc 1 251 1
+ 689 002a 1846     		mov	r0, r3
+ 690 002c 0837     		adds	r7, r7, #8
+ 691              	.LCFI43:
+ 692              		.cfi_def_cfa_offset 8
+ 693 002e BD46     		mov	sp, r7
+ 694              	.LCFI44:
+ 695              		.cfi_def_cfa_register 13
+ 696              		@ sp needed
+ 697 0030 80BD     		pop	{r7, pc}
+ 698              	.L49:
+ 699 0032 00BF     		.align	2
+ 700              	.L48:
+ 701 0034 00AFFFFF 		.word	-20736
+ 702              		.cfi_endproc
+ 703              	.LFE11:
+ 705              		.section	.text.mbedtls_md_update,"ax",%progbits
+ 706              		.align	1
+ 707              		.global	mbedtls_md_update
+ 708              		.syntax unified
+ 709              		.thumb
+ 710              		.thumb_func
+ 711              		.fpu fpv4-sp-d16
+ 713              	mbedtls_md_update:
+ 714              	.LFB12:
+ 252:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 253:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_update( mbedtls_md_context_t *ctx, const unsigned char *input, size_t ilen )
+ 254:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 715              		.loc 1 254 1
+ 716              		.cfi_startproc
+ 717              		@ args = 0, pretend = 0, frame = 16
+ 718              		@ frame_needed = 1, uses_anonymous_args = 0
+ 719 0000 80B5     		push	{r7, lr}
+ 720              	.LCFI45:
+ 721              		.cfi_def_cfa_offset 8
+ 722              		.cfi_offset 7, -8
+ 723              		.cfi_offset 14, -4
+ 724 0002 84B0     		sub	sp, sp, #16
+ 725              	.LCFI46:
+ 726              		.cfi_def_cfa_offset 24
+ 727 0004 00AF     		add	r7, sp, #0
+ 728              	.LCFI47:
+ 729              		.cfi_def_cfa_register 7
+ 730 0006 F860     		str	r0, [r7, #12]
+ 731 0008 B960     		str	r1, [r7, #8]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 18
+
+
+ 732 000a 7A60     		str	r2, [r7, #4]
+ 255:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL )
+ 733              		.loc 1 255 7
+ 734 000c FB68     		ldr	r3, [r7, #12]
+ 735 000e 002B     		cmp	r3, #0
+ 736 0010 03D0     		beq	.L51
+ 737              		.loc 1 255 27 discriminator 1
+ 738 0012 FB68     		ldr	r3, [r7, #12]
+ 739 0014 1B68     		ldr	r3, [r3]
+ 740              		.loc 1 255 21 discriminator 1
+ 741 0016 002B     		cmp	r3, #0
+ 742 0018 01D1     		bne	.L52
+ 743              	.L51:
+ 256:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 744              		.loc 1 256 15
+ 745 001a 074B     		ldr	r3, .L54
+ 746 001c 08E0     		b	.L53
+ 747              	.L52:
+ 257:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 258:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->update_func( ctx->md_ctx, input, ilen ) );
+ 748              		.loc 1 258 16
+ 749 001e FB68     		ldr	r3, [r7, #12]
+ 750 0020 1B68     		ldr	r3, [r3]
+ 751              		.loc 1 258 25
+ 752 0022 5B69     		ldr	r3, [r3, #20]
+ 753              		.loc 1 258 13
+ 754 0024 FA68     		ldr	r2, [r7, #12]
+ 755 0026 5068     		ldr	r0, [r2, #4]
+ 756 0028 7A68     		ldr	r2, [r7, #4]
+ 757 002a B968     		ldr	r1, [r7, #8]
+ 758 002c 9847     		blx	r3
+ 759              	.LVL5:
+ 760 002e 0346     		mov	r3, r0
+ 761              	.L53:
+ 259:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 762              		.loc 1 259 1
+ 763 0030 1846     		mov	r0, r3
+ 764 0032 1037     		adds	r7, r7, #16
+ 765              	.LCFI48:
+ 766              		.cfi_def_cfa_offset 8
+ 767 0034 BD46     		mov	sp, r7
+ 768              	.LCFI49:
+ 769              		.cfi_def_cfa_register 13
+ 770              		@ sp needed
+ 771 0036 80BD     		pop	{r7, pc}
+ 772              	.L55:
+ 773              		.align	2
+ 774              	.L54:
+ 775 0038 00AFFFFF 		.word	-20736
+ 776              		.cfi_endproc
+ 777              	.LFE12:
+ 779              		.section	.text.mbedtls_md_finish,"ax",%progbits
+ 780              		.align	1
+ 781              		.global	mbedtls_md_finish
+ 782              		.syntax unified
+ 783              		.thumb
+ 784              		.thumb_func
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 19
+
+
+ 785              		.fpu fpv4-sp-d16
+ 787              	mbedtls_md_finish:
+ 788              	.LFB13:
+ 260:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 261:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_finish( mbedtls_md_context_t *ctx, unsigned char *output )
+ 262:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 789              		.loc 1 262 1
+ 790              		.cfi_startproc
+ 791              		@ args = 0, pretend = 0, frame = 8
+ 792              		@ frame_needed = 1, uses_anonymous_args = 0
+ 793 0000 80B5     		push	{r7, lr}
+ 794              	.LCFI50:
+ 795              		.cfi_def_cfa_offset 8
+ 796              		.cfi_offset 7, -8
+ 797              		.cfi_offset 14, -4
+ 798 0002 82B0     		sub	sp, sp, #8
+ 799              	.LCFI51:
+ 800              		.cfi_def_cfa_offset 16
+ 801 0004 00AF     		add	r7, sp, #0
+ 802              	.LCFI52:
+ 803              		.cfi_def_cfa_register 7
+ 804 0006 7860     		str	r0, [r7, #4]
+ 805 0008 3960     		str	r1, [r7]
+ 263:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL )
+ 806              		.loc 1 263 7
+ 807 000a 7B68     		ldr	r3, [r7, #4]
+ 808 000c 002B     		cmp	r3, #0
+ 809 000e 03D0     		beq	.L57
+ 810              		.loc 1 263 27 discriminator 1
+ 811 0010 7B68     		ldr	r3, [r7, #4]
+ 812 0012 1B68     		ldr	r3, [r3]
+ 813              		.loc 1 263 21 discriminator 1
+ 814 0014 002B     		cmp	r3, #0
+ 815 0016 01D1     		bne	.L58
+ 816              	.L57:
+ 264:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 817              		.loc 1 264 15
+ 818 0018 074B     		ldr	r3, .L60
+ 819 001a 08E0     		b	.L59
+ 820              	.L58:
+ 265:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 266:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->finish_func( ctx->md_ctx, output ) );
+ 821              		.loc 1 266 16
+ 822 001c 7B68     		ldr	r3, [r7, #4]
+ 823 001e 1B68     		ldr	r3, [r3]
+ 824              		.loc 1 266 25
+ 825 0020 9B69     		ldr	r3, [r3, #24]
+ 826              		.loc 1 266 13
+ 827 0022 7A68     		ldr	r2, [r7, #4]
+ 828 0024 5268     		ldr	r2, [r2, #4]
+ 829 0026 3968     		ldr	r1, [r7]
+ 830 0028 1046     		mov	r0, r2
+ 831 002a 9847     		blx	r3
+ 832              	.LVL6:
+ 833 002c 0346     		mov	r3, r0
+ 834              	.L59:
+ 267:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 20
+
+
+ 835              		.loc 1 267 1
+ 836 002e 1846     		mov	r0, r3
+ 837 0030 0837     		adds	r7, r7, #8
+ 838              	.LCFI53:
+ 839              		.cfi_def_cfa_offset 8
+ 840 0032 BD46     		mov	sp, r7
+ 841              	.LCFI54:
+ 842              		.cfi_def_cfa_register 13
+ 843              		@ sp needed
+ 844 0034 80BD     		pop	{r7, pc}
+ 845              	.L61:
+ 846 0036 00BF     		.align	2
+ 847              	.L60:
+ 848 0038 00AFFFFF 		.word	-20736
+ 849              		.cfi_endproc
+ 850              	.LFE13:
+ 852              		.section	.text.mbedtls_md,"ax",%progbits
+ 853              		.align	1
+ 854              		.global	mbedtls_md
+ 855              		.syntax unified
+ 856              		.thumb
+ 857              		.thumb_func
+ 858              		.fpu fpv4-sp-d16
+ 860              	mbedtls_md:
+ 861              	.LFB14:
+ 268:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 269:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md( const mbedtls_md_info_t *md_info, const unsigned char *input, size_t ilen,
+ 270:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             unsigned char *output )
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 862              		.loc 1 271 1
+ 863              		.cfi_startproc
+ 864              		@ args = 0, pretend = 0, frame = 16
+ 865              		@ frame_needed = 1, uses_anonymous_args = 0
+ 866 0000 80B5     		push	{r7, lr}
+ 867              	.LCFI55:
+ 868              		.cfi_def_cfa_offset 8
+ 869              		.cfi_offset 7, -8
+ 870              		.cfi_offset 14, -4
+ 871 0002 84B0     		sub	sp, sp, #16
+ 872              	.LCFI56:
+ 873              		.cfi_def_cfa_offset 24
+ 874 0004 00AF     		add	r7, sp, #0
+ 875              	.LCFI57:
+ 876              		.cfi_def_cfa_register 7
+ 877 0006 F860     		str	r0, [r7, #12]
+ 878 0008 B960     		str	r1, [r7, #8]
+ 879 000a 7A60     		str	r2, [r7, #4]
+ 880 000c 3B60     		str	r3, [r7]
+ 272:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( md_info == NULL )
+ 881              		.loc 1 272 7
+ 882 000e FB68     		ldr	r3, [r7, #12]
+ 883 0010 002B     		cmp	r3, #0
+ 884 0012 01D1     		bne	.L63
+ 273:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 885              		.loc 1 273 15
+ 886 0014 064B     		ldr	r3, .L65
+ 887 0016 06E0     		b	.L64
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 21
+
+
+ 888              	.L63:
+ 274:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 275:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( md_info->digest_func( input, ilen, output ) );
+ 889              		.loc 1 275 20
+ 890 0018 FB68     		ldr	r3, [r7, #12]
+ 891 001a DB69     		ldr	r3, [r3, #28]
+ 892              		.loc 1 275 13
+ 893 001c 3A68     		ldr	r2, [r7]
+ 894 001e 7968     		ldr	r1, [r7, #4]
+ 895 0020 B868     		ldr	r0, [r7, #8]
+ 896 0022 9847     		blx	r3
+ 897              	.LVL7:
+ 898 0024 0346     		mov	r3, r0
+ 899              	.L64:
+ 276:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 900              		.loc 1 276 1
+ 901 0026 1846     		mov	r0, r3
+ 902 0028 1037     		adds	r7, r7, #16
+ 903              	.LCFI58:
+ 904              		.cfi_def_cfa_offset 8
+ 905 002a BD46     		mov	sp, r7
+ 906              	.LCFI59:
+ 907              		.cfi_def_cfa_register 13
+ 908              		@ sp needed
+ 909 002c 80BD     		pop	{r7, pc}
+ 910              	.L66:
+ 911 002e 00BF     		.align	2
+ 912              	.L65:
+ 913 0030 00AFFFFF 		.word	-20736
+ 914              		.cfi_endproc
+ 915              	.LFE14:
+ 917              		.section	.text.mbedtls_md_hmac_starts,"ax",%progbits
+ 918              		.align	1
+ 919              		.global	mbedtls_md_hmac_starts
+ 920              		.syntax unified
+ 921              		.thumb
+ 922              		.thumb_func
+ 923              		.fpu fpv4-sp-d16
+ 925              	mbedtls_md_hmac_starts:
+ 926              	.LFB15:
+ 277:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 278:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #if defined(MBEDTLS_FS_IO)
+ 279:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_file( const mbedtls_md_info_t *md_info, const char *path, unsigned char *output )
+ 280:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 281:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     int ret;
+ 282:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     FILE *f;
+ 283:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     size_t n;
+ 284:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_md_context_t ctx;
+ 285:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     unsigned char buf[1024];
+ 286:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 287:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( md_info == NULL )
+ 288:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 289:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 290:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( f = fopen( path, "rb" ) ) == NULL )
+ 291:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_FILE_IO_ERROR );
+ 292:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 293:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_md_init( &ctx );
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 22
+
+
+ 294:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 295:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = mbedtls_md_setup( &ctx, md_info, 0 ) ) != 0 )
+ 296:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 297:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 298:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = md_info->starts_func( ctx.md_ctx ) ) != 0 )
+ 299:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 300:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 301:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     while( ( n = fread( buf, 1, sizeof( buf ), f ) ) > 0 )
+ 302:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         if( ( ret = md_info->update_func( ctx.md_ctx, buf, n ) ) != 0 )
+ 303:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             goto cleanup;
+ 304:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 305:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ferror( f ) != 0 )
+ 306:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         ret = MBEDTLS_ERR_MD_FILE_IO_ERROR;
+ 307:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     else
+ 308:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         ret = md_info->finish_func( ctx.md_ctx, output );
+ 309:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 310:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** cleanup:
+ 311:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_platform_zeroize( buf, sizeof( buf ) );
+ 312:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     fclose( f );
+ 313:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_md_free( &ctx );
+ 314:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 315:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ret );
+ 316:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 317:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** #endif /* MBEDTLS_FS_IO */
+ 318:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 319:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_hmac_starts( mbedtls_md_context_t *ctx, const unsigned char *key, size_t keylen )
+ 320:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 927              		.loc 1 320 1
+ 928              		.cfi_startproc
+ 929              		@ args = 0, pretend = 0, frame = 64
+ 930              		@ frame_needed = 1, uses_anonymous_args = 0
+ 931 0000 80B5     		push	{r7, lr}
+ 932              	.LCFI60:
+ 933              		.cfi_def_cfa_offset 8
+ 934              		.cfi_offset 7, -8
+ 935              		.cfi_offset 14, -4
+ 936 0002 90B0     		sub	sp, sp, #64
+ 937              	.LCFI61:
+ 938              		.cfi_def_cfa_offset 72
+ 939 0004 00AF     		add	r7, sp, #0
+ 940              	.LCFI62:
+ 941              		.cfi_def_cfa_register 7
+ 942 0006 F860     		str	r0, [r7, #12]
+ 943 0008 B960     		str	r1, [r7, #8]
+ 944 000a 7A60     		str	r2, [r7, #4]
+ 321:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     int ret;
+ 322:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     unsigned char sum[MBEDTLS_MD_MAX_SIZE];
+ 323:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     unsigned char *ipad, *opad;
+ 324:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     size_t i;
+ 325:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 326:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL || ctx->hmac_ctx == NULL )
+ 945              		.loc 1 326 7
+ 946 000c FB68     		ldr	r3, [r7, #12]
+ 947 000e 002B     		cmp	r3, #0
+ 948 0010 07D0     		beq	.L68
+ 949              		.loc 1 326 27 discriminator 1
+ 950 0012 FB68     		ldr	r3, [r7, #12]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 23
+
+
+ 951 0014 1B68     		ldr	r3, [r3]
+ 952              		.loc 1 326 21 discriminator 1
+ 953 0016 002B     		cmp	r3, #0
+ 954 0018 03D0     		beq	.L68
+ 955              		.loc 1 326 51 discriminator 2
+ 956 001a FB68     		ldr	r3, [r7, #12]
+ 957 001c 9B68     		ldr	r3, [r3, #8]
+ 958              		.loc 1 326 45 discriminator 2
+ 959 001e 002B     		cmp	r3, #0
+ 960 0020 01D1     		bne	.L69
+ 961              	.L68:
+ 327:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 962              		.loc 1 327 15
+ 963 0022 4F4B     		ldr	r3, .L84
+ 964 0024 98E0     		b	.L79
+ 965              	.L69:
+ 328:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 329:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( keylen > (size_t) ctx->md_info->block_size )
+ 966              		.loc 1 329 30
+ 967 0026 FB68     		ldr	r3, [r7, #12]
+ 968 0028 1B68     		ldr	r3, [r3]
+ 969              		.loc 1 329 39
+ 970 002a DB68     		ldr	r3, [r3, #12]
+ 971              		.loc 1 329 18
+ 972 002c 1A46     		mov	r2, r3
+ 973              		.loc 1 329 7
+ 974 002e 7B68     		ldr	r3, [r7, #4]
+ 975 0030 9342     		cmp	r3, r2
+ 976 0032 2AD9     		bls	.L71
+ 330:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 331:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         if( ( ret = ctx->md_info->starts_func( ctx->md_ctx ) ) != 0 )
+ 977              		.loc 1 331 24
+ 978 0034 FB68     		ldr	r3, [r7, #12]
+ 979 0036 1B68     		ldr	r3, [r3]
+ 980              		.loc 1 331 33
+ 981 0038 1B69     		ldr	r3, [r3, #16]
+ 982              		.loc 1 331 21
+ 983 003a FA68     		ldr	r2, [r7, #12]
+ 984 003c 5268     		ldr	r2, [r2, #4]
+ 985 003e 1046     		mov	r0, r2
+ 986 0040 9847     		blx	r3
+ 987              	.LVL8:
+ 988 0042 F863     		str	r0, [r7, #60]
+ 989              		.loc 1 331 11
+ 990 0044 FB6B     		ldr	r3, [r7, #60]
+ 991 0046 002B     		cmp	r3, #0
+ 992 0048 78D1     		bne	.L80
+ 332:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             goto cleanup;
+ 333:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         if( ( ret = ctx->md_info->update_func( ctx->md_ctx, key, keylen ) ) != 0 )
+ 993              		.loc 1 333 24
+ 994 004a FB68     		ldr	r3, [r7, #12]
+ 995 004c 1B68     		ldr	r3, [r3]
+ 996              		.loc 1 333 33
+ 997 004e 5B69     		ldr	r3, [r3, #20]
+ 998              		.loc 1 333 21
+ 999 0050 FA68     		ldr	r2, [r7, #12]
+ 1000 0052 5068     		ldr	r0, [r2, #4]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 24
+
+
+ 1001 0054 7A68     		ldr	r2, [r7, #4]
+ 1002 0056 B968     		ldr	r1, [r7, #8]
+ 1003 0058 9847     		blx	r3
+ 1004              	.LVL9:
+ 1005 005a F863     		str	r0, [r7, #60]
+ 1006              		.loc 1 333 11
+ 1007 005c FB6B     		ldr	r3, [r7, #60]
+ 1008 005e 002B     		cmp	r3, #0
+ 1009 0060 6ED1     		bne	.L81
+ 334:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             goto cleanup;
+ 335:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         if( ( ret = ctx->md_info->finish_func( ctx->md_ctx, sum ) ) != 0 )
+ 1010              		.loc 1 335 24
+ 1011 0062 FB68     		ldr	r3, [r7, #12]
+ 1012 0064 1B68     		ldr	r3, [r3]
+ 1013              		.loc 1 335 33
+ 1014 0066 9B69     		ldr	r3, [r3, #24]
+ 1015              		.loc 1 335 21
+ 1016 0068 FA68     		ldr	r2, [r7, #12]
+ 1017 006a 5268     		ldr	r2, [r2, #4]
+ 1018 006c 07F11001 		add	r1, r7, #16
+ 1019 0070 1046     		mov	r0, r2
+ 1020 0072 9847     		blx	r3
+ 1021              	.LVL10:
+ 1022 0074 F863     		str	r0, [r7, #60]
+ 1023              		.loc 1 335 11
+ 1024 0076 FB6B     		ldr	r3, [r7, #60]
+ 1025 0078 002B     		cmp	r3, #0
+ 1026 007a 63D1     		bne	.L82
+ 336:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****             goto cleanup;
+ 337:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 338:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         keylen = ctx->md_info->size;
+ 1027              		.loc 1 338 21
+ 1028 007c FB68     		ldr	r3, [r7, #12]
+ 1029 007e 1B68     		ldr	r3, [r3]
+ 1030              		.loc 1 338 30
+ 1031 0080 9B68     		ldr	r3, [r3, #8]
+ 1032              		.loc 1 338 16
+ 1033 0082 7B60     		str	r3, [r7, #4]
+ 339:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         key = sum;
+ 1034              		.loc 1 339 13
+ 1035 0084 07F11003 		add	r3, r7, #16
+ 1036 0088 BB60     		str	r3, [r7, #8]
+ 1037              	.L71:
+ 340:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     }
+ 341:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 342:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     ipad = (unsigned char *) ctx->hmac_ctx;
+ 1038              		.loc 1 342 10
+ 1039 008a FB68     		ldr	r3, [r7, #12]
+ 1040 008c 9B68     		ldr	r3, [r3, #8]
+ 1041 008e 7B63     		str	r3, [r7, #52]
+ 343:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     opad = (unsigned char *) ctx->hmac_ctx + ctx->md_info->block_size;
+ 1042              		.loc 1 343 33
+ 1043 0090 FB68     		ldr	r3, [r7, #12]
+ 1044 0092 9B68     		ldr	r3, [r3, #8]
+ 1045              		.loc 1 343 49
+ 1046 0094 FA68     		ldr	r2, [r7, #12]
+ 1047 0096 1268     		ldr	r2, [r2]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 25
+
+
+ 1048              		.loc 1 343 58
+ 1049 0098 D268     		ldr	r2, [r2, #12]
+ 1050              		.loc 1 343 10
+ 1051 009a 1344     		add	r3, r3, r2
+ 1052 009c 3B63     		str	r3, [r7, #48]
+ 344:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 345:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     memset( ipad, 0x36, ctx->md_info->block_size );
+ 1053              		.loc 1 345 28
+ 1054 009e FB68     		ldr	r3, [r7, #12]
+ 1055 00a0 1B68     		ldr	r3, [r3]
+ 1056              		.loc 1 345 37
+ 1057 00a2 DB68     		ldr	r3, [r3, #12]
+ 1058              		.loc 1 345 5
+ 1059 00a4 1A46     		mov	r2, r3
+ 1060 00a6 3621     		movs	r1, #54
+ 1061 00a8 786B     		ldr	r0, [r7, #52]
+ 1062 00aa FFF7FEFF 		bl	memset
+ 346:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     memset( opad, 0x5C, ctx->md_info->block_size );
+ 1063              		.loc 1 346 28
+ 1064 00ae FB68     		ldr	r3, [r7, #12]
+ 1065 00b0 1B68     		ldr	r3, [r3]
+ 1066              		.loc 1 346 37
+ 1067 00b2 DB68     		ldr	r3, [r3, #12]
+ 1068              		.loc 1 346 5
+ 1069 00b4 1A46     		mov	r2, r3
+ 1070 00b6 5C21     		movs	r1, #92
+ 1071 00b8 386B     		ldr	r0, [r7, #48]
+ 1072 00ba FFF7FEFF 		bl	memset
+ 347:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 348:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     for( i = 0; i < keylen; i++ )
+ 1073              		.loc 1 348 12
+ 1074 00be 0023     		movs	r3, #0
+ 1075 00c0 BB63     		str	r3, [r7, #56]
+ 1076              		.loc 1 348 5
+ 1077 00c2 1EE0     		b	.L76
+ 1078              	.L77:
+ 349:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 350:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         ipad[i] = (unsigned char)( ipad[i] ^ key[i] );
+ 1079              		.loc 1 350 40 discriminator 3
+ 1080 00c4 7A6B     		ldr	r2, [r7, #52]
+ 1081 00c6 BB6B     		ldr	r3, [r7, #56]
+ 1082 00c8 1344     		add	r3, r3, r2
+ 1083 00ca 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1084              		.loc 1 350 49 discriminator 3
+ 1085 00cc BA68     		ldr	r2, [r7, #8]
+ 1086 00ce BB6B     		ldr	r3, [r7, #56]
+ 1087 00d0 1344     		add	r3, r3, r2
+ 1088 00d2 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1089              		.loc 1 350 13 discriminator 3
+ 1090 00d4 786B     		ldr	r0, [r7, #52]
+ 1091 00d6 BB6B     		ldr	r3, [r7, #56]
+ 1092 00d8 0344     		add	r3, r3, r0
+ 1093              		.loc 1 350 19 discriminator 3
+ 1094 00da 4A40     		eors	r2, r2, r1
+ 1095 00dc D2B2     		uxtb	r2, r2
+ 1096              		.loc 1 350 17 discriminator 3
+ 1097 00de 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 26
+
+
+ 351:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         opad[i] = (unsigned char)( opad[i] ^ key[i] );
+ 1098              		.loc 1 351 40 discriminator 3
+ 1099 00e0 3A6B     		ldr	r2, [r7, #48]
+ 1100 00e2 BB6B     		ldr	r3, [r7, #56]
+ 1101 00e4 1344     		add	r3, r3, r2
+ 1102 00e6 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1103              		.loc 1 351 49 discriminator 3
+ 1104 00e8 BA68     		ldr	r2, [r7, #8]
+ 1105 00ea BB6B     		ldr	r3, [r7, #56]
+ 1106 00ec 1344     		add	r3, r3, r2
+ 1107 00ee 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1108              		.loc 1 351 13 discriminator 3
+ 1109 00f0 386B     		ldr	r0, [r7, #48]
+ 1110 00f2 BB6B     		ldr	r3, [r7, #56]
+ 1111 00f4 0344     		add	r3, r3, r0
+ 1112              		.loc 1 351 19 discriminator 3
+ 1113 00f6 4A40     		eors	r2, r2, r1
+ 1114 00f8 D2B2     		uxtb	r2, r2
+ 1115              		.loc 1 351 17 discriminator 3
+ 1116 00fa 1A70     		strb	r2, [r3]
+ 348:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 1117              		.loc 1 348 30 discriminator 3
+ 1118 00fc BB6B     		ldr	r3, [r7, #56]
+ 1119 00fe 0133     		adds	r3, r3, #1
+ 1120 0100 BB63     		str	r3, [r7, #56]
+ 1121              	.L76:
+ 348:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     {
+ 1122              		.loc 1 348 5 discriminator 1
+ 1123 0102 BA6B     		ldr	r2, [r7, #56]
+ 1124 0104 7B68     		ldr	r3, [r7, #4]
+ 1125 0106 9A42     		cmp	r2, r3
+ 1126 0108 DCD3     		bcc	.L77
+ 352:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     }
+ 353:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 354:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->starts_func( ctx->md_ctx ) ) != 0 )
+ 1127              		.loc 1 354 20
+ 1128 010a FB68     		ldr	r3, [r7, #12]
+ 1129 010c 1B68     		ldr	r3, [r3]
+ 1130              		.loc 1 354 29
+ 1131 010e 1B69     		ldr	r3, [r3, #16]
+ 1132              		.loc 1 354 17
+ 1133 0110 FA68     		ldr	r2, [r7, #12]
+ 1134 0112 5268     		ldr	r2, [r2, #4]
+ 1135 0114 1046     		mov	r0, r2
+ 1136 0116 9847     		blx	r3
+ 1137              	.LVL11:
+ 1138 0118 F863     		str	r0, [r7, #60]
+ 1139              		.loc 1 354 7
+ 1140 011a FB6B     		ldr	r3, [r7, #60]
+ 1141 011c 002B     		cmp	r3, #0
+ 1142 011e 13D1     		bne	.L83
+ 355:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 356:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, ipad,
+ 1143              		.loc 1 356 20
+ 1144 0120 FB68     		ldr	r3, [r7, #12]
+ 1145 0122 1B68     		ldr	r3, [r3]
+ 1146              		.loc 1 356 29
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 27
+
+
+ 1147 0124 5B69     		ldr	r3, [r3, #20]
+ 1148              		.loc 1 356 17
+ 1149 0126 FA68     		ldr	r2, [r7, #12]
+ 1150 0128 5068     		ldr	r0, [r2, #4]
+ 357:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                            ctx->md_info->block_size ) ) != 0 )
+ 1151              		.loc 1 357 47
+ 1152 012a FA68     		ldr	r2, [r7, #12]
+ 1153 012c 1268     		ldr	r2, [r2]
+ 1154              		.loc 1 357 56
+ 1155 012e D268     		ldr	r2, [r2, #12]
+ 356:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                            ctx->md_info->block_size ) ) != 0 )
+ 1156              		.loc 1 356 17
+ 1157 0130 796B     		ldr	r1, [r7, #52]
+ 1158 0132 9847     		blx	r3
+ 1159              	.LVL12:
+ 1160 0134 F863     		str	r0, [r7, #60]
+ 356:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                            ctx->md_info->block_size ) ) != 0 )
+ 1161              		.loc 1 356 7
+ 1162 0136 FB6B     		ldr	r3, [r7, #60]
+ 1163 0138 002B     		cmp	r3, #0
+ 358:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 359:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 360:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** cleanup:
+ 1164              		.loc 1 360 1
+ 1165 013a 06E0     		b	.L73
+ 1166              	.L80:
+ 332:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         if( ( ret = ctx->md_info->update_func( ctx->md_ctx, key, keylen ) ) != 0 )
+ 1167              		.loc 1 332 13
+ 1168 013c 00BF     		nop
+ 1169 013e 04E0     		b	.L73
+ 1170              	.L81:
+ 334:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         if( ( ret = ctx->md_info->finish_func( ctx->md_ctx, sum ) ) != 0 )
+ 1171              		.loc 1 334 13
+ 1172 0140 00BF     		nop
+ 1173 0142 02E0     		b	.L73
+ 1174              	.L82:
+ 336:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 1175              		.loc 1 336 13
+ 1176 0144 00BF     		nop
+ 1177 0146 00E0     		b	.L73
+ 1178              	.L83:
+ 355:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, ipad,
+ 1179              		.loc 1 355 9
+ 1180 0148 00BF     		nop
+ 1181              	.L73:
+ 361:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_platform_zeroize( sum, sizeof( sum ) );
+ 1182              		.loc 1 361 5
+ 1183 014a 07F11003 		add	r3, r7, #16
+ 1184 014e 2021     		movs	r1, #32
+ 1185 0150 1846     		mov	r0, r3
+ 1186 0152 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 362:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 363:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ret );
+ 1187              		.loc 1 363 11
+ 1188 0156 FB6B     		ldr	r3, [r7, #60]
+ 1189              	.L79:
+ 364:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 28
+
+
+ 1190              		.loc 1 364 1 discriminator 1
+ 1191 0158 1846     		mov	r0, r3
+ 1192 015a 4037     		adds	r7, r7, #64
+ 1193              	.LCFI63:
+ 1194              		.cfi_def_cfa_offset 8
+ 1195 015c BD46     		mov	sp, r7
+ 1196              	.LCFI64:
+ 1197              		.cfi_def_cfa_register 13
+ 1198              		@ sp needed
+ 1199 015e 80BD     		pop	{r7, pc}
+ 1200              	.L85:
+ 1201              		.align	2
+ 1202              	.L84:
+ 1203 0160 00AFFFFF 		.word	-20736
+ 1204              		.cfi_endproc
+ 1205              	.LFE15:
+ 1207              		.section	.text.mbedtls_md_hmac_update,"ax",%progbits
+ 1208              		.align	1
+ 1209              		.global	mbedtls_md_hmac_update
+ 1210              		.syntax unified
+ 1211              		.thumb
+ 1212              		.thumb_func
+ 1213              		.fpu fpv4-sp-d16
+ 1215              	mbedtls_md_hmac_update:
+ 1216              	.LFB16:
+ 365:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 366:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_hmac_update( mbedtls_md_context_t *ctx, const unsigned char *input, size_t ilen )
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 1217              		.loc 1 367 1
+ 1218              		.cfi_startproc
+ 1219              		@ args = 0, pretend = 0, frame = 16
+ 1220              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1221 0000 80B5     		push	{r7, lr}
+ 1222              	.LCFI65:
+ 1223              		.cfi_def_cfa_offset 8
+ 1224              		.cfi_offset 7, -8
+ 1225              		.cfi_offset 14, -4
+ 1226 0002 84B0     		sub	sp, sp, #16
+ 1227              	.LCFI66:
+ 1228              		.cfi_def_cfa_offset 24
+ 1229 0004 00AF     		add	r7, sp, #0
+ 1230              	.LCFI67:
+ 1231              		.cfi_def_cfa_register 7
+ 1232 0006 F860     		str	r0, [r7, #12]
+ 1233 0008 B960     		str	r1, [r7, #8]
+ 1234 000a 7A60     		str	r2, [r7, #4]
+ 368:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL || ctx->hmac_ctx == NULL )
+ 1235              		.loc 1 368 7
+ 1236 000c FB68     		ldr	r3, [r7, #12]
+ 1237 000e 002B     		cmp	r3, #0
+ 1238 0010 07D0     		beq	.L87
+ 1239              		.loc 1 368 27 discriminator 1
+ 1240 0012 FB68     		ldr	r3, [r7, #12]
+ 1241 0014 1B68     		ldr	r3, [r3]
+ 1242              		.loc 1 368 21 discriminator 1
+ 1243 0016 002B     		cmp	r3, #0
+ 1244 0018 03D0     		beq	.L87
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 29
+
+
+ 1245              		.loc 1 368 51 discriminator 2
+ 1246 001a FB68     		ldr	r3, [r7, #12]
+ 1247 001c 9B68     		ldr	r3, [r3, #8]
+ 1248              		.loc 1 368 45 discriminator 2
+ 1249 001e 002B     		cmp	r3, #0
+ 1250 0020 01D1     		bne	.L88
+ 1251              	.L87:
+ 369:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 1252              		.loc 1 369 15
+ 1253 0022 074B     		ldr	r3, .L90
+ 1254 0024 08E0     		b	.L89
+ 1255              	.L88:
+ 370:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 371:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->update_func( ctx->md_ctx, input, ilen ) );
+ 1256              		.loc 1 371 16
+ 1257 0026 FB68     		ldr	r3, [r7, #12]
+ 1258 0028 1B68     		ldr	r3, [r3]
+ 1259              		.loc 1 371 25
+ 1260 002a 5B69     		ldr	r3, [r3, #20]
+ 1261              		.loc 1 371 13
+ 1262 002c FA68     		ldr	r2, [r7, #12]
+ 1263 002e 5068     		ldr	r0, [r2, #4]
+ 1264 0030 7A68     		ldr	r2, [r7, #4]
+ 1265 0032 B968     		ldr	r1, [r7, #8]
+ 1266 0034 9847     		blx	r3
+ 1267              	.LVL13:
+ 1268 0036 0346     		mov	r3, r0
+ 1269              	.L89:
+ 372:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1270              		.loc 1 372 1
+ 1271 0038 1846     		mov	r0, r3
+ 1272 003a 1037     		adds	r7, r7, #16
+ 1273              	.LCFI68:
+ 1274              		.cfi_def_cfa_offset 8
+ 1275 003c BD46     		mov	sp, r7
+ 1276              	.LCFI69:
+ 1277              		.cfi_def_cfa_register 13
+ 1278              		@ sp needed
+ 1279 003e 80BD     		pop	{r7, pc}
+ 1280              	.L91:
+ 1281              		.align	2
+ 1282              	.L90:
+ 1283 0040 00AFFFFF 		.word	-20736
+ 1284              		.cfi_endproc
+ 1285              	.LFE16:
+ 1287              		.section	.text.mbedtls_md_hmac_finish,"ax",%progbits
+ 1288              		.align	1
+ 1289              		.global	mbedtls_md_hmac_finish
+ 1290              		.syntax unified
+ 1291              		.thumb
+ 1292              		.thumb_func
+ 1293              		.fpu fpv4-sp-d16
+ 1295              	mbedtls_md_hmac_finish:
+ 1296              	.LFB17:
+ 373:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 374:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_hmac_finish( mbedtls_md_context_t *ctx, unsigned char *output )
+ 375:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 30
+
+
+ 1297              		.loc 1 375 1
+ 1298              		.cfi_startproc
+ 1299              		@ args = 0, pretend = 0, frame = 48
+ 1300              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1301 0000 80B5     		push	{r7, lr}
+ 1302              	.LCFI70:
+ 1303              		.cfi_def_cfa_offset 8
+ 1304              		.cfi_offset 7, -8
+ 1305              		.cfi_offset 14, -4
+ 1306 0002 8CB0     		sub	sp, sp, #48
+ 1307              	.LCFI71:
+ 1308              		.cfi_def_cfa_offset 56
+ 1309 0004 00AF     		add	r7, sp, #0
+ 1310              	.LCFI72:
+ 1311              		.cfi_def_cfa_register 7
+ 1312 0006 7860     		str	r0, [r7, #4]
+ 1313 0008 3960     		str	r1, [r7]
+ 376:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     int ret;
+ 377:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     unsigned char tmp[MBEDTLS_MD_MAX_SIZE];
+ 378:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     unsigned char *opad;
+ 379:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 380:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL || ctx->hmac_ctx == NULL )
+ 1314              		.loc 1 380 7
+ 1315 000a 7B68     		ldr	r3, [r7, #4]
+ 1316 000c 002B     		cmp	r3, #0
+ 1317 000e 07D0     		beq	.L93
+ 1318              		.loc 1 380 27 discriminator 1
+ 1319 0010 7B68     		ldr	r3, [r7, #4]
+ 1320 0012 1B68     		ldr	r3, [r3]
+ 1321              		.loc 1 380 21 discriminator 1
+ 1322 0014 002B     		cmp	r3, #0
+ 1323 0016 03D0     		beq	.L93
+ 1324              		.loc 1 380 51 discriminator 2
+ 1325 0018 7B68     		ldr	r3, [r7, #4]
+ 1326 001a 9B68     		ldr	r3, [r3, #8]
+ 1327              		.loc 1 380 45 discriminator 2
+ 1328 001c 002B     		cmp	r3, #0
+ 1329 001e 01D1     		bne	.L94
+ 1330              	.L93:
+ 381:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 1331              		.loc 1 381 15
+ 1332 0020 294B     		ldr	r3, .L101
+ 1333 0022 4CE0     		b	.L100
+ 1334              	.L94:
+ 382:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 383:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     opad = (unsigned char *) ctx->hmac_ctx + ctx->md_info->block_size;
+ 1335              		.loc 1 383 33
+ 1336 0024 7B68     		ldr	r3, [r7, #4]
+ 1337 0026 9B68     		ldr	r3, [r3, #8]
+ 1338              		.loc 1 383 49
+ 1339 0028 7A68     		ldr	r2, [r7, #4]
+ 1340 002a 1268     		ldr	r2, [r2]
+ 1341              		.loc 1 383 58
+ 1342 002c D268     		ldr	r2, [r2, #12]
+ 1343              		.loc 1 383 10
+ 1344 002e 1344     		add	r3, r3, r2
+ 1345 0030 FB62     		str	r3, [r7, #44]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 31
+
+
+ 384:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 385:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->finish_func( ctx->md_ctx, tmp ) ) != 0 )
+ 1346              		.loc 1 385 20
+ 1347 0032 7B68     		ldr	r3, [r7, #4]
+ 1348 0034 1B68     		ldr	r3, [r3]
+ 1349              		.loc 1 385 29
+ 1350 0036 9B69     		ldr	r3, [r3, #24]
+ 1351              		.loc 1 385 17
+ 1352 0038 7A68     		ldr	r2, [r7, #4]
+ 1353 003a 5268     		ldr	r2, [r2, #4]
+ 1354 003c 07F10801 		add	r1, r7, #8
+ 1355 0040 1046     		mov	r0, r2
+ 1356 0042 9847     		blx	r3
+ 1357              	.LVL14:
+ 1358 0044 B862     		str	r0, [r7, #40]
+ 1359              		.loc 1 385 7
+ 1360 0046 BB6A     		ldr	r3, [r7, #40]
+ 1361 0048 002B     		cmp	r3, #0
+ 1362 004a 01D0     		beq	.L96
+ 386:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( ret );
+ 1363              		.loc 1 386 15
+ 1364 004c BB6A     		ldr	r3, [r7, #40]
+ 1365 004e 36E0     		b	.L100
+ 1366              	.L96:
+ 387:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->starts_func( ctx->md_ctx ) ) != 0 )
+ 1367              		.loc 1 387 20
+ 1368 0050 7B68     		ldr	r3, [r7, #4]
+ 1369 0052 1B68     		ldr	r3, [r3]
+ 1370              		.loc 1 387 29
+ 1371 0054 1B69     		ldr	r3, [r3, #16]
+ 1372              		.loc 1 387 17
+ 1373 0056 7A68     		ldr	r2, [r7, #4]
+ 1374 0058 5268     		ldr	r2, [r2, #4]
+ 1375 005a 1046     		mov	r0, r2
+ 1376 005c 9847     		blx	r3
+ 1377              	.LVL15:
+ 1378 005e B862     		str	r0, [r7, #40]
+ 1379              		.loc 1 387 7
+ 1380 0060 BB6A     		ldr	r3, [r7, #40]
+ 1381 0062 002B     		cmp	r3, #0
+ 1382 0064 01D0     		beq	.L97
+ 388:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( ret );
+ 1383              		.loc 1 388 15
+ 1384 0066 BB6A     		ldr	r3, [r7, #40]
+ 1385 0068 29E0     		b	.L100
+ 1386              	.L97:
+ 389:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, opad,
+ 1387              		.loc 1 389 20
+ 1388 006a 7B68     		ldr	r3, [r7, #4]
+ 1389 006c 1B68     		ldr	r3, [r3]
+ 1390              		.loc 1 389 29
+ 1391 006e 5B69     		ldr	r3, [r3, #20]
+ 1392              		.loc 1 389 17
+ 1393 0070 7A68     		ldr	r2, [r7, #4]
+ 1394 0072 5068     		ldr	r0, [r2, #4]
+ 390:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                            ctx->md_info->block_size ) ) != 0 )
+ 1395              		.loc 1 390 47
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 32
+
+
+ 1396 0074 7A68     		ldr	r2, [r7, #4]
+ 1397 0076 1268     		ldr	r2, [r2]
+ 1398              		.loc 1 390 56
+ 1399 0078 D268     		ldr	r2, [r2, #12]
+ 389:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, opad,
+ 1400              		.loc 1 389 17
+ 1401 007a F96A     		ldr	r1, [r7, #44]
+ 1402 007c 9847     		blx	r3
+ 1403              	.LVL16:
+ 1404 007e B862     		str	r0, [r7, #40]
+ 389:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, opad,
+ 1405              		.loc 1 389 7
+ 1406 0080 BB6A     		ldr	r3, [r7, #40]
+ 1407 0082 002B     		cmp	r3, #0
+ 1408 0084 01D0     		beq	.L98
+ 391:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( ret );
+ 1409              		.loc 1 391 15
+ 1410 0086 BB6A     		ldr	r3, [r7, #40]
+ 1411 0088 19E0     		b	.L100
+ 1412              	.L98:
+ 392:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, tmp,
+ 1413              		.loc 1 392 20
+ 1414 008a 7B68     		ldr	r3, [r7, #4]
+ 1415 008c 1B68     		ldr	r3, [r3]
+ 1416              		.loc 1 392 29
+ 1417 008e 5B69     		ldr	r3, [r3, #20]
+ 1418              		.loc 1 392 17
+ 1419 0090 7A68     		ldr	r2, [r7, #4]
+ 1420 0092 5068     		ldr	r0, [r2, #4]
+ 393:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                            ctx->md_info->size ) ) != 0 )
+ 1421              		.loc 1 393 47
+ 1422 0094 7A68     		ldr	r2, [r7, #4]
+ 1423 0096 1268     		ldr	r2, [r2]
+ 1424              		.loc 1 393 56
+ 1425 0098 9268     		ldr	r2, [r2, #8]
+ 392:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, tmp,
+ 1426              		.loc 1 392 17
+ 1427 009a 07F10801 		add	r1, r7, #8
+ 1428 009e 9847     		blx	r3
+ 1429              	.LVL17:
+ 1430 00a0 B862     		str	r0, [r7, #40]
+ 392:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->update_func( ctx->md_ctx, tmp,
+ 1431              		.loc 1 392 7
+ 1432 00a2 BB6A     		ldr	r3, [r7, #40]
+ 1433 00a4 002B     		cmp	r3, #0
+ 1434 00a6 01D0     		beq	.L99
+ 394:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( ret );
+ 1435              		.loc 1 394 15
+ 1436 00a8 BB6A     		ldr	r3, [r7, #40]
+ 1437 00aa 08E0     		b	.L100
+ 1438              	.L99:
+ 395:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->finish_func( ctx->md_ctx, output ) );
+ 1439              		.loc 1 395 16
+ 1440 00ac 7B68     		ldr	r3, [r7, #4]
+ 1441 00ae 1B68     		ldr	r3, [r3]
+ 1442              		.loc 1 395 25
+ 1443 00b0 9B69     		ldr	r3, [r3, #24]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 33
+
+
+ 1444              		.loc 1 395 13
+ 1445 00b2 7A68     		ldr	r2, [r7, #4]
+ 1446 00b4 5268     		ldr	r2, [r2, #4]
+ 1447 00b6 3968     		ldr	r1, [r7]
+ 1448 00b8 1046     		mov	r0, r2
+ 1449 00ba 9847     		blx	r3
+ 1450              	.LVL18:
+ 1451 00bc 0346     		mov	r3, r0
+ 1452              	.L100:
+ 396:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1453              		.loc 1 396 1 discriminator 1
+ 1454 00be 1846     		mov	r0, r3
+ 1455 00c0 3037     		adds	r7, r7, #48
+ 1456              	.LCFI73:
+ 1457              		.cfi_def_cfa_offset 8
+ 1458 00c2 BD46     		mov	sp, r7
+ 1459              	.LCFI74:
+ 1460              		.cfi_def_cfa_register 13
+ 1461              		@ sp needed
+ 1462 00c4 80BD     		pop	{r7, pc}
+ 1463              	.L102:
+ 1464 00c6 00BF     		.align	2
+ 1465              	.L101:
+ 1466 00c8 00AFFFFF 		.word	-20736
+ 1467              		.cfi_endproc
+ 1468              	.LFE17:
+ 1470              		.section	.text.mbedtls_md_hmac_reset,"ax",%progbits
+ 1471              		.align	1
+ 1472              		.global	mbedtls_md_hmac_reset
+ 1473              		.syntax unified
+ 1474              		.thumb
+ 1475              		.thumb_func
+ 1476              		.fpu fpv4-sp-d16
+ 1478              	mbedtls_md_hmac_reset:
+ 1479              	.LFB18:
+ 397:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 398:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_hmac_reset( mbedtls_md_context_t *ctx )
+ 399:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 1480              		.loc 1 399 1
+ 1481              		.cfi_startproc
+ 1482              		@ args = 0, pretend = 0, frame = 16
+ 1483              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1484 0000 80B5     		push	{r7, lr}
+ 1485              	.LCFI75:
+ 1486              		.cfi_def_cfa_offset 8
+ 1487              		.cfi_offset 7, -8
+ 1488              		.cfi_offset 14, -4
+ 1489 0002 84B0     		sub	sp, sp, #16
+ 1490              	.LCFI76:
+ 1491              		.cfi_def_cfa_offset 24
+ 1492 0004 00AF     		add	r7, sp, #0
+ 1493              	.LCFI77:
+ 1494              		.cfi_def_cfa_register 7
+ 1495 0006 7860     		str	r0, [r7, #4]
+ 400:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     int ret;
+ 401:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     unsigned char *ipad;
+ 402:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 34
+
+
+ 403:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL || ctx->hmac_ctx == NULL )
+ 1496              		.loc 1 403 7
+ 1497 0008 7B68     		ldr	r3, [r7, #4]
+ 1498 000a 002B     		cmp	r3, #0
+ 1499 000c 07D0     		beq	.L104
+ 1500              		.loc 1 403 27 discriminator 1
+ 1501 000e 7B68     		ldr	r3, [r7, #4]
+ 1502 0010 1B68     		ldr	r3, [r3]
+ 1503              		.loc 1 403 21 discriminator 1
+ 1504 0012 002B     		cmp	r3, #0
+ 1505 0014 03D0     		beq	.L104
+ 1506              		.loc 1 403 51 discriminator 2
+ 1507 0016 7B68     		ldr	r3, [r7, #4]
+ 1508 0018 9B68     		ldr	r3, [r3, #8]
+ 1509              		.loc 1 403 45 discriminator 2
+ 1510 001a 002B     		cmp	r3, #0
+ 1511 001c 01D1     		bne	.L105
+ 1512              	.L104:
+ 404:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 1513              		.loc 1 404 15
+ 1514 001e 104B     		ldr	r3, .L108
+ 1515 0020 1AE0     		b	.L106
+ 1516              	.L105:
+ 405:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 406:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     ipad = (unsigned char *) ctx->hmac_ctx;
+ 1517              		.loc 1 406 10
+ 1518 0022 7B68     		ldr	r3, [r7, #4]
+ 1519 0024 9B68     		ldr	r3, [r3, #8]
+ 1520 0026 FB60     		str	r3, [r7, #12]
+ 407:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 408:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = ctx->md_info->starts_func( ctx->md_ctx ) ) != 0 )
+ 1521              		.loc 1 408 20
+ 1522 0028 7B68     		ldr	r3, [r7, #4]
+ 1523 002a 1B68     		ldr	r3, [r3]
+ 1524              		.loc 1 408 29
+ 1525 002c 1B69     		ldr	r3, [r3, #16]
+ 1526              		.loc 1 408 17
+ 1527 002e 7A68     		ldr	r2, [r7, #4]
+ 1528 0030 5268     		ldr	r2, [r2, #4]
+ 1529 0032 1046     		mov	r0, r2
+ 1530 0034 9847     		blx	r3
+ 1531              	.LVL19:
+ 1532 0036 B860     		str	r0, [r7, #8]
+ 1533              		.loc 1 408 7
+ 1534 0038 BB68     		ldr	r3, [r7, #8]
+ 1535 003a 002B     		cmp	r3, #0
+ 1536 003c 01D0     		beq	.L107
+ 409:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( ret );
+ 1537              		.loc 1 409 15
+ 1538 003e BB68     		ldr	r3, [r7, #8]
+ 1539 0040 0AE0     		b	.L106
+ 1540              	.L107:
+ 410:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->update_func( ctx->md_ctx, ipad,
+ 1541              		.loc 1 410 16
+ 1542 0042 7B68     		ldr	r3, [r7, #4]
+ 1543 0044 1B68     		ldr	r3, [r3]
+ 1544              		.loc 1 410 25
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 35
+
+
+ 1545 0046 5B69     		ldr	r3, [r3, #20]
+ 1546              		.loc 1 410 13
+ 1547 0048 7A68     		ldr	r2, [r7, #4]
+ 1548 004a 5068     		ldr	r0, [r2, #4]
+ 411:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                                        ctx->md_info->block_size ) );
+ 1549              		.loc 1 411 43
+ 1550 004c 7A68     		ldr	r2, [r7, #4]
+ 1551 004e 1268     		ldr	r2, [r2]
+ 1552              		.loc 1 411 52
+ 1553 0050 D268     		ldr	r2, [r2, #12]
+ 410:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->update_func( ctx->md_ctx, ipad,
+ 1554              		.loc 1 410 13
+ 1555 0052 F968     		ldr	r1, [r7, #12]
+ 1556 0054 9847     		blx	r3
+ 1557              	.LVL20:
+ 1558 0056 0346     		mov	r3, r0
+ 1559              	.L106:
+ 412:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1560              		.loc 1 412 1
+ 1561 0058 1846     		mov	r0, r3
+ 1562 005a 1037     		adds	r7, r7, #16
+ 1563              	.LCFI78:
+ 1564              		.cfi_def_cfa_offset 8
+ 1565 005c BD46     		mov	sp, r7
+ 1566              	.LCFI79:
+ 1567              		.cfi_def_cfa_register 13
+ 1568              		@ sp needed
+ 1569 005e 80BD     		pop	{r7, pc}
+ 1570              	.L109:
+ 1571              		.align	2
+ 1572              	.L108:
+ 1573 0060 00AFFFFF 		.word	-20736
+ 1574              		.cfi_endproc
+ 1575              	.LFE18:
+ 1577              		.section	.text.mbedtls_md_hmac,"ax",%progbits
+ 1578              		.align	1
+ 1579              		.global	mbedtls_md_hmac
+ 1580              		.syntax unified
+ 1581              		.thumb
+ 1582              		.thumb_func
+ 1583              		.fpu fpv4-sp-d16
+ 1585              	mbedtls_md_hmac:
+ 1586              	.LFB19:
+ 413:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 414:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_hmac( const mbedtls_md_info_t *md_info,
+ 415:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                      const unsigned char *key, size_t keylen,
+ 416:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                      const unsigned char *input, size_t ilen,
+ 417:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****                      unsigned char *output )
+ 418:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 1587              		.loc 1 418 1
+ 1588              		.cfi_startproc
+ 1589              		@ args = 8, pretend = 0, frame = 32
+ 1590              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1591 0000 80B5     		push	{r7, lr}
+ 1592              	.LCFI80:
+ 1593              		.cfi_def_cfa_offset 8
+ 1594              		.cfi_offset 7, -8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 36
+
+
+ 1595              		.cfi_offset 14, -4
+ 1596 0002 88B0     		sub	sp, sp, #32
+ 1597              	.LCFI81:
+ 1598              		.cfi_def_cfa_offset 40
+ 1599 0004 00AF     		add	r7, sp, #0
+ 1600              	.LCFI82:
+ 1601              		.cfi_def_cfa_register 7
+ 1602 0006 F860     		str	r0, [r7, #12]
+ 1603 0008 B960     		str	r1, [r7, #8]
+ 1604 000a 7A60     		str	r2, [r7, #4]
+ 1605 000c 3B60     		str	r3, [r7]
+ 419:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_md_context_t ctx;
+ 420:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     int ret;
+ 421:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 422:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( md_info == NULL )
+ 1606              		.loc 1 422 7
+ 1607 000e FB68     		ldr	r3, [r7, #12]
+ 1608 0010 002B     		cmp	r3, #0
+ 1609 0012 01D1     		bne	.L111
+ 423:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 1610              		.loc 1 423 15
+ 1611 0014 204B     		ldr	r3, .L121
+ 1612 0016 3AE0     		b	.L117
+ 1613              	.L111:
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 425:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_md_init( &ctx );
+ 1614              		.loc 1 425 5
+ 1615 0018 07F11003 		add	r3, r7, #16
+ 1616 001c 1846     		mov	r0, r3
+ 1617 001e FFF7FEFF 		bl	mbedtls_md_init
+ 426:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 427:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = mbedtls_md_setup( &ctx, md_info, 1 ) ) != 0 )
+ 1618              		.loc 1 427 17
+ 1619 0022 07F11003 		add	r3, r7, #16
+ 1620 0026 0122     		movs	r2, #1
+ 1621 0028 F968     		ldr	r1, [r7, #12]
+ 1622 002a 1846     		mov	r0, r3
+ 1623 002c FFF7FEFF 		bl	mbedtls_md_setup
+ 1624 0030 F861     		str	r0, [r7, #28]
+ 1625              		.loc 1 427 7
+ 1626 0032 FB69     		ldr	r3, [r7, #28]
+ 1627 0034 002B     		cmp	r3, #0
+ 1628 0036 1FD1     		bne	.L118
+ 428:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 429:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 430:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = mbedtls_md_hmac_starts( &ctx, key, keylen ) ) != 0 )
+ 1629              		.loc 1 430 17
+ 1630 0038 07F11003 		add	r3, r7, #16
+ 1631 003c 7A68     		ldr	r2, [r7, #4]
+ 1632 003e B968     		ldr	r1, [r7, #8]
+ 1633 0040 1846     		mov	r0, r3
+ 1634 0042 FFF7FEFF 		bl	mbedtls_md_hmac_starts
+ 1635 0046 F861     		str	r0, [r7, #28]
+ 1636              		.loc 1 430 7
+ 1637 0048 FB69     		ldr	r3, [r7, #28]
+ 1638 004a 002B     		cmp	r3, #0
+ 1639 004c 16D1     		bne	.L119
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 37
+
+
+ 431:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 432:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = mbedtls_md_hmac_update( &ctx, input, ilen ) ) != 0 )
+ 1640              		.loc 1 432 17
+ 1641 004e 07F11003 		add	r3, r7, #16
+ 1642 0052 BA6A     		ldr	r2, [r7, #40]
+ 1643 0054 3968     		ldr	r1, [r7]
+ 1644 0056 1846     		mov	r0, r3
+ 1645 0058 FFF7FEFF 		bl	mbedtls_md_hmac_update
+ 1646 005c F861     		str	r0, [r7, #28]
+ 1647              		.loc 1 432 7
+ 1648 005e FB69     		ldr	r3, [r7, #28]
+ 1649 0060 002B     		cmp	r3, #0
+ 1650 0062 0DD1     		bne	.L120
+ 433:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 434:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = mbedtls_md_hmac_finish( &ctx, output ) ) != 0 )
+ 1651              		.loc 1 434 17
+ 1652 0064 07F11003 		add	r3, r7, #16
+ 1653 0068 F96A     		ldr	r1, [r7, #44]
+ 1654 006a 1846     		mov	r0, r3
+ 1655 006c FFF7FEFF 		bl	mbedtls_md_hmac_finish
+ 1656 0070 F861     		str	r0, [r7, #28]
+ 1657              		.loc 1 434 7
+ 1658 0072 FB69     		ldr	r3, [r7, #28]
+ 1659 0074 002B     		cmp	r3, #0
+ 435:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         goto cleanup;
+ 436:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 437:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** cleanup:
+ 1660              		.loc 1 437 1
+ 1661 0076 04E0     		b	.L114
+ 1662              	.L118:
+ 428:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 1663              		.loc 1 428 9
+ 1664 0078 00BF     		nop
+ 1665 007a 02E0     		b	.L114
+ 1666              	.L119:
+ 431:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = mbedtls_md_hmac_update( &ctx, input, ilen ) ) != 0 )
+ 1667              		.loc 1 431 9
+ 1668 007c 00BF     		nop
+ 1669 007e 00E0     		b	.L114
+ 1670              	.L120:
+ 433:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ( ret = mbedtls_md_hmac_finish( &ctx, output ) ) != 0 )
+ 1671              		.loc 1 433 9
+ 1672 0080 00BF     		nop
+ 1673              	.L114:
+ 438:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     mbedtls_md_free( &ctx );
+ 1674              		.loc 1 438 5
+ 1675 0082 07F11003 		add	r3, r7, #16
+ 1676 0086 1846     		mov	r0, r3
+ 1677 0088 FFF7FEFF 		bl	mbedtls_md_free
+ 439:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 440:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ret );
+ 1678              		.loc 1 440 11
+ 1679 008c FB69     		ldr	r3, [r7, #28]
+ 1680              	.L117:
+ 441:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1681              		.loc 1 441 1 discriminator 1
+ 1682 008e 1846     		mov	r0, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 38
+
+
+ 1683 0090 2037     		adds	r7, r7, #32
+ 1684              	.LCFI83:
+ 1685              		.cfi_def_cfa_offset 8
+ 1686 0092 BD46     		mov	sp, r7
+ 1687              	.LCFI84:
+ 1688              		.cfi_def_cfa_register 13
+ 1689              		@ sp needed
+ 1690 0094 80BD     		pop	{r7, pc}
+ 1691              	.L122:
+ 1692 0096 00BF     		.align	2
+ 1693              	.L121:
+ 1694 0098 00AFFFFF 		.word	-20736
+ 1695              		.cfi_endproc
+ 1696              	.LFE19:
+ 1698              		.section	.text.mbedtls_md_process,"ax",%progbits
+ 1699              		.align	1
+ 1700              		.global	mbedtls_md_process
+ 1701              		.syntax unified
+ 1702              		.thumb
+ 1703              		.thumb_func
+ 1704              		.fpu fpv4-sp-d16
+ 1706              	mbedtls_md_process:
+ 1707              	.LFB20:
+ 442:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 443:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** int mbedtls_md_process( mbedtls_md_context_t *ctx, const unsigned char *data )
+ 444:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 1708              		.loc 1 444 1
+ 1709              		.cfi_startproc
+ 1710              		@ args = 0, pretend = 0, frame = 8
+ 1711              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1712 0000 80B5     		push	{r7, lr}
+ 1713              	.LCFI85:
+ 1714              		.cfi_def_cfa_offset 8
+ 1715              		.cfi_offset 7, -8
+ 1716              		.cfi_offset 14, -4
+ 1717 0002 82B0     		sub	sp, sp, #8
+ 1718              	.LCFI86:
+ 1719              		.cfi_def_cfa_offset 16
+ 1720 0004 00AF     		add	r7, sp, #0
+ 1721              	.LCFI87:
+ 1722              		.cfi_def_cfa_register 7
+ 1723 0006 7860     		str	r0, [r7, #4]
+ 1724 0008 3960     		str	r1, [r7]
+ 445:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( ctx == NULL || ctx->md_info == NULL )
+ 1725              		.loc 1 445 7
+ 1726 000a 7B68     		ldr	r3, [r7, #4]
+ 1727 000c 002B     		cmp	r3, #0
+ 1728 000e 03D0     		beq	.L124
+ 1729              		.loc 1 445 27 discriminator 1
+ 1730 0010 7B68     		ldr	r3, [r7, #4]
+ 1731 0012 1B68     		ldr	r3, [r3]
+ 1732              		.loc 1 445 21 discriminator 1
+ 1733 0014 002B     		cmp	r3, #0
+ 1734 0016 01D1     		bne	.L125
+ 1735              	.L124:
+ 446:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_ERR_MD_BAD_INPUT_DATA );
+ 1736              		.loc 1 446 15
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 39
+
+
+ 1737 0018 074B     		ldr	r3, .L127
+ 1738 001a 08E0     		b	.L126
+ 1739              	.L125:
+ 447:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 448:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return( ctx->md_info->process_func( ctx->md_ctx, data ) );
+ 1740              		.loc 1 448 16
+ 1741 001c 7B68     		ldr	r3, [r7, #4]
+ 1742 001e 1B68     		ldr	r3, [r3]
+ 1743              		.loc 1 448 25
+ 1744 0020 DB6A     		ldr	r3, [r3, #44]
+ 1745              		.loc 1 448 13
+ 1746 0022 7A68     		ldr	r2, [r7, #4]
+ 1747 0024 5268     		ldr	r2, [r2, #4]
+ 1748 0026 3968     		ldr	r1, [r7]
+ 1749 0028 1046     		mov	r0, r2
+ 1750 002a 9847     		blx	r3
+ 1751              	.LVL21:
+ 1752 002c 0346     		mov	r3, r0
+ 1753              	.L126:
+ 449:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1754              		.loc 1 449 1
+ 1755 002e 1846     		mov	r0, r3
+ 1756 0030 0837     		adds	r7, r7, #8
+ 1757              	.LCFI88:
+ 1758              		.cfi_def_cfa_offset 8
+ 1759 0032 BD46     		mov	sp, r7
+ 1760              	.LCFI89:
+ 1761              		.cfi_def_cfa_register 13
+ 1762              		@ sp needed
+ 1763 0034 80BD     		pop	{r7, pc}
+ 1764              	.L128:
+ 1765 0036 00BF     		.align	2
+ 1766              	.L127:
+ 1767 0038 00AFFFFF 		.word	-20736
+ 1768              		.cfi_endproc
+ 1769              	.LFE20:
+ 1771              		.section	.text.mbedtls_md_get_size,"ax",%progbits
+ 1772              		.align	1
+ 1773              		.global	mbedtls_md_get_size
+ 1774              		.syntax unified
+ 1775              		.thumb
+ 1776              		.thumb_func
+ 1777              		.fpu fpv4-sp-d16
+ 1779              	mbedtls_md_get_size:
+ 1780              	.LFB21:
+ 450:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 451:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** unsigned char mbedtls_md_get_size( const mbedtls_md_info_t *md_info )
+ 452:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 1781              		.loc 1 452 1
+ 1782              		.cfi_startproc
+ 1783              		@ args = 0, pretend = 0, frame = 8
+ 1784              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1785              		@ link register save eliminated.
+ 1786 0000 80B4     		push	{r7}
+ 1787              	.LCFI90:
+ 1788              		.cfi_def_cfa_offset 4
+ 1789              		.cfi_offset 7, -4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 40
+
+
+ 1790 0002 83B0     		sub	sp, sp, #12
+ 1791              	.LCFI91:
+ 1792              		.cfi_def_cfa_offset 16
+ 1793 0004 00AF     		add	r7, sp, #0
+ 1794              	.LCFI92:
+ 1795              		.cfi_def_cfa_register 7
+ 1796 0006 7860     		str	r0, [r7, #4]
+ 453:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( md_info == NULL )
+ 1797              		.loc 1 453 7
+ 1798 0008 7B68     		ldr	r3, [r7, #4]
+ 1799 000a 002B     		cmp	r3, #0
+ 1800 000c 01D1     		bne	.L130
+ 454:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( 0 );
+ 1801              		.loc 1 454 15
+ 1802 000e 0023     		movs	r3, #0
+ 1803 0010 02E0     		b	.L131
+ 1804              	.L130:
+ 455:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 456:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return md_info->size;
+ 1805              		.loc 1 456 19
+ 1806 0012 7B68     		ldr	r3, [r7, #4]
+ 1807 0014 9B68     		ldr	r3, [r3, #8]
+ 1808 0016 DBB2     		uxtb	r3, r3
+ 1809              	.L131:
+ 457:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1810              		.loc 1 457 1
+ 1811 0018 1846     		mov	r0, r3
+ 1812 001a 0C37     		adds	r7, r7, #12
+ 1813              	.LCFI93:
+ 1814              		.cfi_def_cfa_offset 4
+ 1815 001c BD46     		mov	sp, r7
+ 1816              	.LCFI94:
+ 1817              		.cfi_def_cfa_register 13
+ 1818              		@ sp needed
+ 1819 001e 5DF8047B 		ldr	r7, [sp], #4
+ 1820              	.LCFI95:
+ 1821              		.cfi_restore 7
+ 1822              		.cfi_def_cfa_offset 0
+ 1823 0022 7047     		bx	lr
+ 1824              		.cfi_endproc
+ 1825              	.LFE21:
+ 1827              		.section	.text.mbedtls_md_get_type,"ax",%progbits
+ 1828              		.align	1
+ 1829              		.global	mbedtls_md_get_type
+ 1830              		.syntax unified
+ 1831              		.thumb
+ 1832              		.thumb_func
+ 1833              		.fpu fpv4-sp-d16
+ 1835              	mbedtls_md_get_type:
+ 1836              	.LFB22:
+ 458:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 459:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** mbedtls_md_type_t mbedtls_md_get_type( const mbedtls_md_info_t *md_info )
+ 460:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ 1837              		.loc 1 460 1
+ 1838              		.cfi_startproc
+ 1839              		@ args = 0, pretend = 0, frame = 8
+ 1840              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 41
+
+
+ 1841              		@ link register save eliminated.
+ 1842 0000 80B4     		push	{r7}
+ 1843              	.LCFI96:
+ 1844              		.cfi_def_cfa_offset 4
+ 1845              		.cfi_offset 7, -4
+ 1846 0002 83B0     		sub	sp, sp, #12
+ 1847              	.LCFI97:
+ 1848              		.cfi_def_cfa_offset 16
+ 1849 0004 00AF     		add	r7, sp, #0
+ 1850              	.LCFI98:
+ 1851              		.cfi_def_cfa_register 7
+ 1852 0006 7860     		str	r0, [r7, #4]
+ 461:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( md_info == NULL )
+ 1853              		.loc 1 461 7
+ 1854 0008 7B68     		ldr	r3, [r7, #4]
+ 1855 000a 002B     		cmp	r3, #0
+ 1856 000c 01D1     		bne	.L133
+ 462:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( MBEDTLS_MD_NONE );
+ 1857              		.loc 1 462 15
+ 1858 000e 0023     		movs	r3, #0
+ 1859 0010 01E0     		b	.L134
+ 1860              	.L133:
+ 463:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 464:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return md_info->type;
+ 1861              		.loc 1 464 19
+ 1862 0012 7B68     		ldr	r3, [r7, #4]
+ 1863 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1864              	.L134:
+ 465:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1865              		.loc 1 465 1
+ 1866 0016 1846     		mov	r0, r3
+ 1867 0018 0C37     		adds	r7, r7, #12
+ 1868              	.LCFI99:
+ 1869              		.cfi_def_cfa_offset 4
+ 1870 001a BD46     		mov	sp, r7
+ 1871              	.LCFI100:
+ 1872              		.cfi_def_cfa_register 13
+ 1873              		@ sp needed
+ 1874 001c 5DF8047B 		ldr	r7, [sp], #4
+ 1875              	.LCFI101:
+ 1876              		.cfi_restore 7
+ 1877              		.cfi_def_cfa_offset 0
+ 1878 0020 7047     		bx	lr
+ 1879              		.cfi_endproc
+ 1880              	.LFE22:
+ 1882              		.section	.text.mbedtls_md_get_name,"ax",%progbits
+ 1883              		.align	1
+ 1884              		.global	mbedtls_md_get_name
+ 1885              		.syntax unified
+ 1886              		.thumb
+ 1887              		.thumb_func
+ 1888              		.fpu fpv4-sp-d16
+ 1890              	mbedtls_md_get_name:
+ 1891              	.LFB23:
+ 466:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 467:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** const char *mbedtls_md_get_name( const mbedtls_md_info_t *md_info )
+ 468:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 42
+
+
+ 1892              		.loc 1 468 1
+ 1893              		.cfi_startproc
+ 1894              		@ args = 0, pretend = 0, frame = 8
+ 1895              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1896              		@ link register save eliminated.
+ 1897 0000 80B4     		push	{r7}
+ 1898              	.LCFI102:
+ 1899              		.cfi_def_cfa_offset 4
+ 1900              		.cfi_offset 7, -4
+ 1901 0002 83B0     		sub	sp, sp, #12
+ 1902              	.LCFI103:
+ 1903              		.cfi_def_cfa_offset 16
+ 1904 0004 00AF     		add	r7, sp, #0
+ 1905              	.LCFI104:
+ 1906              		.cfi_def_cfa_register 7
+ 1907 0006 7860     		str	r0, [r7, #4]
+ 469:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     if( md_info == NULL )
+ 1908              		.loc 1 469 7
+ 1909 0008 7B68     		ldr	r3, [r7, #4]
+ 1910 000a 002B     		cmp	r3, #0
+ 1911 000c 01D1     		bne	.L136
+ 470:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****         return( NULL );
+ 1912              		.loc 1 470 15
+ 1913 000e 0023     		movs	r3, #0
+ 1914 0010 01E0     		b	.L137
+ 1915              	.L136:
+ 471:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** 
+ 472:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c ****     return md_info->name;
+ 1916              		.loc 1 472 19
+ 1917 0012 7B68     		ldr	r3, [r7, #4]
+ 1918 0014 5B68     		ldr	r3, [r3, #4]
+ 1919              	.L137:
+ 473:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\md.c **** }
+ 1920              		.loc 1 473 1
+ 1921 0016 1846     		mov	r0, r3
+ 1922 0018 0C37     		adds	r7, r7, #12
+ 1923              	.LCFI105:
+ 1924              		.cfi_def_cfa_offset 4
+ 1925 001a BD46     		mov	sp, r7
+ 1926              	.LCFI106:
+ 1927              		.cfi_def_cfa_register 13
+ 1928              		@ sp needed
+ 1929 001c 5DF8047B 		ldr	r7, [sp], #4
+ 1930              	.LCFI107:
+ 1931              		.cfi_restore 7
+ 1932              		.cfi_def_cfa_offset 0
+ 1933 0020 7047     		bx	lr
+ 1934              		.cfi_endproc
+ 1935              	.LFE23:
+ 1937              		.text
+ 1938              	.Letext0:
+ 1939              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 1940              		.file 3 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 1941              		.file 4 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 1942              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 1943              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 1944              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 43
+
+
+ 1945              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdlib.h"
+ 1946              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\time.h"
+ 1947              		.file 10 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 44
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 md.c
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:18     .rodata.supported_digests:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:21     .rodata.supported_digests:00000000 supported_digests
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:26     .text.mbedtls_md_list:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:34     .text.mbedtls_md_list:00000000 mbedtls_md_list
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:65     .text.mbedtls_md_list:00000010 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:70     .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:77     .text.mbedtls_md_info_from_string:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:84     .text.mbedtls_md_info_from_string:00000000 mbedtls_md_info_from_string
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:167    .text.mbedtls_md_info_from_type:00000000 mbedtls_md_info_from_type
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:154    .text.mbedtls_md_info_from_string:0000004c $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:160    .text.mbedtls_md_info_from_type:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:222    .text.mbedtls_md_info_from_type:0000002c $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:228    .text.mbedtls_md_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:235    .text.mbedtls_md_init:00000000 mbedtls_md_init
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:272    .text.mbedtls_md_free:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:279    .text.mbedtls_md_free:00000000 mbedtls_md_free
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:373    .text.mbedtls_md_clone:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:380    .text.mbedtls_md_clone:00000000 mbedtls_md_clone
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:464    .text.mbedtls_md_clone:00000054 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:469    .text.mbedtls_md_init_ctx:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:476    .text.mbedtls_md_init_ctx:00000000 mbedtls_md_init_ctx
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:522    .text.mbedtls_md_setup:00000000 mbedtls_md_setup
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:515    .text.mbedtls_md_setup:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:629    .text.mbedtls_md_setup:00000074 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:635    .text.mbedtls_md_starts:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:642    .text.mbedtls_md_starts:00000000 mbedtls_md_starts
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:701    .text.mbedtls_md_starts:00000034 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:706    .text.mbedtls_md_update:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:713    .text.mbedtls_md_update:00000000 mbedtls_md_update
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:775    .text.mbedtls_md_update:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:780    .text.mbedtls_md_finish:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:787    .text.mbedtls_md_finish:00000000 mbedtls_md_finish
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:848    .text.mbedtls_md_finish:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:853    .text.mbedtls_md:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:860    .text.mbedtls_md:00000000 mbedtls_md
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:913    .text.mbedtls_md:00000030 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:918    .text.mbedtls_md_hmac_starts:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:925    .text.mbedtls_md_hmac_starts:00000000 mbedtls_md_hmac_starts
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1203   .text.mbedtls_md_hmac_starts:00000160 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1208   .text.mbedtls_md_hmac_update:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1215   .text.mbedtls_md_hmac_update:00000000 mbedtls_md_hmac_update
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1283   .text.mbedtls_md_hmac_update:00000040 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1288   .text.mbedtls_md_hmac_finish:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1295   .text.mbedtls_md_hmac_finish:00000000 mbedtls_md_hmac_finish
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1466   .text.mbedtls_md_hmac_finish:000000c8 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1471   .text.mbedtls_md_hmac_reset:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1478   .text.mbedtls_md_hmac_reset:00000000 mbedtls_md_hmac_reset
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1573   .text.mbedtls_md_hmac_reset:00000060 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1578   .text.mbedtls_md_hmac:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1585   .text.mbedtls_md_hmac:00000000 mbedtls_md_hmac
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1694   .text.mbedtls_md_hmac:00000098 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1699   .text.mbedtls_md_process:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1706   .text.mbedtls_md_process:00000000 mbedtls_md_process
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1767   .text.mbedtls_md_process:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1772   .text.mbedtls_md_get_size:00000000 $t
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s 			page 45
+
+
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1779   .text.mbedtls_md_get_size:00000000 mbedtls_md_get_size
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1828   .text.mbedtls_md_get_type:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1835   .text.mbedtls_md_get_type:00000000 mbedtls_md_get_type
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1883   .text.mbedtls_md_get_name:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccb4GQNj.s:1890   .text.mbedtls_md_get_name:00000000 mbedtls_md_get_name
+
+UNDEFINED SYMBOLS
+strcmp
+mbedtls_sha224_info
+mbedtls_sha256_info
+memset
+mbedtls_platform_zeroize
+mbedtls_free
+mbedtls_calloc

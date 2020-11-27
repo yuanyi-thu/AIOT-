@@ -1,0 +1,711 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"newlib_stub.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._execve_r,"ax",%progbits
+  18              		.align	1
+  19              		.global	_execve_r
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	_execve_r:
+  27              	.LFB0:
+  28              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/o
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * Copyright (c) <2013-2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 2
+
+
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** #include <reent.h>
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** #include <stdlib.h>
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** #include <errno.h>
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** int _execve_r(struct _reent *ptr, const char *name, char *const *argv, char *const *env)
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+  29              		.loc 1 40 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 16
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 80B4     		push	{r7}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 7, -4
+  38 0002 85B0     		sub	sp, sp, #20
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 24
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 F860     		str	r0, [r7, #12]
+  45 0008 B960     		str	r1, [r7, #8]
+  46 000a 7A60     		str	r2, [r7, #4]
+  47 000c 3B60     		str	r3, [r7]
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+  48              		.loc 1 42 17
+  49 000e FB68     		ldr	r3, [r7, #12]
+  50 0010 8622     		movs	r2, #134
+  51 0012 1A60     		str	r2, [r3]
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return -1;
+  52              		.loc 1 43 12
+  53 0014 4FF0FF33 		mov	r3, #-1
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+  54              		.loc 1 44 1
+  55 0018 1846     		mov	r0, r3
+  56 001a 1437     		adds	r7, r7, #20
+  57              	.LCFI3:
+  58              		.cfi_def_cfa_offset 4
+  59 001c BD46     		mov	sp, r7
+  60              	.LCFI4:
+  61              		.cfi_def_cfa_register 13
+  62              		@ sp needed
+  63 001e 5DF8047B 		ldr	r7, [sp], #4
+  64              	.LCFI5:
+  65              		.cfi_restore 7
+  66              		.cfi_def_cfa_offset 0
+  67 0022 7047     		bx	lr
+  68              		.cfi_endproc
+  69              	.LFE0:
+  71              		.section	.text._times_r,"ax",%progbits
+  72              		.align	1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 3
+
+
+  73              		.global	_times_r
+  74              		.syntax unified
+  75              		.thumb
+  76              		.thumb_func
+  77              		.fpu fpv4-sp-d16
+  79              	_times_r:
+  80              	.LFB1:
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** _CLOCK_T_ _times_r(struct _reent *ptr, struct tms *ptms)
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+  81              		.loc 1 47 1
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 8
+  84              		@ frame_needed = 1, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86 0000 80B4     		push	{r7}
+  87              	.LCFI6:
+  88              		.cfi_def_cfa_offset 4
+  89              		.cfi_offset 7, -4
+  90 0002 83B0     		sub	sp, sp, #12
+  91              	.LCFI7:
+  92              		.cfi_def_cfa_offset 16
+  93 0004 00AF     		add	r7, sp, #0
+  94              	.LCFI8:
+  95              		.cfi_def_cfa_register 7
+  96 0006 7860     		str	r0, [r7, #4]
+  97 0008 3960     		str	r1, [r7]
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+  98              		.loc 1 49 17
+  99 000a 7B68     		ldr	r3, [r7, #4]
+ 100 000c 8622     		movs	r2, #134
+ 101 000e 1A60     		str	r2, [r3]
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return -1;
+ 102              		.loc 1 50 12
+ 103 0010 4FF0FF33 		mov	r3, #-1
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 104              		.loc 1 51 1
+ 105 0014 1846     		mov	r0, r3
+ 106 0016 0C37     		adds	r7, r7, #12
+ 107              	.LCFI9:
+ 108              		.cfi_def_cfa_offset 4
+ 109 0018 BD46     		mov	sp, r7
+ 110              	.LCFI10:
+ 111              		.cfi_def_cfa_register 13
+ 112              		@ sp needed
+ 113 001a 5DF8047B 		ldr	r7, [sp], #4
+ 114              	.LCFI11:
+ 115              		.cfi_restore 7
+ 116              		.cfi_def_cfa_offset 0
+ 117 001e 7047     		bx	lr
+ 118              		.cfi_endproc
+ 119              	.LFE1:
+ 121              		.section	.text._unlink_r,"ax",%progbits
+ 122              		.align	1
+ 123              		.global	_unlink_r
+ 124              		.syntax unified
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 4
+
+
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.fpu fpv4-sp-d16
+ 129              	_unlink_r:
+ 130              	.LFB2:
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** int _unlink_r(struct _reent *ptr, const char *file)
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 131              		.loc 1 54 1
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 8
+ 134              		@ frame_needed = 1, uses_anonymous_args = 0
+ 135              		@ link register save eliminated.
+ 136 0000 80B4     		push	{r7}
+ 137              	.LCFI12:
+ 138              		.cfi_def_cfa_offset 4
+ 139              		.cfi_offset 7, -4
+ 140 0002 83B0     		sub	sp, sp, #12
+ 141              	.LCFI13:
+ 142              		.cfi_def_cfa_offset 16
+ 143 0004 00AF     		add	r7, sp, #0
+ 144              	.LCFI14:
+ 145              		.cfi_def_cfa_register 7
+ 146 0006 7860     		str	r0, [r7, #4]
+ 147 0008 3960     		str	r1, [r7]
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** //    return los_unlink (file);
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return -1;
+ 148              		.loc 1 56 12
+ 149 000a 4FF0FF33 		mov	r3, #-1
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 150              		.loc 1 57 1
+ 151 000e 1846     		mov	r0, r3
+ 152 0010 0C37     		adds	r7, r7, #12
+ 153              	.LCFI15:
+ 154              		.cfi_def_cfa_offset 4
+ 155 0012 BD46     		mov	sp, r7
+ 156              	.LCFI16:
+ 157              		.cfi_def_cfa_register 13
+ 158              		@ sp needed
+ 159 0014 5DF8047B 		ldr	r7, [sp], #4
+ 160              	.LCFI17:
+ 161              		.cfi_restore 7
+ 162              		.cfi_def_cfa_offset 0
+ 163 0018 7047     		bx	lr
+ 164              		.cfi_endproc
+ 165              	.LFE2:
+ 167              		.section	.text._wait_r,"ax",%progbits
+ 168              		.align	1
+ 169              		.global	_wait_r
+ 170              		.syntax unified
+ 171              		.thumb
+ 172              		.thumb_func
+ 173              		.fpu fpv4-sp-d16
+ 175              	_wait_r:
+ 176              	.LFB3:
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** int _wait_r(struct _reent *ptr, int *status)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 5
+
+
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 177              		.loc 1 60 1
+ 178              		.cfi_startproc
+ 179              		@ args = 0, pretend = 0, frame = 8
+ 180              		@ frame_needed = 1, uses_anonymous_args = 0
+ 181              		@ link register save eliminated.
+ 182 0000 80B4     		push	{r7}
+ 183              	.LCFI18:
+ 184              		.cfi_def_cfa_offset 4
+ 185              		.cfi_offset 7, -4
+ 186 0002 83B0     		sub	sp, sp, #12
+ 187              	.LCFI19:
+ 188              		.cfi_def_cfa_offset 16
+ 189 0004 00AF     		add	r7, sp, #0
+ 190              	.LCFI20:
+ 191              		.cfi_def_cfa_register 7
+ 192 0006 7860     		str	r0, [r7, #4]
+ 193 0008 3960     		str	r1, [r7]
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+ 194              		.loc 1 62 17
+ 195 000a 7B68     		ldr	r3, [r7, #4]
+ 196 000c 8622     		movs	r2, #134
+ 197 000e 1A60     		str	r2, [r3]
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return -1;
+ 198              		.loc 1 63 12
+ 199 0010 4FF0FF33 		mov	r3, #-1
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 200              		.loc 1 64 1
+ 201 0014 1846     		mov	r0, r3
+ 202 0016 0C37     		adds	r7, r7, #12
+ 203              	.LCFI21:
+ 204              		.cfi_def_cfa_offset 4
+ 205 0018 BD46     		mov	sp, r7
+ 206              	.LCFI22:
+ 207              		.cfi_def_cfa_register 13
+ 208              		@ sp needed
+ 209 001a 5DF8047B 		ldr	r7, [sp], #4
+ 210              	.LCFI23:
+ 211              		.cfi_restore 7
+ 212              		.cfi_def_cfa_offset 0
+ 213 001e 7047     		bx	lr
+ 214              		.cfi_endproc
+ 215              	.LFE3:
+ 217              		.section	.text._gettimeofday_r,"ax",%progbits
+ 218              		.align	1
+ 219              		.global	_gettimeofday_r
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 223              		.fpu fpv4-sp-d16
+ 225              	_gettimeofday_r:
+ 226              	.LFB4:
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** int _gettimeofday_r(struct _reent *ptr, struct timeval *tv, void *__tzp)
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 227              		.loc 1 67 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 6
+
+
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 16
+ 230              		@ frame_needed = 1, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 232 0000 80B4     		push	{r7}
+ 233              	.LCFI24:
+ 234              		.cfi_def_cfa_offset 4
+ 235              		.cfi_offset 7, -4
+ 236 0002 85B0     		sub	sp, sp, #20
+ 237              	.LCFI25:
+ 238              		.cfi_def_cfa_offset 24
+ 239 0004 00AF     		add	r7, sp, #0
+ 240              	.LCFI26:
+ 241              		.cfi_def_cfa_register 7
+ 242 0006 F860     		str	r0, [r7, #12]
+ 243 0008 B960     		str	r1, [r7, #8]
+ 244 000a 7A60     		str	r2, [r7, #4]
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+ 245              		.loc 1 69 17
+ 246 000c FB68     		ldr	r3, [r7, #12]
+ 247 000e 8622     		movs	r2, #134
+ 248 0010 1A60     		str	r2, [r3]
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return -1;
+ 249              		.loc 1 70 12
+ 250 0012 4FF0FF33 		mov	r3, #-1
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 251              		.loc 1 71 1
+ 252 0016 1846     		mov	r0, r3
+ 253 0018 1437     		adds	r7, r7, #20
+ 254              	.LCFI27:
+ 255              		.cfi_def_cfa_offset 4
+ 256 001a BD46     		mov	sp, r7
+ 257              	.LCFI28:
+ 258              		.cfi_def_cfa_register 13
+ 259              		@ sp needed
+ 260 001c 5DF8047B 		ldr	r7, [sp], #4
+ 261              	.LCFI29:
+ 262              		.cfi_restore 7
+ 263              		.cfi_def_cfa_offset 0
+ 264 0020 7047     		bx	lr
+ 265              		.cfi_endproc
+ 266              	.LFE4:
+ 268              		.section	.text._malloc_r,"ax",%progbits
+ 269              		.align	1
+ 270              		.global	_malloc_r
+ 271              		.syntax unified
+ 272              		.thumb
+ 273              		.thumb_func
+ 274              		.fpu fpv4-sp-d16
+ 276              	_malloc_r:
+ 277              	.LFB5:
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** void *_malloc_r(struct _reent *ptr, size_t size)
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 278              		.loc 1 74 1
+ 279              		.cfi_startproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 7
+
+
+ 280              		@ args = 0, pretend = 0, frame = 8
+ 281              		@ frame_needed = 1, uses_anonymous_args = 0
+ 282 0000 80B5     		push	{r7, lr}
+ 283              	.LCFI30:
+ 284              		.cfi_def_cfa_offset 8
+ 285              		.cfi_offset 7, -8
+ 286              		.cfi_offset 14, -4
+ 287 0002 82B0     		sub	sp, sp, #8
+ 288              	.LCFI31:
+ 289              		.cfi_def_cfa_offset 16
+ 290 0004 00AF     		add	r7, sp, #0
+ 291              	.LCFI32:
+ 292              		.cfi_def_cfa_register 7
+ 293 0006 7860     		str	r0, [r7, #4]
+ 294 0008 3960     		str	r1, [r7]
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return malloc(size);
+ 295              		.loc 1 75 12
+ 296 000a 3868     		ldr	r0, [r7]
+ 297 000c FFF7FEFF 		bl	malloc
+ 298 0010 0346     		mov	r3, r0
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 299              		.loc 1 76 1
+ 300 0012 1846     		mov	r0, r3
+ 301 0014 0837     		adds	r7, r7, #8
+ 302              	.LCFI33:
+ 303              		.cfi_def_cfa_offset 8
+ 304 0016 BD46     		mov	sp, r7
+ 305              	.LCFI34:
+ 306              		.cfi_def_cfa_register 13
+ 307              		@ sp needed
+ 308 0018 80BD     		pop	{r7, pc}
+ 309              		.cfi_endproc
+ 310              	.LFE5:
+ 312              		.section	.text._realloc_r,"ax",%progbits
+ 313              		.align	1
+ 314              		.global	_realloc_r
+ 315              		.syntax unified
+ 316              		.thumb
+ 317              		.thumb_func
+ 318              		.fpu fpv4-sp-d16
+ 320              	_realloc_r:
+ 321              	.LFB6:
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** void *_realloc_r(struct _reent *ptr, void *old, size_t newlen)
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 322              		.loc 1 79 1
+ 323              		.cfi_startproc
+ 324              		@ args = 0, pretend = 0, frame = 16
+ 325              		@ frame_needed = 1, uses_anonymous_args = 0
+ 326 0000 80B5     		push	{r7, lr}
+ 327              	.LCFI35:
+ 328              		.cfi_def_cfa_offset 8
+ 329              		.cfi_offset 7, -8
+ 330              		.cfi_offset 14, -4
+ 331 0002 84B0     		sub	sp, sp, #16
+ 332              	.LCFI36:
+ 333              		.cfi_def_cfa_offset 24
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 8
+
+
+ 334 0004 00AF     		add	r7, sp, #0
+ 335              	.LCFI37:
+ 336              		.cfi_def_cfa_register 7
+ 337 0006 F860     		str	r0, [r7, #12]
+ 338 0008 B960     		str	r1, [r7, #8]
+ 339 000a 7A60     		str	r2, [r7, #4]
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return realloc (old, newlen);
+ 340              		.loc 1 80 12
+ 341 000c 7968     		ldr	r1, [r7, #4]
+ 342 000e B868     		ldr	r0, [r7, #8]
+ 343 0010 FFF7FEFF 		bl	realloc
+ 344 0014 0346     		mov	r3, r0
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 345              		.loc 1 81 1
+ 346 0016 1846     		mov	r0, r3
+ 347 0018 1037     		adds	r7, r7, #16
+ 348              	.LCFI38:
+ 349              		.cfi_def_cfa_offset 8
+ 350 001a BD46     		mov	sp, r7
+ 351              	.LCFI39:
+ 352              		.cfi_def_cfa_register 13
+ 353              		@ sp needed
+ 354 001c 80BD     		pop	{r7, pc}
+ 355              		.cfi_endproc
+ 356              	.LFE6:
+ 358              		.section	.text._calloc_r,"ax",%progbits
+ 359              		.align	1
+ 360              		.global	_calloc_r
+ 361              		.syntax unified
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.fpu fpv4-sp-d16
+ 366              	_calloc_r:
+ 367              	.LFB7:
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** void *_calloc_r(struct _reent *ptr, size_t size, size_t len)
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 368              		.loc 1 84 1
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 16
+ 371              		@ frame_needed = 1, uses_anonymous_args = 0
+ 372 0000 80B5     		push	{r7, lr}
+ 373              	.LCFI40:
+ 374              		.cfi_def_cfa_offset 8
+ 375              		.cfi_offset 7, -8
+ 376              		.cfi_offset 14, -4
+ 377 0002 84B0     		sub	sp, sp, #16
+ 378              	.LCFI41:
+ 379              		.cfi_def_cfa_offset 24
+ 380 0004 00AF     		add	r7, sp, #0
+ 381              	.LCFI42:
+ 382              		.cfi_def_cfa_register 7
+ 383 0006 F860     		str	r0, [r7, #12]
+ 384 0008 B960     		str	r1, [r7, #8]
+ 385 000a 7A60     		str	r2, [r7, #4]
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return calloc(size, len);
+ 386              		.loc 1 85 12
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 9
+
+
+ 387 000c 7968     		ldr	r1, [r7, #4]
+ 388 000e B868     		ldr	r0, [r7, #8]
+ 389 0010 FFF7FEFF 		bl	calloc
+ 390 0014 0346     		mov	r3, r0
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 391              		.loc 1 86 1
+ 392 0016 1846     		mov	r0, r3
+ 393 0018 1037     		adds	r7, r7, #16
+ 394              	.LCFI43:
+ 395              		.cfi_def_cfa_offset 8
+ 396 001a BD46     		mov	sp, r7
+ 397              	.LCFI44:
+ 398              		.cfi_def_cfa_register 13
+ 399              		@ sp needed
+ 400 001c 80BD     		pop	{r7, pc}
+ 401              		.cfi_endproc
+ 402              	.LFE7:
+ 404              		.section	.text._free_r,"ax",%progbits
+ 405              		.align	1
+ 406              		.global	_free_r
+ 407              		.syntax unified
+ 408              		.thumb
+ 409              		.thumb_func
+ 410              		.fpu fpv4-sp-d16
+ 412              	_free_r:
+ 413              	.LFB8:
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** void _free_r(struct _reent *ptr, void *addr)
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 414              		.loc 1 89 1
+ 415              		.cfi_startproc
+ 416              		@ args = 0, pretend = 0, frame = 8
+ 417              		@ frame_needed = 1, uses_anonymous_args = 0
+ 418 0000 80B5     		push	{r7, lr}
+ 419              	.LCFI45:
+ 420              		.cfi_def_cfa_offset 8
+ 421              		.cfi_offset 7, -8
+ 422              		.cfi_offset 14, -4
+ 423 0002 82B0     		sub	sp, sp, #8
+ 424              	.LCFI46:
+ 425              		.cfi_def_cfa_offset 16
+ 426 0004 00AF     		add	r7, sp, #0
+ 427              	.LCFI47:
+ 428              		.cfi_def_cfa_register 7
+ 429 0006 7860     		str	r0, [r7, #4]
+ 430 0008 3960     		str	r1, [r7]
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     free(addr);
+ 431              		.loc 1 90 5
+ 432 000a 3868     		ldr	r0, [r7]
+ 433 000c FFF7FEFF 		bl	free
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 434              		.loc 1 91 1
+ 435 0010 00BF     		nop
+ 436 0012 0837     		adds	r7, r7, #8
+ 437              	.LCFI48:
+ 438              		.cfi_def_cfa_offset 8
+ 439 0014 BD46     		mov	sp, r7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 10
+
+
+ 440              	.LCFI49:
+ 441              		.cfi_def_cfa_register 13
+ 442              		@ sp needed
+ 443 0016 80BD     		pop	{r7, pc}
+ 444              		.cfi_endproc
+ 445              	.LFE8:
+ 447              		.section	.text._exit,"ax",%progbits
+ 448              		.align	1
+ 449              		.global	_exit
+ 450              		.syntax unified
+ 451              		.thumb
+ 452              		.thumb_func
+ 453              		.fpu fpv4-sp-d16
+ 455              	_exit:
+ 456              	.LFB9:
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** void _exit(int status)
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 457              		.loc 1 94 1
+ 458              		.cfi_startproc
+ 459              		@ args = 0, pretend = 0, frame = 8
+ 460              		@ frame_needed = 1, uses_anonymous_args = 0
+ 461              		@ link register save eliminated.
+ 462 0000 80B4     		push	{r7}
+ 463              	.LCFI50:
+ 464              		.cfi_def_cfa_offset 4
+ 465              		.cfi_offset 7, -4
+ 466 0002 83B0     		sub	sp, sp, #12
+ 467              	.LCFI51:
+ 468              		.cfi_def_cfa_offset 16
+ 469 0004 00AF     		add	r7, sp, #0
+ 470              	.LCFI52:
+ 471              		.cfi_def_cfa_register 7
+ 472 0006 7860     		str	r0, [r7, #4]
+ 473              	.L19:
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     while (1);
+ 474              		.loc 1 95 11 discriminator 1
+ 475 0008 FEE7     		b	.L19
+ 476              		.cfi_endproc
+ 477              	.LFE9:
+ 479              		.section	.text._system,"ax",%progbits
+ 480              		.align	1
+ 481              		.global	_system
+ 482              		.syntax unified
+ 483              		.thumb
+ 484              		.thumb_func
+ 485              		.fpu fpv4-sp-d16
+ 487              	_system:
+ 488              	.LFB10:
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** void _system(const char *s)
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 489              		.loc 1 99 1
+ 490              		.cfi_startproc
+ 491              		@ args = 0, pretend = 0, frame = 8
+ 492              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 11
+
+
+ 493              		@ link register save eliminated.
+ 494 0000 80B4     		push	{r7}
+ 495              	.LCFI53:
+ 496              		.cfi_def_cfa_offset 4
+ 497              		.cfi_offset 7, -4
+ 498 0002 83B0     		sub	sp, sp, #12
+ 499              	.LCFI54:
+ 500              		.cfi_def_cfa_offset 16
+ 501 0004 00AF     		add	r7, sp, #0
+ 502              	.LCFI55:
+ 503              		.cfi_def_cfa_register 7
+ 504 0006 7860     		str	r0, [r7, #4]
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     return;
+ 505              		.loc 1 100 5
+ 506 0008 00BF     		nop
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** }
+ 507              		.loc 1 101 1
+ 508 000a 0C37     		adds	r7, r7, #12
+ 509              	.LCFI56:
+ 510              		.cfi_def_cfa_offset 4
+ 511 000c BD46     		mov	sp, r7
+ 512              	.LCFI57:
+ 513              		.cfi_def_cfa_register 13
+ 514              		@ sp needed
+ 515 000e 5DF8047B 		ldr	r7, [sp], #4
+ 516              	.LCFI58:
+ 517              		.cfi_restore 7
+ 518              		.cfi_def_cfa_offset 0
+ 519 0012 7047     		bx	lr
+ 520              		.cfi_endproc
+ 521              	.LFE10:
+ 523              		.section	.text.abort,"ax",%progbits
+ 524              		.align	1
+ 525              		.global	abort
+ 526              		.syntax unified
+ 527              		.thumb
+ 528              		.thumb_func
+ 529              		.fpu fpv4-sp-d16
+ 531              	abort:
+ 532              	.LFB11:
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** 
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** void abort(void)
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c **** {
+ 533              		.loc 1 104 1
+ 534              		.cfi_startproc
+ 535              		@ args = 0, pretend = 0, frame = 0
+ 536              		@ frame_needed = 1, uses_anonymous_args = 0
+ 537              		@ link register save eliminated.
+ 538 0000 80B4     		push	{r7}
+ 539              	.LCFI59:
+ 540              		.cfi_def_cfa_offset 4
+ 541              		.cfi_offset 7, -4
+ 542 0002 00AF     		add	r7, sp, #0
+ 543              	.LCFI60:
+ 544              		.cfi_def_cfa_register 7
+ 545              	.L23:
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/os/liteos\newlib_stub.c ****     while (1);
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 12
+
+
+ 546              		.loc 1 105 11 discriminator 1
+ 547 0004 FEE7     		b	.L23
+ 548              		.cfi_endproc
+ 549              	.LFE11:
+ 551              		.text
+ 552              	.Letext0:
+ 553              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 554              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 555              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 556              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 557              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdlib.h"
+ 558              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\errno
+ 559              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\reent.h"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 newlib_stub.c
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:18     .text._execve_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:26     .text._execve_r:00000000 _execve_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:72     .text._times_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:79     .text._times_r:00000000 _times_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:122    .text._unlink_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:129    .text._unlink_r:00000000 _unlink_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:168    .text._wait_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:175    .text._wait_r:00000000 _wait_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:218    .text._gettimeofday_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:225    .text._gettimeofday_r:00000000 _gettimeofday_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:269    .text._malloc_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:276    .text._malloc_r:00000000 _malloc_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:313    .text._realloc_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:320    .text._realloc_r:00000000 _realloc_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:359    .text._calloc_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:366    .text._calloc_r:00000000 _calloc_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:405    .text._free_r:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:412    .text._free_r:00000000 _free_r
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:448    .text._exit:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:455    .text._exit:00000000 _exit
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:480    .text._system:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:487    .text._system:00000000 _system
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:524    .text.abort:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccWFhhX4.s:531    .text.abort:00000000 abort
+
+UNDEFINED SYMBOLS
+malloc
+realloc
+calloc
+free

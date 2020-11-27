@@ -1,0 +1,1509 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"entropy.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.mbedtls_entropy_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	mbedtls_entropy_init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	mbedtls_entropy_init:
+  27              	.LFB0:
+  28              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** /*
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  Entropy accumulator implementation
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  Copyright (C) 2006-2016, ARM Limited, All Rights Reserved
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  SPDX-License-Identifier: Apache-2.0
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  not use this file except in compliance with the License.
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  You may obtain a copy of the License at
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  http://www.apache.org/licenses/LICENSE-2.0
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  Unless required by applicable law or agreed to in writing, software
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  See the License for the specific language governing permissions and
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  limitations under the License.
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  *  This file is part of mbed TLS (https://tls.mbed.org)
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  */
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if !defined(MBEDTLS_CONFIG_FILE)
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include "mbedtls/config.h"
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #else
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include MBEDTLS_CONFIG_FILE
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_C)
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_TEST_NULL_ENTROPY)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 2
+
+
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #warning "**** WARNING!  MBEDTLS_TEST_NULL_ENTROPY defined! "
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #warning "**** THIS BUILD HAS NO DEFINED ENTROPY SOURCES "
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #warning "**** THIS BUILD IS *NOT* SUITABLE FOR PRODUCTION USE "
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include "mbedtls/entropy.h"
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include "mbedtls/entropy_poll.h"
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include "mbedtls/platform_util.h"
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include <string.h>
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_FS_IO)
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include <stdio.h>
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_NV_SEED)
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include "mbedtls/platform.h"
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_SELF_TEST)
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_PLATFORM_C)
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include "mbedtls/platform.h"
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #else
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include <stdio.h>
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #define mbedtls_printf     printf
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif /* MBEDTLS_PLATFORM_C */
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif /* MBEDTLS_SELF_TEST */
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_HAVEGE_C)
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #include "mbedtls/havege.h"
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #define ENTROPY_MAX_LOOP    256     /**< Maximum amount to loop before error */
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** void mbedtls_entropy_init( mbedtls_entropy_context *ctx )
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+  29              		.loc 1 66 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 84B0     		sub	sp, sp, #16
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 24
+  41 0004 02AF     		add	r7, sp, #8
+  42              	.LCFI2:
+  43              		.cfi_def_cfa 7, 16
+  44 0006 7860     		str	r0, [r7, #4]
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->source_count = 0;
+  45              		.loc 1 67 23
+  46 0008 7B68     		ldr	r3, [r7, #4]
+  47 000a 0022     		movs	r2, #0
+  48 000c 1A67     		str	r2, [r3, #112]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 3
+
+
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     memset( ctx->source, 0, sizeof( ctx->source ) );
+  49              		.loc 1 68 16
+  50 000e 7B68     		ldr	r3, [r7, #4]
+  51 0010 7433     		adds	r3, r3, #116
+  52              		.loc 1 68 5
+  53 0012 1422     		movs	r2, #20
+  54 0014 0021     		movs	r1, #0
+  55 0016 1846     		mov	r0, r3
+  56 0018 FFF7FEFF 		bl	memset
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_mutex_init( &ctx->mutex );
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->accumulator_started = 0;
+  57              		.loc 1 74 30
+  58 001c 7B68     		ldr	r3, [r7, #4]
+  59 001e 0022     		movs	r2, #0
+  60 0020 1A60     		str	r2, [r3]
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_SHA512_ACCUMULATOR)
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha512_init( &ctx->accumulator );
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #else
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha256_init( &ctx->accumulator );
+  61              		.loc 1 78 5
+  62 0022 7B68     		ldr	r3, [r7, #4]
+  63 0024 0433     		adds	r3, r3, #4
+  64 0026 1846     		mov	r0, r3
+  65 0028 FFF7FEFF 		bl	mbedtls_sha256_init
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_HAVEGE_C)
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_havege_init( &ctx->havege_data );
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /* Reminder: Update ENTROPY_HAVE_STRONG in the test files
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      *           when adding more strong entropy sources here. */
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_TEST_NULL_ENTROPY)
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_entropy_add_source( ctx, mbedtls_null_entropy_poll, NULL,
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 1, MBEDTLS_ENTROPY_SOURCE_STRONG );
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if !defined(MBEDTLS_NO_DEFAULT_ENTROPY_SOURCES)
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if !defined(MBEDTLS_NO_PLATFORM_ENTROPY)
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_entropy_add_source( ctx, mbedtls_platform_entropy_poll, NULL,
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_MIN_PLATFORM,
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_SOURCE_STRONG );
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_TIMING_C)
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_entropy_add_source( ctx, mbedtls_hardclock_poll, NULL,
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_MIN_HARDCLOCK,
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_SOURCE_WEAK );
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_HAVEGE_C)
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_entropy_add_source( ctx, mbedtls_havege_poll, &ctx->havege_data,
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_MIN_HAVEGE,
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_SOURCE_STRONG );
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 4
+
+
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_HARDWARE_ALT)
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_entropy_add_source( ctx, mbedtls_hardware_poll, NULL,
+  66              		.loc 1 109 5
+  67 002c 0123     		movs	r3, #1
+  68 002e 0093     		str	r3, [sp]
+  69 0030 2023     		movs	r3, #32
+  70 0032 0022     		movs	r2, #0
+  71 0034 0349     		ldr	r1, .L2
+  72 0036 7868     		ldr	r0, [r7, #4]
+  73 0038 FFF7FEFF 		bl	mbedtls_entropy_add_source
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_MIN_HARDWARE,
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_SOURCE_STRONG );
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_NV_SEED)
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_entropy_add_source( ctx, mbedtls_nv_seed_poll, NULL,
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_BLOCK_SIZE,
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                 MBEDTLS_ENTROPY_SOURCE_STRONG );
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->initial_entropy_run = 0;
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif /* MBEDTLS_NO_DEFAULT_ENTROPY_SOURCES */
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+  74              		.loc 1 120 1
+  75 003c 00BF     		nop
+  76 003e 0837     		adds	r7, r7, #8
+  77              	.LCFI3:
+  78              		.cfi_def_cfa_offset 8
+  79 0040 BD46     		mov	sp, r7
+  80              	.LCFI4:
+  81              		.cfi_def_cfa_register 13
+  82              		@ sp needed
+  83 0042 80BD     		pop	{r7, pc}
+  84              	.L3:
+  85              		.align	2
+  86              	.L2:
+  87 0044 00000000 		.word	mbedtls_hardware_poll
+  88              		.cfi_endproc
+  89              	.LFE0:
+  91              		.section	.text.mbedtls_entropy_free,"ax",%progbits
+  92              		.align	1
+  93              		.global	mbedtls_entropy_free
+  94              		.syntax unified
+  95              		.thumb
+  96              		.thumb_func
+  97              		.fpu fpv4-sp-d16
+  99              	mbedtls_entropy_free:
+ 100              	.LFB1:
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** void mbedtls_entropy_free( mbedtls_entropy_context *ctx )
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+ 101              		.loc 1 123 1
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 8
+ 104              		@ frame_needed = 1, uses_anonymous_args = 0
+ 105 0000 80B5     		push	{r7, lr}
+ 106              	.LCFI5:
+ 107              		.cfi_def_cfa_offset 8
+ 108              		.cfi_offset 7, -8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 5
+
+
+ 109              		.cfi_offset 14, -4
+ 110 0002 82B0     		sub	sp, sp, #8
+ 111              	.LCFI6:
+ 112              		.cfi_def_cfa_offset 16
+ 113 0004 00AF     		add	r7, sp, #0
+ 114              	.LCFI7:
+ 115              		.cfi_def_cfa_register 7
+ 116 0006 7860     		str	r0, [r7, #4]
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_HAVEGE_C)
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_havege_free( &ctx->havege_data );
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_mutex_free( &ctx->mutex );
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_SHA512_ACCUMULATOR)
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha512_free( &ctx->accumulator );
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #else
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha256_free( &ctx->accumulator );
+ 117              		.loc 1 133 5
+ 118 0008 7B68     		ldr	r3, [r7, #4]
+ 119 000a 0433     		adds	r3, r3, #4
+ 120 000c 1846     		mov	r0, r3
+ 121 000e FFF7FEFF 		bl	mbedtls_sha256_free
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_NV_SEED)
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->initial_entropy_run = 0;
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->source_count = 0;
+ 122              		.loc 1 138 23
+ 123 0012 7B68     		ldr	r3, [r7, #4]
+ 124 0014 0022     		movs	r2, #0
+ 125 0016 1A67     		str	r2, [r3, #112]
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_platform_zeroize( ctx->source, sizeof( ctx->source ) );
+ 126              		.loc 1 139 34
+ 127 0018 7B68     		ldr	r3, [r7, #4]
+ 128 001a 7433     		adds	r3, r3, #116
+ 129              		.loc 1 139 5
+ 130 001c 1421     		movs	r1, #20
+ 131 001e 1846     		mov	r0, r3
+ 132 0020 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->accumulator_started = 0;
+ 133              		.loc 1 140 30
+ 134 0024 7B68     		ldr	r3, [r7, #4]
+ 135 0026 0022     		movs	r2, #0
+ 136 0028 1A60     		str	r2, [r3]
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+ 137              		.loc 1 141 1
+ 138 002a 00BF     		nop
+ 139 002c 0837     		adds	r7, r7, #8
+ 140              	.LCFI8:
+ 141              		.cfi_def_cfa_offset 8
+ 142 002e BD46     		mov	sp, r7
+ 143              	.LCFI9:
+ 144              		.cfi_def_cfa_register 13
+ 145              		@ sp needed
+ 146 0030 80BD     		pop	{r7, pc}
+ 147              		.cfi_endproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 6
+
+
+ 148              	.LFE1:
+ 150              		.section	.text.mbedtls_entropy_add_source,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	mbedtls_entropy_add_source
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.fpu fpv4-sp-d16
+ 158              	mbedtls_entropy_add_source:
+ 159              	.LFB2:
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** int mbedtls_entropy_add_source( mbedtls_entropy_context *ctx,
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                         mbedtls_entropy_f_source_ptr f_source, void *p_source,
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                         size_t threshold, int strong )
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+ 160              		.loc 1 146 1
+ 161              		.cfi_startproc
+ 162              		@ args = 4, pretend = 0, frame = 24
+ 163              		@ frame_needed = 1, uses_anonymous_args = 0
+ 164              		@ link register save eliminated.
+ 165 0000 80B4     		push	{r7}
+ 166              	.LCFI10:
+ 167              		.cfi_def_cfa_offset 4
+ 168              		.cfi_offset 7, -4
+ 169 0002 87B0     		sub	sp, sp, #28
+ 170              	.LCFI11:
+ 171              		.cfi_def_cfa_offset 32
+ 172 0004 00AF     		add	r7, sp, #0
+ 173              	.LCFI12:
+ 174              		.cfi_def_cfa_register 7
+ 175 0006 F860     		str	r0, [r7, #12]
+ 176 0008 B960     		str	r1, [r7, #8]
+ 177 000a 7A60     		str	r2, [r7, #4]
+ 178 000c 3B60     		str	r3, [r7]
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     int idx, ret = 0;
+ 179              		.loc 1 147 14
+ 180 000e 0023     		movs	r3, #0
+ 181 0010 7B61     		str	r3, [r7, #20]
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_mutex_lock( &ctx->mutex ) ) != 0 )
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( ret );
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     idx = ctx->source_count;
+ 182              		.loc 1 154 9
+ 183 0012 FB68     		ldr	r3, [r7, #12]
+ 184 0014 1B6F     		ldr	r3, [r3, #112]
+ 185 0016 3B61     		str	r3, [r7, #16]
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( idx >= MBEDTLS_ENTROPY_MAX_SOURCES )
+ 186              		.loc 1 155 7
+ 187 0018 3B69     		ldr	r3, [r7, #16]
+ 188 001a 002B     		cmp	r3, #0
+ 189 001c 03DD     		ble	.L6
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ret = MBEDTLS_ERR_ENTROPY_MAX_SOURCES;
+ 190              		.loc 1 157 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 7
+
+
+ 191 001e 6FF03D03 		mvn	r3, #61
+ 192 0022 7B61     		str	r3, [r7, #20]
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 193              		.loc 1 158 9
+ 194 0024 2CE0     		b	.L7
+ 195              	.L6:
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     }
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->source[idx].f_source  = f_source;
+ 196              		.loc 1 161 32
+ 197 0026 F968     		ldr	r1, [r7, #12]
+ 198 0028 3A69     		ldr	r2, [r7, #16]
+ 199 002a 1346     		mov	r3, r2
+ 200 002c 9B00     		lsls	r3, r3, #2
+ 201 002e 1344     		add	r3, r3, r2
+ 202 0030 9B00     		lsls	r3, r3, #2
+ 203 0032 0B44     		add	r3, r3, r1
+ 204 0034 7433     		adds	r3, r3, #116
+ 205 0036 BA68     		ldr	r2, [r7, #8]
+ 206 0038 1A60     		str	r2, [r3]
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->source[idx].p_source  = p_source;
+ 207              		.loc 1 162 32
+ 208 003a F968     		ldr	r1, [r7, #12]
+ 209 003c 3A69     		ldr	r2, [r7, #16]
+ 210 003e 1346     		mov	r3, r2
+ 211 0040 9B00     		lsls	r3, r3, #2
+ 212 0042 1344     		add	r3, r3, r2
+ 213 0044 9B00     		lsls	r3, r3, #2
+ 214 0046 0B44     		add	r3, r3, r1
+ 215 0048 7833     		adds	r3, r3, #120
+ 216 004a 7A68     		ldr	r2, [r7, #4]
+ 217 004c 1A60     		str	r2, [r3]
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->source[idx].threshold = threshold;
+ 218              		.loc 1 163 32
+ 219 004e F968     		ldr	r1, [r7, #12]
+ 220 0050 3A69     		ldr	r2, [r7, #16]
+ 221 0052 1346     		mov	r3, r2
+ 222 0054 9B00     		lsls	r3, r3, #2
+ 223 0056 1344     		add	r3, r3, r2
+ 224 0058 9B00     		lsls	r3, r3, #2
+ 225 005a 0B44     		add	r3, r3, r1
+ 226 005c 8033     		adds	r3, r3, #128
+ 227 005e 3A68     		ldr	r2, [r7]
+ 228 0060 1A60     		str	r2, [r3]
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->source[idx].strong    = strong;
+ 229              		.loc 1 164 32
+ 230 0062 F968     		ldr	r1, [r7, #12]
+ 231 0064 3A69     		ldr	r2, [r7, #16]
+ 232 0066 1346     		mov	r3, r2
+ 233 0068 9B00     		lsls	r3, r3, #2
+ 234 006a 1344     		add	r3, r3, r2
+ 235 006c 9B00     		lsls	r3, r3, #2
+ 236 006e 0B44     		add	r3, r3, r1
+ 237 0070 8433     		adds	r3, r3, #132
+ 238 0072 3A6A     		ldr	r2, [r7, #32]
+ 239 0074 1A60     		str	r2, [r3]
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 8
+
+
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ctx->source_count++;
+ 240              		.loc 1 166 8
+ 241 0076 FB68     		ldr	r3, [r7, #12]
+ 242 0078 1B6F     		ldr	r3, [r3, #112]
+ 243              		.loc 1 166 22
+ 244 007a 5A1C     		adds	r2, r3, #1
+ 245 007c FB68     		ldr	r3, [r7, #12]
+ 246 007e 1A67     		str	r2, [r3, #112]
+ 247              	.L7:
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** exit:
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( mbedtls_mutex_unlock( &ctx->mutex ) != 0 )
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( MBEDTLS_ERR_THREADING_MUTEX_ERROR );
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     return( ret );
+ 248              		.loc 1 174 11
+ 249 0080 7B69     		ldr	r3, [r7, #20]
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+ 250              		.loc 1 175 1
+ 251 0082 1846     		mov	r0, r3
+ 252 0084 1C37     		adds	r7, r7, #28
+ 253              	.LCFI13:
+ 254              		.cfi_def_cfa_offset 4
+ 255 0086 BD46     		mov	sp, r7
+ 256              	.LCFI14:
+ 257              		.cfi_def_cfa_register 13
+ 258              		@ sp needed
+ 259 0088 5DF8047B 		ldr	r7, [sp], #4
+ 260              	.LCFI15:
+ 261              		.cfi_restore 7
+ 262              		.cfi_def_cfa_offset 0
+ 263 008c 7047     		bx	lr
+ 264              		.cfi_endproc
+ 265              	.LFE2:
+ 267              		.section	.text.entropy_update,"ax",%progbits
+ 268              		.align	1
+ 269              		.syntax unified
+ 270              		.thumb
+ 271              		.thumb_func
+ 272              		.fpu fpv4-sp-d16
+ 274              	entropy_update:
+ 275              	.LFB3:
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** /*
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  * Entropy accumulator update
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  */
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** static int entropy_update( mbedtls_entropy_context *ctx, unsigned char source_id,
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                            const unsigned char *data, size_t len )
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+ 276              		.loc 1 182 1
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 64
+ 279              		@ frame_needed = 1, uses_anonymous_args = 0
+ 280 0000 80B5     		push	{r7, lr}
+ 281              	.LCFI16:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 9
+
+
+ 282              		.cfi_def_cfa_offset 8
+ 283              		.cfi_offset 7, -8
+ 284              		.cfi_offset 14, -4
+ 285 0002 90B0     		sub	sp, sp, #64
+ 286              	.LCFI17:
+ 287              		.cfi_def_cfa_offset 72
+ 288 0004 00AF     		add	r7, sp, #0
+ 289              	.LCFI18:
+ 290              		.cfi_def_cfa_register 7
+ 291 0006 F860     		str	r0, [r7, #12]
+ 292 0008 7A60     		str	r2, [r7, #4]
+ 293 000a 3B60     		str	r3, [r7]
+ 294 000c 0B46     		mov	r3, r1
+ 295 000e FB72     		strb	r3, [r7, #11]
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     unsigned char header[2];
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     unsigned char tmp[MBEDTLS_ENTROPY_BLOCK_SIZE];
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     size_t use_len = len;
+ 296              		.loc 1 185 12
+ 297 0010 3B68     		ldr	r3, [r7]
+ 298 0012 FB63     		str	r3, [r7, #60]
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     const unsigned char *p = data;
+ 299              		.loc 1 186 26
+ 300 0014 7B68     		ldr	r3, [r7, #4]
+ 301 0016 BB63     		str	r3, [r7, #56]
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     int ret = 0;
+ 302              		.loc 1 187 9
+ 303 0018 0023     		movs	r3, #0
+ 304 001a 7B63     		str	r3, [r7, #52]
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( use_len > MBEDTLS_ENTROPY_BLOCK_SIZE )
+ 305              		.loc 1 189 7
+ 306 001c FB6B     		ldr	r3, [r7, #60]
+ 307 001e 202B     		cmp	r3, #32
+ 308 0020 0FD9     		bls	.L10
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_SHA512_ACCUMULATOR)
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( ( ret = mbedtls_sha512_ret( data, len, tmp, 0 ) ) != 0 )
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             goto cleanup;
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #else
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( ( ret = mbedtls_sha256_ret( data, len, tmp, 0 ) ) != 0 )
+ 309              		.loc 1 195 21
+ 310 0022 07F11002 		add	r2, r7, #16
+ 311 0026 0023     		movs	r3, #0
+ 312 0028 3968     		ldr	r1, [r7]
+ 313 002a 7868     		ldr	r0, [r7, #4]
+ 314 002c FFF7FEFF 		bl	mbedtls_sha256_ret
+ 315 0030 7863     		str	r0, [r7, #52]
+ 316              		.loc 1 195 11
+ 317 0032 7B6B     		ldr	r3, [r7, #52]
+ 318 0034 002B     		cmp	r3, #0
+ 319 0036 31D1     		bne	.L16
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             goto cleanup;
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         p = tmp;
+ 320              		.loc 1 198 11
+ 321 0038 07F11003 		add	r3, r7, #16
+ 322 003c BB63     		str	r3, [r7, #56]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 10
+
+
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         use_len = MBEDTLS_ENTROPY_BLOCK_SIZE;
+ 323              		.loc 1 199 17
+ 324 003e 2023     		movs	r3, #32
+ 325 0040 FB63     		str	r3, [r7, #60]
+ 326              	.L10:
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     }
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     header[0] = source_id;
+ 327              		.loc 1 202 15
+ 328 0042 FB7A     		ldrb	r3, [r7, #11]
+ 329 0044 87F83030 		strb	r3, [r7, #48]
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     header[1] = use_len & 0xFF;
+ 330              		.loc 1 203 15
+ 331 0048 FB6B     		ldr	r3, [r7, #60]
+ 332 004a DBB2     		uxtb	r3, r3
+ 333 004c 87F83130 		strb	r3, [r7, #49]
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Start the accumulator if this has not already happened. Note that
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * it is sufficient to start the accumulator here only because all calls to
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * gather entropy eventually execute this code.
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_SHA512_ACCUMULATOR)
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ctx->accumulator_started == 0 &&
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ( ret = mbedtls_sha512_starts_ret( &ctx->accumulator, 0 ) ) != 0 )
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto cleanup;
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     else
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ctx->accumulator_started = 1;
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha512_update_ret( &ctx->accumulator, header, 2 ) ) != 0 )
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto cleanup;
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ret = mbedtls_sha512_update_ret( &ctx->accumulator, p, use_len );
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #else
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ctx->accumulator_started == 0 &&
+ 334              		.loc 1 220 12
+ 335 0050 FB68     		ldr	r3, [r7, #12]
+ 336 0052 1B68     		ldr	r3, [r3]
+ 337              		.loc 1 220 7
+ 338 0054 002B     		cmp	r3, #0
+ 339 0056 09D1     		bne	.L13
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ( ret = mbedtls_sha256_starts_ret( &ctx->accumulator, 0 ) ) != 0 )
+ 340              		.loc 1 221 17 discriminator 1
+ 341 0058 FB68     		ldr	r3, [r7, #12]
+ 342 005a 0433     		adds	r3, r3, #4
+ 343 005c 0021     		movs	r1, #0
+ 344 005e 1846     		mov	r0, r3
+ 345 0060 FFF7FEFF 		bl	mbedtls_sha256_starts_ret
+ 346 0064 7863     		str	r0, [r7, #52]
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ( ret = mbedtls_sha256_starts_ret( &ctx->accumulator, 0 ) ) != 0 )
+ 347              		.loc 1 220 39 discriminator 1
+ 348 0066 7B6B     		ldr	r3, [r7, #52]
+ 349 0068 002B     		cmp	r3, #0
+ 350 006a 19D1     		bne	.L17
+ 351              	.L13:
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto cleanup;
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     else
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ctx->accumulator_started = 1;
+ 352              		.loc 1 224 34
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 11
+
+
+ 353 006c FB68     		ldr	r3, [r7, #12]
+ 354 006e 0122     		movs	r2, #1
+ 355 0070 1A60     		str	r2, [r3]
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha256_update_ret( &ctx->accumulator, header, 2 ) ) != 0 )
+ 356              		.loc 1 225 17
+ 357 0072 FB68     		ldr	r3, [r7, #12]
+ 358 0074 0433     		adds	r3, r3, #4
+ 359 0076 07F13001 		add	r1, r7, #48
+ 360 007a 0222     		movs	r2, #2
+ 361 007c 1846     		mov	r0, r3
+ 362 007e FFF7FEFF 		bl	mbedtls_sha256_update_ret
+ 363 0082 7863     		str	r0, [r7, #52]
+ 364              		.loc 1 225 7
+ 365 0084 7B6B     		ldr	r3, [r7, #52]
+ 366 0086 002B     		cmp	r3, #0
+ 367 0088 0CD1     		bne	.L18
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto cleanup;
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ret = mbedtls_sha256_update_ret( &ctx->accumulator, p, use_len );
+ 368              		.loc 1 227 11
+ 369 008a FB68     		ldr	r3, [r7, #12]
+ 370 008c 0433     		adds	r3, r3, #4
+ 371 008e FA6B     		ldr	r2, [r7, #60]
+ 372 0090 B96B     		ldr	r1, [r7, #56]
+ 373 0092 1846     		mov	r0, r3
+ 374 0094 FFF7FEFF 		bl	mbedtls_sha256_update_ret
+ 375 0098 7863     		str	r0, [r7, #52]
+ 376 009a 04E0     		b	.L12
+ 377              	.L16:
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 378              		.loc 1 196 13
+ 379 009c 00BF     		nop
+ 380 009e 02E0     		b	.L12
+ 381              	.L17:
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     else
+ 382              		.loc 1 222 9
+ 383 00a0 00BF     		nop
+ 384 00a2 00E0     		b	.L12
+ 385              	.L18:
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto cleanup;
+ 386              		.loc 1 226 9
+ 387 00a4 00BF     		nop
+ 388              	.L12:
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** cleanup:
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_platform_zeroize( tmp, sizeof( tmp ) );
+ 389              		.loc 1 231 5
+ 390 00a6 07F11003 		add	r3, r7, #16
+ 391 00aa 2021     		movs	r1, #32
+ 392 00ac 1846     		mov	r0, r3
+ 393 00ae FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     return( ret );
+ 394              		.loc 1 233 11
+ 395 00b2 7B6B     		ldr	r3, [r7, #52]
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+ 396              		.loc 1 234 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 12
+
+
+ 397 00b4 1846     		mov	r0, r3
+ 398 00b6 4037     		adds	r7, r7, #64
+ 399              	.LCFI19:
+ 400              		.cfi_def_cfa_offset 8
+ 401 00b8 BD46     		mov	sp, r7
+ 402              	.LCFI20:
+ 403              		.cfi_def_cfa_register 13
+ 404              		@ sp needed
+ 405 00ba 80BD     		pop	{r7, pc}
+ 406              		.cfi_endproc
+ 407              	.LFE3:
+ 409              		.section	.text.mbedtls_entropy_update_manual,"ax",%progbits
+ 410              		.align	1
+ 411              		.global	mbedtls_entropy_update_manual
+ 412              		.syntax unified
+ 413              		.thumb
+ 414              		.thumb_func
+ 415              		.fpu fpv4-sp-d16
+ 417              	mbedtls_entropy_update_manual:
+ 418              	.LFB4:
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** int mbedtls_entropy_update_manual( mbedtls_entropy_context *ctx,
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                            const unsigned char *data, size_t len )
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+ 419              		.loc 1 238 1
+ 420              		.cfi_startproc
+ 421              		@ args = 0, pretend = 0, frame = 24
+ 422              		@ frame_needed = 1, uses_anonymous_args = 0
+ 423 0000 80B5     		push	{r7, lr}
+ 424              	.LCFI21:
+ 425              		.cfi_def_cfa_offset 8
+ 426              		.cfi_offset 7, -8
+ 427              		.cfi_offset 14, -4
+ 428 0002 86B0     		sub	sp, sp, #24
+ 429              	.LCFI22:
+ 430              		.cfi_def_cfa_offset 32
+ 431 0004 00AF     		add	r7, sp, #0
+ 432              	.LCFI23:
+ 433              		.cfi_def_cfa_register 7
+ 434 0006 F860     		str	r0, [r7, #12]
+ 435 0008 B960     		str	r1, [r7, #8]
+ 436 000a 7A60     		str	r2, [r7, #4]
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     int ret;
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_mutex_lock( &ctx->mutex ) ) != 0 )
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( ret );
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ret = entropy_update( ctx, MBEDTLS_ENTROPY_SOURCE_MANUAL, data, len );
+ 437              		.loc 1 246 11
+ 438 000c 7B68     		ldr	r3, [r7, #4]
+ 439 000e BA68     		ldr	r2, [r7, #8]
+ 440 0010 0121     		movs	r1, #1
+ 441 0012 F868     		ldr	r0, [r7, #12]
+ 442 0014 FFF7FEFF 		bl	entropy_update
+ 443 0018 7861     		str	r0, [r7, #20]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 13
+
+
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( mbedtls_mutex_unlock( &ctx->mutex ) != 0 )
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( MBEDTLS_ERR_THREADING_MUTEX_ERROR );
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 252:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 253:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     return( ret );
+ 444              		.loc 1 253 11
+ 445 001a 7B69     		ldr	r3, [r7, #20]
+ 254:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+ 446              		.loc 1 254 1
+ 447 001c 1846     		mov	r0, r3
+ 448 001e 1837     		adds	r7, r7, #24
+ 449              	.LCFI24:
+ 450              		.cfi_def_cfa_offset 8
+ 451 0020 BD46     		mov	sp, r7
+ 452              	.LCFI25:
+ 453              		.cfi_def_cfa_register 13
+ 454              		@ sp needed
+ 455 0022 80BD     		pop	{r7, pc}
+ 456              		.cfi_endproc
+ 457              	.LFE4:
+ 459              		.section	.text.entropy_gather_internal,"ax",%progbits
+ 460              		.align	1
+ 461              		.syntax unified
+ 462              		.thumb
+ 463              		.thumb_func
+ 464              		.fpu fpv4-sp-d16
+ 466              	entropy_gather_internal:
+ 467              	.LFB5:
+ 255:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 256:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** /*
+ 257:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  * Run through the different sources to add entropy to our accumulator
+ 258:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  */
+ 259:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** static int entropy_gather_internal( mbedtls_entropy_context *ctx )
+ 260:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+ 468              		.loc 1 260 1
+ 469              		.cfi_startproc
+ 470              		@ args = 0, pretend = 0, frame = 152
+ 471              		@ frame_needed = 1, uses_anonymous_args = 0
+ 472 0000 90B5     		push	{r4, r7, lr}
+ 473              	.LCFI26:
+ 474              		.cfi_def_cfa_offset 12
+ 475              		.cfi_offset 4, -12
+ 476              		.cfi_offset 7, -8
+ 477              		.cfi_offset 14, -4
+ 478 0002 A7B0     		sub	sp, sp, #156
+ 479              	.LCFI27:
+ 480              		.cfi_def_cfa_offset 168
+ 481 0004 00AF     		add	r7, sp, #0
+ 482              	.LCFI28:
+ 483              		.cfi_def_cfa_register 7
+ 484 0006 7860     		str	r0, [r7, #4]
+ 261:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     int ret, i, have_one_strong = 0;
+ 485              		.loc 1 261 17
+ 486 0008 0023     		movs	r3, #0
+ 487 000a C7F88C30 		str	r3, [r7, #140]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 14
+
+
+ 262:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     unsigned char buf[MBEDTLS_ENTROPY_MAX_GATHER];
+ 263:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     size_t olen;
+ 264:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 265:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ctx->source_count == 0 )
+ 488              		.loc 1 265 12
+ 489 000e 7B68     		ldr	r3, [r7, #4]
+ 490 0010 1B6F     		ldr	r3, [r3, #112]
+ 491              		.loc 1 265 7
+ 492 0012 002B     		cmp	r3, #0
+ 493 0014 02D1     		bne	.L22
+ 266:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( MBEDTLS_ERR_ENTROPY_NO_SOURCES_DEFINED );
+ 494              		.loc 1 266 15
+ 495 0016 6FF03F03 		mvn	r3, #63
+ 496 001a 7EE0     		b	.L31
+ 497              	.L22:
+ 267:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 268:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 269:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Run through our entropy sources
+ 270:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     for( i = 0; i < ctx->source_count; i++ )
+ 498              		.loc 1 271 12
+ 499 001c 0023     		movs	r3, #0
+ 500 001e C7F89030 		str	r3, [r7, #144]
+ 501              		.loc 1 271 5
+ 502 0022 60E0     		b	.L24
+ 503              	.L30:
+ 272:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 273:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( ctx->source[i].strong == MBEDTLS_ENTROPY_SOURCE_STRONG )
+ 504              		.loc 1 273 27
+ 505 0024 7968     		ldr	r1, [r7, #4]
+ 506 0026 D7F89020 		ldr	r2, [r7, #144]
+ 507 002a 1346     		mov	r3, r2
+ 508 002c 9B00     		lsls	r3, r3, #2
+ 509 002e 1344     		add	r3, r3, r2
+ 510 0030 9B00     		lsls	r3, r3, #2
+ 511 0032 0B44     		add	r3, r3, r1
+ 512 0034 8433     		adds	r3, r3, #132
+ 513 0036 1B68     		ldr	r3, [r3]
+ 514              		.loc 1 273 11
+ 515 0038 012B     		cmp	r3, #1
+ 516 003a 02D1     		bne	.L25
+ 274:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             have_one_strong = 1;
+ 517              		.loc 1 274 29
+ 518 003c 0123     		movs	r3, #1
+ 519 003e C7F88C30 		str	r3, [r7, #140]
+ 520              	.L25:
+ 275:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 276:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         olen = 0;
+ 521              		.loc 1 276 14
+ 522 0042 0023     		movs	r3, #0
+ 523 0044 BB60     		str	r3, [r7, #8]
+ 277:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( ( ret = ctx->source[i].f_source( ctx->source[i].p_source,
+ 524              		.loc 1 277 35
+ 525 0046 7968     		ldr	r1, [r7, #4]
+ 526 0048 D7F89020 		ldr	r2, [r7, #144]
+ 527 004c 1346     		mov	r3, r2
+ 528 004e 9B00     		lsls	r3, r3, #2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 15
+
+
+ 529 0050 1344     		add	r3, r3, r2
+ 530 0052 9B00     		lsls	r3, r3, #2
+ 531 0054 0B44     		add	r3, r3, r1
+ 532 0056 7433     		adds	r3, r3, #116
+ 533 0058 1C68     		ldr	r4, [r3]
+ 534              		.loc 1 277 21
+ 535 005a 7968     		ldr	r1, [r7, #4]
+ 536 005c D7F89020 		ldr	r2, [r7, #144]
+ 537 0060 1346     		mov	r3, r2
+ 538 0062 9B00     		lsls	r3, r3, #2
+ 539 0064 1344     		add	r3, r3, r2
+ 540 0066 9B00     		lsls	r3, r3, #2
+ 541 0068 0B44     		add	r3, r3, r1
+ 542 006a 7833     		adds	r3, r3, #120
+ 543 006c 1868     		ldr	r0, [r3]
+ 544 006e 07F10803 		add	r3, r7, #8
+ 545 0072 07F10C01 		add	r1, r7, #12
+ 546 0076 8022     		movs	r2, #128
+ 547 0078 A047     		blx	r4
+ 548              	.LVL0:
+ 549 007a C7F89400 		str	r0, [r7, #148]
+ 550              		.loc 1 277 11
+ 551 007e D7F89430 		ldr	r3, [r7, #148]
+ 552 0082 002B     		cmp	r3, #0
+ 553 0084 3ED1     		bne	.L32
+ 278:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                         buf, MBEDTLS_ENTROPY_MAX_GATHER, &olen ) ) != 0 )
+ 279:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         {
+ 280:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             goto cleanup;
+ 281:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         }
+ 282:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 283:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         /*
+ 284:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****          * Add if we actually gathered something
+ 285:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****          */
+ 286:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( olen > 0 )
+ 554              		.loc 1 286 18
+ 555 0086 BB68     		ldr	r3, [r7, #8]
+ 556              		.loc 1 286 11
+ 557 0088 002B     		cmp	r3, #0
+ 558 008a 27D0     		beq	.L28
+ 287:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         {
+ 288:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             if( ( ret = entropy_update( ctx, (unsigned char) i,
+ 559              		.loc 1 288 25
+ 560 008c D7F89030 		ldr	r3, [r7, #144]
+ 561 0090 D9B2     		uxtb	r1, r3
+ 562 0092 BB68     		ldr	r3, [r7, #8]
+ 563 0094 07F10C02 		add	r2, r7, #12
+ 564 0098 7868     		ldr	r0, [r7, #4]
+ 565 009a FFF7FEFF 		bl	entropy_update
+ 566 009e C7F89400 		str	r0, [r7, #148]
+ 567              		.loc 1 288 15
+ 568 00a2 D7F89430 		ldr	r3, [r7, #148]
+ 569 00a6 002B     		cmp	r3, #0
+ 570 00a8 02D0     		beq	.L29
+ 289:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                         buf, olen ) ) != 0 )
+ 290:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                 return( ret );
+ 571              		.loc 1 290 23
+ 572 00aa D7F89430 		ldr	r3, [r7, #148]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 16
+
+
+ 573 00ae 34E0     		b	.L31
+ 574              	.L29:
+ 291:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             ctx->source[i].size += olen;
+ 575              		.loc 1 291 33
+ 576 00b0 7968     		ldr	r1, [r7, #4]
+ 577 00b2 D7F89020 		ldr	r2, [r7, #144]
+ 578 00b6 1346     		mov	r3, r2
+ 579 00b8 9B00     		lsls	r3, r3, #2
+ 580 00ba 1344     		add	r3, r3, r2
+ 581 00bc 9B00     		lsls	r3, r3, #2
+ 582 00be 0B44     		add	r3, r3, r1
+ 583 00c0 7C33     		adds	r3, r3, #124
+ 584 00c2 1A68     		ldr	r2, [r3]
+ 585 00c4 BB68     		ldr	r3, [r7, #8]
+ 586 00c6 D118     		adds	r1, r2, r3
+ 587 00c8 7868     		ldr	r0, [r7, #4]
+ 588 00ca D7F89020 		ldr	r2, [r7, #144]
+ 589 00ce 1346     		mov	r3, r2
+ 590 00d0 9B00     		lsls	r3, r3, #2
+ 591 00d2 1344     		add	r3, r3, r2
+ 592 00d4 9B00     		lsls	r3, r3, #2
+ 593 00d6 0344     		add	r3, r3, r0
+ 594 00d8 7C33     		adds	r3, r3, #124
+ 595 00da 1960     		str	r1, [r3]
+ 596              	.L28:
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 597              		.loc 1 271 41 discriminator 2
+ 598 00dc D7F89030 		ldr	r3, [r7, #144]
+ 599 00e0 0133     		adds	r3, r3, #1
+ 600 00e2 C7F89030 		str	r3, [r7, #144]
+ 601              	.L24:
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 602              		.loc 1 271 24 discriminator 1
+ 603 00e6 7B68     		ldr	r3, [r7, #4]
+ 604 00e8 1B6F     		ldr	r3, [r3, #112]
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 605              		.loc 1 271 5 discriminator 1
+ 606 00ea D7F89020 		ldr	r2, [r7, #144]
+ 607 00ee 9A42     		cmp	r2, r3
+ 608 00f0 98DB     		blt	.L30
+ 292:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         }
+ 293:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     }
+ 294:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 295:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( have_one_strong == 0 )
+ 609              		.loc 1 295 7
+ 610 00f2 D7F88C30 		ldr	r3, [r7, #140]
+ 611 00f6 002B     		cmp	r3, #0
+ 612 00f8 06D1     		bne	.L33
+ 296:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ret = MBEDTLS_ERR_ENTROPY_NO_STRONG_SOURCE;
+ 613              		.loc 1 296 13
+ 614 00fa 6FF03C03 		mvn	r3, #60
+ 615 00fe C7F89430 		str	r3, [r7, #148]
+ 616 0102 02E0     		b	.L27
+ 617              	.L32:
+ 280:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         }
+ 618              		.loc 1 280 13
+ 619 0104 00BF     		nop
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 17
+
+
+ 620 0106 00E0     		b	.L27
+ 621              	.L33:
+ 297:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 298:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** cleanup:
+ 622              		.loc 1 298 1
+ 623 0108 00BF     		nop
+ 624              	.L27:
+ 299:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_platform_zeroize( buf, sizeof( buf ) );
+ 625              		.loc 1 299 5
+ 626 010a 07F10C03 		add	r3, r7, #12
+ 627 010e 8021     		movs	r1, #128
+ 628 0110 1846     		mov	r0, r3
+ 629 0112 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 300:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 301:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     return( ret );
+ 630              		.loc 1 301 11
+ 631 0116 D7F89430 		ldr	r3, [r7, #148]
+ 632              	.L31:
+ 302:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+ 633              		.loc 1 302 1 discriminator 1
+ 634 011a 1846     		mov	r0, r3
+ 635 011c 9C37     		adds	r7, r7, #156
+ 636              	.LCFI29:
+ 637              		.cfi_def_cfa_offset 12
+ 638 011e BD46     		mov	sp, r7
+ 639              	.LCFI30:
+ 640              		.cfi_def_cfa_register 13
+ 641              		@ sp needed
+ 642 0120 90BD     		pop	{r4, r7, pc}
+ 643              		.cfi_endproc
+ 644              	.LFE5:
+ 646              		.section	.text.mbedtls_entropy_gather,"ax",%progbits
+ 647              		.align	1
+ 648              		.global	mbedtls_entropy_gather
+ 649              		.syntax unified
+ 650              		.thumb
+ 651              		.thumb_func
+ 652              		.fpu fpv4-sp-d16
+ 654              	mbedtls_entropy_gather:
+ 655              	.LFB6:
+ 303:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 304:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** /*
+ 305:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  * Thread-safe wrapper for entropy_gather_internal()
+ 306:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****  */
+ 307:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** int mbedtls_entropy_gather( mbedtls_entropy_context *ctx )
+ 308:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+ 656              		.loc 1 308 1
+ 657              		.cfi_startproc
+ 658              		@ args = 0, pretend = 0, frame = 16
+ 659              		@ frame_needed = 1, uses_anonymous_args = 0
+ 660 0000 80B5     		push	{r7, lr}
+ 661              	.LCFI31:
+ 662              		.cfi_def_cfa_offset 8
+ 663              		.cfi_offset 7, -8
+ 664              		.cfi_offset 14, -4
+ 665 0002 84B0     		sub	sp, sp, #16
+ 666              	.LCFI32:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 18
+
+
+ 667              		.cfi_def_cfa_offset 24
+ 668 0004 00AF     		add	r7, sp, #0
+ 669              	.LCFI33:
+ 670              		.cfi_def_cfa_register 7
+ 671 0006 7860     		str	r0, [r7, #4]
+ 309:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     int ret;
+ 310:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 311:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 312:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_mutex_lock( &ctx->mutex ) ) != 0 )
+ 313:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( ret );
+ 314:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 315:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 316:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ret = entropy_gather_internal( ctx );
+ 672              		.loc 1 316 11
+ 673 0008 7868     		ldr	r0, [r7, #4]
+ 674 000a FFF7FEFF 		bl	entropy_gather_internal
+ 675 000e F860     		str	r0, [r7, #12]
+ 317:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 318:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 319:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( mbedtls_mutex_unlock( &ctx->mutex ) != 0 )
+ 320:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( MBEDTLS_ERR_THREADING_MUTEX_ERROR );
+ 321:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 322:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 323:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     return( ret );
+ 676              		.loc 1 323 11
+ 677 0010 FB68     		ldr	r3, [r7, #12]
+ 324:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+ 678              		.loc 1 324 1
+ 679 0012 1846     		mov	r0, r3
+ 680 0014 1037     		adds	r7, r7, #16
+ 681              	.LCFI34:
+ 682              		.cfi_def_cfa_offset 8
+ 683 0016 BD46     		mov	sp, r7
+ 684              	.LCFI35:
+ 685              		.cfi_def_cfa_register 13
+ 686              		@ sp needed
+ 687 0018 80BD     		pop	{r7, pc}
+ 688              		.cfi_endproc
+ 689              	.LFE6:
+ 691              		.section	.text.mbedtls_entropy_func,"ax",%progbits
+ 692              		.align	1
+ 693              		.global	mbedtls_entropy_func
+ 694              		.syntax unified
+ 695              		.thumb
+ 696              		.thumb_func
+ 697              		.fpu fpv4-sp-d16
+ 699              	mbedtls_entropy_func:
+ 700              	.LFB7:
+ 325:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 326:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** int mbedtls_entropy_func( void *data, unsigned char *output, size_t len )
+ 327:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** {
+ 701              		.loc 1 327 1
+ 702              		.cfi_startproc
+ 703              		@ args = 0, pretend = 0, frame = 72
+ 704              		@ frame_needed = 1, uses_anonymous_args = 0
+ 705 0000 80B5     		push	{r7, lr}
+ 706              	.LCFI36:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 19
+
+
+ 707              		.cfi_def_cfa_offset 8
+ 708              		.cfi_offset 7, -8
+ 709              		.cfi_offset 14, -4
+ 710 0002 92B0     		sub	sp, sp, #72
+ 711              	.LCFI37:
+ 712              		.cfi_def_cfa_offset 80
+ 713 0004 00AF     		add	r7, sp, #0
+ 714              	.LCFI38:
+ 715              		.cfi_def_cfa_register 7
+ 716 0006 F860     		str	r0, [r7, #12]
+ 717 0008 B960     		str	r1, [r7, #8]
+ 718 000a 7A60     		str	r2, [r7, #4]
+ 328:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     int ret, count = 0, i, done;
+ 719              		.loc 1 328 14
+ 720 000c 0023     		movs	r3, #0
+ 721 000e 3B64     		str	r3, [r7, #64]
+ 329:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_entropy_context *ctx = (mbedtls_entropy_context *) data;
+ 722              		.loc 1 329 30
+ 723 0010 FB68     		ldr	r3, [r7, #12]
+ 724 0012 7B63     		str	r3, [r7, #52]
+ 330:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     unsigned char buf[MBEDTLS_ENTROPY_BLOCK_SIZE];
+ 331:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 332:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( len > MBEDTLS_ENTROPY_BLOCK_SIZE )
+ 725              		.loc 1 332 7
+ 726 0014 7B68     		ldr	r3, [r7, #4]
+ 727 0016 202B     		cmp	r3, #32
+ 728 0018 02D9     		bls	.L37
+ 333:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( MBEDTLS_ERR_ENTROPY_SOURCE_FAILED );
+ 729              		.loc 1 333 15
+ 730 001a 6FF03B03 		mvn	r3, #59
+ 731 001e A5E0     		b	.L51
+ 732              	.L37:
+ 334:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 335:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_NV_SEED)
+ 336:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /* Update the NV entropy seed before generating any entropy for outside
+ 337:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * use.
+ 338:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 339:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ctx->initial_entropy_run == 0 )
+ 340:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 341:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ctx->initial_entropy_run = 1;
+ 342:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( ( ret = mbedtls_entropy_update_nv_seed( ctx ) ) != 0 )
+ 343:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             return( ret );
+ 344:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     }
+ 345:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 346:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 347:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 348:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_mutex_lock( &ctx->mutex ) ) != 0 )
+ 349:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( ret );
+ 350:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 351:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 352:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 353:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Always gather extra entropy before a call
+ 354:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 355:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     do
+ 356:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     {
+ 357:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( count++ > ENTROPY_MAX_LOOP )
+ 733              		.loc 1 357 18
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 20
+
+
+ 734 0020 3B6C     		ldr	r3, [r7, #64]
+ 735 0022 5A1C     		adds	r2, r3, #1
+ 736 0024 3A64     		str	r2, [r7, #64]
+ 737              		.loc 1 357 11
+ 738 0026 B3F5807F 		cmp	r3, #256
+ 739 002a 03DD     		ble	.L39
+ 358:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         {
+ 359:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             ret = MBEDTLS_ERR_ENTROPY_SOURCE_FAILED;
+ 740              		.loc 1 359 17
+ 741 002c 6FF03B03 		mvn	r3, #59
+ 742 0030 7B64     		str	r3, [r7, #68]
+ 360:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             goto exit;
+ 743              		.loc 1 360 13
+ 744 0032 94E0     		b	.L40
+ 745              	.L39:
+ 361:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         }
+ 362:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 363:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         if( ( ret = entropy_gather_internal( ctx ) ) != 0 )
+ 746              		.loc 1 363 21
+ 747 0034 786B     		ldr	r0, [r7, #52]
+ 748 0036 FFF7FEFF 		bl	entropy_gather_internal
+ 749 003a 7864     		str	r0, [r7, #68]
+ 750              		.loc 1 363 11
+ 751 003c 7B6C     		ldr	r3, [r7, #68]
+ 752 003e 002B     		cmp	r3, #0
+ 753 0040 40F08480 		bne	.L52
+ 364:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             goto exit;
+ 365:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 366:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         done = 1;
+ 754              		.loc 1 366 14
+ 755 0044 0123     		movs	r3, #1
+ 756 0046 BB63     		str	r3, [r7, #56]
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         for( i = 0; i < ctx->source_count; i++ )
+ 757              		.loc 1 367 16
+ 758 0048 0023     		movs	r3, #0
+ 759 004a FB63     		str	r3, [r7, #60]
+ 760              		.loc 1 367 9
+ 761 004c 18E0     		b	.L42
+ 762              	.L44:
+ 368:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****             if( ctx->source[i].size < ctx->source[i].threshold )
+ 763              		.loc 1 368 31
+ 764 004e 796B     		ldr	r1, [r7, #52]
+ 765 0050 FA6B     		ldr	r2, [r7, #60]
+ 766 0052 1346     		mov	r3, r2
+ 767 0054 9B00     		lsls	r3, r3, #2
+ 768 0056 1344     		add	r3, r3, r2
+ 769 0058 9B00     		lsls	r3, r3, #2
+ 770 005a 0B44     		add	r3, r3, r1
+ 771 005c 7C33     		adds	r3, r3, #124
+ 772 005e 1968     		ldr	r1, [r3]
+ 773              		.loc 1 368 53
+ 774 0060 786B     		ldr	r0, [r7, #52]
+ 775 0062 FA6B     		ldr	r2, [r7, #60]
+ 776 0064 1346     		mov	r3, r2
+ 777 0066 9B00     		lsls	r3, r3, #2
+ 778 0068 1344     		add	r3, r3, r2
+ 779 006a 9B00     		lsls	r3, r3, #2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 21
+
+
+ 780 006c 0344     		add	r3, r3, r0
+ 781 006e 8033     		adds	r3, r3, #128
+ 782 0070 1B68     		ldr	r3, [r3]
+ 783              		.loc 1 368 15
+ 784 0072 9942     		cmp	r1, r3
+ 785 0074 01D2     		bcs	.L43
+ 369:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                 done = 0;
+ 786              		.loc 1 369 22
+ 787 0076 0023     		movs	r3, #0
+ 788 0078 BB63     		str	r3, [r7, #56]
+ 789              	.L43:
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         for( i = 0; i < ctx->source_count; i++ )
+ 790              		.loc 1 367 45 discriminator 2
+ 791 007a FB6B     		ldr	r3, [r7, #60]
+ 792 007c 0133     		adds	r3, r3, #1
+ 793 007e FB63     		str	r3, [r7, #60]
+ 794              	.L42:
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         for( i = 0; i < ctx->source_count; i++ )
+ 795              		.loc 1 367 28 discriminator 1
+ 796 0080 7B6B     		ldr	r3, [r7, #52]
+ 797 0082 1B6F     		ldr	r3, [r3, #112]
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         for( i = 0; i < ctx->source_count; i++ )
+ 798              		.loc 1 367 9 discriminator 1
+ 799 0084 FA6B     		ldr	r2, [r7, #60]
+ 800 0086 9A42     		cmp	r2, r3
+ 801 0088 E1DB     		blt	.L44
+ 370:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     }
+ 371:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     while( ! done );
+ 802              		.loc 1 371 5
+ 803 008a BB6B     		ldr	r3, [r7, #56]
+ 804 008c 002B     		cmp	r3, #0
+ 805 008e C7D0     		beq	.L37
+ 372:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 373:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     memset( buf, 0, MBEDTLS_ENTROPY_BLOCK_SIZE );
+ 806              		.loc 1 373 5
+ 807 0090 07F11403 		add	r3, r7, #20
+ 808 0094 2022     		movs	r2, #32
+ 809 0096 0021     		movs	r1, #0
+ 810 0098 1846     		mov	r0, r3
+ 811 009a FFF7FEFF 		bl	memset
+ 374:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 375:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_ENTROPY_SHA512_ACCUMULATOR)
+ 376:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 377:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Note that at this stage it is assumed that the accumulator was started
+ 378:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * in a previous call to entropy_update(). If this is not guaranteed, the
+ 379:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * code below will fail.
+ 380:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 381:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha512_finish_ret( &ctx->accumulator, buf ) ) != 0 )
+ 382:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 383:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 384:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 385:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Reset accumulator and counters and recycle existing entropy
+ 386:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 387:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha512_free( &ctx->accumulator );
+ 388:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha512_init( &ctx->accumulator );
+ 389:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha512_starts_ret( &ctx->accumulator, 0 ) ) != 0 )
+ 390:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 22
+
+
+ 391:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha512_update_ret( &ctx->accumulator, buf,
+ 392:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                            MBEDTLS_ENTROPY_BLOCK_SIZE ) ) != 0 )
+ 393:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 394:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 395:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 396:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Perform second SHA-512 on entropy
+ 397:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 398:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha512_ret( buf, MBEDTLS_ENTROPY_BLOCK_SIZE,
+ 399:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                     buf, 0 ) ) != 0 )
+ 400:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 401:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #else /* MBEDTLS_ENTROPY_SHA512_ACCUMULATOR */
+ 402:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha256_finish_ret( &ctx->accumulator, buf ) ) != 0 )
+ 812              		.loc 1 402 17
+ 813 009e 7B6B     		ldr	r3, [r7, #52]
+ 814 00a0 0433     		adds	r3, r3, #4
+ 815 00a2 07F11402 		add	r2, r7, #20
+ 816 00a6 1146     		mov	r1, r2
+ 817 00a8 1846     		mov	r0, r3
+ 818 00aa FFF7FEFF 		bl	mbedtls_sha256_finish_ret
+ 819 00ae 7864     		str	r0, [r7, #68]
+ 820              		.loc 1 402 7
+ 821 00b0 7B6C     		ldr	r3, [r7, #68]
+ 822 00b2 002B     		cmp	r3, #0
+ 823 00b4 4CD1     		bne	.L53
+ 403:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 404:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 405:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 406:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Reset accumulator and counters and recycle existing entropy
+ 407:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 408:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha256_free( &ctx->accumulator );
+ 824              		.loc 1 408 5
+ 825 00b6 7B6B     		ldr	r3, [r7, #52]
+ 826 00b8 0433     		adds	r3, r3, #4
+ 827 00ba 1846     		mov	r0, r3
+ 828 00bc FFF7FEFF 		bl	mbedtls_sha256_free
+ 409:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_sha256_init( &ctx->accumulator );
+ 829              		.loc 1 409 5
+ 830 00c0 7B6B     		ldr	r3, [r7, #52]
+ 831 00c2 0433     		adds	r3, r3, #4
+ 832 00c4 1846     		mov	r0, r3
+ 833 00c6 FFF7FEFF 		bl	mbedtls_sha256_init
+ 410:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha256_starts_ret( &ctx->accumulator, 0 ) ) != 0 )
+ 834              		.loc 1 410 17
+ 835 00ca 7B6B     		ldr	r3, [r7, #52]
+ 836 00cc 0433     		adds	r3, r3, #4
+ 837 00ce 0021     		movs	r1, #0
+ 838 00d0 1846     		mov	r0, r3
+ 839 00d2 FFF7FEFF 		bl	mbedtls_sha256_starts_ret
+ 840 00d6 7864     		str	r0, [r7, #68]
+ 841              		.loc 1 410 7
+ 842 00d8 7B6C     		ldr	r3, [r7, #68]
+ 843 00da 002B     		cmp	r3, #0
+ 844 00dc 3AD1     		bne	.L54
+ 411:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 412:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha256_update_ret( &ctx->accumulator, buf,
+ 845              		.loc 1 412 17
+ 846 00de 7B6B     		ldr	r3, [r7, #52]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 23
+
+
+ 847 00e0 0433     		adds	r3, r3, #4
+ 848 00e2 07F11401 		add	r1, r7, #20
+ 849 00e6 2022     		movs	r2, #32
+ 850 00e8 1846     		mov	r0, r3
+ 851 00ea FFF7FEFF 		bl	mbedtls_sha256_update_ret
+ 852 00ee 7864     		str	r0, [r7, #68]
+ 853              		.loc 1 412 7
+ 854 00f0 7B6C     		ldr	r3, [r7, #68]
+ 855 00f2 002B     		cmp	r3, #0
+ 856 00f4 30D1     		bne	.L55
+ 413:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                            MBEDTLS_ENTROPY_BLOCK_SIZE ) ) != 0 )
+ 414:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 415:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 416:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     /*
+ 417:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      * Perform second SHA-256 on entropy
+ 418:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****      */
+ 419:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha256_ret( buf, MBEDTLS_ENTROPY_BLOCK_SIZE,
+ 857              		.loc 1 419 17
+ 858 00f6 07F11402 		add	r2, r7, #20
+ 859 00fa 07F11400 		add	r0, r7, #20
+ 860 00fe 0023     		movs	r3, #0
+ 861 0100 2021     		movs	r1, #32
+ 862 0102 FFF7FEFF 		bl	mbedtls_sha256_ret
+ 863 0106 7864     		str	r0, [r7, #68]
+ 864              		.loc 1 419 7
+ 865 0108 7B6C     		ldr	r3, [r7, #68]
+ 866 010a 002B     		cmp	r3, #0
+ 867 010c 26D1     		bne	.L56
+ 420:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****                                     buf, 0 ) ) != 0 )
+ 421:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         goto exit;
+ 422:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif /* MBEDTLS_ENTROPY_SHA512_ACCUMULATOR */
+ 423:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     for( i = 0; i < ctx->source_count; i++ )
+ 868              		.loc 1 424 12
+ 869 010e 0023     		movs	r3, #0
+ 870 0110 FB63     		str	r3, [r7, #60]
+ 871              		.loc 1 424 5
+ 872 0112 0CE0     		b	.L49
+ 873              	.L50:
+ 425:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ctx->source[i].size = 0;
+ 874              		.loc 1 425 29 discriminator 3
+ 875 0114 796B     		ldr	r1, [r7, #52]
+ 876 0116 FA6B     		ldr	r2, [r7, #60]
+ 877 0118 1346     		mov	r3, r2
+ 878 011a 9B00     		lsls	r3, r3, #2
+ 879 011c 1344     		add	r3, r3, r2
+ 880 011e 9B00     		lsls	r3, r3, #2
+ 881 0120 0B44     		add	r3, r3, r1
+ 882 0122 7C33     		adds	r3, r3, #124
+ 883 0124 0022     		movs	r2, #0
+ 884 0126 1A60     		str	r2, [r3]
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ctx->source[i].size = 0;
+ 885              		.loc 1 424 41 discriminator 3
+ 886 0128 FB6B     		ldr	r3, [r7, #60]
+ 887 012a 0133     		adds	r3, r3, #1
+ 888 012c FB63     		str	r3, [r7, #60]
+ 889              	.L49:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 24
+
+
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ctx->source[i].size = 0;
+ 890              		.loc 1 424 24 discriminator 1
+ 891 012e 7B6B     		ldr	r3, [r7, #52]
+ 892 0130 1B6F     		ldr	r3, [r3, #112]
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         ctx->source[i].size = 0;
+ 893              		.loc 1 424 5 discriminator 1
+ 894 0132 FA6B     		ldr	r2, [r7, #60]
+ 895 0134 9A42     		cmp	r2, r3
+ 896 0136 EDDB     		blt	.L50
+ 426:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 427:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     memcpy( output, buf, len );
+ 897              		.loc 1 427 5
+ 898 0138 07F11403 		add	r3, r7, #20
+ 899 013c 7A68     		ldr	r2, [r7, #4]
+ 900 013e 1946     		mov	r1, r3
+ 901 0140 B868     		ldr	r0, [r7, #8]
+ 902 0142 FFF7FEFF 		bl	memcpy
+ 428:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 429:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     ret = 0;
+ 903              		.loc 1 429 9
+ 904 0146 0023     		movs	r3, #0
+ 905 0148 7B64     		str	r3, [r7, #68]
+ 906 014a 08E0     		b	.L40
+ 907              	.L52:
+ 364:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 908              		.loc 1 364 13
+ 909 014c 00BF     		nop
+ 910 014e 06E0     		b	.L40
+ 911              	.L53:
+ 403:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 912              		.loc 1 403 9
+ 913 0150 00BF     		nop
+ 914 0152 04E0     		b	.L40
+ 915              	.L54:
+ 411:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( ( ret = mbedtls_sha256_update_ret( &ctx->accumulator, buf,
+ 916              		.loc 1 411 9
+ 917 0154 00BF     		nop
+ 918 0156 02E0     		b	.L40
+ 919              	.L55:
+ 414:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 920              		.loc 1 414 9
+ 921 0158 00BF     		nop
+ 922 015a 00E0     		b	.L40
+ 923              	.L56:
+ 421:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif /* MBEDTLS_ENTROPY_SHA512_ACCUMULATOR */
+ 924              		.loc 1 421 9
+ 925 015c 00BF     		nop
+ 926              	.L40:
+ 430:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 431:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** exit:
+ 432:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     mbedtls_platform_zeroize( buf, sizeof( buf ) );
+ 927              		.loc 1 432 5
+ 928 015e 07F11403 		add	r3, r7, #20
+ 929 0162 2021     		movs	r1, #32
+ 930 0164 1846     		mov	r0, r3
+ 931 0166 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 433:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 25
+
+
+ 434:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #if defined(MBEDTLS_THREADING_C)
+ 435:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     if( mbedtls_mutex_unlock( &ctx->mutex ) != 0 )
+ 436:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****         return( MBEDTLS_ERR_THREADING_MUTEX_ERROR );
+ 437:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** #endif
+ 438:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** 
+ 439:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c ****     return( ret );
+ 932              		.loc 1 439 11
+ 933 016a 7B6C     		ldr	r3, [r7, #68]
+ 934              	.L51:
+ 440:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\entropy.c **** }
+ 935              		.loc 1 440 1 discriminator 1
+ 936 016c 1846     		mov	r0, r3
+ 937 016e 4837     		adds	r7, r7, #72
+ 938              	.LCFI39:
+ 939              		.cfi_def_cfa_offset 8
+ 940 0170 BD46     		mov	sp, r7
+ 941              	.LCFI40:
+ 942              		.cfi_def_cfa_register 13
+ 943              		@ sp needed
+ 944 0172 80BD     		pop	{r7, pc}
+ 945              		.cfi_endproc
+ 946              	.LFE7:
+ 948              		.text
+ 949              	.Letext0:
+ 950              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 951              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 952              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 953              		.file 5 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 954              		.file 6 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 955              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 956              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 957              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 entropy.c
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:18     .text.mbedtls_entropy_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:26     .text.mbedtls_entropy_init:00000000 mbedtls_entropy_init
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:158    .text.mbedtls_entropy_add_source:00000000 mbedtls_entropy_add_source
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:87     .text.mbedtls_entropy_init:00000044 $d
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:92     .text.mbedtls_entropy_free:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:99     .text.mbedtls_entropy_free:00000000 mbedtls_entropy_free
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:151    .text.mbedtls_entropy_add_source:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:268    .text.entropy_update:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:274    .text.entropy_update:00000000 entropy_update
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:410    .text.mbedtls_entropy_update_manual:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:417    .text.mbedtls_entropy_update_manual:00000000 mbedtls_entropy_update_manual
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:460    .text.entropy_gather_internal:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:466    .text.entropy_gather_internal:00000000 entropy_gather_internal
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:647    .text.mbedtls_entropy_gather:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:654    .text.mbedtls_entropy_gather:00000000 mbedtls_entropy_gather
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:692    .text.mbedtls_entropy_func:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccaLixiH.s:699    .text.mbedtls_entropy_func:00000000 mbedtls_entropy_func
+
+UNDEFINED SYMBOLS
+memset
+mbedtls_sha256_init
+mbedtls_hardware_poll
+mbedtls_sha256_free
+mbedtls_platform_zeroize
+mbedtls_sha256_ret
+mbedtls_sha256_starts_ret
+mbedtls_sha256_update_ret
+mbedtls_sha256_finish_ret
+memcpy

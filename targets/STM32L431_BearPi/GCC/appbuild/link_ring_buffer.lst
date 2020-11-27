@@ -1,0 +1,1088 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"link_ring_buffer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.ring_buffer_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	ring_buffer_init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	ring_buffer_init:
+  27              	.LFB0:
+  28              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/l
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 2
+
+
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** /**
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  *  2019-04-29 10:34  zhangqianfu  The first version  
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  *
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****  */
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** #include <stdint.h>
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** #include <stddef.h>
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** #include <string.h>
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** #include <link_misc.h>
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** int ring_buffer_init(tag_ring_buffer_t *ring,unsigned char *buf, int buflen,int offset,int datalen)
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** {
+  29              		.loc 1 47 1
+  30              		.cfi_startproc
+  31              		@ args = 4, pretend = 0, frame = 24
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 80B4     		push	{r7}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 7, -4
+  38 0002 87B0     		sub	sp, sp, #28
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 32
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 F860     		str	r0, [r7, #12]
+  45 0008 B960     		str	r1, [r7, #8]
+  46 000a 7A60     		str	r2, [r7, #4]
+  47 000c 3B60     		str	r3, [r7]
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int ret = -1;
+  48              		.loc 1 48 9
+  49 000e 4FF0FF33 		mov	r3, #-1
+  50 0012 7B61     		str	r3, [r7, #20]
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if((NULL == ring))
+  51              		.loc 1 49 7
+  52 0014 FB68     		ldr	r3, [r7, #12]
+  53 0016 002B     		cmp	r3, #0
+  54 0018 01D1     		bne	.L2
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         return ret;
+  55              		.loc 1 51 16
+  56 001a 7B69     		ldr	r3, [r7, #20]
+  57 001c 0EE0     		b	.L3
+  58              	.L2:
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     ring->buf     = buf;
+  59              		.loc 1 53 19
+  60 001e FB68     		ldr	r3, [r7, #12]
+  61 0020 BA68     		ldr	r2, [r7, #8]
+  62 0022 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 3
+
+
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     ring->buflen  = buflen;
+  63              		.loc 1 54 19
+  64 0024 FB68     		ldr	r3, [r7, #12]
+  65 0026 7A68     		ldr	r2, [r7, #4]
+  66 0028 5A60     		str	r2, [r3, #4]
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     ring->datalen = datalen;
+  67              		.loc 1 55 19
+  68 002a FB68     		ldr	r3, [r7, #12]
+  69 002c 3A6A     		ldr	r2, [r7, #32]
+  70 002e 9A60     		str	r2, [r3, #8]
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     ring->dataoff = offset;
+  71              		.loc 1 56 19
+  72 0030 FB68     		ldr	r3, [r7, #12]
+  73 0032 3A68     		ldr	r2, [r7]
+  74 0034 DA60     		str	r2, [r3, #12]
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     ret = 0;
+  75              		.loc 1 57 9
+  76 0036 0023     		movs	r3, #0
+  77 0038 7B61     		str	r3, [r7, #20]
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     return ret;
+  78              		.loc 1 58 12
+  79 003a 7B69     		ldr	r3, [r7, #20]
+  80              	.L3:
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** }
+  81              		.loc 1 59 1
+  82 003c 1846     		mov	r0, r3
+  83 003e 1C37     		adds	r7, r7, #28
+  84              	.LCFI3:
+  85              		.cfi_def_cfa_offset 4
+  86 0040 BD46     		mov	sp, r7
+  87              	.LCFI4:
+  88              		.cfi_def_cfa_register 13
+  89              		@ sp needed
+  90 0042 5DF8047B 		ldr	r7, [sp], #4
+  91              	.LCFI5:
+  92              		.cfi_restore 7
+  93              		.cfi_def_cfa_offset 0
+  94 0046 7047     		bx	lr
+  95              		.cfi_endproc
+  96              	.LFE0:
+  98              		.section	.text.ring_buffer_write,"ax",%progbits
+  99              		.align	1
+ 100              		.global	ring_buffer_write
+ 101              		.syntax unified
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.fpu fpv4-sp-d16
+ 106              	ring_buffer_write:
+ 107              	.LFB1:
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** int ring_buffer_write(tag_ring_buffer_t *ring,unsigned char *buf, int len)
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** {
+ 108              		.loc 1 63 1
+ 109              		.cfi_startproc
+ 110              		@ args = 0, pretend = 0, frame = 40
+ 111              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 4
+
+
+ 112 0000 80B5     		push	{r7, lr}
+ 113              	.LCFI6:
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 7, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 8AB0     		sub	sp, sp, #40
+ 118              	.LCFI7:
+ 119              		.cfi_def_cfa_offset 48
+ 120 0004 00AF     		add	r7, sp, #0
+ 121              	.LCFI8:
+ 122              		.cfi_def_cfa_register 7
+ 123 0006 F860     		str	r0, [r7, #12]
+ 124 0008 B960     		str	r1, [r7, #8]
+ 125 000a 7A60     		str	r2, [r7, #4]
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int ret = -1;
+ 126              		.loc 1 64 9
+ 127 000c 4FF0FF33 		mov	r3, #-1
+ 128 0010 FB61     		str	r3, [r7, #28]
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int cpylen;  //the current time we should move
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int lenleft;  //and how many data still left to move
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int offset;
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     unsigned char *src;
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     unsigned char *dst;
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if((NULL == ring)||(NULL == buf)||(0 == len))
+ 129              		.loc 1 70 7
+ 130 0012 FB68     		ldr	r3, [r7, #12]
+ 131 0014 002B     		cmp	r3, #0
+ 132 0016 05D0     		beq	.L5
+ 133              		.loc 1 70 22 discriminator 1
+ 134 0018 BB68     		ldr	r3, [r7, #8]
+ 135 001a 002B     		cmp	r3, #0
+ 136 001c 02D0     		beq	.L5
+ 137              		.loc 1 70 37 discriminator 2
+ 138 001e 7B68     		ldr	r3, [r7, #4]
+ 139 0020 002B     		cmp	r3, #0
+ 140 0022 01D1     		bne	.L6
+ 141              	.L5:
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         return ret;//which means parameters error
+ 142              		.loc 1 72 16
+ 143 0024 FB69     		ldr	r3, [r7, #28]
+ 144 0026 98E0     		b	.L7
+ 145              	.L6:
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(ring->datalen == ring->buflen)
+ 146              		.loc 1 74 12
+ 147 0028 FB68     		ldr	r3, [r7, #12]
+ 148 002a 9A68     		ldr	r2, [r3, #8]
+ 149              		.loc 1 74 29
+ 150 002c FB68     		ldr	r3, [r7, #12]
+ 151 002e 5B68     		ldr	r3, [r3, #4]
+ 152              		.loc 1 74 7
+ 153 0030 9A42     		cmp	r2, r3
+ 154 0032 03D1     		bne	.L8
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ret = 0;
+ 155              		.loc 1 76 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 5
+
+
+ 156 0034 0023     		movs	r3, #0
+ 157 0036 FB61     		str	r3, [r7, #28]
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         return  ret;//which means you could copy nothing here
+ 158              		.loc 1 77 17
+ 159 0038 FB69     		ldr	r3, [r7, #28]
+ 160 003a 8EE0     		b	.L7
+ 161              	.L8:
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     ret = len > (ring->buflen-ring->datalen)?(ring->buflen-ring->datalen):len;
+ 162              		.loc 1 79 22
+ 163 003c FB68     		ldr	r3, [r7, #12]
+ 164 003e 5A68     		ldr	r2, [r3, #4]
+ 165              		.loc 1 79 35
+ 166 0040 FB68     		ldr	r3, [r7, #12]
+ 167 0042 9B68     		ldr	r3, [r3, #8]
+ 168              		.loc 1 79 30
+ 169 0044 D31A     		subs	r3, r2, r3
+ 170              		.loc 1 79 9
+ 171 0046 7A68     		ldr	r2, [r7, #4]
+ 172 0048 9342     		cmp	r3, r2
+ 173 004a A8BF     		it	ge
+ 174 004c 1346     		movge	r3, r2
+ 175 004e FB61     		str	r3, [r7, #28]
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     //now let us think the method to fill the data,take care of the roll back
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     lenleft = ret;
+ 176              		.loc 1 81 13
+ 177 0050 FB69     		ldr	r3, [r7, #28]
+ 178 0052 7B62     		str	r3, [r7, #36]
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     src = buf;
+ 179              		.loc 1 82 9
+ 180 0054 BB68     		ldr	r3, [r7, #8]
+ 181 0056 3B62     		str	r3, [r7, #32]
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if((ring->dataoff+ring->datalen)>ring->buflen) //which means the data has roll back
+ 182              		.loc 1 83 13
+ 183 0058 FB68     		ldr	r3, [r7, #12]
+ 184 005a DA68     		ldr	r2, [r3, #12]
+ 185              		.loc 1 83 27
+ 186 005c FB68     		ldr	r3, [r7, #12]
+ 187 005e 9B68     		ldr	r3, [r3, #8]
+ 188              		.loc 1 83 22
+ 189 0060 1A44     		add	r2, r2, r3
+ 190              		.loc 1 83 42
+ 191 0062 FB68     		ldr	r3, [r7, #12]
+ 192 0064 5B68     		ldr	r3, [r3, #4]
+ 193              		.loc 1 83 7
+ 194 0066 9A42     		cmp	r2, r3
+ 195 0068 24DD     		ble	.L9
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         offset = (ring->dataoff+ring->datalen)%ring->buflen; //we could move it one time
+ 196              		.loc 1 85 23
+ 197 006a FB68     		ldr	r3, [r7, #12]
+ 198 006c DA68     		ldr	r2, [r3, #12]
+ 199              		.loc 1 85 37
+ 200 006e FB68     		ldr	r3, [r7, #12]
+ 201 0070 9B68     		ldr	r3, [r3, #8]
+ 202              		.loc 1 85 32
+ 203 0072 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 6
+
+
+ 204              		.loc 1 85 52
+ 205 0074 FA68     		ldr	r2, [r7, #12]
+ 206 0076 5268     		ldr	r2, [r2, #4]
+ 207              		.loc 1 85 16
+ 208 0078 93FBF2F1 		sdiv	r1, r3, r2
+ 209 007c 02FB01F2 		mul	r2, r2, r1
+ 210 0080 9B1A     		subs	r3, r3, r2
+ 211 0082 BB61     		str	r3, [r7, #24]
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         cpylen = lenleft;
+ 212              		.loc 1 86 16
+ 213 0084 7B6A     		ldr	r3, [r7, #36]
+ 214 0086 7B61     		str	r3, [r7, #20]
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         dst = ring->buf + offset;
+ 215              		.loc 1 87 19
+ 216 0088 FB68     		ldr	r3, [r7, #12]
+ 217 008a 1A68     		ldr	r2, [r3]
+ 218              		.loc 1 87 25
+ 219 008c BB69     		ldr	r3, [r7, #24]
+ 220              		.loc 1 87 13
+ 221 008e 1344     		add	r3, r3, r2
+ 222 0090 3B61     		str	r3, [r7, #16]
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         memcpy(dst,src,cpylen);
+ 223              		.loc 1 88 9
+ 224 0092 7B69     		ldr	r3, [r7, #20]
+ 225 0094 1A46     		mov	r2, r3
+ 226 0096 396A     		ldr	r1, [r7, #32]
+ 227 0098 3869     		ldr	r0, [r7, #16]
+ 228 009a FFF7FEFF 		bl	memcpy
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->datalen += cpylen;
+ 229              		.loc 1 89 23
+ 230 009e FB68     		ldr	r3, [r7, #12]
+ 231 00a0 9A68     		ldr	r2, [r3, #8]
+ 232 00a2 7B69     		ldr	r3, [r7, #20]
+ 233 00a4 1A44     		add	r2, r2, r3
+ 234 00a6 FB68     		ldr	r3, [r7, #12]
+ 235 00a8 9A60     		str	r2, [r3, #8]
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         lenleft -= cpylen;
+ 236              		.loc 1 90 17
+ 237 00aa 7A6A     		ldr	r2, [r7, #36]
+ 238 00ac 7B69     		ldr	r3, [r7, #20]
+ 239 00ae D31A     		subs	r3, r2, r3
+ 240 00b0 7B62     		str	r3, [r7, #36]
+ 241 00b2 2EE0     		b	.L10
+ 242              	.L9:
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     else if((ring->dataoff+ring->datalen + lenleft)>ring->buflen) //which means the data will be ro
+ 243              		.loc 1 92 18
+ 244 00b4 FB68     		ldr	r3, [r7, #12]
+ 245 00b6 DA68     		ldr	r2, [r3, #12]
+ 246              		.loc 1 92 32
+ 247 00b8 FB68     		ldr	r3, [r7, #12]
+ 248 00ba 9B68     		ldr	r3, [r3, #8]
+ 249              		.loc 1 92 27
+ 250 00bc 1A44     		add	r2, r2, r3
+ 251              		.loc 1 92 42
+ 252 00be 7B6A     		ldr	r3, [r7, #36]
+ 253 00c0 1A44     		add	r2, r2, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 7
+
+
+ 254              		.loc 1 92 57
+ 255 00c2 FB68     		ldr	r3, [r7, #12]
+ 256 00c4 5B68     		ldr	r3, [r3, #4]
+ 257              		.loc 1 92 12
+ 258 00c6 9A42     		cmp	r2, r3
+ 259 00c8 23DD     		ble	.L10
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         //which means roll back,we should copy some here to the tail
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         offset = ring->dataoff + ring->datalen;
+ 260              		.loc 1 95 22
+ 261 00ca FB68     		ldr	r3, [r7, #12]
+ 262 00cc DA68     		ldr	r2, [r3, #12]
+ 263              		.loc 1 95 38
+ 264 00ce FB68     		ldr	r3, [r7, #12]
+ 265 00d0 9B68     		ldr	r3, [r3, #8]
+ 266              		.loc 1 95 16
+ 267 00d2 1344     		add	r3, r3, r2
+ 268 00d4 BB61     		str	r3, [r7, #24]
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         cpylen = ring->buflen - offset;
+ 269              		.loc 1 96 22
+ 270 00d6 FB68     		ldr	r3, [r7, #12]
+ 271 00d8 5A68     		ldr	r2, [r3, #4]
+ 272              		.loc 1 96 16
+ 273 00da BB69     		ldr	r3, [r7, #24]
+ 274 00dc D31A     		subs	r3, r2, r3
+ 275 00de 7B61     		str	r3, [r7, #20]
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         dst = ring->buf + offset;
+ 276              		.loc 1 97 19
+ 277 00e0 FB68     		ldr	r3, [r7, #12]
+ 278 00e2 1A68     		ldr	r2, [r3]
+ 279              		.loc 1 97 25
+ 280 00e4 BB69     		ldr	r3, [r7, #24]
+ 281              		.loc 1 97 13
+ 282 00e6 1344     		add	r3, r3, r2
+ 283 00e8 3B61     		str	r3, [r7, #16]
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         memcpy(dst,src,cpylen);
+ 284              		.loc 1 98 9
+ 285 00ea 7B69     		ldr	r3, [r7, #20]
+ 286 00ec 1A46     		mov	r2, r3
+ 287 00ee 396A     		ldr	r1, [r7, #32]
+ 288 00f0 3869     		ldr	r0, [r7, #16]
+ 289 00f2 FFF7FEFF 		bl	memcpy
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         src += cpylen;
+ 290              		.loc 1 99 13
+ 291 00f6 7B69     		ldr	r3, [r7, #20]
+ 292 00f8 3A6A     		ldr	r2, [r7, #32]
+ 293 00fa 1344     		add	r3, r3, r2
+ 294 00fc 3B62     		str	r3, [r7, #32]
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->datalen += cpylen;
+ 295              		.loc 1 100 23
+ 296 00fe FB68     		ldr	r3, [r7, #12]
+ 297 0100 9A68     		ldr	r2, [r3, #8]
+ 298 0102 7B69     		ldr	r3, [r7, #20]
+ 299 0104 1A44     		add	r2, r2, r3
+ 300 0106 FB68     		ldr	r3, [r7, #12]
+ 301 0108 9A60     		str	r2, [r3, #8]
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         lenleft -= cpylen;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 8
+
+
+ 302              		.loc 1 101 17
+ 303 010a 7A6A     		ldr	r2, [r7, #36]
+ 304 010c 7B69     		ldr	r3, [r7, #20]
+ 305 010e D31A     		subs	r3, r2, r3
+ 306 0110 7B62     		str	r3, [r7, #36]
+ 307              	.L10:
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     //here means we could move it by one time
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(lenleft > 0)
+ 308              		.loc 1 104 7
+ 309 0112 7B6A     		ldr	r3, [r7, #36]
+ 310 0114 002B     		cmp	r3, #0
+ 311 0116 1FDD     		ble	.L11
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         offset = (ring->dataoff+ring->datalen)%ring->buflen; //we could move it one time
+ 312              		.loc 1 106 23
+ 313 0118 FB68     		ldr	r3, [r7, #12]
+ 314 011a DA68     		ldr	r2, [r3, #12]
+ 315              		.loc 1 106 37
+ 316 011c FB68     		ldr	r3, [r7, #12]
+ 317 011e 9B68     		ldr	r3, [r3, #8]
+ 318              		.loc 1 106 32
+ 319 0120 1344     		add	r3, r3, r2
+ 320              		.loc 1 106 52
+ 321 0122 FA68     		ldr	r2, [r7, #12]
+ 322 0124 5268     		ldr	r2, [r2, #4]
+ 323              		.loc 1 106 16
+ 324 0126 93FBF2F1 		sdiv	r1, r3, r2
+ 325 012a 02FB01F2 		mul	r2, r2, r1
+ 326 012e 9B1A     		subs	r3, r3, r2
+ 327 0130 BB61     		str	r3, [r7, #24]
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         cpylen = lenleft;
+ 328              		.loc 1 107 16
+ 329 0132 7B6A     		ldr	r3, [r7, #36]
+ 330 0134 7B61     		str	r3, [r7, #20]
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         dst = ring->buf + offset;
+ 331              		.loc 1 108 19
+ 332 0136 FB68     		ldr	r3, [r7, #12]
+ 333 0138 1A68     		ldr	r2, [r3]
+ 334              		.loc 1 108 25
+ 335 013a BB69     		ldr	r3, [r7, #24]
+ 336              		.loc 1 108 13
+ 337 013c 1344     		add	r3, r3, r2
+ 338 013e 3B61     		str	r3, [r7, #16]
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         memcpy(dst,src,cpylen);
+ 339              		.loc 1 109 9
+ 340 0140 7B69     		ldr	r3, [r7, #20]
+ 341 0142 1A46     		mov	r2, r3
+ 342 0144 396A     		ldr	r1, [r7, #32]
+ 343 0146 3869     		ldr	r0, [r7, #16]
+ 344 0148 FFF7FEFF 		bl	memcpy
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->datalen += cpylen;
+ 345              		.loc 1 110 23
+ 346 014c FB68     		ldr	r3, [r7, #12]
+ 347 014e 9A68     		ldr	r2, [r3, #8]
+ 348 0150 7B69     		ldr	r3, [r7, #20]
+ 349 0152 1A44     		add	r2, r2, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 9
+
+
+ 350 0154 FB68     		ldr	r3, [r7, #12]
+ 351 0156 9A60     		str	r2, [r3, #8]
+ 352              	.L11:
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     return ret;
+ 353              		.loc 1 112 12
+ 354 0158 FB69     		ldr	r3, [r7, #28]
+ 355              	.L7:
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** }
+ 356              		.loc 1 113 1
+ 357 015a 1846     		mov	r0, r3
+ 358 015c 2837     		adds	r7, r7, #40
+ 359              	.LCFI9:
+ 360              		.cfi_def_cfa_offset 8
+ 361 015e BD46     		mov	sp, r7
+ 362              	.LCFI10:
+ 363              		.cfi_def_cfa_register 13
+ 364              		@ sp needed
+ 365 0160 80BD     		pop	{r7, pc}
+ 366              		.cfi_endproc
+ 367              	.LFE1:
+ 369              		.section	.text.ring_buffer_read,"ax",%progbits
+ 370              		.align	1
+ 371              		.global	ring_buffer_read
+ 372              		.syntax unified
+ 373              		.thumb
+ 374              		.thumb_func
+ 375              		.fpu fpv4-sp-d16
+ 377              	ring_buffer_read:
+ 378              	.LFB2:
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** int ring_buffer_read(tag_ring_buffer_t *ring,unsigned char *buf, int len)
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** {
+ 379              		.loc 1 117 1
+ 380              		.cfi_startproc
+ 381              		@ args = 0, pretend = 0, frame = 40
+ 382              		@ frame_needed = 1, uses_anonymous_args = 0
+ 383 0000 80B5     		push	{r7, lr}
+ 384              	.LCFI11:
+ 385              		.cfi_def_cfa_offset 8
+ 386              		.cfi_offset 7, -8
+ 387              		.cfi_offset 14, -4
+ 388 0002 8AB0     		sub	sp, sp, #40
+ 389              	.LCFI12:
+ 390              		.cfi_def_cfa_offset 48
+ 391 0004 00AF     		add	r7, sp, #0
+ 392              	.LCFI13:
+ 393              		.cfi_def_cfa_register 7
+ 394 0006 F860     		str	r0, [r7, #12]
+ 395 0008 B960     		str	r1, [r7, #8]
+ 396 000a 7A60     		str	r2, [r7, #4]
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int ret = -1;
+ 397              		.loc 1 118 9
+ 398 000c 4FF0FF33 		mov	r3, #-1
+ 399 0010 FB61     		str	r3, [r7, #28]
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int cpylen;  //the current time we should move
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 10
+
+
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int lenleft;  //and how many data still left to move
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int offset;
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     unsigned char *src;
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     unsigned char *dst;
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if((NULL == ring)||(NULL == buf)||(0 == len))
+ 400              		.loc 1 124 7
+ 401 0012 FB68     		ldr	r3, [r7, #12]
+ 402 0014 002B     		cmp	r3, #0
+ 403 0016 05D0     		beq	.L13
+ 404              		.loc 1 124 22 discriminator 1
+ 405 0018 BB68     		ldr	r3, [r7, #8]
+ 406 001a 002B     		cmp	r3, #0
+ 407 001c 02D0     		beq	.L13
+ 408              		.loc 1 124 37 discriminator 2
+ 409 001e 7B68     		ldr	r3, [r7, #4]
+ 410 0020 002B     		cmp	r3, #0
+ 411 0022 01D1     		bne	.L14
+ 412              	.L13:
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         return ret;//which means parameters error
+ 413              		.loc 1 126 16
+ 414 0024 FB69     		ldr	r3, [r7, #28]
+ 415 0026 69E0     		b	.L15
+ 416              	.L14:
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(ring->datalen == 0)
+ 417              		.loc 1 128 12
+ 418 0028 FB68     		ldr	r3, [r7, #12]
+ 419 002a 9B68     		ldr	r3, [r3, #8]
+ 420              		.loc 1 128 7
+ 421 002c 002B     		cmp	r3, #0
+ 422 002e 03D1     		bne	.L16
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ret = 0;
+ 423              		.loc 1 130 13
+ 424 0030 0023     		movs	r3, #0
+ 425 0032 FB61     		str	r3, [r7, #28]
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         return  ret;//which means you could copy nothing here
+ 426              		.loc 1 131 17
+ 427 0034 FB69     		ldr	r3, [r7, #28]
+ 428 0036 61E0     		b	.L15
+ 429              	.L16:
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     ret = len > ring->datalen?ring->datalen:len;
+ 430              		.loc 1 133 21
+ 431 0038 FB68     		ldr	r3, [r7, #12]
+ 432 003a 9B68     		ldr	r3, [r3, #8]
+ 433              		.loc 1 133 9
+ 434 003c 7A68     		ldr	r2, [r7, #4]
+ 435 003e 9342     		cmp	r3, r2
+ 436 0040 A8BF     		it	ge
+ 437 0042 1346     		movge	r3, r2
+ 438 0044 FB61     		str	r3, [r7, #28]
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     //now let us think the method to fill the data,take care of the roll back
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     lenleft = ret;
+ 439              		.loc 1 135 13
+ 440 0046 FB69     		ldr	r3, [r7, #28]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 11
+
+
+ 441 0048 7B62     		str	r3, [r7, #36]
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     dst = buf;
+ 442              		.loc 1 136 9
+ 443 004a BB68     		ldr	r3, [r7, #8]
+ 444 004c 3B62     		str	r3, [r7, #32]
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if((ring->dataoff+ lenleft)>=ring->buflen) //which means the data has roll back
+ 445              		.loc 1 137 13
+ 446 004e FB68     		ldr	r3, [r7, #12]
+ 447 0050 DA68     		ldr	r2, [r3, #12]
+ 448              		.loc 1 137 22
+ 449 0052 7B6A     		ldr	r3, [r7, #36]
+ 450 0054 1A44     		add	r2, r2, r3
+ 451              		.loc 1 137 38
+ 452 0056 FB68     		ldr	r3, [r7, #12]
+ 453 0058 5B68     		ldr	r3, [r3, #4]
+ 454              		.loc 1 137 7
+ 455 005a 9A42     		cmp	r2, r3
+ 456 005c 2EDB     		blt	.L17
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         offset =ring->dataoff; //we cpy part
+ 457              		.loc 1 139 16
+ 458 005e FB68     		ldr	r3, [r7, #12]
+ 459 0060 DB68     		ldr	r3, [r3, #12]
+ 460 0062 BB61     		str	r3, [r7, #24]
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         cpylen = ring->buflen - ring->dataoff;
+ 461              		.loc 1 140 22
+ 462 0064 FB68     		ldr	r3, [r7, #12]
+ 463 0066 5A68     		ldr	r2, [r3, #4]
+ 464              		.loc 1 140 37
+ 465 0068 FB68     		ldr	r3, [r7, #12]
+ 466 006a DB68     		ldr	r3, [r3, #12]
+ 467              		.loc 1 140 16
+ 468 006c D31A     		subs	r3, r2, r3
+ 469 006e 7B61     		str	r3, [r7, #20]
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         src = ring->buf + offset;
+ 470              		.loc 1 141 19
+ 471 0070 FB68     		ldr	r3, [r7, #12]
+ 472 0072 1A68     		ldr	r2, [r3]
+ 473              		.loc 1 141 25
+ 474 0074 BB69     		ldr	r3, [r7, #24]
+ 475              		.loc 1 141 13
+ 476 0076 1344     		add	r3, r3, r2
+ 477 0078 3B61     		str	r3, [r7, #16]
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         memcpy(dst,src,cpylen);
+ 478              		.loc 1 142 9
+ 479 007a 7B69     		ldr	r3, [r7, #20]
+ 480 007c 1A46     		mov	r2, r3
+ 481 007e 3969     		ldr	r1, [r7, #16]
+ 482 0080 386A     		ldr	r0, [r7, #32]
+ 483 0082 FFF7FEFF 		bl	memcpy
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->dataoff = (ring->dataoff + cpylen)%ring->buflen;
+ 484              		.loc 1 143 30
+ 485 0086 FB68     		ldr	r3, [r7, #12]
+ 486 0088 DA68     		ldr	r2, [r3, #12]
+ 487              		.loc 1 143 40
+ 488 008a 7B69     		ldr	r3, [r7, #20]
+ 489 008c 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 12
+
+
+ 490              		.loc 1 143 54
+ 491 008e FA68     		ldr	r2, [r7, #12]
+ 492 0090 5268     		ldr	r2, [r2, #4]
+ 493              		.loc 1 143 49
+ 494 0092 93FBF2F1 		sdiv	r1, r3, r2
+ 495 0096 02FB01F2 		mul	r2, r2, r1
+ 496 009a 9A1A     		subs	r2, r3, r2
+ 497              		.loc 1 143 23
+ 498 009c FB68     		ldr	r3, [r7, #12]
+ 499 009e DA60     		str	r2, [r3, #12]
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->datalen -= cpylen;
+ 500              		.loc 1 144 23
+ 501 00a0 FB68     		ldr	r3, [r7, #12]
+ 502 00a2 9A68     		ldr	r2, [r3, #8]
+ 503 00a4 7B69     		ldr	r3, [r7, #20]
+ 504 00a6 D21A     		subs	r2, r2, r3
+ 505 00a8 FB68     		ldr	r3, [r7, #12]
+ 506 00aa 9A60     		str	r2, [r3, #8]
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         lenleft -= cpylen;
+ 507              		.loc 1 145 17
+ 508 00ac 7A6A     		ldr	r2, [r7, #36]
+ 509 00ae 7B69     		ldr	r3, [r7, #20]
+ 510 00b0 D31A     		subs	r3, r2, r3
+ 511 00b2 7B62     		str	r3, [r7, #36]
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         dst += cpylen;
+ 512              		.loc 1 146 13
+ 513 00b4 7B69     		ldr	r3, [r7, #20]
+ 514 00b6 3A6A     		ldr	r2, [r7, #32]
+ 515 00b8 1344     		add	r3, r3, r2
+ 516 00ba 3B62     		str	r3, [r7, #32]
+ 517              	.L17:
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     //here means we could move it by one time
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(lenleft > 0)
+ 518              		.loc 1 149 7
+ 519 00bc 7B6A     		ldr	r3, [r7, #36]
+ 520 00be 002B     		cmp	r3, #0
+ 521 00c0 1BDD     		ble	.L18
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         offset =ring->dataoff; //we cpy part
+ 522              		.loc 1 151 16
+ 523 00c2 FB68     		ldr	r3, [r7, #12]
+ 524 00c4 DB68     		ldr	r3, [r3, #12]
+ 525 00c6 BB61     		str	r3, [r7, #24]
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         cpylen = lenleft;
+ 526              		.loc 1 152 16
+ 527 00c8 7B6A     		ldr	r3, [r7, #36]
+ 528 00ca 7B61     		str	r3, [r7, #20]
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         src = ring->buf + offset;
+ 529              		.loc 1 153 19
+ 530 00cc FB68     		ldr	r3, [r7, #12]
+ 531 00ce 1A68     		ldr	r2, [r3]
+ 532              		.loc 1 153 25
+ 533 00d0 BB69     		ldr	r3, [r7, #24]
+ 534              		.loc 1 153 13
+ 535 00d2 1344     		add	r3, r3, r2
+ 536 00d4 3B61     		str	r3, [r7, #16]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 13
+
+
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         memcpy(dst,src,cpylen);
+ 537              		.loc 1 154 9
+ 538 00d6 7B69     		ldr	r3, [r7, #20]
+ 539 00d8 1A46     		mov	r2, r3
+ 540 00da 3969     		ldr	r1, [r7, #16]
+ 541 00dc 386A     		ldr	r0, [r7, #32]
+ 542 00de FFF7FEFF 		bl	memcpy
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->dataoff = ring->dataoff + cpylen;
+ 543              		.loc 1 155 29
+ 544 00e2 FB68     		ldr	r3, [r7, #12]
+ 545 00e4 DA68     		ldr	r2, [r3, #12]
+ 546              		.loc 1 155 39
+ 547 00e6 7B69     		ldr	r3, [r7, #20]
+ 548 00e8 1A44     		add	r2, r2, r3
+ 549              		.loc 1 155 23
+ 550 00ea FB68     		ldr	r3, [r7, #12]
+ 551 00ec DA60     		str	r2, [r3, #12]
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->datalen -= cpylen;
+ 552              		.loc 1 156 23
+ 553 00ee FB68     		ldr	r3, [r7, #12]
+ 554 00f0 9A68     		ldr	r2, [r3, #8]
+ 555 00f2 7B69     		ldr	r3, [r7, #20]
+ 556 00f4 D21A     		subs	r2, r2, r3
+ 557 00f6 FB68     		ldr	r3, [r7, #12]
+ 558 00f8 9A60     		str	r2, [r3, #8]
+ 559              	.L18:
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     return ret;
+ 560              		.loc 1 158 12
+ 561 00fa FB69     		ldr	r3, [r7, #28]
+ 562              	.L15:
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** }
+ 563              		.loc 1 159 1
+ 564 00fc 1846     		mov	r0, r3
+ 565 00fe 2837     		adds	r7, r7, #40
+ 566              	.LCFI14:
+ 567              		.cfi_def_cfa_offset 8
+ 568 0100 BD46     		mov	sp, r7
+ 569              	.LCFI15:
+ 570              		.cfi_def_cfa_register 13
+ 571              		@ sp needed
+ 572 0102 80BD     		pop	{r7, pc}
+ 573              		.cfi_endproc
+ 574              	.LFE2:
+ 576              		.section	.text.ring_buffer_datalen,"ax",%progbits
+ 577              		.align	1
+ 578              		.global	ring_buffer_datalen
+ 579              		.syntax unified
+ 580              		.thumb
+ 581              		.thumb_func
+ 582              		.fpu fpv4-sp-d16
+ 584              	ring_buffer_datalen:
+ 585              	.LFB3:
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** int ring_buffer_datalen(tag_ring_buffer_t *ring)
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 14
+
+
+ 586              		.loc 1 163 1
+ 587              		.cfi_startproc
+ 588              		@ args = 0, pretend = 0, frame = 16
+ 589              		@ frame_needed = 1, uses_anonymous_args = 0
+ 590              		@ link register save eliminated.
+ 591 0000 80B4     		push	{r7}
+ 592              	.LCFI16:
+ 593              		.cfi_def_cfa_offset 4
+ 594              		.cfi_offset 7, -4
+ 595 0002 85B0     		sub	sp, sp, #20
+ 596              	.LCFI17:
+ 597              		.cfi_def_cfa_offset 24
+ 598 0004 00AF     		add	r7, sp, #0
+ 599              	.LCFI18:
+ 600              		.cfi_def_cfa_register 7
+ 601 0006 7860     		str	r0, [r7, #4]
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int ret = -1;
+ 602              		.loc 1 164 9
+ 603 0008 4FF0FF33 		mov	r3, #-1
+ 604 000c FB60     		str	r3, [r7, #12]
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(NULL != ring)
+ 605              		.loc 1 165 7
+ 606 000e 7B68     		ldr	r3, [r7, #4]
+ 607 0010 002B     		cmp	r3, #0
+ 608 0012 02D0     		beq	.L20
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ret = ring->datalen;
+ 609              		.loc 1 167 13
+ 610 0014 7B68     		ldr	r3, [r7, #4]
+ 611 0016 9B68     		ldr	r3, [r3, #8]
+ 612 0018 FB60     		str	r3, [r7, #12]
+ 613              	.L20:
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     return ret;
+ 614              		.loc 1 169 12
+ 615 001a FB68     		ldr	r3, [r7, #12]
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** }
+ 616              		.loc 1 170 1
+ 617 001c 1846     		mov	r0, r3
+ 618 001e 1437     		adds	r7, r7, #20
+ 619              	.LCFI19:
+ 620              		.cfi_def_cfa_offset 4
+ 621 0020 BD46     		mov	sp, r7
+ 622              	.LCFI20:
+ 623              		.cfi_def_cfa_register 13
+ 624              		@ sp needed
+ 625 0022 5DF8047B 		ldr	r7, [sp], #4
+ 626              	.LCFI21:
+ 627              		.cfi_restore 7
+ 628              		.cfi_def_cfa_offset 0
+ 629 0026 7047     		bx	lr
+ 630              		.cfi_endproc
+ 631              	.LFE3:
+ 633              		.section	.text.ring_buffer_freespace,"ax",%progbits
+ 634              		.align	1
+ 635              		.global	ring_buffer_freespace
+ 636              		.syntax unified
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 15
+
+
+ 637              		.thumb
+ 638              		.thumb_func
+ 639              		.fpu fpv4-sp-d16
+ 641              	ring_buffer_freespace:
+ 642              	.LFB4:
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** int ring_buffer_freespace(tag_ring_buffer_t *ring)
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** {
+ 643              		.loc 1 173 1
+ 644              		.cfi_startproc
+ 645              		@ args = 0, pretend = 0, frame = 16
+ 646              		@ frame_needed = 1, uses_anonymous_args = 0
+ 647              		@ link register save eliminated.
+ 648 0000 80B4     		push	{r7}
+ 649              	.LCFI22:
+ 650              		.cfi_def_cfa_offset 4
+ 651              		.cfi_offset 7, -4
+ 652 0002 85B0     		sub	sp, sp, #20
+ 653              	.LCFI23:
+ 654              		.cfi_def_cfa_offset 24
+ 655 0004 00AF     		add	r7, sp, #0
+ 656              	.LCFI24:
+ 657              		.cfi_def_cfa_register 7
+ 658 0006 7860     		str	r0, [r7, #4]
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int ret = -1;
+ 659              		.loc 1 174 9
+ 660 0008 4FF0FF33 		mov	r3, #-1
+ 661 000c FB60     		str	r3, [r7, #12]
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(NULL != ring)
+ 662              		.loc 1 175 7
+ 663 000e 7B68     		ldr	r3, [r7, #4]
+ 664 0010 002B     		cmp	r3, #0
+ 665 0012 05D0     		beq	.L23
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ret = ring->buflen-ring->datalen;
+ 666              		.loc 1 177 19
+ 667 0014 7B68     		ldr	r3, [r7, #4]
+ 668 0016 5A68     		ldr	r2, [r3, #4]
+ 669              		.loc 1 177 32
+ 670 0018 7B68     		ldr	r3, [r7, #4]
+ 671 001a 9B68     		ldr	r3, [r3, #8]
+ 672              		.loc 1 177 13
+ 673 001c D31A     		subs	r3, r2, r3
+ 674 001e FB60     		str	r3, [r7, #12]
+ 675              	.L23:
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     return ret;
+ 676              		.loc 1 179 12
+ 677 0020 FB68     		ldr	r3, [r7, #12]
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** }
+ 678              		.loc 1 180 1
+ 679 0022 1846     		mov	r0, r3
+ 680 0024 1437     		adds	r7, r7, #20
+ 681              	.LCFI25:
+ 682              		.cfi_def_cfa_offset 4
+ 683 0026 BD46     		mov	sp, r7
+ 684              	.LCFI26:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 16
+
+
+ 685              		.cfi_def_cfa_register 13
+ 686              		@ sp needed
+ 687 0028 5DF8047B 		ldr	r7, [sp], #4
+ 688              	.LCFI27:
+ 689              		.cfi_restore 7
+ 690              		.cfi_def_cfa_offset 0
+ 691 002c 7047     		bx	lr
+ 692              		.cfi_endproc
+ 693              	.LFE4:
+ 695              		.section	.text.ring_buffer_reset,"ax",%progbits
+ 696              		.align	1
+ 697              		.global	ring_buffer_reset
+ 698              		.syntax unified
+ 699              		.thumb
+ 700              		.thumb_func
+ 701              		.fpu fpv4-sp-d16
+ 703              	ring_buffer_reset:
+ 704              	.LFB5:
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** int ring_buffer_reset(tag_ring_buffer_t *ring)
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** {
+ 705              		.loc 1 183 1
+ 706              		.cfi_startproc
+ 707              		@ args = 0, pretend = 0, frame = 16
+ 708              		@ frame_needed = 1, uses_anonymous_args = 0
+ 709              		@ link register save eliminated.
+ 710 0000 80B4     		push	{r7}
+ 711              	.LCFI28:
+ 712              		.cfi_def_cfa_offset 4
+ 713              		.cfi_offset 7, -4
+ 714 0002 85B0     		sub	sp, sp, #20
+ 715              	.LCFI29:
+ 716              		.cfi_def_cfa_offset 24
+ 717 0004 00AF     		add	r7, sp, #0
+ 718              	.LCFI30:
+ 719              		.cfi_def_cfa_register 7
+ 720 0006 7860     		str	r0, [r7, #4]
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int ret = -1;
+ 721              		.loc 1 184 9
+ 722 0008 4FF0FF33 		mov	r3, #-1
+ 723 000c FB60     		str	r3, [r7, #12]
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(NULL != ring)
+ 724              		.loc 1 185 7
+ 725 000e 7B68     		ldr	r3, [r7, #4]
+ 726 0010 002B     		cmp	r3, #0
+ 727 0012 07D0     		beq	.L26
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->datalen = 0;
+ 728              		.loc 1 187 23
+ 729 0014 7B68     		ldr	r3, [r7, #4]
+ 730 0016 0022     		movs	r2, #0
+ 731 0018 9A60     		str	r2, [r3, #8]
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ring->dataoff = 0;
+ 732              		.loc 1 188 23
+ 733 001a 7B68     		ldr	r3, [r7, #4]
+ 734 001c 0022     		movs	r2, #0
+ 735 001e DA60     		str	r2, [r3, #12]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 17
+
+
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ret = 0;
+ 736              		.loc 1 189 13
+ 737 0020 0023     		movs	r3, #0
+ 738 0022 FB60     		str	r3, [r7, #12]
+ 739              	.L26:
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     return ret;
+ 740              		.loc 1 191 12
+ 741 0024 FB68     		ldr	r3, [r7, #12]
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** }
+ 742              		.loc 1 192 1
+ 743 0026 1846     		mov	r0, r3
+ 744 0028 1437     		adds	r7, r7, #20
+ 745              	.LCFI31:
+ 746              		.cfi_def_cfa_offset 4
+ 747 002a BD46     		mov	sp, r7
+ 748              	.LCFI32:
+ 749              		.cfi_def_cfa_register 13
+ 750              		@ sp needed
+ 751 002c 5DF8047B 		ldr	r7, [sp], #4
+ 752              	.LCFI33:
+ 753              		.cfi_restore 7
+ 754              		.cfi_def_cfa_offset 0
+ 755 0030 7047     		bx	lr
+ 756              		.cfi_endproc
+ 757              	.LFE5:
+ 759              		.section	.text.ring_buffer_deinit,"ax",%progbits
+ 760              		.align	1
+ 761              		.global	ring_buffer_deinit
+ 762              		.syntax unified
+ 763              		.thumb
+ 764              		.thumb_func
+ 765              		.fpu fpv4-sp-d16
+ 767              	ring_buffer_deinit:
+ 768              	.LFB6:
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** 
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** int ring_buffer_deinit(tag_ring_buffer_t *ring)
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** {
+ 769              		.loc 1 195 1
+ 770              		.cfi_startproc
+ 771              		@ args = 0, pretend = 0, frame = 16
+ 772              		@ frame_needed = 1, uses_anonymous_args = 0
+ 773 0000 80B5     		push	{r7, lr}
+ 774              	.LCFI34:
+ 775              		.cfi_def_cfa_offset 8
+ 776              		.cfi_offset 7, -8
+ 777              		.cfi_offset 14, -4
+ 778 0002 84B0     		sub	sp, sp, #16
+ 779              	.LCFI35:
+ 780              		.cfi_def_cfa_offset 24
+ 781 0004 00AF     		add	r7, sp, #0
+ 782              	.LCFI36:
+ 783              		.cfi_def_cfa_register 7
+ 784 0006 7860     		str	r0, [r7, #4]
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     int ret = -1;
+ 785              		.loc 1 196 9
+ 786 0008 4FF0FF33 		mov	r3, #-1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 18
+
+
+ 787 000c FB60     		str	r3, [r7, #12]
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     if(NULL != ring)
+ 788              		.loc 1 197 7
+ 789 000e 7B68     		ldr	r3, [r7, #4]
+ 790 0010 002B     		cmp	r3, #0
+ 791 0012 06D0     		beq	.L29
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     {
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         memset(ring,0,sizeof(tag_ring_buffer_t));
+ 792              		.loc 1 199 9
+ 793 0014 1022     		movs	r2, #16
+ 794 0016 0021     		movs	r1, #0
+ 795 0018 7868     		ldr	r0, [r7, #4]
+ 796 001a FFF7FEFF 		bl	memset
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****         ret = 0;
+ 797              		.loc 1 200 13
+ 798 001e 0023     		movs	r3, #0
+ 799 0020 FB60     		str	r3, [r7, #12]
+ 800              	.L29:
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     }
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c ****     return ret;
+ 801              		.loc 1 202 12
+ 802 0022 FB68     		ldr	r3, [r7, #12]
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/link_misc\link_ring_buffer.c **** }
+ 803              		.loc 1 203 1
+ 804 0024 1846     		mov	r0, r3
+ 805 0026 1037     		adds	r7, r7, #16
+ 806              	.LCFI37:
+ 807              		.cfi_def_cfa_offset 8
+ 808 0028 BD46     		mov	sp, r7
+ 809              	.LCFI38:
+ 810              		.cfi_def_cfa_register 13
+ 811              		@ sp needed
+ 812 002a 80BD     		pop	{r7, pc}
+ 813              		.cfi_endproc
+ 814              	.LFE6:
+ 816              		.text
+ 817              	.Letext0:
+ 818              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 819              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 820              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 821              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 822              		.file 6 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/l
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 link_ring_buffer.c
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:18     .text.ring_buffer_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:26     .text.ring_buffer_init:00000000 ring_buffer_init
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:99     .text.ring_buffer_write:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:106    .text.ring_buffer_write:00000000 ring_buffer_write
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:370    .text.ring_buffer_read:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:377    .text.ring_buffer_read:00000000 ring_buffer_read
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:577    .text.ring_buffer_datalen:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:584    .text.ring_buffer_datalen:00000000 ring_buffer_datalen
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:634    .text.ring_buffer_freespace:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:641    .text.ring_buffer_freespace:00000000 ring_buffer_freespace
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:696    .text.ring_buffer_reset:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:703    .text.ring_buffer_reset:00000000 ring_buffer_reset
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:760    .text.ring_buffer_deinit:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccFnQjCJ.s:767    .text.ring_buffer_deinit:00000000 ring_buffer_deinit
+
+UNDEFINED SYMBOLS
+memcpy
+memset

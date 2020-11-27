@@ -1,0 +1,11 @@
+appbuild/oc_mqtt_al.d appbuild/oc_mqtt_al.o: \
+ c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_al/oc_mqtt_al.c \
+ c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_al/oc_mqtt_al.h \
+ c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/mqtt_al/mqtt_al.h \
+ c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/inc/dtls_al.h
+
+c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/oc/oc_mqtt/oc_mqtt_al/oc_mqtt_al.h:
+
+c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/mqtt/mqtt_al/mqtt_al.h:
+
+c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/inc/dtls_al.h:

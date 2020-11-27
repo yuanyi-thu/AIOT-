@@ -1,0 +1,1395 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"cipher_wrap.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.ccm_ctx_alloc,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	ccm_ctx_alloc:
+  26              	.LFB10:
+  27              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** /**
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  * \file cipher_wrap.c
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  * \brief Generic cipher wrapper for mbed TLS
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  * \author Adriaan de Jong <dejong@fox-it.com>
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  SPDX-License-Identifier: Apache-2.0
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  not use this file except in compliance with the License.
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  You may obtain a copy of the License at
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  http://www.apache.org/licenses/LICENSE-2.0
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  Unless required by applicable law or agreed to in writing, software
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  See the License for the specific language governing permissions and
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  limitations under the License.
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  *  This file is part of mbed TLS (https://tls.mbed.org)
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****  */
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if !defined(MBEDTLS_CONFIG_FILE)
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/config.h"
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #else
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include MBEDTLS_CONFIG_FILE
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 2
+
+
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_C)
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/cipher_internal.h"
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CHACHAPOLY_C)
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/chachapoly.h"
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_AES_C)
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/aes.h"
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_ARC4_C)
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/arc4.h"
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CAMELLIA_C)
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/camellia.h"
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_ARIA_C)
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/aria.h"
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_DES_C)
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/des.h"
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_BLOWFISH_C)
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/blowfish.h"
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CHACHA20_C)
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/chacha20.h"
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_GCM_C)
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/gcm.h"
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CCM_C)
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/ccm.h"
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_NULL_CIPHER)
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include <string.h>
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_PLATFORM_C)
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include "mbedtls/platform.h"
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #else
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #include <stdlib.h>
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #define mbedtls_calloc    calloc
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #define mbedtls_free       free
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_GCM_C)
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 3
+
+
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** /* shared by all GCM ciphers */
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void *gcm_ctx_alloc( void )
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     void *ctx = mbedtls_calloc( 1, sizeof( mbedtls_gcm_context ) );
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     if( ctx != NULL )
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         mbedtls_gcm_init( (mbedtls_gcm_context *) ctx );
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return( ctx );
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void gcm_ctx_free( void *ctx )
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_gcm_free( ctx );
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_free( ctx );
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_GCM_C */
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CCM_C)
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** /* shared by all CCM ciphers */
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void *ccm_ctx_alloc( void )
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+  28              		.loc 1 110 1
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37 0002 82B0     		sub	sp, sp, #8
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 16
+  40 0004 00AF     		add	r7, sp, #0
+  41              	.LCFI2:
+  42              		.cfi_def_cfa_register 7
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     void *ctx = mbedtls_calloc( 1, sizeof( mbedtls_ccm_context ) );
+  43              		.loc 1 111 17
+  44 0006 4021     		movs	r1, #64
+  45 0008 0120     		movs	r0, #1
+  46 000a FFF7FEFF 		bl	mbedtls_calloc
+  47 000e 7860     		str	r0, [r7, #4]
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     if( ctx != NULL )
+  48              		.loc 1 113 7
+  49 0010 7B68     		ldr	r3, [r7, #4]
+  50 0012 002B     		cmp	r3, #0
+  51 0014 02D0     		beq	.L2
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         mbedtls_ccm_init( (mbedtls_ccm_context *) ctx );
+  52              		.loc 1 114 9
+  53 0016 7868     		ldr	r0, [r7, #4]
+  54 0018 FFF7FEFF 		bl	mbedtls_ccm_init
+  55              	.L2:
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return( ctx );
+  56              		.loc 1 116 11
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 4
+
+
+  57 001c 7B68     		ldr	r3, [r7, #4]
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+  58              		.loc 1 117 1
+  59 001e 1846     		mov	r0, r3
+  60 0020 0837     		adds	r7, r7, #8
+  61              	.LCFI3:
+  62              		.cfi_def_cfa_offset 8
+  63 0022 BD46     		mov	sp, r7
+  64              	.LCFI4:
+  65              		.cfi_def_cfa_register 13
+  66              		@ sp needed
+  67 0024 80BD     		pop	{r7, pc}
+  68              		.cfi_endproc
+  69              	.LFE10:
+  71              		.section	.text.ccm_ctx_free,"ax",%progbits
+  72              		.align	1
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  76              		.fpu fpv4-sp-d16
+  78              	ccm_ctx_free:
+  79              	.LFB11:
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void ccm_ctx_free( void *ctx )
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+  80              		.loc 1 120 1
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 8
+  83              		@ frame_needed = 1, uses_anonymous_args = 0
+  84 0000 80B5     		push	{r7, lr}
+  85              	.LCFI5:
+  86              		.cfi_def_cfa_offset 8
+  87              		.cfi_offset 7, -8
+  88              		.cfi_offset 14, -4
+  89 0002 82B0     		sub	sp, sp, #8
+  90              	.LCFI6:
+  91              		.cfi_def_cfa_offset 16
+  92 0004 00AF     		add	r7, sp, #0
+  93              	.LCFI7:
+  94              		.cfi_def_cfa_register 7
+  95 0006 7860     		str	r0, [r7, #4]
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_ccm_free( ctx );
+  96              		.loc 1 121 5
+  97 0008 7868     		ldr	r0, [r7, #4]
+  98 000a FFF7FEFF 		bl	mbedtls_ccm_free
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_free( ctx );
+  99              		.loc 1 122 5
+ 100 000e 7868     		ldr	r0, [r7, #4]
+ 101 0010 FFF7FEFF 		bl	mbedtls_free
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 102              		.loc 1 123 1
+ 103 0014 00BF     		nop
+ 104 0016 0837     		adds	r7, r7, #8
+ 105              	.LCFI8:
+ 106              		.cfi_def_cfa_offset 8
+ 107 0018 BD46     		mov	sp, r7
+ 108              	.LCFI9:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 5
+
+
+ 109              		.cfi_def_cfa_register 13
+ 110              		@ sp needed
+ 111 001a 80BD     		pop	{r7, pc}
+ 112              		.cfi_endproc
+ 113              	.LFE11:
+ 115              		.section	.text.aes_crypt_ecb_wrap,"ax",%progbits
+ 116              		.align	1
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu fpv4-sp-d16
+ 122              	aes_crypt_ecb_wrap:
+ 123              	.LFB12:
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CCM_C */
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_AES_C)
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_crypt_ecb_wrap( void *ctx, mbedtls_operation_t operation,
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         const unsigned char *input, unsigned char *output )
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 124              		.loc 1 130 1
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 16
+ 127              		@ frame_needed = 1, uses_anonymous_args = 0
+ 128 0000 80B5     		push	{r7, lr}
+ 129              	.LCFI10:
+ 130              		.cfi_def_cfa_offset 8
+ 131              		.cfi_offset 7, -8
+ 132              		.cfi_offset 14, -4
+ 133 0002 84B0     		sub	sp, sp, #16
+ 134              	.LCFI11:
+ 135              		.cfi_def_cfa_offset 24
+ 136 0004 00AF     		add	r7, sp, #0
+ 137              	.LCFI12:
+ 138              		.cfi_def_cfa_register 7
+ 139 0006 F860     		str	r0, [r7, #12]
+ 140 0008 7A60     		str	r2, [r7, #4]
+ 141 000a 3B60     		str	r3, [r7]
+ 142 000c 0B46     		mov	r3, r1
+ 143 000e FB72     		strb	r3, [r7, #11]
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_crypt_ecb( (mbedtls_aes_context *) ctx, operation, input, output );
+ 144              		.loc 1 131 12
+ 145 0010 97F90B10 		ldrsb	r1, [r7, #11]
+ 146 0014 3B68     		ldr	r3, [r7]
+ 147 0016 7A68     		ldr	r2, [r7, #4]
+ 148 0018 F868     		ldr	r0, [r7, #12]
+ 149 001a FFF7FEFF 		bl	mbedtls_aes_crypt_ecb
+ 150 001e 0346     		mov	r3, r0
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 151              		.loc 1 132 1
+ 152 0020 1846     		mov	r0, r3
+ 153 0022 1037     		adds	r7, r7, #16
+ 154              	.LCFI13:
+ 155              		.cfi_def_cfa_offset 8
+ 156 0024 BD46     		mov	sp, r7
+ 157              	.LCFI14:
+ 158              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 6
+
+
+ 159              		@ sp needed
+ 160 0026 80BD     		pop	{r7, pc}
+ 161              		.cfi_endproc
+ 162              	.LFE12:
+ 164              		.section	.text.aes_crypt_cbc_wrap,"ax",%progbits
+ 165              		.align	1
+ 166              		.syntax unified
+ 167              		.thumb
+ 168              		.thumb_func
+ 169              		.fpu fpv4-sp-d16
+ 171              	aes_crypt_cbc_wrap:
+ 172              	.LFB13:
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_crypt_cbc_wrap( void *ctx, mbedtls_operation_t operation, size_t length,
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         unsigned char *iv, const unsigned char *input, unsigned char *output )
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 173              		.loc 1 137 1
+ 174              		.cfi_startproc
+ 175              		@ args = 8, pretend = 0, frame = 16
+ 176              		@ frame_needed = 1, uses_anonymous_args = 0
+ 177 0000 80B5     		push	{r7, lr}
+ 178              	.LCFI15:
+ 179              		.cfi_def_cfa_offset 8
+ 180              		.cfi_offset 7, -8
+ 181              		.cfi_offset 14, -4
+ 182 0002 86B0     		sub	sp, sp, #24
+ 183              	.LCFI16:
+ 184              		.cfi_def_cfa_offset 32
+ 185 0004 02AF     		add	r7, sp, #8
+ 186              	.LCFI17:
+ 187              		.cfi_def_cfa 7, 24
+ 188 0006 F860     		str	r0, [r7, #12]
+ 189 0008 7A60     		str	r2, [r7, #4]
+ 190 000a 3B60     		str	r3, [r7]
+ 191 000c 0B46     		mov	r3, r1
+ 192 000e FB72     		strb	r3, [r7, #11]
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_crypt_cbc( (mbedtls_aes_context *) ctx, operation, length, iv, input,
+ 193              		.loc 1 138 12
+ 194 0010 97F90B10 		ldrsb	r1, [r7, #11]
+ 195 0014 FB69     		ldr	r3, [r7, #28]
+ 196 0016 0193     		str	r3, [sp, #4]
+ 197 0018 BB69     		ldr	r3, [r7, #24]
+ 198 001a 0093     		str	r3, [sp]
+ 199 001c 3B68     		ldr	r3, [r7]
+ 200 001e 7A68     		ldr	r2, [r7, #4]
+ 201 0020 F868     		ldr	r0, [r7, #12]
+ 202 0022 FFF7FEFF 		bl	mbedtls_aes_crypt_cbc
+ 203 0026 0346     		mov	r3, r0
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                           output );
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 204              		.loc 1 140 1
+ 205 0028 1846     		mov	r0, r3
+ 206 002a 1037     		adds	r7, r7, #16
+ 207              	.LCFI18:
+ 208              		.cfi_def_cfa_offset 8
+ 209 002c BD46     		mov	sp, r7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 7
+
+
+ 210              	.LCFI19:
+ 211              		.cfi_def_cfa_register 13
+ 212              		@ sp needed
+ 213 002e 80BD     		pop	{r7, pc}
+ 214              		.cfi_endproc
+ 215              	.LFE13:
+ 217              		.section	.text.aes_setkey_dec_wrap,"ax",%progbits
+ 218              		.align	1
+ 219              		.syntax unified
+ 220              		.thumb
+ 221              		.thumb_func
+ 222              		.fpu fpv4-sp-d16
+ 224              	aes_setkey_dec_wrap:
+ 225              	.LFB14:
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CBC */
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_crypt_cfb128_wrap( void *ctx, mbedtls_operation_t operation,
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         size_t length, size_t *iv_off, unsigned char *iv,
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         const unsigned char *input, unsigned char *output )
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_crypt_cfb128( (mbedtls_aes_context *) ctx, operation, length, iv_off, iv,
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                              input, output );
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CFB */
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_crypt_ofb_wrap( void *ctx, size_t length, size_t *iv_off,
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         unsigned char *iv, const unsigned char *input, unsigned char *output )
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_crypt_ofb( (mbedtls_aes_context *) ctx, length, iv_off,
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                     iv, input, output );
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_OFB */
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_crypt_ctr_wrap( void *ctx, size_t length, size_t *nc_off,
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         unsigned char *nonce_counter, unsigned char *stream_block,
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         const unsigned char *input, unsigned char *output )
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_crypt_ctr( (mbedtls_aes_context *) ctx, length, nc_off, nonce_counter,
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                           stream_block, input, output );
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CTR */
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_crypt_xts_wrap( void *ctx, mbedtls_operation_t operation,
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                size_t length,
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                const unsigned char data_unit[16],
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                const unsigned char *input,
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                unsigned char *output )
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     int mode;
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     switch( operation )
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 8
+
+
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         case MBEDTLS_ENCRYPT:
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****             mode = MBEDTLS_AES_ENCRYPT;
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****             break;
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         case MBEDTLS_DECRYPT:
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****             mode = MBEDTLS_AES_DECRYPT;
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****             break;
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         default:
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****             return MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA;
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     }
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_crypt_xts( xts_ctx, mode, length,
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                   data_unit, input, output );
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_XTS */
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_setkey_dec_wrap( void *ctx, const unsigned char *key,
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 226              		.loc 1 201 1
+ 227              		.cfi_startproc
+ 228              		@ args = 0, pretend = 0, frame = 16
+ 229              		@ frame_needed = 1, uses_anonymous_args = 0
+ 230 0000 80B5     		push	{r7, lr}
+ 231              	.LCFI20:
+ 232              		.cfi_def_cfa_offset 8
+ 233              		.cfi_offset 7, -8
+ 234              		.cfi_offset 14, -4
+ 235 0002 84B0     		sub	sp, sp, #16
+ 236              	.LCFI21:
+ 237              		.cfi_def_cfa_offset 24
+ 238 0004 00AF     		add	r7, sp, #0
+ 239              	.LCFI22:
+ 240              		.cfi_def_cfa_register 7
+ 241 0006 F860     		str	r0, [r7, #12]
+ 242 0008 B960     		str	r1, [r7, #8]
+ 243 000a 7A60     		str	r2, [r7, #4]
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_setkey_dec( (mbedtls_aes_context *) ctx, key, key_bitlen );
+ 244              		.loc 1 202 12
+ 245 000c 7A68     		ldr	r2, [r7, #4]
+ 246 000e B968     		ldr	r1, [r7, #8]
+ 247 0010 F868     		ldr	r0, [r7, #12]
+ 248 0012 FFF7FEFF 		bl	mbedtls_aes_setkey_dec
+ 249 0016 0346     		mov	r3, r0
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 250              		.loc 1 203 1
+ 251 0018 1846     		mov	r0, r3
+ 252 001a 1037     		adds	r7, r7, #16
+ 253              	.LCFI23:
+ 254              		.cfi_def_cfa_offset 8
+ 255 001c BD46     		mov	sp, r7
+ 256              	.LCFI24:
+ 257              		.cfi_def_cfa_register 13
+ 258              		@ sp needed
+ 259 001e 80BD     		pop	{r7, pc}
+ 260              		.cfi_endproc
+ 261              	.LFE14:
+ 263              		.section	.text.aes_setkey_enc_wrap,"ax",%progbits
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 9
+
+
+ 264              		.align	1
+ 265              		.syntax unified
+ 266              		.thumb
+ 267              		.thumb_func
+ 268              		.fpu fpv4-sp-d16
+ 270              	aes_setkey_enc_wrap:
+ 271              	.LFB15:
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int aes_setkey_enc_wrap( void *ctx, const unsigned char *key,
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 272              		.loc 1 207 1
+ 273              		.cfi_startproc
+ 274              		@ args = 0, pretend = 0, frame = 16
+ 275              		@ frame_needed = 1, uses_anonymous_args = 0
+ 276 0000 80B5     		push	{r7, lr}
+ 277              	.LCFI25:
+ 278              		.cfi_def_cfa_offset 8
+ 279              		.cfi_offset 7, -8
+ 280              		.cfi_offset 14, -4
+ 281 0002 84B0     		sub	sp, sp, #16
+ 282              	.LCFI26:
+ 283              		.cfi_def_cfa_offset 24
+ 284 0004 00AF     		add	r7, sp, #0
+ 285              	.LCFI27:
+ 286              		.cfi_def_cfa_register 7
+ 287 0006 F860     		str	r0, [r7, #12]
+ 288 0008 B960     		str	r1, [r7, #8]
+ 289 000a 7A60     		str	r2, [r7, #4]
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_aes_setkey_enc( (mbedtls_aes_context *) ctx, key, key_bitlen );
+ 290              		.loc 1 208 12
+ 291 000c 7A68     		ldr	r2, [r7, #4]
+ 292 000e B968     		ldr	r1, [r7, #8]
+ 293 0010 F868     		ldr	r0, [r7, #12]
+ 294 0012 FFF7FEFF 		bl	mbedtls_aes_setkey_enc
+ 295 0016 0346     		mov	r3, r0
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 296              		.loc 1 209 1
+ 297 0018 1846     		mov	r0, r3
+ 298 001a 1037     		adds	r7, r7, #16
+ 299              	.LCFI28:
+ 300              		.cfi_def_cfa_offset 8
+ 301 001c BD46     		mov	sp, r7
+ 302              	.LCFI29:
+ 303              		.cfi_def_cfa_register 13
+ 304              		@ sp needed
+ 305 001e 80BD     		pop	{r7, pc}
+ 306              		.cfi_endproc
+ 307              	.LFE15:
+ 309              		.section	.text.aes_ctx_alloc,"ax",%progbits
+ 310              		.align	1
+ 311              		.syntax unified
+ 312              		.thumb
+ 313              		.thumb_func
+ 314              		.fpu fpv4-sp-d16
+ 316              	aes_ctx_alloc:
+ 317              	.LFB16:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 10
+
+
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void * aes_ctx_alloc( void )
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 318              		.loc 1 212 1
+ 319              		.cfi_startproc
+ 320              		@ args = 0, pretend = 0, frame = 8
+ 321              		@ frame_needed = 1, uses_anonymous_args = 0
+ 322 0000 80B5     		push	{r7, lr}
+ 323              	.LCFI30:
+ 324              		.cfi_def_cfa_offset 8
+ 325              		.cfi_offset 7, -8
+ 326              		.cfi_offset 14, -4
+ 327 0002 82B0     		sub	sp, sp, #8
+ 328              	.LCFI31:
+ 329              		.cfi_def_cfa_offset 16
+ 330 0004 00AF     		add	r7, sp, #0
+ 331              	.LCFI32:
+ 332              		.cfi_def_cfa_register 7
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_context *aes = mbedtls_calloc( 1, sizeof( mbedtls_aes_context ) );
+ 333              		.loc 1 213 32
+ 334 0006 4FF48C71 		mov	r1, #280
+ 335 000a 0120     		movs	r0, #1
+ 336 000c FFF7FEFF 		bl	mbedtls_calloc
+ 337 0010 7860     		str	r0, [r7, #4]
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     if( aes == NULL )
+ 338              		.loc 1 215 7
+ 339 0012 7B68     		ldr	r3, [r7, #4]
+ 340 0014 002B     		cmp	r3, #0
+ 341 0016 01D1     		bne	.L14
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         return( NULL );
+ 342              		.loc 1 216 15
+ 343 0018 0023     		movs	r3, #0
+ 344 001a 03E0     		b	.L15
+ 345              	.L14:
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_init( aes );
+ 346              		.loc 1 218 5
+ 347 001c 7868     		ldr	r0, [r7, #4]
+ 348 001e FFF7FEFF 		bl	mbedtls_aes_init
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return( aes );
+ 349              		.loc 1 220 11
+ 350 0022 7B68     		ldr	r3, [r7, #4]
+ 351              	.L15:
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 352              		.loc 1 221 1
+ 353 0024 1846     		mov	r0, r3
+ 354 0026 0837     		adds	r7, r7, #8
+ 355              	.LCFI33:
+ 356              		.cfi_def_cfa_offset 8
+ 357 0028 BD46     		mov	sp, r7
+ 358              	.LCFI34:
+ 359              		.cfi_def_cfa_register 13
+ 360              		@ sp needed
+ 361 002a 80BD     		pop	{r7, pc}
+ 362              		.cfi_endproc
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 11
+
+
+ 363              	.LFE16:
+ 365              		.section	.text.aes_ctx_free,"ax",%progbits
+ 366              		.align	1
+ 367              		.syntax unified
+ 368              		.thumb
+ 369              		.thumb_func
+ 370              		.fpu fpv4-sp-d16
+ 372              	aes_ctx_free:
+ 373              	.LFB17:
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void aes_ctx_free( void *ctx )
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 374              		.loc 1 224 1
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 8
+ 377              		@ frame_needed = 1, uses_anonymous_args = 0
+ 378 0000 80B5     		push	{r7, lr}
+ 379              	.LCFI35:
+ 380              		.cfi_def_cfa_offset 8
+ 381              		.cfi_offset 7, -8
+ 382              		.cfi_offset 14, -4
+ 383 0002 82B0     		sub	sp, sp, #8
+ 384              	.LCFI36:
+ 385              		.cfi_def_cfa_offset 16
+ 386 0004 00AF     		add	r7, sp, #0
+ 387              	.LCFI37:
+ 388              		.cfi_def_cfa_register 7
+ 389 0006 7860     		str	r0, [r7, #4]
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_free( (mbedtls_aes_context *) ctx );
+ 390              		.loc 1 225 5
+ 391 0008 7868     		ldr	r0, [r7, #4]
+ 392 000a FFF7FEFF 		bl	mbedtls_aes_free
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_free( ctx );
+ 393              		.loc 1 226 5
+ 394 000e 7868     		ldr	r0, [r7, #4]
+ 395 0010 FFF7FEFF 		bl	mbedtls_free
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 396              		.loc 1 227 1
+ 397 0014 00BF     		nop
+ 398 0016 0837     		adds	r7, r7, #8
+ 399              	.LCFI38:
+ 400              		.cfi_def_cfa_offset 8
+ 401 0018 BD46     		mov	sp, r7
+ 402              	.LCFI39:
+ 403              		.cfi_def_cfa_register 13
+ 404              		@ sp needed
+ 405 001a 80BD     		pop	{r7, pc}
+ 406              		.cfi_endproc
+ 407              	.LFE17:
+ 409              		.section	.rodata.aes_info,"a"
+ 410              		.align	2
+ 413              	aes_info:
+ 414 0000 02       		.byte	2
+ 415 0001 000000   		.space	3
+ 416 0004 00000000 		.word	aes_crypt_ecb_wrap
+ 417 0008 00000000 		.word	aes_crypt_cbc_wrap
+ 418 000c 00000000 		.word	aes_setkey_enc_wrap
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 12
+
+
+ 419 0010 00000000 		.word	aes_setkey_dec_wrap
+ 420 0014 00000000 		.word	aes_ctx_alloc
+ 421 0018 00000000 		.word	aes_ctx_free
+ 422              		.section	.rodata
+ 423              		.align	2
+ 424              	.LC0:
+ 425 0000 4145532D 		.ascii	"AES-128-ECB\000"
+ 425      3132382D 
+ 425      45434200 
+ 426              		.section	.rodata.aes_128_ecb_info,"a"
+ 427              		.align	2
+ 430              	aes_128_ecb_info:
+ 431 0000 02       		.byte	2
+ 432 0001 01       		.byte	1
+ 433 0002 0000     		.space	2
+ 434 0004 80000000 		.word	128
+ 435 0008 00000000 		.word	.LC0
+ 436 000c 00000000 		.word	0
+ 437 0010 00000000 		.word	0
+ 438 0014 10000000 		.word	16
+ 439 0018 00000000 		.word	aes_info
+ 440              		.section	.rodata
+ 441              		.align	2
+ 442              	.LC1:
+ 443 000c 4145532D 		.ascii	"AES-192-ECB\000"
+ 443      3139322D 
+ 443      45434200 
+ 444              		.section	.rodata.aes_192_ecb_info,"a"
+ 445              		.align	2
+ 448              	aes_192_ecb_info:
+ 449 0000 03       		.byte	3
+ 450 0001 01       		.byte	1
+ 451 0002 0000     		.space	2
+ 452 0004 C0000000 		.word	192
+ 453 0008 0C000000 		.word	.LC1
+ 454 000c 00000000 		.word	0
+ 455 0010 00000000 		.word	0
+ 456 0014 10000000 		.word	16
+ 457 0018 00000000 		.word	aes_info
+ 458              		.section	.rodata
+ 459              		.align	2
+ 460              	.LC2:
+ 461 0018 4145532D 		.ascii	"AES-256-ECB\000"
+ 461      3235362D 
+ 461      45434200 
+ 462              		.section	.rodata.aes_256_ecb_info,"a"
+ 463              		.align	2
+ 466              	aes_256_ecb_info:
+ 467 0000 04       		.byte	4
+ 468 0001 01       		.byte	1
+ 469 0002 0000     		.space	2
+ 470 0004 00010000 		.word	256
+ 471 0008 18000000 		.word	.LC2
+ 472 000c 00000000 		.word	0
+ 473 0010 00000000 		.word	0
+ 474 0014 10000000 		.word	16
+ 475 0018 00000000 		.word	aes_info
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 13
+
+
+ 476              		.section	.rodata
+ 477              		.align	2
+ 478              	.LC3:
+ 479 0024 4145532D 		.ascii	"AES-128-CBC\000"
+ 479      3132382D 
+ 479      43424300 
+ 480              		.section	.rodata.aes_128_cbc_info,"a"
+ 481              		.align	2
+ 484              	aes_128_cbc_info:
+ 485 0000 05       		.byte	5
+ 486 0001 02       		.byte	2
+ 487 0002 0000     		.space	2
+ 488 0004 80000000 		.word	128
+ 489 0008 24000000 		.word	.LC3
+ 490 000c 10000000 		.word	16
+ 491 0010 00000000 		.word	0
+ 492 0014 10000000 		.word	16
+ 493 0018 00000000 		.word	aes_info
+ 494              		.section	.rodata
+ 495              		.align	2
+ 496              	.LC4:
+ 497 0030 4145532D 		.ascii	"AES-192-CBC\000"
+ 497      3139322D 
+ 497      43424300 
+ 498              		.section	.rodata.aes_192_cbc_info,"a"
+ 499              		.align	2
+ 502              	aes_192_cbc_info:
+ 503 0000 06       		.byte	6
+ 504 0001 02       		.byte	2
+ 505 0002 0000     		.space	2
+ 506 0004 C0000000 		.word	192
+ 507 0008 30000000 		.word	.LC4
+ 508 000c 10000000 		.word	16
+ 509 0010 00000000 		.word	0
+ 510 0014 10000000 		.word	16
+ 511 0018 00000000 		.word	aes_info
+ 512              		.section	.rodata
+ 513              		.align	2
+ 514              	.LC5:
+ 515 003c 4145532D 		.ascii	"AES-256-CBC\000"
+ 515      3235362D 
+ 515      43424300 
+ 516              		.section	.rodata.aes_256_cbc_info,"a"
+ 517              		.align	2
+ 520              	aes_256_cbc_info:
+ 521 0000 07       		.byte	7
+ 522 0001 02       		.byte	2
+ 523 0002 0000     		.space	2
+ 524 0004 00010000 		.word	256
+ 525 0008 3C000000 		.word	.LC5
+ 526 000c 10000000 		.word	16
+ 527 0010 00000000 		.word	0
+ 528 0014 10000000 		.word	16
+ 529 0018 00000000 		.word	aes_info
+ 530              		.section	.text.ccm_aes_setkey_wrap,"ax",%progbits
+ 531              		.align	1
+ 532              		.syntax unified
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 14
+
+
+ 533              		.thumb
+ 534              		.thumb_func
+ 535              		.fpu fpv4-sp-d16
+ 537              	ccm_aes_setkey_wrap:
+ 538              	.LFB18:
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_base_t aes_info = {
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_ID_AES,
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_crypt_ecb_wrap,
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_crypt_cbc_wrap,
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_crypt_cfb128_wrap,
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_crypt_ofb_wrap,
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_crypt_ctr_wrap,
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_STREAM)
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_setkey_enc_wrap,
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_setkey_dec_wrap,
+ 252:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_ctx_alloc,
+ 253:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_ctx_free
+ 254:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 255:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 256:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_ecb_info = {
+ 257:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_ECB,
+ 258:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_ECB,
+ 259:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     128,
+ 260:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-128-ECB",
+ 261:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 262:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 263:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 264:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 265:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 266:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 267:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_ecb_info = {
+ 268:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_ECB,
+ 269:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_ECB,
+ 270:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     192,
+ 271:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-192-ECB",
+ 272:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 273:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 274:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 275:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 276:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 277:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 278:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_ecb_info = {
+ 279:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_ECB,
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 15
+
+
+ 280:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_ECB,
+ 281:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     256,
+ 282:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-256-ECB",
+ 283:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 284:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 285:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 286:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 287:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 288:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 289:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 290:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_cbc_info = {
+ 291:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_CBC,
+ 292:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CBC,
+ 293:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     128,
+ 294:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-128-CBC",
+ 295:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 296:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 297:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 298:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 299:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 300:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 301:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_cbc_info = {
+ 302:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_CBC,
+ 303:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CBC,
+ 304:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     192,
+ 305:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-192-CBC",
+ 306:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 307:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 308:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 309:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 310:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 311:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 312:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_cbc_info = {
+ 313:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_CBC,
+ 314:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CBC,
+ 315:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     256,
+ 316:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-256-CBC",
+ 317:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 318:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 319:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 320:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 321:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 322:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CBC */
+ 323:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 324:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 325:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_cfb128_info = {
+ 326:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_CFB128,
+ 327:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CFB,
+ 328:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     128,
+ 329:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-128-CFB128",
+ 330:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 331:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 332:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 333:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 334:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 335:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 336:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_cfb128_info = {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 16
+
+
+ 337:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_CFB128,
+ 338:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CFB,
+ 339:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     192,
+ 340:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-192-CFB128",
+ 341:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 342:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 343:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 344:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 345:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 346:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 347:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_cfb128_info = {
+ 348:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_CFB128,
+ 349:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CFB,
+ 350:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     256,
+ 351:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-256-CFB128",
+ 352:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 353:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 354:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 355:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 356:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 357:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CFB */
+ 358:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 359:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 360:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_ofb_info = {
+ 361:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_OFB,
+ 362:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_OFB,
+ 363:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     128,
+ 364:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-128-OFB",
+ 365:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 366:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 367:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 368:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 369:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 370:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 371:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_ofb_info = {
+ 372:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_OFB,
+ 373:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_OFB,
+ 374:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     192,
+ 375:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-192-OFB",
+ 376:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 377:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 378:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 379:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 380:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 381:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 382:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_ofb_info = {
+ 383:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_OFB,
+ 384:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_OFB,
+ 385:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     256,
+ 386:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-256-OFB",
+ 387:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 388:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 389:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 390:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 391:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 392:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_OFB */
+ 393:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 17
+
+
+ 394:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 395:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_ctr_info = {
+ 396:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_CTR,
+ 397:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CTR,
+ 398:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     128,
+ 399:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-128-CTR",
+ 400:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 401:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 402:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 403:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 404:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 405:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 406:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_ctr_info = {
+ 407:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_CTR,
+ 408:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CTR,
+ 409:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     192,
+ 410:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-192-CTR",
+ 411:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 412:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 413:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 414:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 415:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 416:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 417:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_ctr_info = {
+ 418:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_CTR,
+ 419:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_CTR,
+ 420:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     256,
+ 421:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-256-CTR",
+ 422:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 423:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 424:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 425:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &aes_info
+ 426:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 427:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CTR */
+ 428:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 429:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 430:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int xts_aes_setkey_enc_wrap( void *ctx, const unsigned char *key,
+ 431:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                     unsigned int key_bitlen )
+ 432:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 433:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 434:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return( mbedtls_aes_xts_setkey_enc( xts_ctx, key, key_bitlen ) );
+ 435:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 436:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 437:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int xts_aes_setkey_dec_wrap( void *ctx, const unsigned char *key,
+ 438:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                     unsigned int key_bitlen )
+ 439:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 440:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 441:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return( mbedtls_aes_xts_setkey_dec( xts_ctx, key, key_bitlen ) );
+ 442:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 443:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 444:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void *xts_aes_ctx_alloc( void )
+ 445:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 446:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = mbedtls_calloc( 1, sizeof( *xts_ctx ) );
+ 447:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 448:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     if( xts_ctx != NULL )
+ 449:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         mbedtls_aes_xts_init( xts_ctx );
+ 450:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 18
+
+
+ 451:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return( xts_ctx );
+ 452:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 453:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 454:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static void xts_aes_ctx_free( void *ctx )
+ 455:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 456:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 457:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 458:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     if( xts_ctx == NULL )
+ 459:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****         return;
+ 460:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 461:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_aes_xts_free( xts_ctx );
+ 462:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     mbedtls_free( xts_ctx );
+ 463:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 464:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 465:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_base_t xts_aes_info = {
+ 466:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_ID_AES,
+ 467:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 468:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 469:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 470:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 471:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 472:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 473:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 474:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 475:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 476:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 477:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 478:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 479:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 480:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 481:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     aes_crypt_xts_wrap,
+ 482:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 483:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_STREAM)
+ 484:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 485:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 486:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     xts_aes_setkey_enc_wrap,
+ 487:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     xts_aes_setkey_dec_wrap,
+ 488:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     xts_aes_ctx_alloc,
+ 489:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     xts_aes_ctx_free
+ 490:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 491:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 492:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_xts_info = {
+ 493:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_XTS,
+ 494:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_XTS,
+ 495:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     256,
+ 496:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-128-XTS",
+ 497:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 498:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 499:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 500:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &xts_aes_info
+ 501:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 502:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 503:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_xts_info = {
+ 504:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_XTS,
+ 505:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_XTS,
+ 506:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     512,
+ 507:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-256-XTS",
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 19
+
+
+ 508:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 509:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     0,
+ 510:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 511:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &xts_aes_info
+ 512:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 513:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_XTS */
+ 514:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 515:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_GCM_C)
+ 516:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int gcm_aes_setkey_wrap( void *ctx, const unsigned char *key,
+ 517:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 518:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 519:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_gcm_setkey( (mbedtls_gcm_context *) ctx, MBEDTLS_CIPHER_ID_AES,
+ 520:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                      key, key_bitlen );
+ 521:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 522:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 523:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_base_t gcm_aes_info = {
+ 524:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_ID_AES,
+ 525:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 526:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 527:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 528:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 529:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 530:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 531:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 532:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 533:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 534:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 535:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 536:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 537:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 538:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 539:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 540:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 541:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_STREAM)
+ 542:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     NULL,
+ 543:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif
+ 544:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     gcm_aes_setkey_wrap,
+ 545:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     gcm_aes_setkey_wrap,
+ 546:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     gcm_ctx_alloc,
+ 547:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     gcm_ctx_free,
+ 548:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 549:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 550:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_gcm_info = {
+ 551:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_GCM,
+ 552:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_GCM,
+ 553:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     128,
+ 554:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-128-GCM",
+ 555:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     12,
+ 556:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_VARIABLE_IV_LEN,
+ 557:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 558:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &gcm_aes_info
+ 559:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 560:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 561:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_gcm_info = {
+ 562:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_GCM,
+ 563:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_GCM,
+ 564:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     192,
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 20
+
+
+ 565:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-192-GCM",
+ 566:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     12,
+ 567:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_VARIABLE_IV_LEN,
+ 568:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 569:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &gcm_aes_info
+ 570:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 571:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 572:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_gcm_info = {
+ 573:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_GCM,
+ 574:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_MODE_GCM,
+ 575:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     256,
+ 576:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     "AES-256-GCM",
+ 577:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     12,
+ 578:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     MBEDTLS_CIPHER_VARIABLE_IV_LEN,
+ 579:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     16,
+ 580:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     &gcm_aes_info
+ 581:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** };
+ 582:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #endif /* MBEDTLS_GCM_C */
+ 583:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** 
+ 584:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** #if defined(MBEDTLS_CCM_C)
+ 585:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** static int ccm_aes_setkey_wrap( void *ctx, const unsigned char *key,
+ 586:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 587:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** {
+ 539              		.loc 1 587 1
+ 540              		.cfi_startproc
+ 541              		@ args = 0, pretend = 0, frame = 16
+ 542              		@ frame_needed = 1, uses_anonymous_args = 0
+ 543 0000 80B5     		push	{r7, lr}
+ 544              	.LCFI40:
+ 545              		.cfi_def_cfa_offset 8
+ 546              		.cfi_offset 7, -8
+ 547              		.cfi_offset 14, -4
+ 548 0002 84B0     		sub	sp, sp, #16
+ 549              	.LCFI41:
+ 550              		.cfi_def_cfa_offset 24
+ 551 0004 00AF     		add	r7, sp, #0
+ 552              	.LCFI42:
+ 553              		.cfi_def_cfa_register 7
+ 554 0006 F860     		str	r0, [r7, #12]
+ 555 0008 B960     		str	r1, [r7, #8]
+ 556 000a 7A60     		str	r2, [r7, #4]
+ 588:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****     return mbedtls_ccm_setkey( (mbedtls_ccm_context *) ctx, MBEDTLS_CIPHER_ID_AES,
+ 557              		.loc 1 588 12
+ 558 000c 7B68     		ldr	r3, [r7, #4]
+ 559 000e BA68     		ldr	r2, [r7, #8]
+ 560 0010 0221     		movs	r1, #2
+ 561 0012 F868     		ldr	r0, [r7, #12]
+ 562 0014 FFF7FEFF 		bl	mbedtls_ccm_setkey
+ 563 0018 0346     		mov	r3, r0
+ 589:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c ****                      key, key_bitlen );
+ 590:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\cipher_wrap.c **** }
+ 564              		.loc 1 590 1
+ 565 001a 1846     		mov	r0, r3
+ 566 001c 1037     		adds	r7, r7, #16
+ 567              	.LCFI43:
+ 568              		.cfi_def_cfa_offset 8
+ 569 001e BD46     		mov	sp, r7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 21
+
+
+ 570              	.LCFI44:
+ 571              		.cfi_def_cfa_register 13
+ 572              		@ sp needed
+ 573 0020 80BD     		pop	{r7, pc}
+ 574              		.cfi_endproc
+ 575              	.LFE18:
+ 577              		.section	.rodata.ccm_aes_info,"a"
+ 578              		.align	2
+ 581              	ccm_aes_info:
+ 582 0000 02       		.byte	2
+ 583 0001 000000   		.space	3
+ 584 0004 00000000 		.word	0
+ 585 0008 00000000 		.word	0
+ 586 000c 00000000 		.word	ccm_aes_setkey_wrap
+ 587 0010 00000000 		.word	ccm_aes_setkey_wrap
+ 588 0014 00000000 		.word	ccm_ctx_alloc
+ 589 0018 00000000 		.word	ccm_ctx_free
+ 590              		.section	.rodata
+ 591              		.align	2
+ 592              	.LC6:
+ 593 0048 4145532D 		.ascii	"AES-128-CCM\000"
+ 593      3132382D 
+ 593      43434D00 
+ 594              		.section	.rodata.aes_128_ccm_info,"a"
+ 595              		.align	2
+ 598              	aes_128_ccm_info:
+ 599 0000 2B       		.byte	43
+ 600 0001 08       		.byte	8
+ 601 0002 0000     		.space	2
+ 602 0004 80000000 		.word	128
+ 603 0008 48000000 		.word	.LC6
+ 604 000c 0C000000 		.word	12
+ 605 0010 01000000 		.word	1
+ 606 0014 10000000 		.word	16
+ 607 0018 00000000 		.word	ccm_aes_info
+ 608              		.section	.rodata
+ 609              		.align	2
+ 610              	.LC7:
+ 611 0054 4145532D 		.ascii	"AES-192-CCM\000"
+ 611      3139322D 
+ 611      43434D00 
+ 612              		.section	.rodata.aes_192_ccm_info,"a"
+ 613              		.align	2
+ 616              	aes_192_ccm_info:
+ 617 0000 2C       		.byte	44
+ 618 0001 08       		.byte	8
+ 619 0002 0000     		.space	2
+ 620 0004 C0000000 		.word	192
+ 621 0008 54000000 		.word	.LC7
+ 622 000c 0C000000 		.word	12
+ 623 0010 01000000 		.word	1
+ 624 0014 10000000 		.word	16
+ 625 0018 00000000 		.word	ccm_aes_info
+ 626              		.section	.rodata
+ 627              		.align	2
+ 628              	.LC8:
+ 629 0060 4145532D 		.ascii	"AES-256-CCM\000"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 22
+
+
+ 629      3235362D 
+ 629      43434D00 
+ 630              		.section	.rodata.aes_256_ccm_info,"a"
+ 631              		.align	2
+ 634              	aes_256_ccm_info:
+ 635 0000 2D       		.byte	45
+ 636 0001 08       		.byte	8
+ 637 0002 0000     		.space	2
+ 638 0004 00010000 		.word	256
+ 639 0008 60000000 		.word	.LC8
+ 640 000c 0C000000 		.word	12
+ 641 0010 01000000 		.word	1
+ 642 0014 10000000 		.word	16
+ 643 0018 00000000 		.word	ccm_aes_info
+ 644              		.global	mbedtls_cipher_definitions
+ 645              		.section	.rodata.mbedtls_cipher_definitions,"a"
+ 646              		.align	2
+ 649              	mbedtls_cipher_definitions:
+ 650 0000 02       		.byte	2
+ 651 0001 000000   		.space	3
+ 652 0004 00000000 		.word	aes_128_ecb_info
+ 653 0008 03       		.byte	3
+ 654 0009 000000   		.space	3
+ 655 000c 00000000 		.word	aes_192_ecb_info
+ 656 0010 04       		.byte	4
+ 657 0011 000000   		.space	3
+ 658 0014 00000000 		.word	aes_256_ecb_info
+ 659 0018 05       		.byte	5
+ 660 0019 000000   		.space	3
+ 661 001c 00000000 		.word	aes_128_cbc_info
+ 662 0020 06       		.byte	6
+ 663 0021 000000   		.space	3
+ 664 0024 00000000 		.word	aes_192_cbc_info
+ 665 0028 07       		.byte	7
+ 666 0029 000000   		.space	3
+ 667 002c 00000000 		.word	aes_256_cbc_info
+ 668 0030 2B       		.byte	43
+ 669 0031 000000   		.space	3
+ 670 0034 00000000 		.word	aes_128_ccm_info
+ 671 0038 2C       		.byte	44
+ 672 0039 000000   		.space	3
+ 673 003c 00000000 		.word	aes_192_ccm_info
+ 674 0040 2D       		.byte	45
+ 675 0041 000000   		.space	3
+ 676 0044 00000000 		.word	aes_256_ccm_info
+ 677 0048 00       		.byte	0
+ 678 0049 000000   		.space	3
+ 679 004c 00000000 		.word	0
+ 680              		.comm	mbedtls_cipher_supported,40,4
+ 681              		.text
+ 682              	.Letext0:
+ 683              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 684              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 685              		.file 4 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 686              		.file 5 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 687              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 688              		.file 7 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 23
+
+
+ 689              		.file 8 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+ 690              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 691              		.file 10 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_typ
+ 692              		.file 11 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reen
+ 693              		.file 12 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdlib.h"
+ 694              		.file 13 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\time.h"
+ 695              		.file 14 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 cipher_wrap.c
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:18     .text.ccm_ctx_alloc:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:25     .text.ccm_ctx_alloc:00000000 ccm_ctx_alloc
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:72     .text.ccm_ctx_free:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:78     .text.ccm_ctx_free:00000000 ccm_ctx_free
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:116    .text.aes_crypt_ecb_wrap:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:122    .text.aes_crypt_ecb_wrap:00000000 aes_crypt_ecb_wrap
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:165    .text.aes_crypt_cbc_wrap:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:171    .text.aes_crypt_cbc_wrap:00000000 aes_crypt_cbc_wrap
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:218    .text.aes_setkey_dec_wrap:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:224    .text.aes_setkey_dec_wrap:00000000 aes_setkey_dec_wrap
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:264    .text.aes_setkey_enc_wrap:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:270    .text.aes_setkey_enc_wrap:00000000 aes_setkey_enc_wrap
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:310    .text.aes_ctx_alloc:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:316    .text.aes_ctx_alloc:00000000 aes_ctx_alloc
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:366    .text.aes_ctx_free:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:372    .text.aes_ctx_free:00000000 aes_ctx_free
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:410    .rodata.aes_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:413    .rodata.aes_info:00000000 aes_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:423    .rodata:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:427    .rodata.aes_128_ecb_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:430    .rodata.aes_128_ecb_info:00000000 aes_128_ecb_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:445    .rodata.aes_192_ecb_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:448    .rodata.aes_192_ecb_info:00000000 aes_192_ecb_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:463    .rodata.aes_256_ecb_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:466    .rodata.aes_256_ecb_info:00000000 aes_256_ecb_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:481    .rodata.aes_128_cbc_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:484    .rodata.aes_128_cbc_info:00000000 aes_128_cbc_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:499    .rodata.aes_192_cbc_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:502    .rodata.aes_192_cbc_info:00000000 aes_192_cbc_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:517    .rodata.aes_256_cbc_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:520    .rodata.aes_256_cbc_info:00000000 aes_256_cbc_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:531    .text.ccm_aes_setkey_wrap:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:537    .text.ccm_aes_setkey_wrap:00000000 ccm_aes_setkey_wrap
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:578    .rodata.ccm_aes_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:581    .rodata.ccm_aes_info:00000000 ccm_aes_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:595    .rodata.aes_128_ccm_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:598    .rodata.aes_128_ccm_info:00000000 aes_128_ccm_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:613    .rodata.aes_192_ccm_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:616    .rodata.aes_192_ccm_info:00000000 aes_192_ccm_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:631    .rodata.aes_256_ccm_info:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:634    .rodata.aes_256_ccm_info:00000000 aes_256_ccm_info
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:649    .rodata.mbedtls_cipher_definitions:00000000 mbedtls_cipher_definitions
+C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s:646    .rodata.mbedtls_cipher_definitions:00000000 $d
+                            *COM*:00000028 mbedtls_cipher_supported
+
+UNDEFINED SYMBOLS
+mbedtls_calloc
+mbedtls_ccm_init
+mbedtls_ccm_free
+mbedtls_free
+mbedtls_aes_crypt_ecb
+mbedtls_aes_crypt_cbc
+mbedtls_aes_setkey_dec
+mbedtls_aes_setkey_enc
+mbedtls_aes_init
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccS6NyD2.s 			page 25
+
+
+mbedtls_aes_free
+mbedtls_ccm_setkey

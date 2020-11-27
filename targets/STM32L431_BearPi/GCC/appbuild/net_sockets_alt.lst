@@ -1,0 +1,1153 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"net_sockets_alt.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.mbedtls_net_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	mbedtls_net_init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	mbedtls_net_init:
+  27              	.LFB13:
+  28              		.file 1 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/n
+   1:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** /*----------------------------------------------------------------------------
+   2:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * All rights reserved.
+   4:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * are permitted provided that the following conditions are met:
+   6:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * conditions and the following disclaimer.
+   8:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * provided with the distribution.
+  11:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * permission.
+  14:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  *---------------------------------------------------------------------------*/
+  26:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** /*----------------------------------------------------------------------------
+  27:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * Notice of Export Control Law
+  28:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * ===============================================
+  29:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 2
+
+
+  31:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  * applicable export control laws and regulations.
+  33:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****  *---------------------------------------------------------------------------*/
+  34:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** #include <stdlib.h>
+  35:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** #include <osal.h>
+  36:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** #include <sal.h>
+  37:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  38:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** #include "mbedtls/net_sockets.h"
+  39:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  40:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** ///< attention that we only port the ip dot mode and only think about the ipv4
+  41:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  42:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** void mbedtls_net_init(mbedtls_net_context *ctx)
+  43:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+  29              		.loc 1 43 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 80B4     		push	{r7}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 7, -4
+  38 0002 83B0     		sub	sp, sp, #12
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 16
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  44:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     ctx->fd = -1;
+  45              		.loc 1 44 13
+  46 0008 7B68     		ldr	r3, [r7, #4]
+  47 000a 4FF0FF32 		mov	r2, #-1
+  48 000e 1A60     		str	r2, [r3]
+  45:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+  49              		.loc 1 45 1
+  50 0010 00BF     		nop
+  51 0012 0C37     		adds	r7, r7, #12
+  52              	.LCFI3:
+  53              		.cfi_def_cfa_offset 4
+  54 0014 BD46     		mov	sp, r7
+  55              	.LCFI4:
+  56              		.cfi_def_cfa_register 13
+  57              		@ sp needed
+  58 0016 5DF8047B 		ldr	r7, [sp], #4
+  59              	.LCFI5:
+  60              		.cfi_restore 7
+  61              		.cfi_def_cfa_offset 0
+  62 001a 7047     		bx	lr
+  63              		.cfi_endproc
+  64              	.LFE13:
+  66              		.section	.text.mbedtls_net_connect,"ax",%progbits
+  67              		.align	1
+  68              		.global	mbedtls_net_connect
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 3
+
+
+  72              		.fpu fpv4-sp-d16
+  74              	mbedtls_net_connect:
+  75              	.LFB14:
+  46:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  47:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** ///< resovled the host name
+  48:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** int mbedtls_net_connect(mbedtls_net_context *ctx, const char *host, const char *port, int proto)
+  49:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+  76              		.loc 1 49 1
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 40
+  79              		@ frame_needed = 1, uses_anonymous_args = 0
+  80 0000 90B5     		push	{r4, r7, lr}
+  81              	.LCFI6:
+  82              		.cfi_def_cfa_offset 12
+  83              		.cfi_offset 4, -12
+  84              		.cfi_offset 7, -8
+  85              		.cfi_offset 14, -4
+  86 0002 8BB0     		sub	sp, sp, #44
+  87              	.LCFI7:
+  88              		.cfi_def_cfa_offset 56
+  89 0004 00AF     		add	r7, sp, #0
+  90              	.LCFI8:
+  91              		.cfi_def_cfa_register 7
+  92 0006 F860     		str	r0, [r7, #12]
+  93 0008 B960     		str	r1, [r7, #8]
+  94 000a 7A60     		str	r2, [r7, #4]
+  95 000c 3B60     		str	r3, [r7]
+  50:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int ret = MBEDTLS_ERR_NET_SOCKET_FAILED;
+  96              		.loc 1 50 9
+  97 000e 6FF04103 		mvn	r3, #65
+  98 0012 7B62     		str	r3, [r7, #36]
+  51:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     struct sockaddr_in addr;
+  52:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  53:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(NULL == ctx)
+  99              		.loc 1 53 7
+ 100 0014 FB68     		ldr	r3, [r7, #12]
+ 101 0016 002B     		cmp	r3, #0
+ 102 0018 01D1     		bne	.L3
+  54:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+  55:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return ret;
+ 103              		.loc 1 55 16
+ 104 001a 7B6A     		ldr	r3, [r7, #36]
+ 105 001c 74E0     		b	.L11
+ 106              	.L3:
+  56:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+  57:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  58:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     ///< first we try use the gethostbyname to get the ip address, the host maybe a domain name
+  59:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     struct hostent* entry = NULL;
+ 107              		.loc 1 59 21
+ 108 001e 0023     		movs	r3, #0
+ 109 0020 3B62     		str	r3, [r7, #32]
+  60:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     entry = sal_gethostbyname(host);
+ 110              		.loc 1 60 13
+ 111 0022 B868     		ldr	r0, [r7, #8]
+ 112 0024 FFF7FEFF 		bl	sal_gethostbyname
+ 113 0028 3862     		str	r0, [r7, #32]
+  61:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if( !(entry && entry->h_addr_list[0] && (entry->h_addrtype == AF_INET)))
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 4
+
+
+ 114              		.loc 1 61 7
+ 115 002a 3B6A     		ldr	r3, [r7, #32]
+ 116 002c 002B     		cmp	r3, #0
+ 117 002e 08D0     		beq	.L5
+ 118              		.loc 1 61 25 discriminator 1
+ 119 0030 3B6A     		ldr	r3, [r7, #32]
+ 120 0032 1B69     		ldr	r3, [r3, #16]
+ 121              		.loc 1 61 38 discriminator 1
+ 122 0034 1B68     		ldr	r3, [r3]
+ 123              		.loc 1 61 17 discriminator 1
+ 124 0036 002B     		cmp	r3, #0
+ 125 0038 03D0     		beq	.L5
+ 126              		.loc 1 61 51 discriminator 2
+ 127 003a 3B6A     		ldr	r3, [r7, #32]
+ 128 003c 9B68     		ldr	r3, [r3, #8]
+ 129              		.loc 1 61 9 discriminator 2
+ 130 003e 022B     		cmp	r3, #2
+ 131 0040 02D0     		beq	.L6
+ 132              	.L5:
+  62:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+  63:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return MBEDTLS_ERR_NET_UNKNOWN_HOST;
+ 133              		.loc 1 63 16
+ 134 0042 6FF05103 		mvn	r3, #81
+ 135 0046 5FE0     		b	.L11
+ 136              	.L6:
+  64:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+  65:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  66:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     ctx->fd = -1;
+ 137              		.loc 1 66 13
+ 138 0048 FB68     		ldr	r3, [r7, #12]
+ 139 004a 4FF0FF32 		mov	r2, #-1
+ 140 004e 1A60     		str	r2, [r3]
+  67:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  68:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(proto == MBEDTLS_NET_PROTO_TCP)
+ 141              		.loc 1 68 7
+ 142 0050 3B68     		ldr	r3, [r7]
+ 143 0052 002B     		cmp	r3, #0
+ 144 0054 08D1     		bne	.L7
+  69:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+  70:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ctx->fd = sal_socket(AF_INET,SOCK_STREAM,0);
+ 145              		.loc 1 70 19
+ 146 0056 0022     		movs	r2, #0
+ 147 0058 0121     		movs	r1, #1
+ 148 005a 0220     		movs	r0, #2
+ 149 005c FFF7FEFF 		bl	sal_socket
+ 150 0060 0246     		mov	r2, r0
+ 151              		.loc 1 70 17
+ 152 0062 FB68     		ldr	r3, [r7, #12]
+ 153 0064 1A60     		str	r2, [r3]
+ 154 0066 0AE0     		b	.L8
+ 155              	.L7:
+  71:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+  72:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else if(proto == MBEDTLS_NET_PROTO_UDP)
+ 156              		.loc 1 72 12
+ 157 0068 3B68     		ldr	r3, [r7]
+ 158 006a 012B     		cmp	r3, #1
+ 159 006c 07D1     		bne	.L8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 5
+
+
+  73:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+  74:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ctx->fd = sal_socket(AF_INET,SOCK_DGRAM,0);
+ 160              		.loc 1 74 19
+ 161 006e 0022     		movs	r2, #0
+ 162 0070 0221     		movs	r1, #2
+ 163 0072 0220     		movs	r0, #2
+ 164 0074 FFF7FEFF 		bl	sal_socket
+ 165 0078 0246     		mov	r2, r0
+ 166              		.loc 1 74 17
+ 167 007a FB68     		ldr	r3, [r7, #12]
+ 168 007c 1A60     		str	r2, [r3]
+ 169              	.L8:
+  75:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+  76:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else
+  77:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+  78:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+  79:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  80:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(ctx->fd == -1)
+ 170              		.loc 1 80 11
+ 171 007e FB68     		ldr	r3, [r7, #12]
+ 172 0080 1B68     		ldr	r3, [r3]
+ 173              		.loc 1 80 7
+ 174 0082 B3F1FF3F 		cmp	r3, #-1
+ 175 0086 01D1     		bne	.L9
+  81:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+  82:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return ret;
+ 176              		.loc 1 82 16
+ 177 0088 7B6A     		ldr	r3, [r7, #36]
+ 178 008a 3DE0     		b	.L11
+ 179              	.L9:
+  83:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+  84:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  85:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     memset(&addr,0,sizeof(addr));
+ 180              		.loc 1 85 5
+ 181 008c 07F11003 		add	r3, r7, #16
+ 182 0090 1022     		movs	r2, #16
+ 183 0092 0021     		movs	r1, #0
+ 184 0094 1846     		mov	r0, r3
+ 185 0096 FFF7FEFF 		bl	memset
+  86:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     addr.sin_family = AF_INET;
+ 186              		.loc 1 86 21
+ 187 009a 0223     		movs	r3, #2
+ 188 009c 3B82     		strh	r3, [r7, #16]	@ movhi
+  87:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     memcpy(&addr.sin_addr.s_addr,entry->h_addr_list[0],sizeof(addr.sin_addr.s_addr));
+ 189              		.loc 1 87 39
+ 190 009e 3B6A     		ldr	r3, [r7, #32]
+ 191 00a0 1B69     		ldr	r3, [r3, #16]
+ 192              		.loc 1 87 5
+ 193 00a2 1B68     		ldr	r3, [r3]
+ 194 00a4 1B68     		ldr	r3, [r3]	@ unaligned
+ 195 00a6 7B61     		str	r3, [r7, #20]
+  88:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     addr.sin_port = htons(((uint16_t)atoi(port)));
+ 196              		.loc 1 88 21
+ 197 00a8 7868     		ldr	r0, [r7, #4]
+ 198 00aa FFF7FEFF 		bl	atoi
+ 199 00ae 0346     		mov	r3, r0
+ 200 00b0 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 6
+
+
+ 201 00b2 1B12     		asrs	r3, r3, #8
+ 202 00b4 1BB2     		sxth	r3, r3
+ 203 00b6 DBB2     		uxtb	r3, r3
+ 204 00b8 1CB2     		sxth	r4, r3
+ 205 00ba 7868     		ldr	r0, [r7, #4]
+ 206 00bc FFF7FEFF 		bl	atoi
+ 207 00c0 0346     		mov	r3, r0
+ 208 00c2 9BB2     		uxth	r3, r3
+ 209 00c4 1B02     		lsls	r3, r3, #8
+ 210 00c6 1BB2     		sxth	r3, r3
+ 211 00c8 23F0FF03 		bic	r3, r3, #255
+ 212 00cc 1BB2     		sxth	r3, r3
+ 213 00ce 2343     		orrs	r3, r3, r4
+ 214 00d0 1BB2     		sxth	r3, r3
+ 215 00d2 9BB2     		uxth	r3, r3
+ 216              		.loc 1 88 19
+ 217 00d4 7B82     		strh	r3, [r7, #18]	@ movhi
+  89:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  90:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(-1 == sal_connect(ctx->fd,(struct sockaddr *)&addr,sizeof(addr)))
+ 218              		.loc 1 90 14
+ 219 00d6 FB68     		ldr	r3, [r7, #12]
+ 220 00d8 1B68     		ldr	r3, [r3]
+ 221 00da 07F11001 		add	r1, r7, #16
+ 222 00de 1022     		movs	r2, #16
+ 223 00e0 1846     		mov	r0, r3
+ 224 00e2 FFF7FEFF 		bl	sal_connect
+ 225 00e6 0346     		mov	r3, r0
+ 226              		.loc 1 90 7
+ 227 00e8 B3F1FF3F 		cmp	r3, #-1
+ 228 00ec 0BD1     		bne	.L10
+  91:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+  92:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         sal_closesocket(ctx->fd);
+ 229              		.loc 1 92 9
+ 230 00ee FB68     		ldr	r3, [r7, #12]
+ 231 00f0 1B68     		ldr	r3, [r3]
+ 232 00f2 1846     		mov	r0, r3
+ 233 00f4 FFF7FEFF 		bl	sal_closesocket
+  93:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ctx->fd = -1;
+ 234              		.loc 1 93 17
+ 235 00f8 FB68     		ldr	r3, [r7, #12]
+ 236 00fa 4FF0FF32 		mov	r2, #-1
+ 237 00fe 1A60     		str	r2, [r3]
+  94:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return MBEDTLS_ERR_NET_CONNECT_FAILED;
+ 238              		.loc 1 94 16
+ 239 0100 6FF04303 		mvn	r3, #67
+ 240 0104 00E0     		b	.L11
+ 241              	.L10:
+  95:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+  96:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     return 0;
+ 242              		.loc 1 96 12
+ 243 0106 0023     		movs	r3, #0
+ 244              	.L11:
+  97:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+ 245              		.loc 1 97 1 discriminator 1
+ 246 0108 1846     		mov	r0, r3
+ 247 010a 2C37     		adds	r7, r7, #44
+ 248              	.LCFI9:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 7
+
+
+ 249              		.cfi_def_cfa_offset 12
+ 250 010c BD46     		mov	sp, r7
+ 251              	.LCFI10:
+ 252              		.cfi_def_cfa_register 13
+ 253              		@ sp needed
+ 254 010e 90BD     		pop	{r4, r7, pc}
+ 255              		.cfi_endproc
+ 256              	.LFE14:
+ 258              		.section	.text.mbedtls_net_usleep,"ax",%progbits
+ 259              		.align	1
+ 260              		.global	mbedtls_net_usleep
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.fpu fpv4-sp-d16
+ 266              	mbedtls_net_usleep:
+ 267              	.LFB15:
+  98:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+  99:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** void mbedtls_net_usleep(unsigned long usec)
+ 100:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+ 268              		.loc 1 100 1
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 8
+ 271              		@ frame_needed = 1, uses_anonymous_args = 0
+ 272 0000 80B5     		push	{r7, lr}
+ 273              	.LCFI11:
+ 274              		.cfi_def_cfa_offset 8
+ 275              		.cfi_offset 7, -8
+ 276              		.cfi_offset 14, -4
+ 277 0002 82B0     		sub	sp, sp, #8
+ 278              	.LCFI12:
+ 279              		.cfi_def_cfa_offset 16
+ 280 0004 00AF     		add	r7, sp, #0
+ 281              	.LCFI13:
+ 282              		.cfi_def_cfa_register 7
+ 283 0006 7860     		str	r0, [r7, #4]
+ 101:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     osal_task_sleep(usec/1000);///--TODO, we only support the ms delay for the system
+ 284              		.loc 1 101 25
+ 285 0008 7B68     		ldr	r3, [r7, #4]
+ 286 000a 054A     		ldr	r2, .L13
+ 287 000c A2FB0323 		umull	r2, r3, r2, r3
+ 288 0010 9B09     		lsrs	r3, r3, #6
+ 289              		.loc 1 101 5
+ 290 0012 1846     		mov	r0, r3
+ 291 0014 FFF7FEFF 		bl	osal_task_sleep
+ 102:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+ 292              		.loc 1 102 1
+ 293 0018 00BF     		nop
+ 294 001a 0837     		adds	r7, r7, #8
+ 295              	.LCFI14:
+ 296              		.cfi_def_cfa_offset 8
+ 297 001c BD46     		mov	sp, r7
+ 298              	.LCFI15:
+ 299              		.cfi_def_cfa_register 13
+ 300              		@ sp needed
+ 301 001e 80BD     		pop	{r7, pc}
+ 302              	.L14:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 8
+
+
+ 303              		.align	2
+ 304              	.L13:
+ 305 0020 D34D6210 		.word	274877907
+ 306              		.cfi_endproc
+ 307              	.LFE15:
+ 309              		.section	.text.mbedtls_net_recv,"ax",%progbits
+ 310              		.align	1
+ 311              		.global	mbedtls_net_recv
+ 312              		.syntax unified
+ 313              		.thumb
+ 314              		.thumb_func
+ 315              		.fpu fpv4-sp-d16
+ 317              	mbedtls_net_recv:
+ 318              	.LFB16:
+ 103:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 104:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** int mbedtls_net_recv(void *ctx, unsigned char *buf, size_t len)
+ 105:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+ 319              		.loc 1 105 1
+ 320              		.cfi_startproc
+ 321              		@ args = 0, pretend = 0, frame = 32
+ 322              		@ frame_needed = 1, uses_anonymous_args = 0
+ 323 0000 80B5     		push	{r7, lr}
+ 324              	.LCFI16:
+ 325              		.cfi_def_cfa_offset 8
+ 326              		.cfi_offset 7, -8
+ 327              		.cfi_offset 14, -4
+ 328 0002 88B0     		sub	sp, sp, #32
+ 329              	.LCFI17:
+ 330              		.cfi_def_cfa_offset 40
+ 331 0004 00AF     		add	r7, sp, #0
+ 332              	.LCFI18:
+ 333              		.cfi_def_cfa_register 7
+ 334 0006 F860     		str	r0, [r7, #12]
+ 335 0008 B960     		str	r1, [r7, #8]
+ 336 000a 7A60     		str	r2, [r7, #4]
+ 106:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int fd;
+ 107:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int ret = MBEDTLS_ERR_NET_RECV_FAILED;
+ 337              		.loc 1 107 9
+ 338 000c 6FF04B03 		mvn	r3, #75
+ 339 0010 FB61     		str	r3, [r7, #28]
+ 108:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int rcvlen = -1;
+ 340              		.loc 1 108 9
+ 341 0012 4FF0FF33 		mov	r3, #-1
+ 342 0016 BB61     		str	r3, [r7, #24]
+ 109:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 110:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(NULL == ctx)
+ 343              		.loc 1 110 7
+ 344 0018 FB68     		ldr	r3, [r7, #12]
+ 345 001a 002B     		cmp	r3, #0
+ 346 001c 01D1     		bne	.L16
+ 111:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 112:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return ret;
+ 347              		.loc 1 112 16
+ 348 001e FB69     		ldr	r3, [r7, #28]
+ 349 0020 19E0     		b	.L17
+ 350              	.L16:
+ 113:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 9
+
+
+ 114:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 115:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     fd = ((mbedtls_net_context *)ctx)->fd;
+ 351              		.loc 1 115 8
+ 352 0022 FB68     		ldr	r3, [r7, #12]
+ 353 0024 1B68     		ldr	r3, [r3]
+ 354 0026 7B61     		str	r3, [r7, #20]
+ 116:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     rcvlen = sal_recv(fd,buf,len,0);
+ 355              		.loc 1 116 14
+ 356 0028 0023     		movs	r3, #0
+ 357 002a 7A68     		ldr	r2, [r7, #4]
+ 358 002c B968     		ldr	r1, [r7, #8]
+ 359 002e 7869     		ldr	r0, [r7, #20]
+ 360 0030 FFF7FEFF 		bl	sal_recv
+ 361 0034 B861     		str	r0, [r7, #24]
+ 117:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(rcvlen == 0)
+ 362              		.loc 1 117 7
+ 363 0036 BB69     		ldr	r3, [r7, #24]
+ 364 0038 002B     		cmp	r3, #0
+ 365 003a 03D1     		bne	.L18
+ 118:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 119:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = MBEDTLS_ERR_NET_RECV_FAILED;
+ 366              		.loc 1 119 13
+ 367 003c 6FF04B03 		mvn	r3, #75
+ 368 0040 FB61     		str	r3, [r7, #28]
+ 369 0042 07E0     		b	.L19
+ 370              	.L18:
+ 120:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 121:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else if(rcvlen < 0)
+ 371              		.loc 1 121 12
+ 372 0044 BB69     		ldr	r3, [r7, #24]
+ 373 0046 002B     		cmp	r3, #0
+ 374 0048 02DA     		bge	.L20
+ 122:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 123:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = MBEDTLS_ERR_SSL_WANT_READ;
+ 375              		.loc 1 123 13
+ 376 004a 054B     		ldr	r3, .L21
+ 377 004c FB61     		str	r3, [r7, #28]
+ 378 004e 01E0     		b	.L19
+ 379              	.L20:
+ 124:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 125:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else
+ 126:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 127:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = rcvlen;
+ 380              		.loc 1 127 13
+ 381 0050 BB69     		ldr	r3, [r7, #24]
+ 382 0052 FB61     		str	r3, [r7, #28]
+ 383              	.L19:
+ 128:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 129:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     return ret;
+ 384              		.loc 1 129 12
+ 385 0054 FB69     		ldr	r3, [r7, #28]
+ 386              	.L17:
+ 130:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+ 387              		.loc 1 130 1
+ 388 0056 1846     		mov	r0, r3
+ 389 0058 2037     		adds	r7, r7, #32
+ 390              	.LCFI19:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 10
+
+
+ 391              		.cfi_def_cfa_offset 8
+ 392 005a BD46     		mov	sp, r7
+ 393              	.LCFI20:
+ 394              		.cfi_def_cfa_register 13
+ 395              		@ sp needed
+ 396 005c 80BD     		pop	{r7, pc}
+ 397              	.L22:
+ 398 005e 00BF     		.align	2
+ 399              	.L21:
+ 400 0060 0097FFFF 		.word	-26880
+ 401              		.cfi_endproc
+ 402              	.LFE16:
+ 404              		.section	.text.mbedtls_net_recv_timeout,"ax",%progbits
+ 405              		.align	1
+ 406              		.global	mbedtls_net_recv_timeout
+ 407              		.syntax unified
+ 408              		.thumb
+ 409              		.thumb_func
+ 410              		.fpu fpv4-sp-d16
+ 412              	mbedtls_net_recv_timeout:
+ 413              	.LFB17:
+ 131:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 132:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** #include <time.h>
+ 133:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 134:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** int mbedtls_net_recv_timeout(void *ctx, unsigned char *buf, size_t len,
+ 135:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****                              uint32_t timeout)
+ 136:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+ 414              		.loc 1 136 1
+ 415              		.cfi_startproc
+ 416              		@ args = 0, pretend = 0, frame = 48
+ 417              		@ frame_needed = 1, uses_anonymous_args = 0
+ 418 0000 80B5     		push	{r7, lr}
+ 419              	.LCFI21:
+ 420              		.cfi_def_cfa_offset 8
+ 421              		.cfi_offset 7, -8
+ 422              		.cfi_offset 14, -4
+ 423 0002 8EB0     		sub	sp, sp, #56
+ 424              	.LCFI22:
+ 425              		.cfi_def_cfa_offset 64
+ 426 0004 02AF     		add	r7, sp, #8
+ 427              	.LCFI23:
+ 428              		.cfi_def_cfa 7, 56
+ 429 0006 F860     		str	r0, [r7, #12]
+ 430 0008 B960     		str	r1, [r7, #8]
+ 431 000a 7A60     		str	r2, [r7, #4]
+ 432 000c 3B60     		str	r3, [r7]
+ 137:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int fd;
+ 138:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int ret = MBEDTLS_ERR_NET_RECV_FAILED;
+ 433              		.loc 1 138 9
+ 434 000e 6FF04B03 		mvn	r3, #75
+ 435 0012 FB62     		str	r3, [r7, #44]
+ 139:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int rcvlen = -1;
+ 436              		.loc 1 139 9
+ 437 0014 4FF0FF33 		mov	r3, #-1
+ 438 0018 BB62     		str	r3, [r7, #40]
+ 140:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 141:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     struct timeval timedelay;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 11
+
+
+ 142:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 143:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 144:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(NULL == ctx)
+ 439              		.loc 1 144 7
+ 440 001a FB68     		ldr	r3, [r7, #12]
+ 441 001c 002B     		cmp	r3, #0
+ 442 001e 01D1     		bne	.L24
+ 145:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 146:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return ret;
+ 443              		.loc 1 146 16
+ 444 0020 FB6A     		ldr	r3, [r7, #44]
+ 445 0022 42E0     		b	.L30
+ 446              	.L24:
+ 147:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 148:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 149:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     fd = ((mbedtls_net_context *)ctx)->fd;
+ 447              		.loc 1 149 8
+ 448 0024 FB68     		ldr	r3, [r7, #12]
+ 449 0026 1B68     		ldr	r3, [r3]
+ 450 0028 7B62     		str	r3, [r7, #36]
+ 150:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 151:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     timedelay.tv_sec = timeout/1000;
+ 451              		.loc 1 151 31
+ 452 002a 3B68     		ldr	r3, [r7]
+ 453 002c 214A     		ldr	r2, .L31
+ 454 002e A2FB0323 		umull	r2, r3, r2, r3
+ 455 0032 9B09     		lsrs	r3, r3, #6
+ 456 0034 1A46     		mov	r2, r3
+ 457 0036 4FF00003 		mov	r3, #0
+ 458              		.loc 1 151 22
+ 459 003a C7E90423 		strd	r2, [r7, #16]
+ 152:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     timedelay.tv_usec = (timeout%1000)*1000;
+ 460              		.loc 1 152 33
+ 461 003e 3A68     		ldr	r2, [r7]
+ 462 0040 1C4B     		ldr	r3, .L31
+ 463 0042 A3FB0213 		umull	r1, r3, r3, r2
+ 464 0046 9B09     		lsrs	r3, r3, #6
+ 465 0048 4FF47A71 		mov	r1, #1000
+ 466 004c 01FB03F3 		mul	r3, r1, r3
+ 467 0050 D31A     		subs	r3, r2, r3
+ 468              		.loc 1 152 39
+ 469 0052 4FF47A72 		mov	r2, #1000
+ 470 0056 02FB03F3 		mul	r3, r2, r3
+ 471              		.loc 1 152 23
+ 472 005a BB61     		str	r3, [r7, #24]
+ 153:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 154:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     ///< set the recv timeout
+ 155:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(0 != sal_setsockopt(fd,SOL_SOCKET,SO_RCVTIMEO,&timedelay,sizeof(timedelay)))
+ 473              		.loc 1 155 13
+ 474 005c 07F11003 		add	r3, r7, #16
+ 475 0060 1022     		movs	r2, #16
+ 476 0062 0092     		str	r2, [sp]
+ 477 0064 41F20602 		movw	r2, #4102
+ 478 0068 4FF6FF71 		movw	r1, #65535
+ 479 006c 786A     		ldr	r0, [r7, #36]
+ 480 006e FFF7FEFF 		bl	sal_setsockopt
+ 481 0072 0346     		mov	r3, r0
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 12
+
+
+ 482              		.loc 1 155 7
+ 483 0074 002B     		cmp	r3, #0
+ 484 0076 01D0     		beq	.L26
+ 156:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 157:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return ret;  //could not support the rcv timeout
+ 485              		.loc 1 157 16
+ 486 0078 FB6A     		ldr	r3, [r7, #44]
+ 487 007a 16E0     		b	.L30
+ 488              	.L26:
+ 158:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 159:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 160:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     rcvlen = sal_recv(fd,buf,len,0);
+ 489              		.loc 1 160 14
+ 490 007c 0023     		movs	r3, #0
+ 491 007e 7A68     		ldr	r2, [r7, #4]
+ 492 0080 B968     		ldr	r1, [r7, #8]
+ 493 0082 786A     		ldr	r0, [r7, #36]
+ 494 0084 FFF7FEFF 		bl	sal_recv
+ 495 0088 B862     		str	r0, [r7, #40]
+ 161:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(rcvlen == 0)
+ 496              		.loc 1 161 7
+ 497 008a BB6A     		ldr	r3, [r7, #40]
+ 498 008c 002B     		cmp	r3, #0
+ 499 008e 03D1     		bne	.L27
+ 162:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 163:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = MBEDTLS_ERR_NET_RECV_FAILED;
+ 500              		.loc 1 163 13
+ 501 0090 6FF04B03 		mvn	r3, #75
+ 502 0094 FB62     		str	r3, [r7, #44]
+ 503 0096 07E0     		b	.L28
+ 504              	.L27:
+ 164:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 165:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else if(rcvlen < 0)
+ 505              		.loc 1 165 12
+ 506 0098 BB6A     		ldr	r3, [r7, #40]
+ 507 009a 002B     		cmp	r3, #0
+ 508 009c 02DA     		bge	.L29
+ 166:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 167:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = MBEDTLS_ERR_SSL_WANT_READ;
+ 509              		.loc 1 167 13
+ 510 009e 064B     		ldr	r3, .L31+4
+ 511 00a0 FB62     		str	r3, [r7, #44]
+ 512 00a2 01E0     		b	.L28
+ 513              	.L29:
+ 168:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 169:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else
+ 170:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 171:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = rcvlen;
+ 514              		.loc 1 171 13
+ 515 00a4 BB6A     		ldr	r3, [r7, #40]
+ 516 00a6 FB62     		str	r3, [r7, #44]
+ 517              	.L28:
+ 172:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 173:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     return ret;
+ 518              		.loc 1 173 12
+ 519 00a8 FB6A     		ldr	r3, [r7, #44]
+ 520              	.L30:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 13
+
+
+ 174:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+ 521              		.loc 1 174 1 discriminator 1
+ 522 00aa 1846     		mov	r0, r3
+ 523 00ac 3037     		adds	r7, r7, #48
+ 524              	.LCFI24:
+ 525              		.cfi_def_cfa_offset 8
+ 526 00ae BD46     		mov	sp, r7
+ 527              	.LCFI25:
+ 528              		.cfi_def_cfa_register 13
+ 529              		@ sp needed
+ 530 00b0 80BD     		pop	{r7, pc}
+ 531              	.L32:
+ 532 00b2 00BF     		.align	2
+ 533              	.L31:
+ 534 00b4 D34D6210 		.word	274877907
+ 535 00b8 0097FFFF 		.word	-26880
+ 536              		.cfi_endproc
+ 537              	.LFE17:
+ 539              		.section	.text.mbedtls_net_send,"ax",%progbits
+ 540              		.align	1
+ 541              		.global	mbedtls_net_send
+ 542              		.syntax unified
+ 543              		.thumb
+ 544              		.thumb_func
+ 545              		.fpu fpv4-sp-d16
+ 547              	mbedtls_net_send:
+ 548              	.LFB18:
+ 175:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 176:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** int mbedtls_net_send(void *ctx, const unsigned char *buf, size_t len)
+ 177:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+ 549              		.loc 1 177 1
+ 550              		.cfi_startproc
+ 551              		@ args = 0, pretend = 0, frame = 32
+ 552              		@ frame_needed = 1, uses_anonymous_args = 0
+ 553 0000 80B5     		push	{r7, lr}
+ 554              	.LCFI26:
+ 555              		.cfi_def_cfa_offset 8
+ 556              		.cfi_offset 7, -8
+ 557              		.cfi_offset 14, -4
+ 558 0002 88B0     		sub	sp, sp, #32
+ 559              	.LCFI27:
+ 560              		.cfi_def_cfa_offset 40
+ 561 0004 00AF     		add	r7, sp, #0
+ 562              	.LCFI28:
+ 563              		.cfi_def_cfa_register 7
+ 564 0006 F860     		str	r0, [r7, #12]
+ 565 0008 B960     		str	r1, [r7, #8]
+ 566 000a 7A60     		str	r2, [r7, #4]
+ 178:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int fd;
+ 179:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int ret = MBEDTLS_ERR_NET_SEND_FAILED;
+ 567              		.loc 1 179 9
+ 568 000c 6FF04D03 		mvn	r3, #77
+ 569 0010 FB61     		str	r3, [r7, #28]
+ 180:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int senlen = -1;
+ 570              		.loc 1 180 9
+ 571 0012 4FF0FF33 		mov	r3, #-1
+ 572 0016 BB61     		str	r3, [r7, #24]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 14
+
+
+ 181:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 182:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(NULL == ctx)
+ 573              		.loc 1 182 7
+ 574 0018 FB68     		ldr	r3, [r7, #12]
+ 575 001a 002B     		cmp	r3, #0
+ 576 001c 01D1     		bne	.L34
+ 183:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 184:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return ret;
+ 577              		.loc 1 184 16
+ 578 001e FB69     		ldr	r3, [r7, #28]
+ 579 0020 19E0     		b	.L35
+ 580              	.L34:
+ 185:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 186:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 187:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     fd = ((mbedtls_net_context *)ctx)->fd;
+ 581              		.loc 1 187 8
+ 582 0022 FB68     		ldr	r3, [r7, #12]
+ 583 0024 1B68     		ldr	r3, [r3]
+ 584 0026 7B61     		str	r3, [r7, #20]
+ 188:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 189:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     senlen = sal_send(fd,buf,len,0);
+ 585              		.loc 1 189 14
+ 586 0028 0023     		movs	r3, #0
+ 587 002a 7A68     		ldr	r2, [r7, #4]
+ 588 002c B968     		ldr	r1, [r7, #8]
+ 589 002e 7869     		ldr	r0, [r7, #20]
+ 590 0030 FFF7FEFF 		bl	sal_send
+ 591 0034 B861     		str	r0, [r7, #24]
+ 190:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(senlen == 0)
+ 592              		.loc 1 190 7
+ 593 0036 BB69     		ldr	r3, [r7, #24]
+ 594 0038 002B     		cmp	r3, #0
+ 595 003a 03D1     		bne	.L36
+ 191:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 192:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = MBEDTLS_ERR_NET_SEND_FAILED;
+ 596              		.loc 1 192 13
+ 597 003c 6FF04D03 		mvn	r3, #77
+ 598 0040 FB61     		str	r3, [r7, #28]
+ 599 0042 07E0     		b	.L37
+ 600              	.L36:
+ 193:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 194:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else if(senlen < 0)
+ 601              		.loc 1 194 12
+ 602 0044 BB69     		ldr	r3, [r7, #24]
+ 603 0046 002B     		cmp	r3, #0
+ 604 0048 02DA     		bge	.L38
+ 195:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 196:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = MBEDTLS_ERR_SSL_WANT_WRITE;
+ 605              		.loc 1 196 13
+ 606 004a 054B     		ldr	r3, .L39
+ 607 004c FB61     		str	r3, [r7, #28]
+ 608 004e 01E0     		b	.L37
+ 609              	.L38:
+ 197:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 198:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else
+ 199:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 200:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = senlen;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 15
+
+
+ 610              		.loc 1 200 13
+ 611 0050 BB69     		ldr	r3, [r7, #24]
+ 612 0052 FB61     		str	r3, [r7, #28]
+ 613              	.L37:
+ 201:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 202:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 203:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     return ret;
+ 614              		.loc 1 203 12
+ 615 0054 FB69     		ldr	r3, [r7, #28]
+ 616              	.L35:
+ 204:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+ 617              		.loc 1 204 1
+ 618 0056 1846     		mov	r0, r3
+ 619 0058 2037     		adds	r7, r7, #32
+ 620              	.LCFI29:
+ 621              		.cfi_def_cfa_offset 8
+ 622 005a BD46     		mov	sp, r7
+ 623              	.LCFI30:
+ 624              		.cfi_def_cfa_register 13
+ 625              		@ sp needed
+ 626 005c 80BD     		pop	{r7, pc}
+ 627              	.L40:
+ 628 005e 00BF     		.align	2
+ 629              	.L39:
+ 630 0060 8097FFFF 		.word	-26752
+ 631              		.cfi_endproc
+ 632              	.LFE18:
+ 634              		.section	.text.mbedtls_net_free,"ax",%progbits
+ 635              		.align	1
+ 636              		.global	mbedtls_net_free
+ 637              		.syntax unified
+ 638              		.thumb
+ 639              		.thumb_func
+ 640              		.fpu fpv4-sp-d16
+ 642              	mbedtls_net_free:
+ 643              	.LFB19:
+ 205:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 206:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** void mbedtls_net_free(mbedtls_net_context *ctx)
+ 207:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+ 644              		.loc 1 207 1
+ 645              		.cfi_startproc
+ 646              		@ args = 0, pretend = 0, frame = 8
+ 647              		@ frame_needed = 1, uses_anonymous_args = 0
+ 648 0000 80B5     		push	{r7, lr}
+ 649              	.LCFI31:
+ 650              		.cfi_def_cfa_offset 8
+ 651              		.cfi_offset 7, -8
+ 652              		.cfi_offset 14, -4
+ 653 0002 82B0     		sub	sp, sp, #8
+ 654              	.LCFI32:
+ 655              		.cfi_def_cfa_offset 16
+ 656 0004 00AF     		add	r7, sp, #0
+ 657              	.LCFI33:
+ 658              		.cfi_def_cfa_register 7
+ 659 0006 7860     		str	r0, [r7, #4]
+ 208:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(NULL != ctx)
+ 660              		.loc 1 208 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 16
+
+
+ 661 0008 7B68     		ldr	r3, [r7, #4]
+ 662 000a 002B     		cmp	r3, #0
+ 663 000c 07D0     		beq	.L43
+ 209:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 210:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         sal_closesocket(((mbedtls_net_context *)ctx)->fd);
+ 664              		.loc 1 210 9
+ 665 000e 7B68     		ldr	r3, [r7, #4]
+ 666 0010 1B68     		ldr	r3, [r3]
+ 667 0012 1846     		mov	r0, r3
+ 668 0014 FFF7FEFF 		bl	sal_closesocket
+ 211:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         osal_free(ctx);
+ 669              		.loc 1 211 9
+ 670 0018 7868     		ldr	r0, [r7, #4]
+ 671 001a FFF7FEFF 		bl	osal_free
+ 672              	.L43:
+ 212:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 213:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+ 673              		.loc 1 213 1
+ 674 001e 00BF     		nop
+ 675 0020 0837     		adds	r7, r7, #8
+ 676              	.LCFI34:
+ 677              		.cfi_def_cfa_offset 8
+ 678 0022 BD46     		mov	sp, r7
+ 679              	.LCFI35:
+ 680              		.cfi_def_cfa_register 13
+ 681              		@ sp needed
+ 682 0024 80BD     		pop	{r7, pc}
+ 683              		.cfi_endproc
+ 684              	.LFE19:
+ 686              		.section	.text.mbedtls_net_accept,"ax",%progbits
+ 687              		.align	1
+ 688              		.global	mbedtls_net_accept
+ 689              		.syntax unified
+ 690              		.thumb
+ 691              		.thumb_func
+ 692              		.fpu fpv4-sp-d16
+ 694              	mbedtls_net_accept:
+ 695              	.LFB20:
+ 214:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 215:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** int mbedtls_net_accept( mbedtls_net_context *bind_ctx,
+ 216:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****                         mbedtls_net_context *client_ctx,
+ 217:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****                         void *client_ip, size_t buf_size, size_t *ip_len )
+ 218:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** {
+ 696              		.loc 1 218 1
+ 697              		.cfi_startproc
+ 698              		@ args = 4, pretend = 0, frame = 40
+ 699              		@ frame_needed = 1, uses_anonymous_args = 0
+ 700 0000 80B5     		push	{r7, lr}
+ 701              	.LCFI36:
+ 702              		.cfi_def_cfa_offset 8
+ 703              		.cfi_offset 7, -8
+ 704              		.cfi_offset 14, -4
+ 705 0002 8AB0     		sub	sp, sp, #40
+ 706              	.LCFI37:
+ 707              		.cfi_def_cfa_offset 48
+ 708 0004 00AF     		add	r7, sp, #0
+ 709              	.LCFI38:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 17
+
+
+ 710              		.cfi_def_cfa_register 7
+ 711 0006 F860     		str	r0, [r7, #12]
+ 712 0008 B960     		str	r1, [r7, #8]
+ 713 000a 7A60     		str	r2, [r7, #4]
+ 714 000c 3B60     		str	r3, [r7]
+ 219:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int ret = MBEDTLS_ERR_NET_SOCKET_FAILED;
+ 715              		.loc 1 219 9
+ 716 000e 6FF04103 		mvn	r3, #65
+ 717 0012 7B62     		str	r3, [r7, #36]
+ 220:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     struct sockaddr_in  client_addr;
+ 221:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     int addrlen;
+ 222:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 223:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if((NULL == bind_ctx) || (NULL == client_ctx) )
+ 718              		.loc 1 223 7
+ 719 0014 FB68     		ldr	r3, [r7, #12]
+ 720 0016 002B     		cmp	r3, #0
+ 721 0018 02D0     		beq	.L45
+ 722              		.loc 1 223 27 discriminator 1
+ 723 001a BB68     		ldr	r3, [r7, #8]
+ 724 001c 002B     		cmp	r3, #0
+ 725 001e 01D1     		bne	.L46
+ 726              	.L45:
+ 224:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 225:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         return ret;
+ 727              		.loc 1 225 16
+ 728 0020 7B6A     		ldr	r3, [r7, #36]
+ 729 0022 35E0     		b	.L51
+ 730              	.L46:
+ 226:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 227:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 228:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     sal_listen(((mbedtls_net_context *)bind_ctx)->fd,MBEDTLS_NET_LISTEN_BACKLOG);
+ 731              		.loc 1 228 5
+ 732 0024 FB68     		ldr	r3, [r7, #12]
+ 733 0026 1B68     		ldr	r3, [r3]
+ 734 0028 0A21     		movs	r1, #10
+ 735 002a 1846     		mov	r0, r3
+ 736 002c FFF7FEFF 		bl	sal_listen
+ 229:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 230:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     addrlen = sizeof(client_addr);
+ 737              		.loc 1 230 13
+ 738 0030 1023     		movs	r3, #16
+ 739 0032 3B61     		str	r3, [r7, #16]
+ 231:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     ((mbedtls_net_context *)client_ctx)->fd = sal_accept(((mbedtls_net_context *)bind_ctx)->fd,\
+ 740              		.loc 1 231 47
+ 741 0034 FB68     		ldr	r3, [r7, #12]
+ 742 0036 1B68     		ldr	r3, [r3]
+ 743 0038 07F11002 		add	r2, r7, #16
+ 744 003c 07F11401 		add	r1, r7, #20
+ 745 0040 1846     		mov	r0, r3
+ 746 0042 FFF7FEFF 		bl	sal_accept
+ 747 0046 0246     		mov	r2, r0
+ 748              		.loc 1 231 45
+ 749 0048 BB68     		ldr	r3, [r7, #8]
+ 750 004a 1A60     		str	r2, [r3]
+ 232:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****                                                           (struct sockaddr *)&client_addr,&addrlen)
+ 233:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if(-1 ==  ((mbedtls_net_context *)client_ctx)->fd)
+ 751              		.loc 1 233 50
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 18
+
+
+ 752 004c BB68     		ldr	r3, [r7, #8]
+ 753 004e 1B68     		ldr	r3, [r3]
+ 754              		.loc 1 233 7
+ 755 0050 B3F1FF3F 		cmp	r3, #-1
+ 756 0054 03D1     		bne	.L48
+ 234:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 235:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = MBEDTLS_ERR_NET_ACCEPT_FAILED;
+ 757              		.loc 1 235 13
+ 758 0056 6FF04903 		mvn	r3, #73
+ 759 005a 7B62     		str	r3, [r7, #36]
+ 760 005c 01E0     		b	.L49
+ 761              	.L48:
+ 236:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 237:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     else
+ 238:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 239:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         ret = 0;
+ 762              		.loc 1 239 13
+ 763 005e 0023     		movs	r3, #0
+ 764 0060 7B62     		str	r3, [r7, #36]
+ 765              	.L49:
+ 240:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 241:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 242:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 243:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     if( (0 == ret) && (NULL != client_ip))
+ 766              		.loc 1 243 7
+ 767 0062 7B6A     		ldr	r3, [r7, #36]
+ 768 0064 002B     		cmp	r3, #0
+ 769 0066 12D1     		bne	.L50
+ 770              		.loc 1 243 20 discriminator 1
+ 771 0068 7B68     		ldr	r3, [r7, #4]
+ 772 006a 002B     		cmp	r3, #0
+ 773 006c 0FD0     		beq	.L50
+ 244:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     {
+ 245:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         *ip_len = sizeof(client_addr.sin_addr)>buf_size?buf_size:sizeof(client_addr.sin_addr);
+ 774              		.loc 1 245 65
+ 775 006e 3B68     		ldr	r3, [r7]
+ 776 0070 042B     		cmp	r3, #4
+ 777 0072 28BF     		it	cs
+ 778 0074 0423     		movcs	r3, #4
+ 779 0076 1A46     		mov	r2, r3
+ 780              		.loc 1 245 17
+ 781 0078 3B6B     		ldr	r3, [r7, #48]
+ 782 007a 1A60     		str	r2, [r3]
+ 246:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 247:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****         memcpy(client_ip,&client_addr.sin_addr,*ip_len);
+ 783              		.loc 1 247 9
+ 784 007c 3B6B     		ldr	r3, [r7, #48]
+ 785 007e 1A68     		ldr	r2, [r3]
+ 786 0080 07F11403 		add	r3, r7, #20
+ 787 0084 0433     		adds	r3, r3, #4
+ 788 0086 1946     		mov	r1, r3
+ 789 0088 7868     		ldr	r0, [r7, #4]
+ 790 008a FFF7FEFF 		bl	memcpy
+ 791              	.L50:
+ 248:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     }
+ 249:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** 
+ 250:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c ****     return ret;
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 19
+
+
+ 792              		.loc 1 250 12
+ 793 008e 7B6A     		ldr	r3, [r7, #36]
+ 794              	.L51:
+ 251:c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/network/dtls/mbedtls/mbedtls_port\net_sockets_alt.c **** }
+ 795              		.loc 1 251 1 discriminator 1
+ 796 0090 1846     		mov	r0, r3
+ 797 0092 2837     		adds	r7, r7, #40
+ 798              	.LCFI39:
+ 799              		.cfi_def_cfa_offset 8
+ 800 0094 BD46     		mov	sp, r7
+ 801              	.LCFI40:
+ 802              		.cfi_def_cfa_register 13
+ 803              		@ sp needed
+ 804 0096 80BD     		pop	{r7, pc}
+ 805              		.cfi_endproc
+ 806              	.LFE20:
+ 808              		.text
+ 809              	.Letext0:
+ 810              		.file 2 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\lib\\gcc\\arm-none-eabi\\9.2.1\\in
+ 811              		.file 3 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 812              		.file 4 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\lock.
+ 813              		.file 5 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_type
+ 814              		.file 6 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\reent
+ 815              		.file 7 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\stdlib.h"
+ 816              		.file 8 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 817              		.file 9 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\sys\\_time
+ 818              		.file 10 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 819              		.file 11 "c:/Users/lenovo/Desktop/AIoT/first_day/firstday_afternoon/LiteOS_Lab_STM32_IoT/iot_link/
+ 820              		.file 12 "c:\\users\\lenovo\\.iotlink\\tools\\gcc-arm-none-eabi\\arm-none-eabi\\include\\time.h"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 net_sockets_alt.c
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:18     .text.mbedtls_net_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:26     .text.mbedtls_net_init:00000000 mbedtls_net_init
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:67     .text.mbedtls_net_connect:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:74     .text.mbedtls_net_connect:00000000 mbedtls_net_connect
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:259    .text.mbedtls_net_usleep:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:266    .text.mbedtls_net_usleep:00000000 mbedtls_net_usleep
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:305    .text.mbedtls_net_usleep:00000020 $d
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:310    .text.mbedtls_net_recv:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:317    .text.mbedtls_net_recv:00000000 mbedtls_net_recv
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:400    .text.mbedtls_net_recv:00000060 $d
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:405    .text.mbedtls_net_recv_timeout:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:412    .text.mbedtls_net_recv_timeout:00000000 mbedtls_net_recv_timeout
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:534    .text.mbedtls_net_recv_timeout:000000b4 $d
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:540    .text.mbedtls_net_send:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:547    .text.mbedtls_net_send:00000000 mbedtls_net_send
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:630    .text.mbedtls_net_send:00000060 $d
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:635    .text.mbedtls_net_free:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:642    .text.mbedtls_net_free:00000000 mbedtls_net_free
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:687    .text.mbedtls_net_accept:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cciAAIkc.s:694    .text.mbedtls_net_accept:00000000 mbedtls_net_accept
+
+UNDEFINED SYMBOLS
+sal_gethostbyname
+sal_socket
+memset
+atoi
+sal_connect
+sal_closesocket
+osal_task_sleep
+sal_recv
+sal_setsockopt
+sal_send
+osal_free
+sal_listen
+sal_accept
+memcpy
